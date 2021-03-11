@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-10 09:37:40
- * @LastEditTime: 2021-03-10 10:27:51
+ * @LastEditTime: 2021-03-10 10:49:42
  * @FilePath: \Leetcode\772.Basic Calculator III.cpp
  */
 
@@ -24,17 +24,18 @@ using namespace std;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
+TIME:     24ms    BEAT:  9.25%    O(n) = 
+MEMORY: 21.7MB    BEAT: 13.88%    O(n) = 
+USED TIME: 01:04:20
 LAST EDIT TIME: 2021年3月10日9:38:8
-Description: 
+Description: 我真NB。这都能写出来。 回溯括号里的。
 */
 
 class Solution {
 public:
     int calculate(string s) {
         int res = trackBack(s, 0, s.length() - 1);
+        return res;
     }
 
     int trackBack(string& s, int start, int end) {
@@ -56,18 +57,37 @@ public:
                 i ++;
             }
             else if (s[i] == '*') {
-                int point = 1;
+                point = 1;
                 i ++;
             }
-            else if (s[i] == '-') {
-                int point = 2;
+            else if (s[i] == '/') {
+                point = 2;
                 i ++;
             }
             else if (s[i] == '(') {
-                
-            }
-            else if (s[i] == ')') {
-                
+                stack<int> brackLeft;
+                brackLeft.push(i);
+                int brackId = i;
+                while (!brackLeft.empty()) {
+                    brackId ++;
+                    if (s[brackId] == '(') brackLeft.push(brackId);
+                    else if (s[brackId] == ')') brackLeft.pop();
+                }
+                int tmp = trackBack(s, i + 1, brackId - 1);
+
+                if (point == 1) {
+                    tmp *= nums.top();
+                    nums.pop();
+                    point = 0;
+                }
+                else if (point == 2) {
+                    tmp = nums.top() / tmp;
+                    nums.pop();
+                    point = 0;
+                }
+                nums.push(tmp);
+
+                i = brackId + 1;
             }
             else {
                 long tmp = 0;
@@ -90,11 +110,20 @@ public:
         }
 
         while (!opts.empty()) {
-            res += ops.top() * nums.top();
-            ops.pop();
+            res += opts.top() * nums.top();
+            opts.pop();
             nums.pop();
         }
         
         return res;
     }
 };
+
+
+int main() {
+    Solution sol;
+    int ans = sol.calculate("6-4/2");
+    cout << ans << endl;
+    system("pause");
+    return 0;
+}
