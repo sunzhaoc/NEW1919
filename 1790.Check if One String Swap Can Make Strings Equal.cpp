@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-14 10:12:40
- * @LastEditTime: 2021-03-14 10:51:18
- * @FilePath: \Leetcode\001.cpp
+ * @LastEditTime: 2021-03-15 17:02:47
+ * @FilePath: \Leetcode\1790.Check if One String Swap Can Make Strings Equal.cpp
  */
 #include <iostream>
 #include <string>
@@ -19,7 +19,18 @@
 using namespace std;
 
 
+class Solution {
+public:
+    bool areAlmostEqual(string s1, string s2) {
 
+    }
+};
+
+
+/*
+RESULT: Accept
+Description: 周赛写的。
+*/
 
 class Solution {
 public:

@@ -14,7 +14,8 @@
         "set": "cpp",
         "unordered_map": "cpp",
         "map": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "*.tcc": "cpp"
     },
     "files.exclude": {
         "**/.classpath": true,
