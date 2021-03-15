@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-12 22:29:47
- * @LastEditTime: 2021-03-12 23:29:43
+ * @LastEditTime: 2021-03-15 22:04:02
  * @FilePath: \Leetcode\demo03.cpp
  */
 
@@ -23,9 +23,9 @@ using namespace std;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-LAST EDIT TIME: 
+TIME:     40ms    BEAT: 87.10%    O(n) = 
+MEMORY: 21.5MB    BEAT: 84.37%    O(n) = 
+LAST EDIT TIME: 2021年3月15日22:4:8
 Description: 双指针。
 */
 
