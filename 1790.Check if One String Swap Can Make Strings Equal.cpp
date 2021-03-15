@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-14 10:12:40
- * @LastEditTime: 2021-03-15 17:02:47
+ * @LastEditTime: 2021-03-15 17:08:30
  * @FilePath: \Leetcode\1790.Check if One String Swap Can Make Strings Equal.cpp
  */
 #include <iostream>
@@ -19,10 +19,25 @@
 using namespace std;
 
 
+
+/*
+RESULT: Accept
+TIME:     72ms    BEAT: 100.00%    O(n) = n^2?
+MEMORY: 36.4MB    BEAT: 100.00%    O(n) = 
+Description: bartsun大佬的代码。
+*/
+
 class Solution {
 public:
     bool areAlmostEqual(string s1, string s2) {
-
+        for (int i = 0; i < s1.size(); i ++) {
+            for (int j = 0; j < s1.size(); j ++) {
+                string t = s1;
+                swap(t[i], t[j]);
+                if (t == s2) return true;
+            }
+        }
+        return false;
     }
 };
 
