@@ -3,10 +3,9 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-16 16:50:54
- * @LastEditTime: 2021-03-16 19:20:34
+ * @LastEditTime: 2021-03-16 19:32:02
  * @FilePath: \Leetcode\demp.cpp
  */
-
 
 
 // Definition for a binary tree node.
@@ -38,38 +37,42 @@ struct ListNode {
 using namespace std;
 
 
+/*
+RESULT: Accept
+TIME:     0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 8.5MB    BEAT:   8.01%    O(n) = 
+LAST EDIT TIME: 2021年3月16日19:31:23
+Description: 优化了一下代码。
+*/
+
 class Solution {
 public:
-    vector<vector<int>> res;
+    vector<ListNode*> topNode;
+    vector<ListNode*> backNode;
+
     vector<ListNode*> listOfDepth(TreeNode* tree) {
         dfs(tree, 0);
-        vector<ListNode*> ans;
-
-        for (int i = 0; i < res.size(); i ++) {
-            ListNode* tmp = new ListNode(res[i][0]);
-            ListNode* head = tmp;
-            for (int j = 1; j < res[i].size(); j ++) {
-                tmp->next = new ListNode(res[i][j]);
-                tmp = tmp->next;
-            }
-            ans.push_back(head);
-        }
-
-        return ans;
+        return topNode;
     }
 
     void dfs(TreeNode* node, int depth) {
         if (!node) return;
-        if (depth == res.size()) {
-            res.push_back({node->val})
+        if (depth == topNode.size()) {
+            ListNode* tmp = new ListNode(node->val);
+            topNode.push_back(tmp);
+            backNode.push_back(tmp);
+        }
+        else {
+            backNode[depth]->next = new ListNode(node->val);
+            backNode[depth] = backNode[depth]->next;
         };
-        else res[depth].push_back(node->val);
 
         dfs(node->left, depth + 1);
         dfs(node->right, depth + 1);
         return;
     }
 };
+
 
 
 /*

@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2020-11-30 21:56:56
- * @LastEditTime: 2021-03-05 14:34:49
+ * @LastEditTime: 2021-03-16 19:34:17
  * @FilePath: \Leetcode\readme.md
 -->
 
@@ -21,6 +21,22 @@ Description:
 
 
 
+
+
+// Definition for a binary tree node.
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+//Definition for singly-linked list.
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
 
 
 
