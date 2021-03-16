@@ -2,17 +2,10 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-03-05 08:37:08
- * @LastEditTime: 2021-03-16 15:02:03
- * @FilePath: \Leetcode\232.Implement Queue using Stacks.cpp
+ * @Date: 2021-03-16 14:51:56
+ * @LastEditTime: 2021-03-16 14:58:46
+ * @FilePath: \Leetcode\dmep.cpp
  */
-/*
- * @lc app=leetcode.cn id=232 lang=cpp
- *
- * [232] 用栈实现队列
- */
-
-// @lc code=start
 
 
 #include <iostream>
@@ -24,77 +17,77 @@
 #include <set>
 #include <queue>
 #include <stack>
+#include <unordered_set>
 using namespace std;
 
 
 /*
 RESULT: Accept
 TIME:     0ms    BEAT: 100.00%    O(n) = 
-MEMORY: 6.8MB    BEAT:  62.11%    O(n) = 
-USED TIME: 09:53
-LAST EDIT TIME: 2021年3月5日8:49:1
-Description: Easy
+MEMORY: 6.6MB    BEAT:  81.95%    O(n) = 
+USED TIME: 05:52
+LAST EDIT TIME: 2021年3月16日14:58:27
+Description: 
 */
 
 class MyQueue {
 public:
-
-    stack<int> A, B;
-
     /** Initialize your data structure here. */
+    stack<int> a, b;
     MyQueue() {
     }
     
     /** Push element x to the back of queue. */
     void push(int x) {
-        if (B.empty()) A.push(x);
+        if (b.empty()) a.push(x);
         else {
-            while(!B.empty()) {
-                A.push(B.top());
-                B.pop();
+            while (!b.empty()) {
+                a.push(b.top());
+                b.pop();
             }
-            A.push(x);
+            a.push(x);
         }
     }
     
     /** Removes the element from in front of queue and returns that element. */
     int pop() {
-        if (A.empty()) {
-            int x = B.top();
-            B.pop();
-            return x;
+        if (!b.empty()) {
+            int ret = b.top();
+            b.pop();
+            return ret;
         }
         else {
-            while (!A.empty()) {
-                B.push(A.top());
-                A.pop();
+            while (!a.empty()) {
+                b.push(a.top());
+                a.pop();
             }
-            int x = B.top();
-            B.pop();
-            return x;
+            int ret = b.top();
+            b.pop();
+            return ret;
         }
     }
     
     /** Get the front element. */
     int peek() {
-        if (A.empty()) {
-            int x = B.top();
-            return x;
+        if (!b.empty()) {
+            int ret = b.top();
+            // b.pop();
+            return ret;
         }
         else {
-            while (!A.empty()) {
-                B.push(A.top());
-                A.pop();
+            while (!a.empty()) {
+                b.push(a.top());
+                a.pop();
             }
-            int x = B.top();
-            return x;
+            int ret = b.top();
+            // b.pop();
+            return ret;
         }
     }
     
     /** Returns whether the queue is empty. */
     bool empty() {
-        if (A.empty() && B.empty()) return true;
-        else return false;
+        return a.empty() && b.empty();
     }
 };
 
@@ -106,5 +99,3 @@ public:
  * int param_3 = obj->peek();
  * bool param_4 = obj->empty();
  */
-// @lc code=end
-
