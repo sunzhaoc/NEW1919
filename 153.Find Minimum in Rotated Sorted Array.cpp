@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-03 14:48:59
- * @LastEditTime: 2021-03-03 14:55:45
+ * @LastEditTime: 2021-03-17 20:15:57
  * @FilePath: \Leetcode\153.Find Minimum in Rotated Sorted Array.cpp
  */
 /*
@@ -24,6 +24,41 @@
 #include <set>
 #include <queue>
 using namespace std;
+
+
+/*
+RESULT: Accept
+TIME:     4ms    BEAT: 82.44%    O(n) = 
+MEMORY: 9.7MB    BEAT: 98.01%    O(n) = 
+USED TIME: 04:00
+LAST EDIT TIME: 2021年3月17日20:14:51
+Description: 二刷。二分。
+*/
+
+class Solution {
+public:
+    int findMin(vector<int>& nums) {
+        int l = 0, r = nums.size() - 1;
+        int res = INT_MAX;
+
+        while (l <= r) {
+            int mid = (r - l) / 2 + l;
+            res = min(res, nums[mid]);
+
+            // Left is in order
+            if (nums[l] <= nums[mid]) {
+                res = min(res, nums[l]);
+                l = mid + 1;
+            }
+            // Right
+            else if (nums[mid] <= nums[r]) {
+                res = min(res, nums[mid]);
+                r = mid - 1;
+            }
+        }
+        return res;
+    }
+};
 
 
 /*
