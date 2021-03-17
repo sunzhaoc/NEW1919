@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-01-22 20:42:43
- * @LastEditTime: 2021-03-17 16:13:30
+ * @LastEditTime: 2021-03-17 16:35:03
  * @FilePath: \Leetcode\733.Flood Fill.cpp
  */
 /*
@@ -22,6 +22,30 @@
 #include <unordered_map>
 #include <queue>
 using namespace std;
+
+
+/*
+RESULT: Accept
+TIME:     16ms    BEAT: 36.79%    O(n) = 
+MEMORY: 13.4MB    BEAT: 56.45%    O(n) = 
+LAST EDIT TIME: 2021年3月17日16:34:26
+Description: Y总 DFS
+*/
+
+class Solution {
+public:
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
+        if (image.empty() || image[0].empty() || image[sr][sc] == newColor) return image;
+        int dx[4] = {-1, 0, 1, 0}, dy[4] = {0, 1, 0, -1}; 
+        int oldColor = image[sr][sc];
+        image[sr][sc] = newColor;
+        for (int i = 0; i < 4; i ++) {
+            int x = sr + dx[i], y = sc + dy[i];
+            if (x >= 0 && x < image.size() && y >= 0 && y < image[0].size() && image[x][y] == oldColor) floodFill(image, x, y, newColor);
+        }
+        return image;
+    }
+};
 
 
 /*
