@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-01-22 20:42:43
- * @LastEditTime: 2021-01-22 21:17:01
+ * @LastEditTime: 2021-03-17 16:13:30
  * @FilePath: \Leetcode\733.Flood Fill.cpp
  */
 /*
@@ -26,6 +26,67 @@ using namespace std;
 
 /*
 RESULT: Accept
+TIME:     16ms    BEAT: 36.79%    O(n) = 
+MEMORY: 13.9MB    BEAT: 17.01%    O(n) = 
+USED TIME: 11:39
+LAST EDIT TIME: 2021年3月17日16:12:56
+Description: DFS 二刷。
+*/
+
+class Solution {
+public:
+
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
+        if (image[sr][sc] == newColor) return image;
+        int target = image[sr][sc];
+        return dfs(image, sr, sc, newColor, target);
+    }
+
+    vector<vector<int>> dfs(vector<vector<int>>& image, int sr, int sc, int newColor, int target) {
+        image[sr][sc] = newColor;
+        if (sr - 1 >= 0 && image[sr - 1][sc] == target) image = dfs(image, sr - 1, sc, newColor, target);
+        if (sr + 1 < image.size() && image[sr + 1][sc] == target) image = dfs(image, sr + 1, sc, newColor, target);
+        if (sc - 1 >= 0 && image[sr][sc - 1] == target) image = dfs(image, sr, sc - 1, newColor, target);
+        if (sc + 1 < image[0].size() && image[sr][sc+ 1] == target) image = dfs(image, sr, sc + 1, newColor, target);
+        return image;
+    }
+};
+
+
+/*
+RESULT: Accept
+TIME:      8ms    BEAT: 90.11%    O(n) = 
+MEMORY: 13.4MB    BEAT: 54.04%    O(n) = 
+USED TIME: 08:08
+LAST EDIT TIME: 2021年3月17日15:54:38
+Description: BFS 二刷。
+*/
+
+class Solution {
+public:
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
+        if (image[sr][sc] == newColor) return image;
+        int target = image[sr][sc];
+        queue<pair<int, int>> point;
+        point.push({sr, sc});
+        while (point.size()) {
+            int i = point.front().first;
+            int j = point.front().second;
+            point.pop();
+
+            image[i][j] = newColor;
+            if (i -1 >= 0 && image[i - 1][j] == target) point.push({i - 1, j});
+            if (i + 1 < image.size() && image[i + 1][j] == target) point.push({i + 1, j});
+            if (j - 1 >= 0 && image[i][j - 1] == target) point.push({i, j - 1});
+            if (j + 1 < image[0].size() && image[i][j + 1] == target) point.push({i, j + 1});
+        }
+        return image;
+    }
+};
+
+
+/*
+RESULT: Accept
 TIME:     12ms    BEAT: 90.49%    O(n) = mn
 MEMORY: 13.4MB    BEAT: 88.22%    O(n) = mn
 USED TIME: 06:08
@@ -33,30 +94,30 @@ LAST EDIT TIME: 2021年1月22日21:15:10
 Description: DFS。
 */
 
-class Solution {
-public:
-    int numRow, numCol, target, colour;
-    vector<vector<int>> picture;
-    void dfs(int x, int y) {
-        picture[x][y] = colour;
+// class Solution {
+// public:
+//     int numRow, numCol, target, colour;
+//     vector<vector<int>> picture;
+//     void dfs(int x, int y) {
+//         picture[x][y] = colour;
 
-        if (x - 1 >= 0 && picture[x - 1][y] == target) dfs(x - 1, y);
-        if (x + 1 < numRow && picture[x + 1][y] == target) dfs(x + 1, y);
-        if (y - 1 >= 0 && picture[x][y - 1] == target) dfs(x, y - 1);
-        if (y + 1 < numCol && picture[x][y + 1] == target) dfs(x, y + 1);
-    }
+//         if (x - 1 >= 0 && picture[x - 1][y] == target) dfs(x - 1, y);
+//         if (x + 1 < numRow && picture[x + 1][y] == target) dfs(x + 1, y);
+//         if (y - 1 >= 0 && picture[x][y - 1] == target) dfs(x, y - 1);
+//         if (y + 1 < numCol && picture[x][y + 1] == target) dfs(x, y + 1);
+//     }
 
-    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
-        numRow = image.size();
-        numCol = image[0].size();
-        target = image[sr][sc];
-        if (target == newColor) return image;
-        colour = newColor;
-        picture = image;
-        dfs(sr, sc);
-        return picture;
-    }
-};
+//     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
+//         numRow = image.size();
+//         numCol = image[0].size();
+//         target = image[sr][sc];
+//         if (target == newColor) return image;
+//         colour = newColor;
+//         picture = image;
+//         dfs(sr, sc);
+//         return picture;
+//     }
+// };
 
 
 /*

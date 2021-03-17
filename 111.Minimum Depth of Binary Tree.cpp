@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2020-12-22 15:32:29
- * @LastEditTime: 2021-03-17 14:30:21
+ * @LastEditTime: 2021-03-17 15:14:25
  * @FilePath: \Leetcode\111.Minimum Depth of Binary Tree.cpp
  */
 /*
@@ -27,7 +27,7 @@ struct TreeNode {
 
 
 #include <iostream>
-#include <string>
+#include <string>  
 #include <vector>
 #include <algorithm>
 #include <math.h>
@@ -41,27 +41,21 @@ using namespace std;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
+TIME:     360ms    BEAT: 42.84%    O(n) = 
+MEMORY: 141.5MB    BEAT: 33.80%    O(n) = 
+LAST EDIT TIME: 2021年3月17日14:38:1
 Description: 
 */
 
 class Solution {
 public:
     int minDepth(TreeNode* node) {
-        return dfs(node , 0);
-    }
+        if (!node) return 0;
 
-    int dfs(TreeNode* node, int depth) {
-        if (!node) return depth;
+        int left = minDepth(node->left);
+        int right = minDepth(node->right);
 
-        int left = dfs(node->left, depth + 1);
-        int right = dfs(node->right, depth + 1);
-
-        
-        return min(left, right);
+        return !node->left || !node->right ? left + right + 1 : min(left, right) + 1;
     }
 };
 
