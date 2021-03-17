@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-17 19:09:04
- * @LastEditTime: 2021-03-17 19:15:17
- * @FilePath: \Leetcode\69.x-的平方根.cpp
+ * @LastEditTime: 2021-03-17 19:26:50
+ * @FilePath: \Leetcode\69.Sqrt(x).cpp
  */
 /*
  * @lc app=leetcode.cn id=69 lang=cpp
@@ -26,6 +26,29 @@
 #include <stack>
 #include <unordered_set>
 using namespace std;
+
+
+/*
+RESULT: Accept
+TIME:     4ms    BEAT: 57.05%    O(n) = 
+MEMORY: 5.8MB    BEAT: 60.82%    O(n) = 
+LAST EDIT TIME: 2021年3月17日19:25:12
+Description: 二分。
+*/
+
+class Solution {
+public:
+    int mySqrt(int x) {
+        int l = 0, r = x;
+        while (l < r) {
+            int mid = (r - l) / 2 + l;
+            if (mid * mid >= x) r = mid;
+            else l = mid + 1;
+        }
+        if (l * l > x) return l - 1;
+        else return l;
+    }
+};
 
 
 /*
