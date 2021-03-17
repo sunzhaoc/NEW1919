@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2020-12-22 15:32:29
- * @LastEditTime: 2020-12-23 20:54:56
+ * @LastEditTime: 2021-03-17 14:30:21
  * @FilePath: \Leetcode\111.Minimum Depth of Binary Tree.cpp
  */
 /*
@@ -26,6 +26,46 @@ struct TreeNode {
 };
 
 
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <math.h>
+#include <unordered_map>
+#include <set>
+#include <queue>
+#include <stack>
+#include <unordered_set>
+using namespace std;
+
+
+/*
+RESULT: Accept
+TIME:   ms    BEAT: %    O(n) = 
+MEMORY: MB    BEAT: %    O(n) = 
+USED TIME: 
+LAST EDIT TIME: 
+Description: 
+*/
+
+class Solution {
+public:
+    int minDepth(TreeNode* node) {
+        return dfs(node , 0);
+    }
+
+    int dfs(TreeNode* node, int depth) {
+        if (!node) return depth;
+
+        int left = dfs(node->left, depth + 1);
+        int right = dfs(node->right, depth + 1);
+
+        
+        return min(left, right);
+    }
+};
+
+
 /*
 RESULT: Accept
 TIME:     420ms    BEAT: 57.20%    O(n) = 
@@ -33,20 +73,20 @@ MEMORY: 143.1MB    BEAT: 16.33%    O(n) =
 Description: DFS
 */
 
-class Solution {
-public:
-    int minDepth(TreeNode* root) {
-        if (root == nullptr)    return 0;
-        if (root->left == nullptr && root->right == nullptr)    return 1;
+// class Solution {
+// public:
+//     int minDepth(TreeNode* root) {
+//         if (root == nullptr)    return 0;
+//         if (root->left == nullptr && root->right == nullptr)    return 1;
 
-        int depth1 = minDepth(root->left);
-        int depth2 = minDepth(root->right);
+//         int depth1 = minDepth(root->left);
+//         int depth2 = minDepth(root->right);
 
-        if (!root->right || !root->left) return depth1 + depth2 + 1;
+//         if (!root->right || !root->left) return depth1 + depth2 + 1;
         
-        return min(depth1, depth2) + 1;
-    }
-};
+//         return min(depth1, depth2) + 1;
+//     }
+// };
 
 
 /*
