@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-05 13:17:34
- * @LastEditTime: 2021-03-05 13:59:09
+ * @LastEditTime: 2021-03-17 21:36:03
  * @FilePath: \Leetcode\496.Next Greater Element I.cpp
  */
 /*
@@ -29,32 +29,61 @@ using namespace std;
 
 /*
 RESULT: Accept
-TIME:     8ms    BEAT: 79.07%    O(n) = 
-MEMORY: 8.6MB    BEAT: 66.98%    O(n) = 
-LAST EDIT TIME: 2021年3月5日13:59:9
-Description: 
+TIME:     4ms    BEAT: 95.92%    O(n) = 
+MEMORY: 8.6MB    BEAT: 61.77%    O(n) = 
+LAST EDIT TIME: 2021年3月17日21:25:45
+Description: 二刷。不会。
 */
 
 class Solution {
 public:
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
         stack<int> st;
-        vector<int> ans(nums1.size(), -1);
         unordered_map<int, int> map;
         for (int i = 0; i < nums2.size(); i ++) {
-            while (!st.empty() && nums2[i] > nums2[st.top()]) {
-                int id = st.top();
+            while (!st.empty() && nums2[i] > st.top()) {
+                int tmp = st.top();
                 st.pop();
-                map[nums2[id]] = nums2[i];
+                map[tmp] = nums2[i];
             }
-            st.push(i);
+            st.push(nums2[i]);
         }
         for (int i = 0; i < nums1.size(); i ++) {
-            if (map.find(nums1[i]) != map.end()) ans[i] = map[nums1[i]];
+            nums1[i] = map.find(nums1[i]) != map.end() ? map[nums1[i]] : -1;
         }
-        return ans;
+        return nums1;
     }
 };
+
+
+/*
+RESULT: Accept
+TIME:     8ms    BEAT: 79.07%    O(n) = 
+MEMORY: 8.6MB    BEAT: 66.98%    O(n) = 
+LAST EDIT TIME: 2021年3月5日13:59:9
+Description: 
+*/
+
+// class Solution {
+// public:
+//     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+//         stack<int> st;
+//         vector<int> ans(nums1.size(), -1);
+//         unordered_map<int, int> map;
+//         for (int i = 0; i < nums2.size(); i ++) {
+//             while (!st.empty() && nums2[i] > nums2[st.top()]) {
+//                 int id = st.top();
+//                 st.pop();
+//                 map[nums2[id]] = nums2[i];
+//             }
+//             st.push(i);
+//         }
+//         for (int i = 0; i < nums1.size(); i ++) {
+//             if (map.find(nums1[i]) != map.end()) ans[i] = map[nums1[i]];
+//         }
+//         return ans;
+//     }
+// };
 
 
 /*
@@ -86,7 +115,6 @@ Description:
 //         return ans;
 //     }
 // };
-
 
 
 int main() {

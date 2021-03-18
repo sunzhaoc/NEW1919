@@ -31,7 +31,7 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
-//Definition for singly-linked list.
+// Definition for singly-linked list.
 struct ListNode {
     int val;
     ListNode *next;
