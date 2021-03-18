@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-01-14 21:35:06
- * @LastEditTime: 2021-01-14 22:36:09
+ * @LastEditTime: 2021-03-18 20:05:40
  * @FilePath: \Leetcode\454.4Sum II.cpp
  */
 /*
@@ -21,6 +21,38 @@
 #include <math.h>
 #include <unordered_map>
 using namespace std;
+
+
+/*
+RESULT: Accept
+TIME:    192ms    BEAT: 93.87%    O(n) = 
+MEMORY: 28.4MB    BEAT: 74.37%    O(n) = 
+USED TIME: 05:28
+LAST EDIT TIME: 2021年3月18日20:5:17
+Description: 二刷。
+*/
+
+class Solution {
+public:
+    int fourSumCount(vector<int>& A, vector<int>& B, vector<int>& C, vector<int>& D) {
+        unordered_map<int, int> map1;
+        for (int a: A) {
+            for (int b: B) {
+                map1[a + b] ++;
+            }
+        }
+        int res = 0;
+        for (int c: C) {
+            for (int d: D) {
+                if (map1.find(0 - c - d) != map1.end()) {
+                    res += map1[0 - c - d];
+                }
+            }
+        }
+
+        return res;        
+    }
+};
 
 
 /*

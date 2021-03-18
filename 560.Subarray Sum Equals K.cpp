@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-01-14 16:57:09
- * @LastEditTime: 2021-01-14 19:06:24
+ * @LastEditTime: 2021-03-18 20:16:51
  * @FilePath: \Leetcode\560.Subarray Sum Equals K.cpp
  */
 /*
@@ -20,6 +20,32 @@
 #include <math.h>
 #include <unordered_map>
 using namespace std;
+
+
+/*
+RESULT: Accept
+TIME:     92ms    BEAT: 73.71%    O(n) = 
+MEMORY: 35.1MB    BEAT: 92.27%    O(n) = 
+USED TIME: 05:24
+LAST EDIT TIME: 2021年3月18日20:16:25
+Description: 二刷。
+*/
+
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        unordered_map<int, int> map;
+        map[0] = 1;
+        int res = 0;
+        int sum = 0;
+        for (int num: nums) {
+            sum += num;
+            if (map.find(sum - k) != map.end()) res += map[sum - k];
+            map[sum] ++;
+        }
+        return res;
+    }
+};
 
 
 /*

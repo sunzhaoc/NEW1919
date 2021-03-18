@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-01-18 22:04:37
- * @LastEditTime: 2021-01-19 10:11:35
+ * @LastEditTime: 2021-03-18 20:56:09
  * @FilePath: \Leetcode\525.Contiguous Array.cpp
  */
 /*
@@ -21,6 +21,44 @@
 #include <math.h>
 #include <unordered_map>
 using namespace std;
+
+
+/*
+RESULT: Accept
+TIME:    144ms    BEAT: 76.40%    O(n) = 
+MEMORY: 76.9MB    BEAT: 76.40%    O(n) = 
+USED TIME: 06:08
+LAST EDIT TIME: 2021年3月18日20:55:45
+Description: 二刷
+*/
+
+class Solution {
+public:
+    int findMaxLength(vector<int>& nums) {
+        for (int i = 0; i < nums.size(); i ++) {
+            if (nums[i] == 0) nums[i] = -1;
+        }
+
+        unordered_map<int, int> map;
+
+        map[0] = -1;
+        int max_len = 0;
+        int sum = 0;
+
+        for (int i = 0; i < nums.size(); i ++) {
+            sum += nums[i];
+
+            auto it = map.find(sum);
+            if (it != map.end()) {
+                max_len = max(max_len, i - it->second);
+            }
+            else {
+                map[sum] = i;
+            }
+        }
+        return max_len;
+    }
+};
 
 
 /*

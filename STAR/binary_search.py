@@ -3,8 +3,8 @@ Description: 二分查找的例程
 Version: 1.0
 Autor: Vicro
 Date: 2021-01-06 14:32:50
-LastEditTime: 2021-01-06 15:33:02
-FilePath: \Leetcode\STAR\demo1.py
+LastEditTime: 2021-03-18 15:40:00
+FilePath: \Leetcode\STAR\binary_search.py
 '''
 
 class Soulution:
@@ -29,7 +29,7 @@ class Soulution:
 
     def binary_searchLeft(self, x, target):
         '''
-        description: 左边界的位置。
+        description: 左边界的位置。找大于某数折最小值。
         param {*}
         return {*}
         '''
