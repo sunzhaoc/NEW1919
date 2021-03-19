@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-01-12 20:10:58
- * @LastEditTime: 2021-03-19 10:35:33
+ * @LastEditTime: 2021-03-19 10:53:42
  * @FilePath: \Leetcode\5.Longest Palindromic Substring.cpp
  */
 /*
@@ -30,17 +30,42 @@ https://leetcode-cn.com/problems/longest-palindromic-substring/solution/tu-jie-m
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
+TIME:   200ms    BEAT: 55.50%    O(n) = mn
+MEMORY: 7.9MB    BEAT: 77.56%    O(n) = n^2
+USED TIME: 09:56
+LAST EDIT TIME: 2021年3月19日10:47:49
 Description: 二刷。
 */
 
 class Solution {
 public:
     string longestPalindrome(string s) {
+        int len = s.length();
+        if (len == 1) return s;
 
+        int maxLen = 1;
+        int beginIndex = 0;
+
+        bool dp[len][len];
+        
+        for (int i = 0; i < len; i ++) dp[i][i] = true;
+
+        for (int j = 1; j < len; j ++) {
+            for (int i = 0; i < j; i ++) {
+                if (s[i] != s[j]) dp[i][j] = false;
+                else {
+                    if (j - i < 3) dp[i][j] = true;
+                    else dp[i][j] = dp[i + 1][j - 1];
+                }
+
+                if (dp[i][j] && j - i + 1 > maxLen) {
+                    maxLen = j - i + 1;
+                    beginIndex = i;
+                }
+            }
+        }
+
+        return s.substr(beginIndex, maxLen);
     }
 };
 
@@ -54,37 +79,37 @@ Description: DP。
 在国际版中均能AC，使用数组140ms，使用vector 588ms。
 */
 
-class Solution {
-public:
-    string longestPalindrome(string s) {
-        int len = s.length();
-        if (len == 1) return s;
+// class Solution {
+// public:
+//     string longestPalindrome(string s) {
+//         int len = s.length();
+//         if (len == 1) return s;
 
-        int maxLen = 1;
-        int begin = 0;
+//         int maxLen = 1;
+//         int begin = 0;
         
-        bool dp[len][len];
-        // vector<vector<bool>> dp(len, vector<bool>(len));
-        for (int i = 0; i < len; i ++) dp[i][i] = true;
+//         bool dp[len][len];
+//         // vector<vector<bool>> dp(len, vector<bool>(len));
+//         for (int i = 0; i < len; i ++) dp[i][i] = true;
 
-        for (int j = 1; j < len; j ++) {
-            for (int i = 0; i < j; i ++) {
-                if (s[i] != s[j]) dp[i][j] = false;
-                else {
-                    if (j - i < 3) dp[i][j] = true;
-                    else dp[i][j] = dp[i + 1][j - 1];
-                }
+//         for (int j = 1; j < len; j ++) {
+//             for (int i = 0; i < j; i ++) {
+//                 if (s[i] != s[j]) dp[i][j] = false;
+//                 else {
+//                     if (j - i < 3) dp[i][j] = true;
+//                     else dp[i][j] = dp[i + 1][j - 1];
+//                 }
 
-                if (dp[i][j] && j - i + 1 > maxLen) {
-                    maxLen = j - i + 1;
-                    begin = i;
-                }
-            }
-        }
+//                 if (dp[i][j] && j - i + 1 > maxLen) {
+//                     maxLen = j - i + 1;
+//                     begin = i;
+//                 }
+//             }
+//         }
 
-        return s.substr(begin, maxLen);
-    }
-};
+//         return s.substr(begin, maxLen);
+//     }
+// };
 
 
 /*
