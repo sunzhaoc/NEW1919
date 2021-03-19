@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-01-12 20:10:58
- * @LastEditTime: 2021-01-13 13:10:16
+ * @LastEditTime: 2021-03-19 10:35:33
  * @FilePath: \Leetcode\5.Longest Palindromic Substring.cpp
  */
 /*
@@ -26,6 +26,23 @@ using namespace std;
 Manacher算法:
 https://leetcode-cn.com/problems/longest-palindromic-substring/solution/tu-jie-ma-la-che-suan-fa-by-wang_ni_ma-if33/
 */
+
+
+/*
+RESULT: Accept
+TIME:   ms    BEAT: %    O(n) = 
+MEMORY: MB    BEAT: %    O(n) = 
+USED TIME: 
+LAST EDIT TIME: 
+Description: 二刷。
+*/
+
+class Solution {
+public:
+    string longestPalindrome(string s) {
+
+    }
+};
 
 
 /*
