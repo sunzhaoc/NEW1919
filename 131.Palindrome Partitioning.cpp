@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-01-04 09:09:26
- * @LastEditTime: 2021-03-07 16:59:09
+ * @LastEditTime: 2021-03-19 16:31:01
  * @FilePath: \Leetcode\131.Palindrome Partitioning.cpp
  */
 /*
@@ -82,8 +82,8 @@ public:
 RESULT: Accept
 TIME:    144ms    BEAT: 76.00%    O(n) = n2^n
 MEMORY: 73.8MB    BEAT: 73.28%    O(n) = n^2
-LAST EDIT TIME: 官解DP优化简洁很多啊。
-Description: 
+LAST EDIT TIME: 
+Description: 官解DP优化简洁很多啊。
 */
 
 class Solution {

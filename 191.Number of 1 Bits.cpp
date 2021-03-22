@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2020-12-21 14:03:57
- * @LastEditTime: 2020-12-21 14:28:37
+ * @LastEditTime: 2021-03-22 12:37:35
  * @FilePath: \Leetcode\191.Number of 1 Bits.cpp
  */
 /*
@@ -16,6 +16,27 @@
 #include <stdint.h>
 #include <iostream>
 using namespace std;
+
+
+/*
+RESULT: Accept
+TIME:     0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 5.9MB    BEAT:  60.64%    O(n) = 
+LAST EDIT TIME: 2021年3月22日12:36:52
+Description: 二刷。
+*/
+
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+        int res = 0;
+        while (n) {
+            n = n & (n - 1);
+            res ++;
+        }
+        return res;
+    }
+};
 
 
 /*

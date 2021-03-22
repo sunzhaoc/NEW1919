@@ -1,12 +1,45 @@
 /*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-03-18 21:00:54
+ * @LastEditTime: 2021-03-19 16:54:23
+ * @FilePath: \Leetcode\208.实现-trie-前缀树.cpp
+ */
+/*
  * @lc app=leetcode.cn id=208 lang=cpp
  *
  * [208] 实现 Trie (前缀树)
  */
 
 // @lc code=start
+
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <math.h>
+#include <unordered_map>
+#include <set>
+#include <queue>
+#include <stack>
+#include <unordered_set>
+using namespace std;
+
+
+/*
+RESULT: Accept
+TIME:   ms    BEAT: %    O(n) = 
+MEMORY: MB    BEAT: %    O(n) = 
+LAST EDIT TIME: 
+Description: 知识点不清楚。
+*/
+
 class Trie {
 public:
+    string s = "";
+    unordered_set<string> map;
     /** Initialize your data structure here. */
     Trie() {
 
@@ -14,6 +47,7 @@ public:
     
     /** Inserts a word into the trie. */
     void insert(string word) {
+        s += word;
 
     }
     
