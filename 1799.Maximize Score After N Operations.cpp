@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-20 23:30:39
- * @LastEditTime: 2021-03-20 23:58:55
- * @FilePath: \Leetcode\demp4.cpp
+ * @LastEditTime: 2021-03-23 16:37:43
+ * @FilePath: \Leetcode\1799.Maximize Score After N Operations.cpp
  */
 
 #include <iostream>
@@ -20,6 +20,52 @@
 using namespace std;
 
 
+/*
+RESULT: Accept
+TIME:   376ms    BEAT: 32.39%    O(n) = 
+MEMORY: 7.9MB    BEAT: 68.04%    O(n) = 
+LAST EDIT TIME: 2021年3月23日16:10:38
+Description: Y总。状态压缩DP。
+*/
+
+class Solution {
+public:
+    int gcd (int a, int b) {
+        return b ? gcd(b, a % b) : a;
+    }
+
+    int maxScore(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> f(1 << n);
+        for (int i = 0; i < 1 << n; i ++) {
+            int cnt = 0;
+            // 统计 i 里 0 的个数。
+            for (int j = 0; j < n; j ++) {
+                if (!(i >> j & 1))  cnt ++;
+            }
+            cnt = cnt / 2 + 1;
+            
+            // 枚举所有的 1
+            for (int j = 0; j < n; j ++) {
+                if (i >> j & 1) {
+                    // 更新第二个 1
+                    for (int k = j + 1; k < n; k ++) {
+                        if (i >> k & 1) {
+                            f[i] = max(f[i], f[i - (1 << j) - (1 << k)] + gcd(nums[j], nums[k]) * cnt);
+                        }
+                    }
+                }
+            }
+        }
+        return f[(1 << n) - 1];
+    }
+};
+
+
+/*
+RESULT: Wrong
+Description: 比赛的时候写的。
+*/
 
 class Solution {
 public:
