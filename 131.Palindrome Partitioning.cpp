@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-01-04 09:09:26
- * @LastEditTime: 2021-03-19 16:31:01
+ * @LastEditTime: 2021-03-23 09:44:36
  * @FilePath: \Leetcode\131.Palindrome Partitioning.cpp
  */
 /*
@@ -27,6 +27,22 @@
 using namespace std;
 
 
+
+
+class Solution {
+public:
+    vector<vector<string>> partition(string s) {
+        vector<vector<string>> res;
+        n = s.length();
+        vector<vector<bool>> dp(n, vector<bool> (n, 0));
+        for (int i = 0; i < n; i ++) {
+            dp[i][i] = false;
+        }
+        
+    }
+};
+
+
 /*
 RESULT: Accept
 TIME:   152ms    BEAT: 69.53%    O(n) = n2^n
@@ -35,47 +51,47 @@ LAST EDIT TIME: 2021年3月7日16:53:16
 Description: 官解记忆化搜索。
 */
 
-class Solution {
-private:
-    vector<vector<int>> f;
-    vector<vector<string>> ret;
-    vector<string> ans;
-    int n;
+// class Solution {
+// private:
+//     vector<vector<int>> f;
+//     vector<vector<string>> ret;
+//     vector<string> ans;
+//     int n;
 
-public:
-    void dfs(const string& s, int i) {
-        if (i == n) {
-            ret.push_back(ans);
-            return;
-        }
-        for (int j = i; j < n; ++j) {
-            if (isPalindrome(s, i, j) == 1) {
-                ans.push_back(s.substr(i, j - i + 1));
-                dfs(s, j + 1);
-                ans.pop_back();
-            }
-        }
-    }
+// public:
+//     void dfs(const string& s, int i) {
+//         if (i == n) {
+//             ret.push_back(ans);
+//             return;
+//         }
+//         for (int j = i; j < n; ++j) {
+//             if (isPalindrome(s, i, j) == 1) {
+//                 ans.push_back(s.substr(i, j - i + 1));
+//                 dfs(s, j + 1);
+//                 ans.pop_back();
+//             }
+//         }
+//     }
 
-    // 记忆化搜索中，f[i][j] = 0 表示未搜索，1 表示是回文串，-1 表示不是回文串
-    int isPalindrome(const string& s, int i, int j) {
-        if (f[i][j]) {
-            return f[i][j];
-        }
-        if (i >= j) {
-            return f[i][j] = 1;
-        }
-        return f[i][j] = (s[i] == s[j] ? isPalindrome(s, i + 1, j - 1) : -1);
-    }
+//     // 记忆化搜索中，f[i][j] = 0 表示未搜索，1 表示是回文串，-1 表示不是回文串
+//     int isPalindrome(const string& s, int i, int j) {
+//         if (f[i][j]) {
+//             return f[i][j];
+//         }
+//         if (i >= j) {
+//             return f[i][j] = 1;
+//         }
+//         return f[i][j] = (s[i] == s[j] ? isPalindrome(s, i + 1, j - 1) : -1);
+//     }
 
-    vector<vector<string>> partition(string s) {
-        n = s.size();
-        f.assign(n, vector<int>(n));
+//     vector<vector<string>> partition(string s) {
+//         n = s.size();
+//         f.assign(n, vector<int>(n));
 
-        dfs(s, 0);
-        return ret;
-    }
-};
+//         dfs(s, 0);
+//         return ret;
+//     }
+// };
 
 
 /*
@@ -86,46 +102,46 @@ LAST EDIT TIME:
 Description: 官解DP优化简洁很多啊。
 */
 
-class Solution {
-private:
-    vector<vector<int>> dp;
-    vector<vector<string>> ret;
-    vector<string> ans;
-    int n;
+// class Solution {
+// private:
+//     vector<vector<int>> dp;
+//     vector<vector<string>> ret;
+//     vector<string> ans;
+//     int n;
 
-public:
-    void dfs(const string& s, int i) {
-        if (i == n) {
-            ret.push_back(ans);
-            return;
-        }
-        for (int j = i; j < n; j ++) {
-            if (dp[i][j]) {
-                ans.push_back(s.substr(i, j - i + 1));
-                dfs(s, j + 1);
-                ans.pop_back();
-            }
-        }
-    }
+// public:
+//     void dfs(const string& s, int i) {
+//         if (i == n) {
+//             ret.push_back(ans);
+//             return;
+//         }
+//         for (int j = i; j < n; j ++) {
+//             if (dp[i][j]) {
+//                 ans.push_back(s.substr(i, j - i + 1));
+//                 dfs(s, j + 1);
+//                 ans.pop_back();
+//             }
+//         }
+//     }
 
-    vector<vector<string>> partition(string s) {
-        n = s.size();
-        dp.assign(n, vector<int>(n, true));
+//     vector<vector<string>> partition(string s) {
+//         n = s.size();
+//         dp.assign(n, vector<int>(n, true));
 
-        for (int j = 1; j < n; j ++) {
-            for (int i = 0; i < j; i ++) {
-                if (s[i] != s[j]) dp[i][j] = false;
-                else {
-                    if (j - i < 3) dp[i][j] = true;
-                    else dp[i][j] = dp[i + 1][j - 1];
-                }
-            }
-        }
+//         for (int j = 1; j < n; j ++) {
+//             for (int i = 0; i < j; i ++) {
+//                 if (s[i] != s[j]) dp[i][j] = false;
+//                 else {
+//                     if (j - i < 3) dp[i][j] = true;
+//                     else dp[i][j] = dp[i + 1][j - 1];
+//                 }
+//             }
+//         }
 
-        dfs(s, 0);
-        return ret;
-    }
-};
+//         dfs(s, 0);
+//         return ret;
+//     }
+// };
 
 
 /*
