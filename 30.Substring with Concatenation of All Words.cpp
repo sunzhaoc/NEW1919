@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-18 21:01:37
- * @LastEditTime: 2021-03-23 11:11:27
+ * @LastEditTime: 2021-03-23 11:17:02
  * @FilePath: \Leetcode\30.Substring with Concatenation of All Words.cpp
  */
 /*
@@ -33,7 +33,7 @@ TIME:     32ms    BEAT: 91.47%    O(n) =
 MEMORY: 15.9MB    BEAT: 87.21%    O(n) = 
 USED TIME: 09:48
 LAST EDIT TIME: 2021年3月23日11:9:10
-Description: 
+Description: 好无聊的题。。。
 */
 
 class Solution {

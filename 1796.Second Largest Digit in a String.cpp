@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-20 22:22:25
- * @LastEditTime: 2021-03-21 10:16:49
- * @FilePath: \Leetcode\5693.Second Largest Digit in a String.cpp
+ * @LastEditTime: 2021-03-23 15:21:31
+ * @FilePath: \Leetcode\1796.Second Largest Digit in a String.cpp
  */
 #include <iostream>
 #include <string>
@@ -17,6 +17,30 @@
 #include <stack>
 #include <unordered_set>
 using namespace std;
+
+/*
+RESULT: Accept
+TIME:     8ms    BEAT: 22.53%    O(n) = 
+MEMORY: 6.8MB    BEAT: 20.58%    O(n) = 
+LAST EDIT TIME: 2021年3月23日15:21:14
+Description: Y总。
+*/
+
+class Solution {
+public:
+    int secondHighest(string s) {
+        set<int> S;
+        for (auto c: s) {
+            if (isdigit(c)) {
+                S.insert(c - '0');
+            }
+        }
+        if (S.size() <= 1) return -1;
+        auto it = S.rbegin();
+        it ++;
+        return *it;
+    }
+};
 
 
 /*
