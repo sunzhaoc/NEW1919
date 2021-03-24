@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Author: Vicro
  * @Date: 2020-12-09 10:28:43
- * @LastEditTime: 2021-03-24 09:30:53
+ * @LastEditTime: 2021-03-24 09:37:03
  * @FilePath: \Leetcode\62.Unique Paths.cpp
  */
 /*
@@ -32,12 +32,16 @@ TIME:   ms    BEAT: %    O(n) =
 MEMORY: MB    BEAT: %    O(n) = 
 LAST EDIT TIME: 
 Description: 数学知识。组合数学。
+从左上到右下，共需要走m+n-2步。其中有m-1次向下，n-1次向右。
+因此路径的总数等于，从m+n-2次移动中选择m-1次向下移动的方案数。即C(m - 1)(m + n - 2);
+= (m + n - 2)! / (m - 1)!(n - 1)!
 */
 
 class Solution {
 public:
     int uniquePaths(int m, int n) {
-
+        long long ans = 1;
+        for (int i = 0; i < )
     }
 };
 
@@ -75,6 +79,7 @@ public:
 RESULT: Accept
 TIME:     0ms    BEAT: 100.00%    O(n) = m
 MEMORY: 6.3MB    BEAT:  61.38%    O(n) = 1 
+LAST EDIT TIME: 2020年12月09日10:40:15
 Description: 利用数学组合数知识解决。因为m，n可互换，利用这点可以降低运算时间。
 */
 
