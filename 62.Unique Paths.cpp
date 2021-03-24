@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Author: Vicro
  * @Date: 2020-12-09 10:28:43
- * @LastEditTime: 2021-03-24 09:37:03
+ * @LastEditTime: 2021-03-24 09:49:13
  * @FilePath: \Leetcode\62.Unique Paths.cpp
  */
 /*
@@ -28,10 +28,10 @@ using namespace std;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-LAST EDIT TIME: 
-Description: 数学知识。组合数学。
+TIME:     4ms    BEAT: 29.88%    O(n) = m
+MEMORY: 5.7MB    BEAT: 97.00%    O(n) = 1
+LAST EDIT TIME: 2021年3月24日9:49:5
+Description: 数学知识。组合数学。二刷。
 从左上到右下，共需要走m+n-2步。其中有m-1次向下，n-1次向右。
 因此路径的总数等于，从m+n-2次移动中选择m-1次向下移动的方案数。即C(m - 1)(m + n - 2);
 = (m + n - 2)! / (m - 1)!(n - 1)!
@@ -40,8 +40,11 @@ Description: 数学知识。组合数学。
 class Solution {
 public:
     int uniquePaths(int m, int n) {
-        long long ans = 1;
-        for (int i = 0; i < )
+        long long res = 1;
+        for (int x = n, y = 1; y < m; x ++, y ++) {
+            res = res * x / y;
+        }
+        return res;
     }
 };
 
