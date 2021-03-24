@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Author: Vicro
  * @Date: 2020-12-09 10:28:43
- * @LastEditTime: 2021-03-24 09:04:13
+ * @LastEditTime: 2021-03-24 09:30:53
  * @FilePath: \Leetcode\62.Unique Paths.cpp
  */
 /*
@@ -30,10 +30,45 @@ using namespace std;
 RESULT: Accept
 TIME:   ms    BEAT: %    O(n) = 
 MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
 LAST EDIT TIME: 
-Description: 
+Description: 数学知识。组合数学。
 */
+
+class Solution {
+public:
+    int uniquePaths(int m, int n) {
+
+    }
+};
+
+
+/*
+RESULT: Accept
+TIME:     4ms    BEAT: 29.88%    O(n) = mn
+MEMORY: 5.8MB    BEAT: 87.55%    O(n) = mn
+USED TIME: 03:45
+LAST EDIT TIME: 2021年3月24日9:26:47
+Description: DP。二刷。
+*/
+
+class Solution {
+public:
+    int uniquePaths(int m, int n) {
+        int dp[m][n];
+        for (int i = 0; i < m; i ++) {
+            dp[i][0] = 1;
+        }
+        for (int i = 0; i < n; i ++) {
+            dp[0][i] = 1;
+        }
+        for (int i = 1; i < m; i ++) {
+            for (int j = 1; j < n; j ++) {
+                dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+            }
+        }
+        return dp[m - 1][n - 1];
+    }
+};
 
 
 /*
