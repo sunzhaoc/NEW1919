@@ -3,14 +3,80 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-04 21:46:19
- * @LastEditTime: 2021-03-04 21:50:15
+ * @LastEditTime: 2021-03-24 21:58:14
  * @FilePath: \Leetcode\STAR\C.cpp
  */
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <math.h>
+#include <unordered_map>
+#include <set>
+#include <queue>
+#include <stack>
+#include <unordered_set>
+using namespace std;
 
 
 // 快速计算x的二进制里有多少个1.
-int main() {
+int function(int x) {
     int num = 0;
-    int x = 9999;
-    for (int k = x; k; k >>= 1) num += k & 1;  
+    for (int i = x; i; i >>= 1) num += i & 1;
+    return num;
+}
+
+
+// 最大公约数
+int gcd (int a, int b) {
+    return b ? gcd(b, a % b) : a;
+}
+
+
+// 最小公倍数 = 两数乘积 / 最大公约数
+
+
+// 二分查找 -- 标准版
+bool binarySearch(vector<int> nums, int target) {
+    int l = 0, r = nums.size() - 1;
+    
+    while (l <= r) {
+        int mid = (r - l) / 2 + l;
+        if (nums[mid] == target) return true;
+        else if (nums[mid] > target) r = mid - 1;
+        else if (nums[mid] < target) l = mid + 1;
+    }
+    
+    return false;
+}
+
+
+// 二分查找 - 
+bool binarySearch(vector<int> nums, int target) {
+    int l = 0, r = nums.size() - 1;
+    
+    while (l < r) {
+        int mid = (r - l) / 2 + l;
+        if (nums[mid] == target) return true;
+        else if (nums[mid] >= target) r = mid;
+        else if (nums[mid] < target) l = mid + 1;
+    }
+
+    if (nums[l] == target) return true;
+    return false;
+}
+
+
+bool binarySearch(vector<int> nums, int target) {
+    int l = 0, r = nums.size();
+
+    while (l < r) {
+        int mid = (r - l + 1) / 2 + l;
+        if (nums[mid] == target) return true;
+        else if (nums[mid] <= target) l = mid;
+        else if (nums[mid] > target) r = mid - 1;
+    }
+
+    if (nums[r] == target) return true;
+    return false;
 }
