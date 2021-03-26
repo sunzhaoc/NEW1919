@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-25 16:57:20
- * @LastEditTime: 2021-03-25 17:13:38
+ * @LastEditTime: 2021-03-25 17:18:26
  * @FilePath: \Leetcode\122.Best Time to Buy and Sell Stock II.cpp
  */
 /*
@@ -25,6 +25,26 @@
 #include <stack>
 #include <unordered_set>
 using namespace std;
+
+
+/*
+RESULT: Accept
+TIME:      4ms    BEAT: 92.08%    O(n) = n
+MEMORY: 12.7MB    BEAT: 36.04%    O(n) = 1
+LAST EDIT TIME: 2021年3月25日17:17:53
+Description: 贪心。
+*/
+
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int res = 0;
+        for (int i = 1; i < prices.size(); i ++) {
+            res += max(0, prices[i] - prices[i - 1]);
+        }
+        return res;
+    }
+};
 
 
 /*
