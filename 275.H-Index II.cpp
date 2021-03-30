@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-30 16:24:03
- * @LastEditTime: 2021-03-30 17:05:43
+ * @LastEditTime: 2021-03-30 19:14:01
  * @FilePath: \Leetcode\275.H-Index II.cpp
  */
 /*
@@ -29,16 +29,22 @@ using namespace std;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-LAST EDIT TIME: 
-Description: 
+TIME:      8ms    BEAT: 99.90%    O(n) = 
+MEMORY: 18.2MB    BEAT:  8.93%    O(n) = 
+LAST EDIT TIME: 2021年3月30日18:57:22
+Description: Y总。
 */
 
 class Solution {
 public:
-    int hIndex(vector<int>& citations) {
-
+    int hIndex(vector<int>& nums) {
+        int l = 0, r = nums.size();
+        while (l < r) {
+            int mid = l + r + 1 >> 1;
+            if (nums[nums.size() - mid] >= mid) l = mid;
+            else r = mid - 1;
+        }
+        return r;
     }
 }; 
 
