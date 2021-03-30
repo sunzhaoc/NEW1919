@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-30 12:33:31
- * @LastEditTime: 2021-03-30 15:11:40
+ * @LastEditTime: 2021-03-30 15:21:32
  * @FilePath: \Leetcode\1807.Evaluate the Bracket Pairs of a String.cpp
  */
 
@@ -22,8 +22,8 @@ using namespace std;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
+TIME:     440ms    BEAT: 58.38%    O(n) = 
+MEMORY: 114.4MB    BEAT: 66.07%    O(n) = 
 LAST EDIT TIME: 2021年3月30日15:11:37
 Description: y总。
 */
@@ -31,7 +31,21 @@ Description: y总。
 class Solution {
 public:
     string evaluate(string s, vector<vector<string>>& knowledge) {
-
+        unordered_map<string, string> hash;
+        for (auto& e: knowledge) hash[e[0]] = e[1];
+        string res;
+        for (int i = 0; i < s.size(); i ++) {
+            if (s[i] != '(') res += s[i];
+            else {
+                string key;
+                int j = i + 1;
+                while (s[j] != ')') key += s[j ++];
+                i = j;
+                if (hash.count(key)) res += hash[key];
+                else res += '?';
+            }
+        }
+        return res;
     }
 };
 

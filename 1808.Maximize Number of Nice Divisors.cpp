@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-30 12:33:41
- * @LastEditTime: 2021-03-30 14:50:27
+ * @LastEditTime: 2021-03-30 16:11:21
  * @FilePath: \Leetcode\1808.Maximize Number of Nice Divisors.cpp
  */
 
@@ -23,8 +23,40 @@ using namespace std;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
+TIME:     0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 5.9MB    BEAT:  27.21%    O(n) = 
+LAST EDIT TIME: 2021年3月30日16:10:56
+Description: y总。
+*/
+
+typedef long long LL;
+const int MOD = 1e9 + 7;
+
+class Solution {
+public:
+    int qmi(int a, int b) {
+        int res = 1;
+        while (b) {
+            if (b & 1) res = (LL)res * a % MOD;
+            a = (LL)a * a % MOD;
+            b >>= 1;
+        }
+        return res;
+    }
+
+    int maxNiceDivisors(int m) {
+        if (m <= 3) return m;
+        if (m % 3 == 0) return qmi(3, m / 3);
+        if (m % 3 == 1) return (LL)qmi(3, (m - 4) / 3) * 4 % MOD;
+        return (LL)qmi(3, (m - 2) / 3) * 2 % MOD;
+    }
+};
+
+
+/*
+RESULT: Accept
+TIME:     0ms    BEAT: 100%    O(n) = 
+MEMORY: 5.9MB    BEAT:   8%    O(n) = 
 LAST EDIT TIME: 2021年03月30日13:37:45
 Description: 
 */
