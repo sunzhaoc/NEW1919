@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-31 10:06:54
- * @LastEditTime: 2021-03-31 13:27:04
+ * @LastEditTime: 2021-03-31 13:29:43
  * @FilePath: \Leetcode\378.Kth Smallest Element in a Sorted Matrix.cpp
  */
 /*
@@ -13,6 +13,7 @@
  */
 
 // @lc code=start
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -28,10 +29,10 @@ using namespace std;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-LAST EDIT TIME: 
-Description: 
+TIME:     28ms    BEAT: 88.03%    O(n) = 
+MEMORY: 12.7MB    BEAT: 67.44%    O(n) = 
+LAST EDIT TIME: 2021年3月31日13:28:34
+Description: 二分查找。
 */
 
 class Solution {
@@ -43,14 +44,14 @@ public:
         while (l < r) {
             int mid = (r - l) / 2 + l;
             auto x = caculate(matrix, mid);
-            if (x != -1 && x == k) return mid;
-            else if (x >= k) r = mid;
+            if (x.second && x.first == k) return mid; // 注意还需要判断mid这个数是否存在于matrix中。
+            else if (x.first >= k) r = mid;
             else l = mid + 1;
         }
         return l;
     }
 
-    int caculate(vector<vector<int>>& matrix, int mid) {
+    pair<int, bool> caculate(vector<vector<int>>& matrix, int mid) {
         int i = row - 1, j = 0;
         int cnt = 0;
         bool flag = false;
@@ -62,7 +63,7 @@ public:
             }
             else i --;
         }
-        return flag ? cnt : -1;
+        return {cnt, flag};
     }
 };
 
@@ -89,7 +90,6 @@ public:
                 }
             }
         }
-        // for (int i = 0; i < k - 1; i ++) st.pop();
         return st.top();
     }
 };
