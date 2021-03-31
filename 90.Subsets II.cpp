@@ -1,4 +1,12 @@
 /*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-01-04 14:58:20
+ * @LastEditTime: 2021-03-31 08:54:35
+ * @FilePath: \Leetcode\90.Subsets II.cpp
+ */
+/*
  * @lc app=leetcode.cn id=90 lang=cpp
  *
  * [90] 子集 II
@@ -10,6 +18,39 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
+
+
+/*
+RESULT: Accept
+TIME:     4ms    BEAT: 66.56%    O(n) = 
+MEMORY: 7.5MB    BEAT: 53.89%    O(n) = 
+USED TIME: 12:28
+LAST EDIT TIME: 2021年3月31日8:53:54
+Description: 二刷。花了点时间。
+*/
+
+class Solution {
+public:
+    vector<vector<int>> res;
+
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        vector<int> tmp;
+        backTrack(nums, tmp, 0);
+        return res;
+    }
+    
+    void backTrack(vector<int>& nums, vector<int>& used, int index) {
+        res.push_back(used);
+        if (index == nums.size()) return;
+        for (int i = index; i < nums.size(); i ++) {
+            if (i > 0 && nums[i] == nums[i - 1] && i - 1 >= index) continue;
+            used.push_back(nums[i]);
+            backTrack(nums, used, i + 1);
+            used.pop_back();
+        }
+    }
+};
 
 
 /*
