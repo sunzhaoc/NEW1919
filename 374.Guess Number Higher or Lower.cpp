@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-31 10:02:35
- * @LastEditTime: 2021-03-31 10:06:05
+ * @LastEditTime: 2021-03-31 14:24:59
  * @FilePath: \Leetcode\374.Guess Number Higher or Lower.cpp
  */
 /*
@@ -41,7 +41,7 @@ TIME:     0ms    BEAT: 100.00%    O(n) =
 MEMORY: 5.8MB    BEAT:  82.19%    O(n) = 
 USED TIME: 02:18
 LAST EDIT TIME: 2021年3月31日10:5:51
-Description: 二分。弱智。
+Description: 二刷，之前是python。二分。弱智。
 */
 
 class Solution {

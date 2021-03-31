@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-31 09:47:04
- * @LastEditTime: 2021-03-31 09:56:00
+ * @LastEditTime: 2021-03-31 14:25:44
  * @FilePath: \Leetcode\349.Intersection of Two Arrays.cpp
  */
 /*
@@ -63,7 +63,7 @@ TIME:    32ms    BEAT:  6.88%    O(n) =
 MEMORY: 9.9MB    BEAT: 85.57%    O(n) = 
 USED TIME: 02:38 
 LAST EDIT TIME: 2021年3月31日9:50:40
-Description: 暴力。
+Description: 二刷。之前是python。暴力。
 */
 
 class Solution {

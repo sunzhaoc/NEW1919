@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-31 09:40:46
- * @LastEditTime: 2021-03-31 09:45:53
+ * @LastEditTime: 2021-03-31 14:25:55
  * @FilePath: \Leetcode\217.Contains Duplicate.cpp
  */
 /*
@@ -33,7 +33,7 @@ TIME:     32ms    BEAT: 77.78%    O(n) =
 MEMORY: 19.5MB    BEAT: 56.94%    O(n) = 
 USED TIME: 04:12
 LAST EDIT TIME: 2021年3月31日9:45:35
-Description: 
+Description: 二刷。之前是python。
 */
 
 class Solution {

@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-31 13:37:53
- * @LastEditTime: 2021-03-31 14:03:41
+ * @LastEditTime: 2021-03-31 14:24:20
  * @FilePath: \Leetcode\441.Arranging Coins.cpp
  */
 /*
@@ -33,7 +33,7 @@ TIME:     0ms    BEAT: 100.00%    O(n) =
 MEMORY: 5.8MB    BEAT:  81.14%    O(n) = 
 USED TIME: 23:54
 LAST EDIT TIME: 2021年3月31日14:3:1
-Description: 我也不知道为啥算术题要做这么久。
+Description: 二刷。之前是python。我也不知道为啥算术题要做这么久。
 */
 
 class Solution {

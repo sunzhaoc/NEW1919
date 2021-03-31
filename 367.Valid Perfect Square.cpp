@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-31 09:56:43
- * @LastEditTime: 2021-03-31 10:01:56
+ * @LastEditTime: 2021-03-31 14:25:18
  * @FilePath: \Leetcode\367.Valid Perfect Square.cpp
  */
 /*
@@ -34,7 +34,7 @@ TIME:     0ms    BEAT: 100.00%    O(n) =
 MEMORY: 5.8MB    BEAT:  43.26%    O(n) = 
 USED TIME: 02:01
 LAST EDIT TIME: 2021年3月31日10:0:58
-Description: 
+Description: 二刷。之前是python。
 */
 
 class Solution {

@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-31 13:32:23
- * @LastEditTime: 2021-03-31 13:36:34
+ * @LastEditTime: 2021-03-31 14:24:32
  * @FilePath: \Leetcode\429.N-ary Tree Level Order Traversal.cpp
  */
 /*
@@ -52,7 +52,7 @@ TIME:     32ms    BEAT: 19.89%    O(n) =
 MEMORY: 11.7MB    BEAT: 24.02%    O(n) = 
 USED TIME: 02:54 
 LAST EDIT TIME: 2021年3月31日13:36:12
-Description: DFS
+Description: 二刷。之前是python。DFS。
 */
 
 class Solution {
