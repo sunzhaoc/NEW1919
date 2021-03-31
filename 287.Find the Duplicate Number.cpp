@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-30 19:27:35
- * @LastEditTime: 2021-03-30 19:50:48
+ * @LastEditTime: 2021-03-31 09:35:58
  * @FilePath: \Leetcode\287.Find the Duplicate Number.cpp
  */
 /*
@@ -25,6 +25,33 @@
 #include <stack>
 #include <unordered_set>
 using namespace std;
+
+
+/*
+RESULT: Accept
+TIME:      4ms    BEAT: 97.93%    O(n) = 
+MEMORY: 10.7MB    BEAT: 57.61%    O(n) = 
+LAST EDIT TIME: 2021年3月31日9:25:31
+Description: 抽屉原理。y总。原地算法。
+*/
+
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int n = nums.size() - 1;
+        int l = 1, r = n; // 这里的区间不是下标，而是表示数1 到 n-1。
+        while (l < r) {
+            int mid = (r - l) / 2 + l;
+            int cnt = 0;
+            for (auto x: nums) {
+                if (x >= l && x <= mid) cnt ++;
+            }
+            if (cnt > mid - l + 1) r = mid;
+            else l = mid + 1;
+        }
+        return r;
+    }
+};
 
 
 /*
@@ -51,7 +78,6 @@ public:
         return -1;
     }
 };
-
 
 // @lc code=end
 
