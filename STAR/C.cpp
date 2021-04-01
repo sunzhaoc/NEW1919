@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-04 21:46:19
- * @LastEditTime: 2021-03-24 21:58:14
+ * @LastEditTime: 2021-03-31 20:50:57
  * @FilePath: \Leetcode\STAR\C.cpp
  */
 #include <iostream>
@@ -34,6 +34,15 @@ int gcd (int a, int b) {
 
 
 // 最小公倍数 = 两数乘积 / 最大公约数
+
+
+// 判断一个数是否是素数。
+bool isPrime(int n) {
+    for (int i = 2; i * i <= n; i ++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
 
 
 // 二分查找 -- 标准版
