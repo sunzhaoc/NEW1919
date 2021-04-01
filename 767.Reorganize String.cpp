@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-01 09:43:51
- * @LastEditTime: 2021-04-01 11:08:37
+ * @LastEditTime: 2021-04-01 13:32:42
  * @FilePath: \Leetcode\767.Reorganize String.cpp
  */
 /*
@@ -25,6 +25,67 @@
 #include <stack>
 #include <unordered_set>
 using namespace std;
+
+
+/*
+RESULT: Accept
+TIME:     0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 6.2MB    BEAT:  35.80%    O(n) = 
+LAST EDIT TIME: 2021年4月1日13:32:33
+Description: 优化了一下。
+*/
+
+class Solution {
+public:
+    string reorganizeString(string S) {
+        unordered_map<char, int> map;
+        for (auto s: S) map[s] ++;
+        
+        struct cmp
+        {
+            bool operator() (const pair<char, int>& x, const pair<char, int>& y) {
+                return x.second < y.second;
+            }
+        };
+
+        string res = "";
+        priority_queue<pair<char, int>, vector<pair<char, int>>, cmp> q;
+        for (auto it = map.begin(); it != map.end(); it ++) {
+            q.push({it->first, it->second});
+        }
+        priority_queue<pair<char, int>, vector<pair<char, int>>, cmp> qtmp;
+        int n = 2;
+        int cnt = 0;
+        while (q.size() || qtmp.size()) {
+            if (cnt % n != 0) {
+                if (q.size()) {
+                    res += q.top().first;
+                    auto it = q.top();
+                    q.pop();
+                    it.second --;
+                    if (it.second)  qtmp.push(it);
+                    cnt ++;
+                }
+                else {
+                    cnt ++;
+                }
+            }
+            else {
+                while (qtmp.size()) {
+                    q.push(qtmp.top());
+                    qtmp.pop();
+                }
+                res += q.top().first;
+                auto it = q.top();
+                q.pop();
+                it.second --;
+                if (it.second) qtmp.push(it);
+            }
+            if (res.size()> 1 && res[res.size() - 1] == res[res.size() - 2]) return "";
+        }
+        return res;
+    }
+};
 
 
 /*

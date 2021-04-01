@@ -3,8 +3,8 @@ Description:
 Version: 1.0
 Author: Vicro
 Date: 2020-11-30 13:20:22
-LastEditTime: 2020-12-02 15:38:20
-FilePath: \Leetcode\767.重构字符串.py
+LastEditTime: 2021-04-01 16:03:03
+FilePath: \Leetcode\Python3\767.重构字符串.py
 '''
 #
 # @lc app=leetcode.cn id=767 lang=python3
@@ -21,14 +21,6 @@ class Solution:
 
         if S[0] == S[n]:
             return ''
-        
-        # a, b = S[:n], S[n:]
-        # for i in range(len(a)):
-        #     S[i * 2] = a[i]
-        # for i in range(len(b)):
-        #     S[i * 2 + 1] = b[i]   
-            
-        # return ''.join(S)
 
         return ''.join(j for i in zip(S, S[n:]) for j in i) + ''.join(S[n - 1]) * len(S) % 2
 
