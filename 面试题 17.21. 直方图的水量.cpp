@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-02 09:25:19
- * @LastEditTime: 2021-04-02 09:40:27
+ * @LastEditTime: 2021-04-02 09:47:57
  * @FilePath: \Leetcode\面试题 17.21. 直方图的水量.cpp
  */
 
@@ -22,11 +22,10 @@ using namespace std;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
+TIME:      8ms    BEAT: 61.71%    O(n) = 
+MEMORY: 13.5MB    BEAT: 72.65%    O(n) = 
+LAST EDIT TIME: 2021年4月2日9:47:28
+Description: 同42题。也算是二刷了吧。
 */
 
 class Solution {
@@ -40,11 +39,14 @@ public:
         
         while (l < r) {
             if (height[l] < height[r]) {
-                
+                height[l] > lmax ? (lmax = height[l]) : res += lmax - height[l];
+                l ++;
             }
             else {
-
+                height[r] > rmax ? (rmax = height[r]) : res += rmax - height[r];
+                r --;
             }
         }
+        return res;
     }
 };
