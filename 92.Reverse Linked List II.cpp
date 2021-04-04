@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-18 08:28:11
- * @LastEditTime: 2021-04-02 11:15:56
+ * @LastEditTime: 2021-04-04 14:59:44
  * @FilePath: \Leetcode\92.Reverse Linked List II.cpp
  */
 /*
@@ -35,20 +35,6 @@ struct ListNode {
 #include <stack>
 #include <unordered_set>
 using namespace std;
-
-
-class Solution {
-public:
-    ListNode* reverseBetween(ListNode* head, int left, int right) {
-        if (left == right) return head;
-        auto dummy = new ListNode(-1);
-        dummy->next = head;
-        
-        auto a = dummy;
-        for (int i = 0; i < left; i ++) a = a->next;
-        
-    }
-};
 
 
 /*
