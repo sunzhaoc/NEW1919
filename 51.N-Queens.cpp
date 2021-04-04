@@ -2,14 +2,14 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-04 16:01:15
- * @LastEditTime: 2021-04-04 19:09:05
- * @FilePath: \Leetcode\52.N-Queens II.cpp
+ * @Date: 2021-04-04 16:08:13
+ * @LastEditTime: 2021-04-04 16:12:09
+ * @FilePath: \Leetcode\51.N-Queens.cpp
  */
 /*
- * @lc app=leetcode.cn id=52 lang=cpp
+ * @lc app=leetcode.cn id=51 lang=cpp
  *
- * [52] N皇后 II
+ * [51] N 皇后
  */
 
 // @lc code=start
@@ -24,7 +24,7 @@
 #include <queue>
 #include <stack>
 #include <unordered_set>
-using namespace std; 
+using namespace std;
 
 
 /*
@@ -38,7 +38,7 @@ Description:
 
 class Solution {
 public:
-    int totalNQueens(int n) {
+    vector<vector<string>> solveNQueens(int n) {
 
     }
 };
