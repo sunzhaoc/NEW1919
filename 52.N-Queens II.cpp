@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-04 16:01:15
- * @LastEditTime: 2021-04-04 19:09:05
+ * @LastEditTime: 2021-04-04 19:16:31
  * @FilePath: \Leetcode\52.N-Queens II.cpp
  */
 /*
@@ -42,5 +42,6 @@ public:
 
     }
 };
+
 // @lc code=end
 
