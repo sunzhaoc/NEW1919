@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-26 08:50:31
- * @LastEditTime: 2021-03-26 09:01:30
+ * @LastEditTime: 2021-04-02 11:05:12
  * @FilePath: \Leetcode\83.Remove Duplicates from Sorted List.cpp
  */
 /*
@@ -22,6 +22,28 @@ struct ListNode {
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
+
+
+/*
+RESULT: Accept
+TIME:      8ms    BEAT: 95.46%    O(n) = 
+MEMORY: 11.3MB    BEAT: 31.24%    O(n) = 
+LAST EDIT TIME: 2021年4月2日11:4:55
+Description: Y总。
+*/
+
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        auto cur = head;
+        while (cur) {
+            while (cur->next && cur->next->val == cur->val) cur->next = cur->next->next;
+            cur = cur->next;
+        }
+        return head;
+    }
+};
+
 
 /*
 RESULT: Accept

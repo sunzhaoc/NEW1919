@@ -1,4 +1,12 @@
 /*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-03-27 14:23:20
+ * @LastEditTime: 2021-04-02 11:06:46
+ * @FilePath: \Leetcode\61.Rotate List.cpp
+ */
+/*
  * @lc app=leetcode.cn id=61 lang=cpp
  *
  * [61] 旋转链表
@@ -48,7 +56,7 @@ public:
         for (auto it = head; it != nullptr; it = it->next) {
             len ++;
         }
-
+ 
         k = k % len;
         if (k == 0) return head;
 
