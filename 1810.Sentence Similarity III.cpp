@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-04 00:03:07
- * @LastEditTime: 2021-04-04 00:03:40
- * @FilePath: \Leetcode\demo02.cpp
+ * @LastEditTime: 2021-04-04 14:42:37
+ * @FilePath: \Leetcode\1810.Sentence Similarity III.cpp
  */
 
 #include <iostream>
@@ -25,10 +25,7 @@ typedef vector<int> VII;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-LAST EDIT TIME: 
-Description: 
+Description: 比赛写的。
 */
 
 class Solution {
@@ -56,7 +53,7 @@ public:
         l = 0;
         r = 0;
         while(r < s2.size()) {
-            if (r == s2.length() - 1 ||s2[r + 1] == ' ') {
+            if (r == s2.length() - 1 || s2[r + 1] == ' ') {
                 st2.push_back(s2.substr(l, r - l + 1));
                 r += 2;
                 l = r;

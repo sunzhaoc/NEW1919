@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-03 22:22:00
- * @LastEditTime: 2021-04-04 00:02:20
+ * @LastEditTime: 2021-04-04 14:40:04
  * @FilePath: \Leetcode\demo01.cpp
  */
 #include <iostream>
@@ -23,10 +23,7 @@ typedef vector<int> VII;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-LAST EDIT TIME: 
-Description: 
+Description: 比赛写的。
 */
 
 class Solution {
@@ -40,10 +37,7 @@ public:
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-LAST EDIT TIME: 
-Description: 
+Description: 比赛写的。
 */
 
 class Solution {

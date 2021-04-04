@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-03 20:10:11
- * @LastEditTime: 2021-04-03 20:34:13
+ * @LastEditTime: 2021-04-04 14:50:49
  * @FilePath: \Leetcode\1143.Longest Common Subsequence.cpp
  */
 /*
@@ -52,5 +52,6 @@ public:
         return dp.back().back();
     }
 };
+
 // @lc code=end
 

@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-04 10:06:53
- * @LastEditTime: 2021-04-04 11:00:59
- * @FilePath: \Leetcode\weekcom\t3.cpp
+ * @LastEditTime: 2021-04-04 14:50:28
+ * @FilePath: \Leetcode\1815.Minimum Absolute Sum Difference.cpp
  */
 
 #include <iostream>
@@ -23,6 +23,12 @@ typedef long long LL;
 typedef vector<int> VI;
 typedef vector<vector<int>> VVI;
 const int N = 1000000007;
+
+/*
+RESULT: Accept
+Description: 比赛写的。
+能过，但是是错误的。[1, 2, 100] [2, 4, 105] 就过不了。
+*/
 
 class Solution {
 public:

@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-04 10:06:52
- * @LastEditTime: 2021-04-04 11:12:02
- * @FilePath: \Leetcode\weekcom\t2.cpp
+ * @LastEditTime: 2021-04-04 14:48:19
+ * @FilePath: \Leetcode\1814.Finding the Users Active Minutes.cpp
  */
 
 #include <iostream>
@@ -23,6 +23,10 @@ typedef long long LL;
 typedef vector<int> VI;
 typedef vector<vector<int>> VVI;
 
+/*
+RESULT: Accept
+Description: 比赛写的。
+*/
 
 class Solution {
 public:

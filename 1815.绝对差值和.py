@@ -3,9 +3,17 @@ Description:
 Version: 1.0
 Autor: Vicro
 Date: 2021-04-04 10:07:31
-LastEditTime: 2021-04-04 11:51:10
-FilePath: \Leetcode\weekcom\t3.py
+LastEditTime: 2021-04-04 14:50:09
+FilePath: \Leetcode\1815.绝对差值和.py
 '''
+
+/*
+RESULT: Accept
+Description: 比赛写的。
+能过，但是错误的。
+[1, 2, 100] [2, 4, 105] 就过不了。
+*/
+
 class Solution:
     def minAbsoluteSumDiff(self, nums1, nums2):
         n = len(nums1)

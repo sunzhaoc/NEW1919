@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-04 10:05:59
+ * @LastEditTime: 2021-04-04 14:48:07
+ * @FilePath: \Leetcode\1813.Truncate Sentence.cpp
+ */
 
 #include <iostream>
 #include <string>
@@ -15,6 +23,10 @@ typedef long long LL;
 typedef vector<int> VI;
 typedef vector<vector<int>> VVI;
 
+/*
+RESULT: Accept
+Description: 比赛写的。
+*/
 
 class Solution {
 public:
