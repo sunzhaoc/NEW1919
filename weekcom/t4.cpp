@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-05 14:48:06
- * @LastEditTime: 2021-04-05 14:49:36
- * @FilePath: \Leetcode\weekcom\t1.cpp
+ * @LastEditTime: 2021-04-05 16:52:12
+ * @FilePath: \Leetcode\weekcom\t4.cpp
  */
 #include <iostream>
 #include <string>
@@ -23,7 +23,12 @@ typedef vector<vector<int>> VVI;
 typedef vector<string> VS;
 typedef vector<vector<string>> VVS;
 
-
+class Solution {
+public:
+    int orchestraLayout(int num, int xPos, int yPos) {
+        int key = min(xPos, num - 1 - x)
+    }
+};
 
 
 // int main() {
