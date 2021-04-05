@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-08 14:41:50
- * @LastEditTime: 2021-03-08 15:09:07
+ * @LastEditTime: 2021-04-05 20:01:05
  * @FilePath: \Leetcode\88.Merge Sorted Array.cpp
  */
 /*
@@ -30,6 +30,30 @@ using namespace std;
 
 /*
 RESULT: Accept
+TIME:     0ms    BEAT: 100.00%    O(n) = m + n
+MEMORY: 8.9MB    BEAT:  33.07%    O(n) = 1
+LAST EDIT TIME: 2021年4月5日20:0:49
+Description: 二刷。
+比以前的代码优雅多了。
+*/
+
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int p1 = m - 1, p2 = n - 1;
+        int cur = m + n - 1;
+        while (cur >= 0) {
+            if (p1 == -1) nums1[cur --] = nums2[p2 --];
+            else if (p2 == -1) nums1[cur --] = nums1[p1 --];
+            else if(nums1[p1] > nums2[p2]) nums1[cur --] = nums1[p1 --];
+            else nums1[cur --] = nums2[p2 --];
+        }
+    }
+};
+
+
+/*
+RESULT: Accept
 TIME:     4ms    BEAT: 69.99%    O(n) = m + n
 MEMORY: 8.9MB    BEAT: 63.39%    O(n) = 1
 LAST EDIT TIME: 2021年3月8日15:7:37
@@ -41,13 +65,13 @@ public:
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
         int p1 = m - 1, p2 = n - 1;
         int cur;
-        int tail = n + m -1;
+        int cur = n + m -1;
         while (p1 >= 0 || p2 >= 0) {
             if (p1 == -1) cur = nums2[p2 --];
             else if (p2 == -1) cur = nums1[p1 --];
             else if (nums1[p1] < nums2[p2]) cur = nums2[p2 --];
             else cur = nums1[p1 --];
-            nums1[tail --] = cur;
+            nums1[cur --] = cur;
         }
     }
 };
