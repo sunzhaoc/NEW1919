@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-05 14:48:06
- * @LastEditTime: 2021-04-05 16:50:39
- * @FilePath: \Leetcode\weekcom\t2.cpp
+ * @LastEditTime: 2021-04-06 14:20:25
+ * @FilePath: \Leetcode\weekcom\LCCUP2021 春季赛 个人\t2.cpp
  */
 #include <iostream>
 #include <string>
@@ -31,6 +31,7 @@ public:
         int ans = (getPoLLValue(num, yPos + 1, xPos + 1)) % 9;
         // LL ans = (getPoLLValue(4,1,2)) % 9;
         // LL ans = (getPoLLValue(4,2 + 1,1 + 1)) % 9;
+        if (ans == 0) ans ++;
         return ans;
     }
     int getPoLLValue(LL n,  LL _x, LL _y) {
@@ -60,6 +61,7 @@ public:
         return result;
     }
 };
+
 
 int main() {
     Solution sol;
