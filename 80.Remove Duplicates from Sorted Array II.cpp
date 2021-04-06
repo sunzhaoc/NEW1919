@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-01-30 16:28:56
- * @LastEditTime: 2021-01-30 18:21:01
+ * @LastEditTime: 2021-04-06 08:51:55
  * @FilePath: \Leetcode\80.Remove Duplicates from Sorted Array II.cpp
  */
 /*
@@ -21,6 +21,34 @@
 #include <unordered_map>
 #include <set>
 using namespace std;
+
+
+/*
+RESULT: Accept
+TIME:      8ms    BEAT: 57.79%    O(n) = n
+MEMORY: 10.7MB    BEAT: 14.29%    O(n) = 1
+USED TIME: 26:06
+LAST EDIT TIME: 2021年4月6日8:51:33
+Description: 二刷。
+有思路，不过还是卡住了。
+*/
+
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        if (nums.size() <= 2) return nums.size();
+        int id = 1;
+        int cnt = 1;
+        for (int i = 1; i < nums.size(); i ++) {
+            if (nums[i] != nums[i - 1]) cnt = 1;
+            else cnt ++;
+            if (cnt <= 2) {
+                nums[id++] = nums[i];
+            }
+        }
+        return id;
+    }
+};
 
 
 /*
