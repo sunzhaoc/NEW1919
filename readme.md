@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2020-11-30 21:56:56
- * @LastEditTime: 2021-04-04 20:52:01
+ * @LastEditTime: 2021-04-06 11:05:33
  * @FilePath: \Leetcode\readme.md
 -->
 
@@ -45,18 +45,15 @@ struct ListNode {
     ListNode(int x) : val(x), next(NULL) {}
 };
 
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
 
-
-#include <iostream>
-#include <string>
-#include <vector>
-#include <algorithm>
-#include <math.h>
-#include <unordered_map>
-#include <set>
-#include <queue>
-#include <stack>
-#include <unordered_set>
+#include <bits/stdc++.h>
 using namespace std;
 
 
