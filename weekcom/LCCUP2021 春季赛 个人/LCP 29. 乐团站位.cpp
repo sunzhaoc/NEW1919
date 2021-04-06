@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-05 14:48:06
- * @LastEditTime: 2021-04-06 15:16:55
+ * @LastEditTime: 2021-04-06 16:06:54
  * @FilePath: \Leetcode\weekcom\LCCUP2021 春季赛 个人\LCP 29. 乐团站位.cpp
  */
 #include <iostream>
@@ -20,20 +20,49 @@ using namespace std;
 
 typedef long long LL;
 
+
+/*
+RESULT: Accept
+TIME:     0ms    BEAT: 100.00%    O(n) = 1
+MEMORY: 5.8MB    BEAT: 100.00%    O(n) = 1
+LAST EDIT TIME: 2021年4月6日16:5:51
+Description: 找规律。先计算是第几层上的数。
+*/
+
 class Solution {
 public:
     int orchestraLayout(int num, int xPos, int yPos) {
-        int n = min(min(min(xPos, yPos), num - 1 - xPos), num - 1 - yPos);
-        int U = n, D = num - 1 - n, L = n, R = num - 1 - n;
-        LL cur = num * num - (num - 2 * n) * (num - 2 * n);
-        cur %= 9;
-        int ret = 0;
-
-        // Condition 1
-        if (U == xPos) {
-            
-        }
+        LL n = min(min(min(xPos, yPos), num - 1 - xPos), num - 1 - yPos);
+        LL U = n, D = num - 1 - n, L = n, R = num - 1 - n;
+        LL cur = 0;
         
+        cur += num * 1ll * num; // 不加1ll会报错。
+        cur -= (num - 2 * n) * (num - 2 * n);
+        cur %= 9;
+
+        // Condition 1 UP
+        if (U == xPos) {
+            return (cur + yPos - L + 1) % 9 != 0 ? (cur + yPos - L + 1) % 9 : 9;
+        }
+        else cur += R - L + 1;
+        U ++;
+
+        // Condition 2 RIGHT
+        if (R == yPos) {
+            return (cur + xPos - U + 1) % 9 != 0 ? (cur + xPos - U + 1) % 9 : 9;
+        }
+        else cur += D - U + 1;
+        R --;
+        
+        // Condition 3 DOWN
+        if (D == xPos) {
+            return (cur + R - yPos + 1) % 9 != 0 ? (cur + R - yPos + 1) % 9 : 9;
+        }
+        else cur += R - L + 1;
+        D --;
+
+        // Condition 4 LEFT
+        return (cur + D - xPos + 1) % 9 != 0 ? (cur + D - xPos + 1) % 9 : 9;
     }
 };
 

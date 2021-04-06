@@ -3,7 +3,7 @@ Description:
 Version: 1.0
 Autor: Vicro
 Date: 2021-04-06 14:24:26
-LastEditTime: 2021-04-06 15:13:03
+LastEditTime: 2021-04-06 15:49:30
 FilePath: \Leetcode\weekcom\LCCUP2021 春季赛 个人\LCP 29. 乐团站位.py
 '''
 
@@ -49,3 +49,8 @@ class Solution:
         if left == yPos:
             res = (cur + down - xPos + 1) % 9
             return res if res else 9
+
+
+sol = Solution()
+res = sol.orchestraLayout(8876, 217, 97)
+print(res)
