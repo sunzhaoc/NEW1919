@@ -2,39 +2,37 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-05 14:48:06
- * @LastEditTime: 2021-04-05 16:52:12
- * @FilePath: \Leetcode\weekcom\t4.cpp
+ * @Date: 2021-04-05 14:50:07
+ * @LastEditTime: 2021-04-06 14:54:56
+ * @FilePath: \Leetcode\weekcom\LCCUP2021 春季赛 个人\t4.cpp
  */
-#include <iostream>
-#include <string>
-#include <vector>
-#include <algorithm>
-#include <math.h>
-#include <unordered_map>
-#include <set>
-#include <queue>
-#include <stack>
-#include <unordered_set>
-using namespace std;
-
-typedef vector<int> VI;
-typedef vector<vector<int>> VVI;
-typedef vector<string> VS;
-typedef vector<vector<string>> VVS;
-
-class Solution {
+class Solution
+{
 public:
-    int orchestraLayout(int num, int xPos, int yPos) {
-        int key = min(xPos, num - 1 - x)
-    }
+    int magicTower(vector<int>& nums) 
+	{
+		int blood=0;
+		int harm=0;
+		int d=0;
+		priority_queue<int> q;
+		int ret=0;
+		for (int val:nums)
+			if (val>0)
+				blood+=val;
+			else
+			{
+				val=-val;
+				q.push(val);
+				harm+=val;
+				while (!q.empty() && blood<harm)
+				{
+					int key=q.top();
+					q.pop();
+					harm-=key;
+					d+=key;
+					++ret;
+				}
+			}
+		return (blood>=harm+d)?ret:-1;
+	}
 };
-
-
-// int main() {
-//     Solution sol;
-//     ans = sol.();
-//     cout << ans << endl;
-//     system("pause");
-//     return 0;
-// }
