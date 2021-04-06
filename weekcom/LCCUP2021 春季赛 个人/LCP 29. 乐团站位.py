@@ -1,3 +1,13 @@
+'''
+Description: 
+Version: 1.0
+Autor: Vicro
+Date: 2021-04-06 14:24:26
+LastEditTime: 2021-04-06 14:24:38
+FilePath: \Leetcode\weekcom\LCCUP2021 春季赛 个人\t2.py
+'''
+
+
 class Solution:
     def magicTower(self, nums: List[int]) -> int:
         n = len(nums)
