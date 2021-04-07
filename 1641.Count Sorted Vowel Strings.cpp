@@ -1,3 +1,18 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-07 19:13:18
+ * @LastEditTime: 2021-04-07 19:28:53
+ * @FilePath: \Leetcode\1641.Count Sorted Vowel Strings.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=1641 lang=cpp
+ *
+ * [1641] 统计字典序元音字符串的数目
+ */
+
+// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -36,9 +51,28 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
+TIME:     4ms    BEAT: 26.23%    O(n) = 
+MEMORY: 5.8MB    BEAT: 80.40%    O(n) = 
+USED TIME: 13:49
+LAST EDIT TIME: 2021年4月7日19:28:15
+Description: 类似于357题。前缀和的找规律问题。
 */
+
+class Solution {
+public:
+    int countVowelStrings(int n) {
+        VI nums = {1, 1, 1, 1, 1};
+        if (n == 1) return 5;
+        FOR(i, 1, n) {
+            FOR (j, 1, SZ(nums)) {
+                nums[j] += nums[j - 1];
+            }
+        }
+        int cnt = 0;
+        for (int num: nums) cnt += num;
+        return cnt;
+    }
+};
+
+// @lc code=end
+

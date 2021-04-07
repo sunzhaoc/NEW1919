@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-07 19:35:55
+ * @LastEditTime: 2021-04-07 19:53:59
+ * @FilePath: \Leetcode\程序员面试金典\面试题 08.04. 幂集.cpp
+ */
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -36,9 +44,38 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
+TIME:   0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 7MB    BEAT:  54.97%    O(n) = 
+USED TIME: 14:15
+LAST EDIT TIME: 2021年4月7日19:53:5
+Description: 求集合的子集。
 */
+
+class Solution {
+public:
+    VVI ans;
+    int N;
+    vector<vector<int>> subsets(vector<int>& nums) {
+        N = nums.size();
+        VI block;
+        backTrack(nums, block, 0);
+        return ans;
+    }
+
+    void backTrack(VI& nums, VI& used, int id) {
+        if (id > N) return;
+        ans.PB(used);
+        FOR (i, id, N) {
+            used.PB(nums[i]);
+            backTrack(nums, used, i + 1);
+            used.pop_back();
+        }
+    }
+};
+
+int main() {
+    Solution sol;
+    VI nums = {1, 2, 3};
+    VVI ans = sol.subsets(nums);
+    return 0;
+}

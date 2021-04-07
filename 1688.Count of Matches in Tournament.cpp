@@ -1,3 +1,18 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-07 19:07:24
+ * @LastEditTime: 2021-04-07 19:12:28
+ * @FilePath: \Leetcode\1688.Count of Matches in Tournament.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=1688 lang=cpp
+ *
+ * [1688] 比赛中的配对次数
+ */
+
+// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -36,9 +51,29 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
+TIME:     0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 5.8MB    BEAT:  76.24%    O(n) = 
+USED TIME: 04:11
+LAST EDIT TIME: 2021年4月7日19:12:12
 Description: 
 */
+
+class Solution {
+public:
+    int numberOfMatches(int n) {
+        int cnt = 0;
+        while (n == 1) {
+            if (n % 2 == 0) {
+                cnt += n / 2;
+                n /= 2;
+            }
+            else {
+                cnt += n / 2;
+                n = (n + 1) / 2;
+            }
+        }
+        return cnt;
+    }
+};
+// @lc code=end
+

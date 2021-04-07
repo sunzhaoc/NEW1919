@@ -1,3 +1,19 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-07 20:03:03
+ * @LastEditTime: 2021-04-07 20:03:53
+ * @FilePath: \Leetcode\程序员面试金典\面试题 08.09. 括号.cpp
+ */
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-07 19:35:55
+ * @LastEditTime: 2021-04-07 20:02:15
+ * @FilePath: \Leetcode\temp.cpp
+ */
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -36,9 +52,36 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
+TIME:      8ms    BEAT: 37.26%    O(n) = 
+MEMORY: 16.9MB    BEAT:  9.33%    O(n) = 
+USED TIME: 不长。忘记记了。
+LAST EDIT TIME: 2021年4月7日20:3:45
 Description: 
 */
+
+class Solution {
+public:
+    VS ans;
+    vector<string> generateParenthesis(int n) {
+        backTrack("", n , n);
+        return ans;
+    }
+
+    void backTrack(string cur, int l, int r) {
+        if (l == 0 & r == 0) {
+            ans.PB(cur);
+            return;
+        }
+        if (l < 0 || r < 0) return;
+        if (l == r) {
+            cur += "(";
+            backTrack(cur, l - 1, r);
+        }
+        else if (l < r) {
+            string cur1 = cur + "(";
+            backTrack(cur1, l - 1, r);
+            string cur2 = cur + ")";
+            backTrack(cur2, l, r - 1);
+        }
+    }
+};

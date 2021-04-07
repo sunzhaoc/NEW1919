@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-07 19:35:55
+ * @LastEditTime: 2021-04-07 20:12:35
+ * @FilePath: \Leetcode\temp.cpp
+ */
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -42,3 +50,29 @@ USED TIME:
 LAST EDIT TIME: 
 Description: 
 */
+
+class Solution {
+public:
+    VS ans;
+    VS nums;
+    int N;
+    vector<string> permutation(string S) {
+        for (char s: S) nums.PB(s);
+        N = LENGTH(S);
+        backTrack("", 0);
+        return ans;
+    }
+
+    void backTrack(string cur, int id) {
+        if (id > N) {
+            ans.PB(cur);
+            reutrn;
+        }
+
+        FOR (i, id, N) {
+            cur += nums[i];
+            backTrack(cur, id + 1);
+            cur.substr(0, SZ(cur) - 1);
+        }
+    }
+};

@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-03-02 09:19:25
- * @LastEditTime: 2021-03-02 09:38:29
+ * @LastEditTime: 2021-04-07 12:50:13
  * @FilePath: \Leetcode\46.Permutations.cpp
  */
 /*
@@ -66,6 +66,22 @@ public:
         }
     }
 };
+
+
+
+int main() {
+    Solution sol;
+    vector<int> nums = {1,2,3};
+    vector<vector<int>> ans = sol.permute(nums);
+    for (int i = 0; i < ans.size(); i ++) {
+        for (int j = 0; j < ans[0].size(); j ++) {
+            if (j != ans[0].size() - 1)    cout << ans[i][j] << ", ";
+            else cout << ans[i][j] << "; " ;
+        }
+    }
+    system("pause");
+    return 0;
+}
 
 // @lc code=end
 
