@@ -2,8 +2,16 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
+ * @Date: 2021-04-07 20:34:31
+ * @LastEditTime: 2021-04-08 11:49:05
+ * @FilePath: \Leetcode\程序员面试金典\面试题 08.07. 无重复字符串的排列组合.cpp
+ */
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
  * @Date: 2021-04-07 19:35:55
- * @LastEditTime: 2021-04-07 20:12:35
+ * @LastEditTime: 2021-04-07 20:26:48
  * @FilePath: \Leetcode\temp.cpp
  */
 
@@ -41,38 +49,38 @@ using VVI = vector<VI>;
 using VD = vector<double>;
 using VS = vector<string>;
 using VVS = vector<VS>;
+using VC = vector<char>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
+TIME:     52ms    BEAT: %    O(n) = 
+MEMORY: 22.6MB    BEAT: %    O(n) = 
+LAST EDIT TIME: 2021年4月8日11:49:5
 Description: 
 */
 
 class Solution {
 public:
     VS ans;
-    VS nums;
     int N;
     vector<string> permutation(string S) {
-        for (char s: S) nums.PB(s);
         N = LENGTH(S);
-        backTrack("", 0);
+        backTrack("", S);
         return ans;
     }
 
-    void backTrack(string cur, int id) {
-        if (id > N) {
+    void backTrack(string cur, string unused) {
+        if (LENGTH(unused) == 0) {
             ans.PB(cur);
-            reutrn;
+            return;
         }
 
-        FOR (i, id, N) {
-            cur += nums[i];
-            backTrack(cur, id + 1);
-            cur.substr(0, SZ(cur) - 1);
+        REP(i, LENGTH(unused)) {
+            cur += unused[i];
+            string nextUnused = unused.substr(0, i) + unused.substr(i + 1);
+            backTrack(cur, nextUnused);
+            cur = cur.substr(0, LENGTH(cur) - 1);
         }
     }
 };
+

@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-01-22 14:24:34
- * @LastEditTime: 2021-03-17 17:01:28
+ * @LastEditTime: 2021-04-08 13:56:56
  * @FilePath: \Leetcode\200.Number of Islands.cpp
  */
 /*
@@ -84,73 +84,73 @@ LAST EDIT TIME: 2021年1月22日15:42:46
 Description: 并查集。自己写出来的。耶~~~
 */
 
-// class Solution {
-// public:
-//     vector<int> parent;
-//     int count;
+class Solution {
+public:
+    vector<int> parent;
+    int count;
 
-//     void init(vector<vector<char>>& grid) {
-//         for (int i = 0; i < grid.size(); i ++) {
-//             for (int j = 0; j < grid[0].size(); j ++) {
-//                 if (grid[i][j] == '1') {
-//                     parent.push_back(i * grid[0].size() + j);
-//                     count ++;
-//                 }
-//                 else {
-//                     parent.push_back(-1);
-//                 }
-//             }
-//         }
-//     }
+    void init(vector<vector<char>>& grid) {
+        for (int i = 0; i < grid.size(); i ++) {
+            for (int j = 0; j < grid[0].size(); j ++) {
+                if (grid[i][j] == '1') {
+                    parent.push_back(i * grid[0].size() + j);
+                    count ++;
+                }
+                else {
+                    parent.push_back(-1);
+                }
+            }
+        }
+    }
 
-//     int find(int x) {
-//         int son, tmp;
-//         son = x;
+    int find(int x) {
+        int son, tmp;
+        son = x;
 
-//         while (x != parent[x]) {
-//             x = parent[x];
-//         }
+        while (x != parent[x]) {
+            x = parent[x];
+        }
 
-//         while (son != x) {
-//             tmp = parent[son];
-//             parent[son] = x;
-//             son = tmp;
-//         }
+        while (son != x) {
+            tmp = parent[son];
+            parent[son] = x;
+            son = tmp;
+        }
 
-//         return x;
-//     }
+        return x;
+    }
 
-//     void islandUnion(int x, int y) {
-//         int rootX = find(x);
-//         int rootY = find(y);
+    void islandUnion(int x, int y) {
+        int rootX = find(x);
+        int rootY = find(y);
 
-//         if (rootX != rootY) {
-//             parent[rootY] = rootX;
-//             count --;
-//         }
-//     }
+        if (rootX != rootY) {
+            parent[rootY] = rootX;
+            count --;
+        }
+    }
 
-//     int numIslands(vector<vector<char>>& grid) {
-//         int numRow = grid.size();
-//         int numCol = grid[0].size();
+    int numIslands(vector<vector<char>>& grid) {
+        int numRow = grid.size();
+        int numCol = grid[0].size();
 
-//         int ans = 0;
-//         init(grid);
+        int ans = 0;
+        init(grid);
         
-//         for (int i = 0; i < numRow; i ++) {
-//             for (int j = 0; j < numCol; j ++) {
-//                 if (grid[i][j] == '0') continue;
-//                 grid[i][j] = '0';
-//                 if (i - 1 >= 0 && grid[i - 1][j] == '1') islandUnion(i * numCol + j, (i - 1) * numCol + j);
-//                 if (i + 1 < numRow && grid[i + 1][j] == '1') islandUnion(i * numCol + j, (i + 1) * numCol + j);
-//                 if (j - 1 >= 0 && grid[i][j - 1] == '1') islandUnion(i * numCol + j, i * numCol + j - 1);
-//                 if (j + 1 < numCol && grid[i][j + 1] == '1') islandUnion(i * numCol + j, i * numCol + j + 1);
-//             }
-//         }
-
-//         return count;
-//     }
-// };
+        for (int i = 0; i < numRow; i ++) {
+            for (int j = 0; j < numCol; j ++) {
+                if (grid[i][j] == '0') continue;
+                grid[i][j] = '0';
+                if (i - 1 >= 0 && grid[i - 1][j] == '1') islandUnion(i * numCol + j, (i - 1) * numCol + j);
+                if (i + 1 < numRow && grid[i + 1][j] == '1') islandUnion(i * numCol + j, (i + 1) * numCol + j);
+                if (j - 1 >= 0 && grid[i][j - 1] == '1') islandUnion(i * numCol + j, i * numCol + j - 1);
+                if (j + 1 < numCol && grid[i][j + 1] == '1') islandUnion(i * numCol + j, i * numCol + j + 1);
+            }
+        }
+        
+        return count;
+    }
+};
 
 
 /*

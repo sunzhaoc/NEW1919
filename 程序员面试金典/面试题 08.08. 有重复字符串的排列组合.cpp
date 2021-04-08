@@ -2,9 +2,9 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-05 20:05:57
- * @LastEditTime: 2021-04-08 15:58:04
- * @FilePath: \Leetcode\ACRush.cpp
+ * @Date: 2021-04-04 20:51:53
+ * @LastEditTime: 2021-04-08 12:02:15
+ * @FilePath: \Leetcode\程序员面试金典\面试题 08.08. 有重复字符串的排列组合.cpp
  */
 
 #include <bits/stdc++.h>
@@ -14,7 +14,6 @@ using namespace std;
 # define CKBIT(S,X) (((S) & POW2(X)) != 0)
 const double pi = acos(-1.0);
 const double eps = 1e-11;
-const int MOD = 1e9 + 7;
 template<class T> inline void ckmin(T &a,T b){ a = min(a, b); }
 template<class T> inline void ckmax(T &a,T b){ a = max(a, b); }
 template<class T> inline T sqr(T x){ return x * x; }
@@ -45,9 +44,35 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
+TIME:   4ms    BEAT: 76.04%    O(n) = 
+MEMORY: 7MB    BEAT: 54.73%    O(n) = 
+USED TIME: 11:30
+LAST EDIT TIME: 2021年4月8日12:1:21
+Description: 又花了那么长时间。。。
 */
+
+class Solution {
+public:
+    VS ans;
+    vector<string> permutation(string S) {
+        sort(ALL(S));
+        string tmp = "";
+        backTrack(tmp, S);
+        return ans;
+    }
+
+    void backTrack(string& cur, string& unused) {
+        if (LENGTH(unused) == 0) {
+            ans.PB(cur);
+            return;
+        }
+
+        REP(i, LENGTH(unused)) {
+            if (i != 0 && unused[i] == unused[i - 1]) continue;
+            cur += unused[i];
+            string nextUnused = unused.substr(0, i) + unused.substr(i + 1);
+            backTrack(cur, nextUnused);
+            cur = cur.substr(0, LENGTH(cur) - 1);
+        }
+    }
+}; 

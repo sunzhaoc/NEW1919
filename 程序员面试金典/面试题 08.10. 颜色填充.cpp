@@ -2,9 +2,9 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-05 20:05:57
- * @LastEditTime: 2021-04-08 15:58:04
- * @FilePath: \Leetcode\ACRush.cpp
+ * @Date: 2021-04-08 13:34:19
+ * @LastEditTime: 2021-04-08 13:34:30
+ * @FilePath: \Leetcode\程序员面试金典\面试题 08.10. 颜色填充.cpp
  */
 
 #include <bits/stdc++.h>
@@ -14,7 +14,6 @@ using namespace std;
 # define CKBIT(S,X) (((S) & POW2(X)) != 0)
 const double pi = acos(-1.0);
 const double eps = 1e-11;
-const int MOD = 1e9 + 7;
 template<class T> inline void ckmin(T &a,T b){ a = min(a, b); }
 template<class T> inline void ckmax(T &a,T b){ a = max(a, b); }
 template<class T> inline T sqr(T x){ return x * x; }
@@ -45,9 +44,30 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
+TIME:     12ms    BEAT: 52.76%    O(n) = 
+MEMORY: 13.5MB    BEAT: 23.11%    O(n) = 
+USED TIME: 13:47
+LAST EDIT TIME: 2021年4月8日13:33:10
+Description: BFS
 */
+class Solution {
+public:
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
+        if (image[sr][sc] == newColor) return image;
+        int target = image[sr][sc];
+        stack<PII> st;
+        st.push(MP(sr, sc));
+        int dx[4] = {0, 1, -1, 0};
+        int dy[4] = {1, 0, 0, -1};
+        while (st.size()) {
+            int x = st.top().F, y = st.top().S;
+            st.pop();
+            image[x][y] = newColor;
+            for (int i = 0; i < 4; i ++) {
+                if (x + dx[i] < 0 || x + dx[i] == image.size() || y + dy[i] <0 || y + dy[i] == image[0].size()) continue;
+                if (image[x + dx[i]][y + dy[i]] == target) st.push(MP(x + dx[i], y + dy[i]));
+            }
+        }
+        return image;
+    }
+};
