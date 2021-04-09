@@ -1,3 +1,18 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-08 19:49:55
+ * @LastEditTime: 2021-04-08 20:01:32
+ * @FilePath: \Leetcode\797.All Paths From Source to Target.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=797 lang=cpp
+ *
+ * [797] 所有可能的路径
+ */
+
+// @lc code=start
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -36,9 +51,36 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
+TIME:      8ms    BEAT: 98.89%    O(n) = 
+MEMORY: 11.8MB    BEAT: 48.17%    O(n) = 
+USED TIME: 09:07
+LAST EDIT TIME: 2021年4月8日20:1:10
+Description: 我都没想到这就能过了。
 */
+
+class Solution {
+public:
+    VVI ans;
+    int N;
+    vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
+        N = graph.size() - 1;
+        VI init = {0};
+        backTrack(init, graph);
+        return ans;
+    }
+    
+    void backTrack(VI& cur, VVI& graph) {
+        if (cur.back() == N) {
+            ans.PB(cur);
+            return;
+        }
+        int id = cur.back();
+        REP(i, SZ(graph[id])) {
+            cur.PB(graph[id][i]);
+            backTrack(cur, graph);
+            cur.pop_back();
+        }
+    }
+};
+// @lc code=end
+

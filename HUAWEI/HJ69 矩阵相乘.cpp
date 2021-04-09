@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-08 20:48:08
+ * @LastEditTime: 2021-04-08 20:48:34
+ * @FilePath: \Leetcode\HUAWEI\HJ69 矩阵相乘.cpp
+ */
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -36,9 +44,43 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
+LAST EDIT TIME: 2021年4月8日20:48:36
 */
+
+int main() {
+    int x, y, z;
+    while(cin >> x >> y >> z){
+        VVI A(x), B(y);
+        REP(i, x) {
+            REP(j, y){
+                int tmp;
+                cin >> tmp;
+                A[i].PB(tmp);
+            }
+        }
+        REP(i, y) {
+            REP(j, z){
+                int tmp;
+                cin >> tmp;
+                B[i].PB(tmp);
+            }
+        }
+        VVI ans(x, VI(z));
+        REP(i, x) {
+            REP(j, z) {
+                int sum = 0;
+                REP(k, y) {
+                    sum += A[i][k] * B[k][j];
+                }
+                ans[i][j] = sum;
+            }
+        }
+        REP(i,x){
+            REP(j,z){
+                cout << ans[i][j] << " ";
+            }
+            cout << endl;
+        }
+    }
+    return 0;
+}

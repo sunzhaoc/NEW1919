@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -43,17 +42,3 @@ USED TIME:
 LAST EDIT TIME: 
 Description: 
 */
-
-class Solution {
-public:
-    int waysToChange(int n) {
-        int cnt = 1;
-        int tmp = n / 5;
-        if (tmp < 1) return cnt;
-        cnt += tmp;
-        FOR(i, 1, tmp + 1) {
-            cnt += i / 2;
-        }
-        
-    }
-};

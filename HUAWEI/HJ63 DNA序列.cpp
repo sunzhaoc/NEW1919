@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-08 21:32:47
+ * @LastEditTime: 2021-04-08 21:34:07
+ * @FilePath: \Leetcode\HUAWEI\HJ63 DNA序列.cpp
+ */
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -36,9 +44,32 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
+LAST EDIT TIME: 2021年4月8日21:34:12
 */
+
+int main() {
+    string s;
+    while (getline(cin, s)) {
+        int n;
+        cin >> n;
+        string ans = s.substr(0, n);
+        int res = 0;
+        REP(i, n) {
+            if (s[i] == 'G' || s[i] == 'C') res ++;
+        }
+        int cnt = res;
+        int l = 0, r = n - 1;
+        while (r + 1 < LENGTH(s)) {
+            if (s[l] == 'G' || s[l] == 'C') cnt --;
+            l ++;
+            r ++;
+            if (s[r] == 'G' || s[r] == 'C') cnt ++;
+            if (cnt > res) {
+                res = cnt;
+                ans = s.substr(l, n);
+            }
+        }
+        cout << ans << endl;
+    }
+    return 0;
+}

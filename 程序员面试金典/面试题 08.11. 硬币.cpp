@@ -1,3 +1,12 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-08 19:41:14
+ * @LastEditTime: 2021-04-08 19:42:56
+ * @FilePath: \Leetcode\程序员面试金典\面试题 08.11. 硬币.cpp
+ */
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -34,11 +43,28 @@ using VD = vector<double>;
 using VS = vector<string>;
 using VVS = vector<VS>;
 
+
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
+TIME:    104ms    BEAT: 35.78%    O(n) = 
+MEMORY: 14.2MB    BEAT: 29.56%    O(n) = 
+LAST EDIT TIME: 2021年4月8日19:41:48
+Description: 好像是完全背包问题。
+https://leetcode-cn.com/problems/coin-lcci/solution/ying-bi-by-leetcode-solution/
+https://leetcode-cn.com/problems/coin-lcci/solution/cji-hu-shuang-bai-de-dong-tai-gui-hua-by-58ul/
 */
+
+class Solution {
+public:
+    int waysToChange(int n) {
+        VI coins = {1, 5, 10, 25};
+        VI dp(n + 1);
+        dp[0] = 1;
+        REP(i, 4) {
+            FOR(j, coins[i], n + 1) {
+                dp[j] = (dp[j] + dp[j - coins[i]]) % MOD;
+            }
+        }
+        return dp[n];
+    }
+};

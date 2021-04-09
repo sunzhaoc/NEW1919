@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-09 11:09:08
+ * @LastEditTime: 2021-04-09 11:10:29
+ * @FilePath: \Leetcode\1780.Check if Number is a Sum of Powers of Three.cpp
+ */
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -34,6 +42,7 @@ using VD = vector<double>;
 using VS = vector<string>;
 using VVS = vector<VS>;
 
+
 /*
 RESULT: Accept
 TIME:   ms    BEAT: %    O(n) = 
@@ -42,3 +51,10 @@ USED TIME:
 LAST EDIT TIME: 
 Description: 
 */
+
+class Solution {
+public:
+    bool checkPowersOfThree(int n) {
+
+    }
+};
