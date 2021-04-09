@@ -2,10 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-09 11:09:08
- * @LastEditTime: 2021-04-09 15:05:27
- * @FilePath: \Leetcode\1780.Check if Number is a Sum of Powers of Three.cpp
+ * @Date: 2021-04-09 15:26:53
+ * @LastEditTime: 2021-04-09 15:45:31
+ * @FilePath: \Leetcode\1219.Path with Maximum Gold.cpp
  */
+/*
+ * @lc app=leetcode.cn id=1219 lang=cpp
+ *
+ * [1219] 黄金矿工
+ */
+
+// @lc code=start
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -42,61 +49,44 @@ using VD = vector<double>;
 using VS = vector<string>;
 using VVS = vector<VS>;
 
-
 /*
 RESULT: Accept
-TIME:     0ms    BEAT: 100.00%    O(n) = 
-MEMORY: 5.7MB    BEAT:  88.07%    O(n) = 
-LAST EDIT TIME: 2021年4月9日15:4:19
-Description: 这也太妙了。
-转换成三进制。如果某一位是2，那么就是错的。
+TIME:    60ms    BEAT: 79.55%    O(n) = 
+MEMORY: 7.2MB    BEAT: 68.69%    O(n) = 
+USED TIME: 15:43
+LAST EDIT TIME: 2021年4月9日15:44:41
+Description: 我是真没想到，真就是用两重for循环暴力求解。。。。
 */
 
 class Solution {
 public:
-    bool checkPowersOfThree(int n) {
-        while (n) {
-            if (n % 3 == 2) return false;
-            n /= 3;
+    int res = INT_MIN;
+    int row, col;
+    int getMaximumGold(vector<vector<int>>& grid) {
+        row = SZ(grid), col = SZ(grid[0]);
+        REP(i, SZ(grid)) {
+            REP(j, SZ(grid[0])) {
+                if (grid[i][j] == 0) continue;
+                res = max(res, backTrack(grid, i, j));
+            }
         }
-        return true;
+        return res;
+    }
+
+    int backTrack(VVI& grid, int x, int y) {
+        if (x < 0 || y < 0 || x >= row || y >= col || grid[x][y] == 0) {
+            return 0;
+        }
+        
+        int tmp = grid[x][y];
+        grid[x][y] = 0;
+
+        int maxNum = max(max(backTrack(grid, x + 1, y), backTrack(grid, x - 1, y)), max(backTrack(grid, x, y + 1), backTrack(grid, x, y - 1)));     
+
+        grid[x][y] = tmp;
+        return grid[x][y] + maxNum;
     }
 };
 
-/*
-RESULT: Accept
-TIME:    20ms    BEAT: 17.12%    O(n) = 
-MEMORY: 6.1MB    BEAT: 13.41%    O(n) = 
-USED TIME: 21:44
-LAST EDIT TIME: 2021年4月9日15:1:42
-Description: 回溯。
-*/
+// @lc code=end
 
-class Solution {
-public:
-    int N = 1;
-    int cnt = 0;
-    bool ans = false;
-    bool checkPowersOfThree(int n) {
-        while (N < n) {
-            N *= 3;
-            cnt ++;
-        }
-        if (N == n) return true;
-        cnt --;
-        backTrack(0, n, cnt);
-        return ans;
-    }
-
-    void backTrack(int cur, int target, int id) {
-        if (cur > target) return;
-        if (cur == target) {
-            ans = true;
-            return;
-        }
-        for (int i = id; i >= 0; i --) {
-            backTrack(cur + pow(3, i), target, i - 1);
-            if (ans) return;
-        }
-    }
-};

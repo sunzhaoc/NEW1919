@@ -2,9 +2,9 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-09 11:09:08
- * @LastEditTime: 2021-04-09 15:05:27
- * @FilePath: \Leetcode\1780.Check if Number is a Sum of Powers of Three.cpp
+ * @Date: 2021-04-09 15:51:51
+ * @LastEditTime: 2021-04-09 16:24:52
+ * @FilePath: \Leetcode\294.Flip Game II.cpp
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -44,59 +44,55 @@ using VVS = vector<VS>;
 
 
 /*
-RESULT: Accept
-TIME:     0ms    BEAT: 100.00%    O(n) = 
-MEMORY: 5.7MB    BEAT:  88.07%    O(n) = 
-LAST EDIT TIME: 2021年4月9日15:4:19
-Description: 这也太妙了。
-转换成三进制。如果某一位是2，那么就是错的。
+RESULT: Accept 
+LAST EDIT TIME: 2021年4月9日16:24:18
+Description: 本以为用引用可以减少空间复杂度。
 */
 
 class Solution {
 public:
-    bool checkPowersOfThree(int n) {
-        while (n) {
-            if (n % 3 == 2) return false;
-            n /= 3;
+    int n;
+    bool canWin(string s) {
+        n = SZ(s);
+        return backTrack(s);
+    }
+    
+    bool backTrack(string& s) {
+        REP(i, n - 1) {
+            if (s[i] == '+' && s[i + 1] == '+') {
+                s[i] = '-';
+                s[i + 1] = '-';
+                if (canWin(s) == false) return true;
+                s[i] = '+';
+                s[i + 1] = '+';
+            }
         }
-        return true;
+        return false;
     }
 };
 
+
 /*
 RESULT: Accept
-TIME:    20ms    BEAT: 17.12%    O(n) = 
-MEMORY: 6.1MB    BEAT: 13.41%    O(n) = 
-USED TIME: 21:44
-LAST EDIT TIME: 2021年4月9日15:1:42
-Description: 回溯。
+TIME:    256ms    BEAT: 50.60%    O(n) = 
+MEMORY: 45.7MB    BEAT: 33.74%    O(n) = 
+LAST EDIT TIME:2021年4月9日16:4:26
+Description: 不会。回溯。
 */
 
 class Solution {
 public:
-    int N = 1;
-    int cnt = 0;
-    bool ans = false;
-    bool checkPowersOfThree(int n) {
-        while (N < n) {
-            N *= 3;
-            cnt ++;
+    bool canWin(string s) {
+        int n = SZ(s);
+        REP(i, n - 1) {
+            if (s[i] == '+' && s[i + 1] == '+') {
+                s[i] = '-';
+                s[i + 1] = '-';
+                if (canWin(s) == false) return true;
+                s[i] = '+';
+                s[i + 1] = '+';
+            }
         }
-        if (N == n) return true;
-        cnt --;
-        backTrack(0, n, cnt);
-        return ans;
-    }
-
-    void backTrack(int cur, int target, int id) {
-        if (cur > target) return;
-        if (cur == target) {
-            ans = true;
-            return;
-        }
-        for (int i = id; i >= 0; i --) {
-            backTrack(cur + pow(3, i), target, i - 1);
-            if (ans) return;
-        }
+        return false;
     }
 };
