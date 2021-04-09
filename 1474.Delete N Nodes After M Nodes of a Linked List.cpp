@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-09 19:39:23
- * @LastEditTime: 2021-04-09 19:39:43
+ * @LastEditTime: 2021-04-09 20:01:34
  * @FilePath: \Leetcode\1474.Delete N Nodes After M Nodes of a Linked List.cpp
  */
 
@@ -56,16 +56,41 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
+TIME:     36ms    BEAT: 70.79%    O(n) = 
+MEMORY: 15.3MB    BEAT: 64.04%    O(n) = 
+USED TIME: 16:54
+LAST EDIT TIME: 2021年4月9日19:58:44
+Description: 写得丑，懒得改了。
 */
 
 class Solution {
 public:
     ListNode* deleteNodes(ListNode* head, int m, int n) {
-        
+        ListNode* dummy = new ListNode(-1);
+        dummy->next = head;
+        auto l = dummy, r = dummy;
+        bool flag = false;
+        while (r != nullptr) {
+            REP(i, m) {
+                l = l->next;
+                if (l == nullptr) {
+                    break;
+                }
+            }
+            if (l == nullptr) {
+                break;
+            }
+            REP(i, m + n) {
+                if (r->next == nullptr) {
+                    flag = true;
+                    break;
+                }
+                r = r->next;
+            }
+            l->next = r->next;
+            r = l;
+            if (flag) break;
+        }
+        return head;
     }
 };
