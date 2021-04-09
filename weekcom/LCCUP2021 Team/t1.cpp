@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-09 21:33:50
+ * @LastEditTime: 2021-04-09 21:33:57
+ * @FilePath: \Leetcode\weekcom\LCCUP2021 Team\t1.cpp
+ */
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -35,12 +43,3 @@ using VVI = vector<VI>;
 using VD = vector<double>;
 using VS = vector<string>;
 using VVS = vector<VS>;
-
-/*
-RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
-*/
