@@ -1,3 +1,20 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-09 19:39:23
+ * @LastEditTime: 2021-04-09 19:39:43
+ * @FilePath: \Leetcode\1474.Delete N Nodes After M Nodes of a Linked List.cpp
+ */
+
+// Definition for singly-linked list.
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -36,6 +53,7 @@ using VD = vector<double>;
 using VS = vector<string>;
 using VVS = vector<VS>;
 
+
 /*
 RESULT: Accept
 TIME:   ms    BEAT: %    O(n) = 
@@ -44,3 +62,10 @@ USED TIME:
 LAST EDIT TIME: 
 Description: 
 */
+
+class Solution {
+public:
+    ListNode* deleteNodes(ListNode* head, int m, int n) {
+        
+    }
+};

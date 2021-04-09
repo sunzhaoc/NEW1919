@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -18,6 +19,7 @@ template<class T> inline T sqr(T x){ return x * x; }
 # define ALL(A) A.begin(), A.end()
 # define F first
 # define S second
+# define V vector
 template<class T> int CMP(T a[], const T b[], int n) { return memcmp(a, b, n * sizeof(T)); }
 template<class T> void COPY(T a[], const T b[], int n) { memcpy(a, b, n * sizeof(T)); }
 template<class T> void SET(T a[], int val, int n) { memset(a, val, n*sizeof(T)); }
