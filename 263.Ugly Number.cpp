@@ -2,10 +2,18 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-09 21:33:50
- * @LastEditTime: 2021-04-10 14:31:25
- * @FilePath: \Leetcode\weekcom\LCCUP2021 Team\t1.cpp
+ * @Date: 2021-04-10 14:33:56
+ * @LastEditTime: 2021-04-10 14:41:06
+ * @FilePath: \Leetcode\263.丑数.cpp
  */
+/*
+ * @lc app=leetcode.cn id=263 lang=cpp
+ *
+ * [263] 丑数
+ */
+
+// @lc code=start
+
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -44,14 +52,24 @@ using VD = vector<double>;
 using VS = vector<string>;
 using VVS = vector<VS>;
 
+/*
+RESULT: Accept
+TIME:     0ms    BEAT: 100.00%    O(n) = logn
+MEMORY: 5.9MB    BEAT:   9.88%    O(n) = 1-
+LAST EDIT TIME: 2021年4月10日14:40:20
+Description: EAsy
+*/
 
-// int main () {
-//     Solution sol;
+class Solution {
+public:
+    bool isUgly(int n) {
+        if (n <= 0) return false;
+        VI nums = {2, 3, 5};
+        for (int num: nums) {
+            while(n % num == 0) n /= num;
+        }
+        return n == 1;
+    }
+};
+// @lc code=end
 
-//     auto ans = sol.();
-
-//     cout << ans << endl;
-    
-//     system("pause");
-//     return 0;
-// }

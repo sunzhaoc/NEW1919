@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-05 20:05:57
+ * @LastEditTime: 2021-04-10 14:44:49
+ * @FilePath: \Leetcode\ACRush.cpp
+ */
 
 #include <bits/stdc++.h>
 using namespace std;
