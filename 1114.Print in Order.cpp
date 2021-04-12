@@ -1,3 +1,18 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-12 20:10:08
+ * @LastEditTime: 2021-04-12 20:10:48
+ * @FilePath: \Leetcode\1114.Print in Order.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=1114 lang=cpp
+ *
+ * [1114] 按序打印
+ */
+
+// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -44,3 +59,30 @@ USED TIME:
 LAST EDIT TIME: 
 Description: 
 */
+
+class Foo {
+public:
+    Foo() {
+        
+    }
+
+    void first(function<void()> printFirst) {
+        
+        // printFirst() outputs "first". Do not change or remove this line.
+        printFirst();
+    }
+
+    void second(function<void()> printSecond) {
+        
+        // printSecond() outputs "second". Do not change or remove this line.
+        printSecond();
+    }
+
+    void third(function<void()> printThird) {
+        
+        // printThird() outputs "third". Do not change or remove this line.
+        printThird();
+    }
+};
+// @lc code=end
+
