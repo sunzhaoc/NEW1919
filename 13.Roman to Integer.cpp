@@ -2,14 +2,14 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-12 20:10:08
- * @LastEditTime: 2021-04-12 20:10:48
- * @FilePath: \Leetcode\1114.Print in Order.cpp
+ * @Date: 2021-04-12 20:39:09
+ * @LastEditTime: 2021-04-12 20:51:28
+ * @FilePath: \Leetcode\13.罗马数字转整数.cpp
  */
 /*
- * @lc app=leetcode.cn id=1114 lang=cpp
+ * @lc app=leetcode.cn id=13 lang=cpp
  *
- * [1114] 按序打印
+ * [13] 罗马数字转整数
  */
 
 // @lc code=start
@@ -53,36 +53,43 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
+TIME:     4ms    BEAT: 95.30%    O(n) = 
+MEMORY: 5.9MB    BEAT: 68.53%    O(n) = 
+USED TIME: 11:22
+LAST EDIT TIME: 2021年4月12日20:51:0
+Description: Easy
 */
 
-class Foo {
+class Solution {
 public:
-    Foo() {
-        
+    int romanToInt(string s) {
+        int res = 0;
+        FOR(i, 0, SZ(s) - 1) {
+            if (getValue(s[i]) < getValue(s[i + 1])) {
+                res -= getValue(s[i]);
+            }
+            else {
+                res += getValue(s[i]);
+            }
+        }
+        res += getValue(s.back());
+        return res;
     }
 
-    void first(function<void()> printFirst) {
-        
-        // printFirst() outputs "first". Do not change or remove this line.
-        printFirst();
-    }
-
-    void second(function<void()> printSecond) {
-        
-        // printSecond() outputs "second". Do not change or remove this line.
-        printSecond();
-    }
-
-    void third(function<void()> printThird) {
-        
-        // printThird() outputs "third". Do not change or remove this line.
-        printThird();
+    int getValue(char& ch) {
+        switch (ch)
+        {
+            case 'I': return 1;
+            case 'V': return 5;
+            case 'X': return 10;
+            case 'L': return 50;
+            case 'C': return 100;
+            case 'D': return 500;
+            case 'M': return 1000;
+        }
+        return -1;
     }
 };
+
 // @lc code=end
 
