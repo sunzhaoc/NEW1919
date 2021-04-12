@@ -1,0 +1,115 @@
+/*
+ * @lc app=leetcode.cn id=264 lang=cpp
+ *
+ * [264] 丑数 II
+ */
+
+// @lc code=start
+
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-05 20:05:57
+ * @LastEditTime: 2021-04-12 15:29:57
+ * @FilePath: \Leetcode\264.Ugly Number II.cpp
+ */
+
+#include <bits/stdc++.h>
+using namespace std;
+
+# define POW2(X) (1 << (X))
+# define CKBIT(S,X) (((S) & POW2(X)) != 0)
+const double pi = acos(-1.0);
+const double eps = 1e-11;
+const int MOD = 1e9 + 7;
+template<class T> inline void ckmin(T &a,T b){ a = min(a, b); }
+template<class T> inline void ckmax(T &a,T b){ a = max(a, b); }
+template<class T> inline T sqr(T x){ return x * x; }
+# define SZ(A) ((int)A.size())
+# define LENGTH(A) ((int)A.length())
+# define MP(A, B) make_pair(A, B)
+# define PB(X) push_back(X)
+# define FOR(i, a, b) for(int i = (a); i < (b); ++i)
+# define REP(i, a) for(int i = 0; i < (a); ++i)
+# define ALL(A) A.begin(), A.end()
+# define F first
+# define S second
+# define V vector
+template<class T> int CMP(T a[], const T b[], int n) { return memcmp(a, b, n * sizeof(T)); }
+template<class T> void COPY(T a[], const T b[], int n) { memcpy(a, b, n * sizeof(T)); }
+template<class T> void SET(T a[], int val, int n) { memset(a, val, n*sizeof(T)); }
+using uint = unsigned int;
+using LL = long long;
+using ULL = unsigned long long;
+using PII = pair<int, int>;
+using VPII = vector<PII>;
+using PLL = pair<LL, LL>;
+using VPLL = vector<PLL>;
+using VI = vector<int>;
+using VVI = vector<VI>;
+using VD = vector<double>;
+using VS = vector<string>;
+using VVS = vector<VS>;
+
+
+/*
+RESULT: Accept
+TIME:    12ms    BEAT: 64.50%    O(n) = n
+MEMORY: 7.5MB    BEAT: 58.87%    O(n) = n
+LAST EDIT TIME: 2021年4月12日15:5:56
+Description: DP。这个方法真是妙啊。
+*/
+
+class Solution {
+public:
+    int nthUglyNumber(int n) {
+        VI dp(n);
+        dp.at(0) = 1;
+        int p2 = 0, p3 = 0, p5 = 0;
+        FOR(i, 1, n) {
+            dp[i] = min(min(2 * dp[p2], 3 * dp[p3]), 5 * dp[p5]);
+            if (dp[i] == 2 * dp[p2]) p2 ++;
+            if (dp[i] == 3 * dp[p3]) p3 ++;
+            if (dp[i] == 5 * dp[p5]) p5 ++;
+        }
+        return dp[n - 1];
+    }
+};
+
+
+/*
+RESULT: Accept
+TIME:     68ms    BEAT: 27.35%    O(n) = nlogn
+MEMORY: 10.5MB    BEAT: 23.09%    O(n) = n
+LAST EDIT TIME: 2021年4月12日14:51:49
+Description: 不会。
+利用小顶堆。
+*/
+
+// class Solution {
+// public:
+//     int nthUglyNumber(int n) {
+//         priority_queue<LL, V<LL>, greater<LL>> q;
+//         LL res = 1;
+//         FOR(i, 1, n) {
+//             q.push(res * 2);
+//             q.push(res * 3);
+//             q.push(res * 5);
+//             res = q.top();
+//             q.pop();
+//             while (!q.empty() && res == q.top()) q.pop();
+//         }
+//         return res;
+//     }
+// };
+
+
+int main() {
+    Solution sol;
+    auto ans = sol.nthUglyNumber(10);
+    system("pause");
+    return 0;
+}
+// @lc code=end
+

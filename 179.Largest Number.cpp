@@ -1,10 +1,17 @@
 /*
+ * @lc app=leetcode.cn id=179 lang=cpp
+ *
+ * [179] 最大数
+ */
+
+// @lc code=start
+/*
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-09 21:33:50
- * @LastEditTime: 2021-04-10 17:58:53
- * @FilePath: \Leetcode\weekcom\LCCUP2021 Team\t3.cpp
+ * @Date: 2021-04-05 20:05:57
+ * @LastEditTime: 2021-04-12 16:20:29
+ * @FilePath: \Leetcode\179.Largest Number.cpp
  */
 
 #include <bits/stdc++.h>
@@ -45,36 +52,44 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
+/*
+RESULT: Accept
+TIME:      4ms    BEAT: 99.03%    O(n) = 
+MEMORY: 10.7MB    BEAT: 80.55%    O(n) = 
+LAST EDIT TIME: 2021年4月12日16:16:28
+Description: 不会。建议反复看。这个排序真是有点东西的啊。
+*/
+
 class Solution {
 public:
-    int storeWater(vector<int>& bucket, vector<int>& vat) {
-        int cnt = INT_MIN;
-        REP(i, SZ(bucket)) {
-            int a = (vat[i] + bucket[i] - 1) / bucket[i];
-            int b = ((1 + sqrt(1 + 4 * bucket[i])) / 2 + 1);
-            cnt = max(cnt ,min(a,b));
+    string largestNumber(vector<int>& nums) {
+        sort(nums.begin(), nums.end(), [](const int&x, const int& y) {
+            long sx = 10, sy = 10;
+            while (sx <= x) {
+                sx *= 10;
+            } 
+            while (sy <= y) {
+                sy *= 10;
+            }
+            return sy * x + y > sx * y + x;
+        });
 
-        }
-
-        return cnt;
+        if (nums[0] == 0) return "0";
+        string res;
+        for (int &x: nums) res += to_string(x);
+        return res;
     }
 };
 
 
-int main () {
+int main() {
     Solution sol;
-    VI bucket = {1, 3};
-    VI vat = {6, 8};
-    // VI bucket = {1, 1};
-    // VI vat = {1, 1};
-    // VI bucket = {9,0,1};
-    // VI vat = {0,2,2};
-    // VI bucket = {1,1,1};
-    // VI vat = {1000,2000,3000};
-    // VI bucket = {1,2,3};
-    // VI vat = {1000,0,3000};
-    auto ans = sol.storeWater(bucket, vat);
-    cout << ans << endl;
+    VI nums = {3, 30, 34, 5, 9, 31};
+    auto ans = sol.largestNumber(nums);
+    cout << ans << endl; 
     system("pause");
     return 0;
 }
+
+// @lc code=end
+

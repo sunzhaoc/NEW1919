@@ -1,10 +1,12 @@
+
+
 /*
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-09 21:33:50
- * @LastEditTime: 2021-04-10 14:31:25
- * @FilePath: \Leetcode\weekcom\LCCUP2021 Team\t1.cpp
+ * @LastEditTime: 2021-04-10 17:43:40
+ * @FilePath: \Leetcode\weekcom\LCCUP2021 Team\t2.cpp
  */
 
 #include <bits/stdc++.h>
@@ -45,13 +47,83 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
-// int main () {
-//     Solution sol;
 
-//     auto ans = sol.();
+class Solution {
+public:
+    int storeWater(vector<int>& bucket, vector<int>& vat) {
+        int cnt = 0;
+        int n = SZ(bucket);
+        REP(i, n) {
+            if (bucket[i] == 0 && vat[i] != 0) {
+                bucket[i] ++;
+                cnt ++;
+            }
+        }
 
-//     cout << ans << endl;
-    
-//     system("pause");
-//     return 0;
-// }
+        VPII maxHeap;
+        REP (i, n) {
+            if (vat[i] == 0) {
+                maxHeap.PB(MP(0, i));
+                continue;
+            }
+            
+            int tmpTime = (vat[i] + bucket[i] - 1) / bucket[i];
+            maxHeap.PB(MP(tmpTime, i));
+        }
+
+        sort(ALL(maxHeap), [](const PII& x, const PII& y) {
+            return x.F > y.F; 
+        });
+
+        while (1) {
+            int maxTimes = maxHeap[0].F;
+            int maxTimesNum = 0;
+            
+            // 给次数最多的加水。
+            REP(i, SZ(maxHeap)) {
+                if (maxHeap[i].F == maxTimes) maxTimesNum ++;
+                else break;
+            }
+
+            int newmaxTimes = INT_MIN;
+            REP(i, maxTimesNum) {
+                newmaxTimes = max(newmaxTimes, (vat[maxHeap[i].S] + bucket[maxHeap[i].S] + 1 - 1) / (bucket[maxHeap[i].S] + 1));
+            }
+
+            if (newmaxTimes + maxTimesNum < maxTimes) {
+                cnt += maxTimesNum;
+                REP(i, maxTimesNum) {
+                    maxHeap[i].F = (vat[maxHeap[i].S] + bucket[maxHeap[i].S] + 1 - 1) / (bucket[maxHeap[i].S] + 1);
+                    bucket[maxHeap[i].S] += 1;
+                }
+                sort(ALL(maxHeap), [](const PII& x, const PII& y) {
+                    return x.F > y.F; 
+                });
+            }
+            else return cnt + maxTimes;
+
+            int x = 0;
+        }
+        return cnt;
+    }
+};
+
+int main () {
+    Solution sol;
+    // VI bucket = {1, 3};
+    // VI vat = {6, 8};
+    // VI bucket = {9, 0, 1};
+    // VI vat = {0,2,2};
+    // VI bucket = {1, 1};
+    // VI vat = {1, 1};
+    // VI bucket = {0,0,1,1,1,1};
+    // VI vat = {0,1,0,1000,1000,1000};
+    VI bucket = {1,1,1};
+    VI vat = {1000,1000,1000};
+    // VI bucket = {1,2,3};
+    // VI vat = {1000,0,3000};
+    auto ans = sol.storeWater(bucket, vat);
+    cout << ans << endl;
+    system("pause");
+    return 0;
+}
