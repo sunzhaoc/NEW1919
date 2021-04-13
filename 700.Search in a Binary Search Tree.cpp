@@ -1,3 +1,27 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-13 18:28:18
+ * @LastEditTime: 2021-04-13 18:33:14
+ * @FilePath: \Leetcode\700.Search in a Binary Search Tree.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=700 lang=cpp
+ *
+ * [700] 二叉搜索树中的搜索
+ */
+
+// @lc code=start
+// Definition for a binary tree node.
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -40,9 +64,28 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
+TIME:     40ms    BEAT: 91.53%    O(n) = 
+MEMORY: 33.9MB    BEAT: 75.22%    O(n) = 
+USED TIME: 02:32
+LAST EDIT TIME: 2021年4月13日18:32:58
 Description: 
 */
+
+class Solution {
+public:
+    int target;
+    TreeNode* searchBST(TreeNode* root, int val) {
+        target = val;
+        return dfs(root);
+    }
+
+    TreeNode* dfs(TreeNode* node) {
+        if (node == nullptr) return nullptr;
+        if (node->val == target) return node;
+        if (node->val > target) return dfs(node->left);
+        else return dfs(node->right);
+    }
+};
+
+// @lc code=end
+

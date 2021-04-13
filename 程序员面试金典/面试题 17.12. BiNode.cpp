@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-13 18:53:57
+ * @LastEditTime: 2021-04-13 18:54:24
+ * @FilePath: \Leetcode\程序员面试金典\面试题 17.12. BiNode.cpp
+ */
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -38,6 +46,15 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
+// Definition for a binary tree node.
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+
 /*
 RESULT: Accept
 TIME:   ms    BEAT: %    O(n) = 
@@ -46,3 +63,10 @@ USED TIME:
 LAST EDIT TIME: 
 Description: 
 */
+
+class Solution {
+public:
+    TreeNode* convertBiNode(TreeNode* root) {
+
+    }
+};

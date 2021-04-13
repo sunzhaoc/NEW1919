@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-13 18:20:33
+ * @LastEditTime: 2021-04-13 18:27:46
+ * @FilePath: \Leetcode\1469.Find All The Lonely Nodes.cpp
+ */
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -33,16 +41,41 @@ using VPLL = vector<PLL>;
 using VI = vector<int>;
 using VVI = vector<VI>;
 using VD = vector<double>;
-using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
 
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
+TIME:     12ms    BEAT: 90.22%    O(n) = 
+MEMORY: 19.6MB    BEAT: 76.09%    O(n) = 
+USED TIME: 05:15
+LAST EDIT TIME: 2021年4月13日18:27:30
 Description: 
 */
+
+class Solution {
+public:
+    VI nums;
+    vector<int> getLonelyNodes(TreeNode* root) {
+        dfs(root);
+        return nums;
+    }
+    
+    void dfs(TreeNode* node) {
+        if (!node) return;
+        if (!node->left && !node->right) return;
+        if (node->left && node->right) {
+            dfs(node->left);
+            dfs(node->right);
+        }
+        else if (node->left) {
+            nums.PB(node->left->val);
+            dfs(node->left);
+        }
+        else {
+            nums.PB(node->right->val);
+            dfs(node->right);
+        }
+    }
+};

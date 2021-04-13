@@ -1,3 +1,26 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-13 18:33:56
+ * @LastEditTime: 2021-04-13 18:37:54
+ * @FilePath: \Leetcode\965.Univalued Binary Tree.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=965 lang=cpp
+ *
+ * [965] 单值二叉树
+ */
+
+// @lc code=start
+// Definition for a binary tree node.
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -40,9 +63,27 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
+TIME:     0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 9.7MB    BEAT:  28.87%    O(n) = 
+USED TIME: 很快。
+LAST EDIT TIME: 2021年4月13日18:37:39
 Description: 
 */
+
+class Solution {
+public:
+    unordered_set<int> s;
+    bool isUnivalTree(TreeNode* root) {
+        dfs(root);
+        return SZ(s) == 1 ? true : false;
+    }
+
+    void dfs(TreeNode* node) {
+        if (node == nullptr) return;
+        s.insert(node->val);
+        dfs(node->left);
+        dfs(node->right);
+    }
+};
+// @lc code=end
+
