@@ -2,10 +2,21 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-13 18:53:57
- * @LastEditTime: 2021-04-13 19:00:56
- * @FilePath: \Leetcode\程序员面试金典\面试题 17.12. BiNode.cpp
+ * @Date: 2021-04-13 19:11:24
+ * @LastEditTime: 2021-04-13 19:15:36
+ * @FilePath: \Leetcode\270.Closest Binary Search Tree Value.cpp
  */
+
+// Definition for a binary tree node.
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -46,39 +57,31 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
-// Definition for a binary tree node.
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-};
-
-
 /*
 RESULT: Accept
-TIME:     72ms    BEAT: 72.36%    O(n) = 
-MEMORY: 30.7MB    BEAT: 83.75%    O(n) = 
-USED TIME: 很快。
-LAST EDIT TIME: 2021年4月13日19:0:34
+TIME:      8ms    BEAT: 93.16%    O(n) = 
+MEMORY: 20.4MB    BEAT: 54.72%    O(n) = 
+USED TIME: 03:11
+LAST EDIT TIME: 2021年4月13日19:15:22
 Description: 
 */
 
 class Solution {
 public:
-    TreeNode* head = new TreeNode(-1);
-    TreeNode* cur = head;
-    TreeNode* convertBiNode(TreeNode* root) {
-        dfs(root);
-        return head->right;
+    double diff = INT_MAX;
+    int res;
+    int closestValue(TreeNode* root, double target) {
+        dfs(root, target);
+        return res;
     }
 
-    void dfs(TreeNode* node) {
+    void dfs(TreeNode* node, double& target) {
         if (!node) return;
-        dfs(node->left);
-        node->left = nullptr;
-        cur->right = node;
-        cur = cur->right;
-        dfs(node->right);
+        dfs(node->left, target);
+        if (abs(target + 0.0 - node->val) < diff) {
+            diff = abs(target + 0.0 - node->val);
+            res = node->val;
+        }
+        dfs(node->right, target);
     }
 };

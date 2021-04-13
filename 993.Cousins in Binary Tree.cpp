@@ -2,10 +2,26 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-13 18:53:57
- * @LastEditTime: 2021-04-13 19:00:56
- * @FilePath: \Leetcode\程序员面试金典\面试题 17.12. BiNode.cpp
+ * @Date: 2021-04-13 19:04:21
+ * @LastEditTime: 2021-04-13 19:10:19
+ * @FilePath: \Leetcode\993.二叉树的堂兄弟节点.cpp
  */
+/*
+ * @lc app=leetcode.cn id=993 lang=cpp
+ *
+ * [993] 二叉树的堂兄弟节点
+ */
+
+// @lc code=start
+// Definition for a binary tree node.
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -46,39 +62,38 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
-// Definition for a binary tree node.
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-};
-
-
 /*
 RESULT: Accept
-TIME:     72ms    BEAT: 72.36%    O(n) = 
-MEMORY: 30.7MB    BEAT: 83.75%    O(n) = 
-USED TIME: 很快。
-LAST EDIT TIME: 2021年4月13日19:0:34
+TIME:      4ms    BEAT: 73.55%    O(n) = 
+MEMORY: 10.4MB    BEAT: 99.01%    O(n) = 
+USED TIME: 07:10
+LAST EDIT TIME: 2021年4月13日19:10:6
 Description: 
 */
 
 class Solution {
 public:
-    TreeNode* head = new TreeNode(-1);
-    TreeNode* cur = head;
-    TreeNode* convertBiNode(TreeNode* root) {
-        dfs(root);
-        return head->right;
+    TreeNode* X = nullptr, * Y = nullptr;
+    int depthX, depthY;
+    bool isCousins(TreeNode* root, int x, int y) {
+        dfs(root, nullptr, 0, x, y);
+        if (depthX == depthY && X != Y) return true;
+        return false;
     }
 
-    void dfs(TreeNode* node) {
+    void dfs(TreeNode* node, TreeNode* pre, int depth, int x, int y) {
         if (!node) return;
-        dfs(node->left);
-        node->left = nullptr;
-        cur->right = node;
-        cur = cur->right;
-        dfs(node->right);
+        dfs(node->left, node, depth + 1, x, y);
+        if (node->val == x) {
+            X = pre;
+            depthX = depth;
+        }
+        else if (node->val == y) {
+            Y = pre;
+            depthY = depth;
+        }
+        dfs(node->right, node, depth + 1, x, y);
     }
 };
+// @lc code=end
+
