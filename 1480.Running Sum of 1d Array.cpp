@@ -1,3 +1,18 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-12 22:43:03
+ * @LastEditTime: 2021-04-12 22:45:28
+ * @FilePath: \Leetcode\1480.Running Sum of 1d Array.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=1480 lang=cpp
+ *
+ * [1480] 一维数组的动态和
+ */
+
+// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -36,12 +51,24 @@ using VD = vector<double>;
 using VS = vector<string>;
 using VVS = vector<VS>;
 
-
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
+TIME:     4ms    BEAT: 73.74%    O(n) = 
+MEMORY: 8.2MB    BEAT: 68.78%    O(n) = 
+USED TIME: 01:39
+LAST EDIT TIME: 2021年4月12日22:45:9
 Description: 
 */
+
+class Solution {
+public:
+    vector<int> runningSum(vector<int>& nums) {
+        if (SZ(nums) == 1) return nums;
+        FOR(i, 1, SZ(nums)) {
+            nums[i] = nums[i - 1] + nums[i];
+        }
+        return nums;
+    }
+};
+// @lc code=end
+

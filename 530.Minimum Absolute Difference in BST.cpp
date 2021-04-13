@@ -2,28 +2,26 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-01 14:43:18
- * @LastEditTime: 2021-04-13 13:44:29
- * @FilePath: \Leetcode\783.Minimum Distance Between BST Nodes.cpp
+ * @Date: 2021-04-13 13:45:54
+ * @LastEditTime: 2021-04-13 13:46:48
+ * @FilePath: \Leetcode\530.Minimum Absolute Difference in BST.cpp
  */
 /*
- * @lc app=leetcode.cn id=783 lang=cpp
+ * @lc app=leetcode.cn id=530 lang=cpp
  *
- * [783] 二叉搜索树节点最小距离
+ * [530] 二叉搜索树的最小绝对差
  */
 
 // @lc code=start
-
-// Definition for a binary tree node.
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
-
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -65,17 +63,17 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     8ms    BEAT: 15.03%    O(n) = 
-MEMORY: 9.5MB    BEAT: 30.96%    O(n) = 
-USED TIME: 03:32
-LAST EDIT TIME: 2021年4月13日13:43:58
-Description: 三刷。每日一题。
+TIME:     20ms    BEAT: 70.48%    O(n) = 
+MEMORY: 24.8MB    BEAT: 25.12%    O(n) = 
+USED TIME: 00:00
+LAST EDIT TIME: 2021年4月13日13:46:43
+Description: 
 */
 
 class Solution {
 public:
     VI nums;
-    int minDiffInBST(TreeNode* root) {
+    int getMinimumDifference(TreeNode* root) {
         dfs(root);
         sort(ALL(nums));
         int ans = INT_MAX;
@@ -89,34 +87,6 @@ public:
         if (node == nullptr) return;
         dfs(node->left);
         nums.PB(node->val);
-        dfs(node->right);
-    }
-};
-
-
-/*
-RESULT: Accept
-TIME:     4ms    BEAT: 67.75%    O(n) = 
-MEMORY: 9.6MB    BEAT: 28.90%    O(n) = 
-USED TIME: 08:10
-LAST EDIT TIME: 2021年4月1日14:54:23
-Description: 二刷。前一次是python。 审题错误。花了点时间。
-*/
-
-class Solution {
-public:
-    vector<int> res;
-    int minDiffInBST(TreeNode* root) {
-        dfs(root);
-        int ans = INT_MAX;
-        for (int i = 1; i < res.size(); i ++) ans = min(ans, abs(res[i] - res[i - 1]));
-        return ans;
-    }
-
-    void dfs(TreeNode* node) {
-        if (node == nullptr) return;
-        dfs(node->left);
-        res.push_back(node->val);
         dfs(node->right);
     }
 };

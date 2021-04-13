@@ -2,14 +2,14 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-01 14:43:18
- * @LastEditTime: 2021-04-13 13:44:29
- * @FilePath: \Leetcode\783.Minimum Distance Between BST Nodes.cpp
+ * @Date: 2021-04-12 23:04:25
+ * @LastEditTime: 2021-04-12 23:15:59
+ * @FilePath: \Leetcode\112.Path Sum.cpp
  */
 /*
- * @lc app=leetcode.cn id=783 lang=cpp
+ * @lc app=leetcode.cn id=112 lang=cpp
  *
- * [783] 二叉搜索树节点最小距离
+ * [112] 路径总和
  */
 
 // @lc code=start
@@ -65,61 +65,34 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     8ms    BEAT: 15.03%    O(n) = 
-MEMORY: 9.5MB    BEAT: 30.96%    O(n) = 
-USED TIME: 03:32
-LAST EDIT TIME: 2021年4月13日13:43:58
-Description: 三刷。每日一题。
+TIME:      8ms    BEAT: 92.58%    O(n) = 
+MEMORY: 20.8MB    BEAT: 27.53%    O(n) = 
+USED TIME: 09:42
+LAST EDIT TIME: 2021年4月12日23:15:42
+Description: 
 */
 
 class Solution {
 public:
-    VI nums;
-    int minDiffInBST(TreeNode* root) {
-        dfs(root);
-        sort(ALL(nums));
-        int ans = INT_MAX;
-        FOR(i, 1, SZ(nums)) {
-            ans = min(ans, abs(nums[i] - nums[i - 1]));
+    int target;
+    bool hasPathSum(TreeNode* root, int targetSum) {
+        if (root == nullptr) return false;
+        target = targetSum;
+        return backTrack(root, 0);
+    }
+
+    bool backTrack(TreeNode* node, int sum) {
+        sum += node->val;
+        if (node->left == nullptr && node->right == nullptr) {
+            if (sum == target) return true;
+            else return false;
         }
-        return ans;
-    }
-    
-    void dfs(TreeNode* node) {
-        if (node == nullptr) return;
-        dfs(node->left);
-        nums.PB(node->val);
-        dfs(node->right);
+        else if (node->left && node->right) {
+            return backTrack(node->left, sum) || backTrack(node->right, sum);
+        }
+        else if (node->left) return backTrack(node->left, sum);
+        else return backTrack(node->right, sum);
     }
 };
-
-
-/*
-RESULT: Accept
-TIME:     4ms    BEAT: 67.75%    O(n) = 
-MEMORY: 9.6MB    BEAT: 28.90%    O(n) = 
-USED TIME: 08:10
-LAST EDIT TIME: 2021年4月1日14:54:23
-Description: 二刷。前一次是python。 审题错误。花了点时间。
-*/
-
-class Solution {
-public:
-    vector<int> res;
-    int minDiffInBST(TreeNode* root) {
-        dfs(root);
-        int ans = INT_MAX;
-        for (int i = 1; i < res.size(); i ++) ans = min(ans, abs(res[i] - res[i - 1]));
-        return ans;
-    }
-
-    void dfs(TreeNode* node) {
-        if (node == nullptr) return;
-        dfs(node->left);
-        res.push_back(node->val);
-        dfs(node->right);
-    }
-};
-
 // @lc code=end
 

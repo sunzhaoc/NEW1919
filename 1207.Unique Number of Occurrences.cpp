@@ -1,3 +1,18 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-12 22:57:59
+ * @LastEditTime: 2021-04-12 23:03:48
+ * @FilePath: \Leetcode\1207.Unique Number of Occurrences.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=1207 lang=cpp
+ *
+ * [1207] 独一无二的出现次数
+ */
+
+// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -39,9 +54,28 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
+TIME:     4ms    BEAT: 75.95%    O(n) = 
+MEMORY: 8.1MB    BEAT: 30.43%    O(n) = 
+USED TIME: 04:39
+LAST EDIT TIME: 2021年4月12日23:3:33 
 Description: 
 */
+
+class Solution {
+public:
+    bool uniqueOccurrences(vector<int>& arr) {
+        unordered_map<int, int> map;
+        for (int num: arr) {
+            map[num] ++;
+        }
+        unordered_set<int> s;
+        for (auto it = map.begin(); it != map.end(); it ++) {
+            int a = SZ(s);
+            s.insert(it->S);
+            if (a == SZ(s)) return false;
+        }
+        return true;
+    }
+};
+// @lc code=end
+

@@ -2,14 +2,14 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-01 14:43:18
- * @LastEditTime: 2021-04-13 13:44:29
- * @FilePath: \Leetcode\783.Minimum Distance Between BST Nodes.cpp
+ * @Date: 2021-04-12 22:47:47
+ * @LastEditTime: 2021-04-12 22:57:42
+ * @FilePath: \Leetcode\257.Binary Tree Paths.cpp
  */
 /*
- * @lc app=leetcode.cn id=783 lang=cpp
+ * @lc app=leetcode.cn id=257 lang=cpp
  *
- * [783] 二叉搜索树节点最小距离
+ * [257] 二叉树的所有路径
  */
 
 // @lc code=start
@@ -65,61 +65,48 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     8ms    BEAT: 15.03%    O(n) = 
-MEMORY: 9.5MB    BEAT: 30.96%    O(n) = 
-USED TIME: 03:32
-LAST EDIT TIME: 2021年4月13日13:43:58
-Description: 三刷。每日一题。
+TIME:      4ms    BEAT: 79.35%    O(n) = 
+MEMORY: 11.9MB    BEAT: 90.70%    O(n) = 
+USED TIME: 08:45
+LAST EDIT TIME: 2021年4月12日22:57:25
+Description: 
 */
 
 class Solution {
 public:
-    VI nums;
-    int minDiffInBST(TreeNode* root) {
-        dfs(root);
-        sort(ALL(nums));
-        int ans = INT_MAX;
-        FOR(i, 1, SZ(nums)) {
-            ans = min(ans, abs(nums[i] - nums[i - 1]));
+    VS res;
+    VI path;
+    vector<string> binaryTreePaths(TreeNode* root) {
+        backTrack(root, path);
+        return res;
+    }
+
+    void backTrack(TreeNode* node, VI& path) {
+        path.PB(node->val);
+        if (node->left == nullptr && node->right == nullptr) {
+            res.PB(numToString(path));
+            return;
         }
-        return ans;
-    }
-    
-    void dfs(TreeNode* node) {
-        if (node == nullptr) return;
-        dfs(node->left);
-        nums.PB(node->val);
-        dfs(node->right);
-    }
-};
-
-
-/*
-RESULT: Accept
-TIME:     4ms    BEAT: 67.75%    O(n) = 
-MEMORY: 9.6MB    BEAT: 28.90%    O(n) = 
-USED TIME: 08:10
-LAST EDIT TIME: 2021年4月1日14:54:23
-Description: 二刷。前一次是python。 审题错误。花了点时间。
-*/
-
-class Solution {
-public:
-    vector<int> res;
-    int minDiffInBST(TreeNode* root) {
-        dfs(root);
-        int ans = INT_MAX;
-        for (int i = 1; i < res.size(); i ++) ans = min(ans, abs(res[i] - res[i - 1]));
-        return ans;
+        if (node->left) {
+            backTrack(node->left, path);
+            path.pop_back();
+        }
+        if (node->right) {
+            backTrack(node->right, path);
+            path.pop_back();
+        }
+        return;
+        
     }
 
-    void dfs(TreeNode* node) {
-        if (node == nullptr) return;
-        dfs(node->left);
-        res.push_back(node->val);
-        dfs(node->right);
+    string numToString(VI& nums) {
+        string tmp = "";
+        REP(i, SZ(nums)) {
+            if (i == SZ(nums) - 1) tmp += to_string(nums[i]);
+            else tmp += to_string(nums[i]) + "->";
+        }
+        return tmp;
     }
 };
-
 // @lc code=end
 

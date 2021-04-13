@@ -1,3 +1,18 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-12 22:45:41
+ * @LastEditTime: 2021-04-12 22:47:31
+ * @FilePath: \Leetcode\344.Reverse String.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=344 lang=cpp
+ *
+ * [344] 反转字符串
+ */
+
+// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -36,12 +51,20 @@ using VD = vector<double>;
 using VS = vector<string>;
 using VVS = vector<VS>;
 
-
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
+TIME:     28ms    BEAT: 49.23%    O(n) = 
+MEMORY: 22.4MB    BEAT: 95.50%    O(n) = 
+USED TIME: 00:23
+LAST EDIT TIME: 2021年4月12日22:47:16
 Description: 
 */
+
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+        reverse(ALL(s));
+    }
+};
+// @lc code=end
+
