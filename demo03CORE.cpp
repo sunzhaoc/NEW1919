@@ -2,27 +2,18 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-14 16:15:07
- * @LastEditTime: 2021-04-14 17:07:40
- * @FilePath: \Leetcode\958.Check Completeness of a Binary Tree.cpp
+ * @Date: 2021-04-14 19:24:16
+ * @LastEditTime: 2021-04-14 19:40:15
+ * @FilePath: \Leetcode\demo.cpp
  */
 /*
- * @lc app=leetcode.cn id=958 lang=cpp
- *
- * [958] 二叉树的完全性检验
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-05 20:05:57
+ * @LastEditTime: 2021-04-14 19:23:50
+ * @FilePath: \Leetcode\ACRush.cpp
  */
-
-// @lc code=start
-// Definition for a binary tree node.
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
-
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -62,43 +53,28 @@ using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
 
-
-/*
-RESULT: Accept
-TIME:      8ms    BEAT: 39.36%    O(n) = 
-MEMORY: 10.2MB    BEAT: 35.45%    O(n) = 
-LAST EDIT TIME: 2021年4月14日17:7:39
-Description: BFS
-*/
-
 class Solution {
 public:
-    bool isCompleteTree(TreeNode* root) {
-        if (!root) return true;
-        queue<TreeNode*> q;
-        q.push(root);
-        bool flag = false;
-        while (q.size()) {
-            auto node = q.front();
-            q.pop();
-            if (node->left) {
-                if (flag) return false;
-                q.push(node->left);
-            }
-            else {
-                flag = true;
-            }
-            
-            if (node->right) {
-                if (flag) return false;
-                q.push(node->right);
-            }
-            else {
-                flag = true;
+    int function(int n, vector<int>& nums) {
+        vector<int> dp(n + 1, INT_MAX);
+        dp[0] = 0;
+        for (int i = 0; i < nums.size(); i ++) {
+            for (int k = 1; k < nums[i] + 1; k ++) {
+                dp[i + k] = min(dp[i + k], dp[i] + 1);
             }
         }
-        return true;
+        return dp.back();
     }
 };
-// @lc code=end
+
+int main() {
+    Solution sol;
+    VI nums = {2,3,1,1};
+    int n = 4;
+    auto it = sol.function(n, nums);
+    cout << it << endl;
+    system("pause");
+    return 0;
+}
+
 

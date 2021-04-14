@@ -1,15 +1,7 @@
 /*
- * @Description: 
- * @Version: 1.0
- * @Autor: Vicro
- * @Date: 2021-04-14 16:15:07
- * @LastEditTime: 2021-04-14 17:07:40
- * @FilePath: \Leetcode\958.Check Completeness of a Binary Tree.cpp
- */
-/*
- * @lc app=leetcode.cn id=958 lang=cpp
+ * @lc app=leetcode.cn id=1302 lang=cpp
  *
- * [958] 二叉树的完全性检验
+ * [1302] 层数最深叶子节点的和
  */
 
 // @lc code=start
@@ -22,7 +14,6 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
-
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -65,40 +56,37 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:      8ms    BEAT: 39.36%    O(n) = 
-MEMORY: 10.2MB    BEAT: 35.45%    O(n) = 
-LAST EDIT TIME: 2021年4月14日17:7:39
-Description: BFS
+TIME:     52ms    BEAT: 50.96%    O(n) = 
+MEMORY: 38.6MB    BEAT: 12.63%    O(n) = 
+USED TIME: 很快
+LAST EDIT TIME: 2021年4月14日21:39:52
+Description: 
 */
 
 class Solution {
 public:
-    bool isCompleteTree(TreeNode* root) {
-        if (!root) return true;
-        queue<TreeNode*> q;
-        q.push(root);
-        bool flag = false;
-        while (q.size()) {
-            auto node = q.front();
-            q.pop();
-            if (node->left) {
-                if (flag) return false;
-                q.push(node->left);
-            }
-            else {
-                flag = true;
-            }
-            
-            if (node->right) {
-                if (flag) return false;
-                q.push(node->right);
-            }
-            else {
-                flag = true;
-            }
+    VVI nums;
+    int deepestLeavesSum(TreeNode* root) {
+        dfs(root, 0);
+        int sum = 0;
+        REP(i, SZ(nums.back())) {
+            sum += nums.back()[i];
         }
-        return true;
+        return sum;
+    }
+
+    void dfs(TreeNode* node, int depth) {
+        if (!node) return;
+        if (depth == SZ(nums)) {
+            nums.PB({node->val});
+        }
+        else {
+            nums[depth].PB(node->val);
+        }
+        dfs(node->left, depth + 1);
+        dfs(node->right, depth + 1);
     }
 };
+
 // @lc code=end
 

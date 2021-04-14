@@ -2,27 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-14 16:15:07
- * @LastEditTime: 2021-04-14 17:07:40
- * @FilePath: \Leetcode\958.Check Completeness of a Binary Tree.cpp
+ * @Date: 2021-04-14 17:09:54
+ * @LastEditTime: 2021-04-14 19:01:12
+ * @FilePath: \Leetcode\1644.Lowest Common Ancestor of a Binary Tree II.cpp
  */
-/*
- * @lc app=leetcode.cn id=958 lang=cpp
- *
- * [958] 二叉树的完全性检验
- */
-
-// @lc code=start
 // Definition for a binary tree node.
 struct TreeNode {
     int val;
     TreeNode *left;
     TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
-
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -65,40 +55,31 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:      8ms    BEAT: 39.36%    O(n) = 
-MEMORY: 10.2MB    BEAT: 35.45%    O(n) = 
-LAST EDIT TIME: 2021年4月14日17:7:39
-Description: BFS
+TIME:    152ms    BEAT: 81.25%    O(n) = 
+MEMORY: 60.3MB    BEAT: 70.00%    O(n) = 
+USED TIME: 04:16
+LAST EDIT TIME: 2021年4月14日18:6:29
+Description: 没怎么看明白是怎么回事。
 */
 
 class Solution {
 public:
-    bool isCompleteTree(TreeNode* root) {
-        if (!root) return true;
-        queue<TreeNode*> q;
-        q.push(root);
-        bool flag = false;
-        while (q.size()) {
-            auto node = q.front();
-            q.pop();
-            if (node->left) {
-                if (flag) return false;
-                q.push(node->left);
-            }
-            else {
-                flag = true;
-            }
-            
-            if (node->right) {
-                if (flag) return false;
-                q.push(node->right);
-            }
-            else {
-                flag = true;
-            }
-        }
-        return true;
+    TreeNode* res;
+
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        dfs(root, p, q);
+        return res;
+    }
+
+    bool dfs(TreeNode* node, TreeNode* p, TreeNode* q) {
+        if (node == nullptr) return false;
+
+        bool l = dfs(node->left, p, q);
+        bool r = dfs(node->right, p, q);
+
+        if (l && r) res = node;
+        else if ((l || r) && (node->val == p->val || node->val == q->val)) res = node;
+        
+        return l || r || node->val == p->val || node->val == q->val;
     }
 };
-// @lc code=end
-

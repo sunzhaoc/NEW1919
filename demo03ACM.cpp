@@ -2,28 +2,10 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-14 16:15:07
- * @LastEditTime: 2021-04-14 17:07:40
- * @FilePath: \Leetcode\958.Check Completeness of a Binary Tree.cpp
+ * @Date: 2021-04-14 20:24:42
+ * @LastEditTime: 2021-04-14 20:53:28
+ * @FilePath: \Leetcode\demo03ACM.cpp
  */
-/*
- * @lc app=leetcode.cn id=958 lang=cpp
- *
- * [958] 二叉树的完全性检验
- */
-
-// @lc code=start
-// Definition for a binary tree node.
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
-
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -63,42 +45,31 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
-/*
-RESULT: Accept
-TIME:      8ms    BEAT: 39.36%    O(n) = 
-MEMORY: 10.2MB    BEAT: 35.45%    O(n) = 
-LAST EDIT TIME: 2021年4月14日17:7:39
-Description: BFS
-*/
-
-class Solution {
-public:
-    bool isCompleteTree(TreeNode* root) {
-        if (!root) return true;
-        queue<TreeNode*> q;
-        q.push(root);
+int main() {
+    int n;
+    while (cin >> n) {
+        VI nums(n);
+        REP(i, n) {
+            cin >> nums[i];
+        }
+        vector<int> dp(n + 1, INT_MAX);
+        dp[0] = 0;
         bool flag = false;
-        while (q.size()) {
-            auto node = q.front();
-            q.pop();
-            if (node->left) {
-                if (flag) return false;
-                q.push(node->left);
-            }
-            else {
+        for (int i = 0; i < nums.size(); i ++) {
+            if (dp[i] == INT_MAX) {
+                cout << 0 << endl;
                 flag = true;
+                break;
             }
-            
-            if (node->right) {
-                if (flag) return false;
-                q.push(node->right);
-            }
-            else {
-                flag = true;
+            for (int k = 1; k < nums[i] + 1; k ++) {
+                if (i + k > n) break;
+                dp[i + k] = min(dp[i + k], dp[i] + 1);
             }
         }
-        return true;
+        if (!flag) cout << dp.back() << endl;
     }
-};
-// @lc code=end
+    system("pause");
+    return 0;    
+}
+
 

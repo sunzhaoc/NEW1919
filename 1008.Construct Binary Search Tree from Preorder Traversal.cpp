@@ -2,14 +2,14 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-14 16:15:07
- * @LastEditTime: 2021-04-14 17:07:40
- * @FilePath: \Leetcode\958.Check Completeness of a Binary Tree.cpp
+ * @Date: 2021-04-14 21:16:09
+ * @LastEditTime: 2021-04-14 21:34:58
+ * @FilePath: \Leetcode\1008.Construct Binary Search Tree from Preorder Traversal.cpp
  */
 /*
- * @lc app=leetcode.cn id=958 lang=cpp
+ * @lc app=leetcode.cn id=1008 lang=cpp
  *
- * [958] 二叉树的完全性检验
+ * [1008] 前序遍历构造二叉搜索树
  */
 
 // @lc code=start
@@ -65,39 +65,30 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:      8ms    BEAT: 39.36%    O(n) = 
-MEMORY: 10.2MB    BEAT: 35.45%    O(n) = 
-LAST EDIT TIME: 2021年4月14日17:7:39
-Description: BFS
+TIME:      4ms    BEAT: 89.31%    O(n) = 
+MEMORY: 13.3MB    BEAT: 60.99%    O(n) = 
+USED TIME: 很快。但也没有那么快。
+LAST EDIT TIME: 2021年4月14日21:33:53
+Description: 
 */
 
 class Solution {
 public:
-    bool isCompleteTree(TreeNode* root) {
-        if (!root) return true;
-        queue<TreeNode*> q;
-        q.push(root);
-        bool flag = false;
-        while (q.size()) {
-            auto node = q.front();
-            q.pop();
-            if (node->left) {
-                if (flag) return false;
-                q.push(node->left);
-            }
-            else {
-                flag = true;
-            }
-            
-            if (node->right) {
-                if (flag) return false;
-                q.push(node->right);
-            }
-            else {
-                flag = true;
-            }
-        }
-        return true;
+    TreeNode* bstFromPreorder(vector<int>& preorder) {
+        return dfs(preorder, 0, SZ(preorder) - 1);
+    }
+    
+    TreeNode* dfs(VI& preorder, int l, int r) {
+        if (l > r) return nullptr;
+        TreeNode* cur = new TreeNode(preorder[l]);
+
+        int i = l;
+        while (i < SZ(preorder) && preorder[i] <= preorder[l]) i ++; // 这里可以用二分查找优化。不过好像没什么必要。
+
+        cur->left = dfs(preorder, l + 1, i - 1);
+        cur->right = dfs(preorder, i, r);
+        
+        return cur;
     }
 };
 // @lc code=end

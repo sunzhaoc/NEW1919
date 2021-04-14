@@ -1,29 +1,13 @@
 /*
  * @Description: 
+ * 
+ * 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-14 16:15:07
- * @LastEditTime: 2021-04-14 17:07:40
- * @FilePath: \Leetcode\958.Check Completeness of a Binary Tree.cpp
+ * @Date: 2021-04-14 19:49:48
+ * @LastEditTime: 2021-04-14 20:30:49
+ * @FilePath: \Leetcode\demo02CORE.cpp
  */
-/*
- * @lc app=leetcode.cn id=958 lang=cpp
- *
- * [958] 二叉树的完全性检验
- */
-
-// @lc code=start
-// Definition for a binary tree node.
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
-
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -63,42 +47,55 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
-/*
-RESULT: Accept
-TIME:      8ms    BEAT: 39.36%    O(n) = 
-MEMORY: 10.2MB    BEAT: 35.45%    O(n) = 
-LAST EDIT TIME: 2021年4月14日17:7:39
-Description: BFS
-*/
+
 
 class Solution {
 public:
-    bool isCompleteTree(TreeNode* root) {
-        if (!root) return true;
-        queue<TreeNode*> q;
-        q.push(root);
-        bool flag = false;
-        while (q.size()) {
-            auto node = q.front();
-            q.pop();
-            if (node->left) {
-                if (flag) return false;
-                q.push(node->left);
-            }
-            else {
-                flag = true;
-            }
-            
-            if (node->right) {
-                if (flag) return false;
-                q.push(node->right);
-            }
-            else {
-                flag = true;
-            }
+    unordered_set<int> res;
+    unordered_set<int> aebres;
+    
+    VI function(VI& speed) {
+        int n = SZ(speed), i = 0, tmp = 60;
+        while (tmp < n) {
+            tmp *= i;
+            res.insert(tmp);
+            i ++;
         }
-        return true;
+        
+        i = 4;
+        while(i < n) {
+            if (speed[i - 4] - speed[i - 3] >= 9 && speed[i - 3] - speed[i - 2] >= 9 && speed[i - 2] - speed[i - 1] >= 9 && speed[i - 1] - speed[i] >= 9) {
+                int k = i;
+                while (speed[k - 1] - speed[k] >= 9) k ++;
+                k --;
+                
+                FOR(j, max(0, i - 8), min(n, k + 4 + 1)) {
+                    aebres.insert(j);
+                }
+                FOR(j, i - 4, min(n, k + 1)) {
+                    if (res.find(j) != res.end()) res.erase(j);
+                }
+                i = k;
+            }
+            else i ++;
+        }
+        
+        VI ans;
+        for (auto it = res.begin(); it != res.end(); it ++) ans.PB(*it);
+        for (auto it = aebres.begin(); it != aebres.end(); it ++) ans.PB(*it);
+        sort(ALL(ans));
+        return ans;
     }
 };
-// @lc code=end
+
+int main() {
+    Solution sol;
+    VI nums = {2,3,1,1};
+    int n = 4;
+    auto it = sol.function(n, nums);
+    cout << it << endl;
+    system("pause");
+    return 0;
+}
+
 
