@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-14 14:58:31
- * @LastEditTime: 2021-04-14 15:00:12
+ * @LastEditTime: 2021-04-14 15:12:47
  * @FilePath: \Leetcode\652.Find Duplicate Subtrees.cpp
  */
 /*
@@ -73,7 +73,21 @@ Description:
 
 class Solution {
 public:
+    unordered_set<string, int> map;
+    V<TreeNode*> res;
     vector<TreeNode*> findDuplicateSubtrees(TreeNode* root) {
+        string 
+        dfs(root, tmp);
+        return res;
+    }
+
+    void dfs(TreeNode* node, string& path) {
+        if (!node) return;
+
+        path += node->val;
+
+        dfs(node->left, path + "L");
+        dfs(node->right, path + "R");
         
     }
 };
