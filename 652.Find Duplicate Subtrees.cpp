@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-14 14:58:31
- * @LastEditTime: 2021-04-14 15:12:47
+ * @LastEditTime: 2021-04-14 15:24:57
  * @FilePath: \Leetcode\652.Find Duplicate Subtrees.cpp
  */
 /*
@@ -64,33 +64,34 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
+TIME:     60ms    BEAT: 33.01%    O(n) = 
+MEMORY: 48.5MB    BEAT: 51.39%    O(n) = 
+USED TIME: 23:19
+LAST EDIT TIME: 2021年4月14日15:24:2
+Description: 注意！！！unordered_set<TreeNode*> 这样的设置是不行的。时间全花在这上面了。
 */
 
 class Solution {
 public:
-    unordered_set<string, int> map;
+    unordered_map<string, int> map;
     V<TreeNode*> res;
     vector<TreeNode*> findDuplicateSubtrees(TreeNode* root) {
-        string 
-        dfs(root, tmp);
+        string tmp = dfs(root);
         return res;
     }
 
-    void dfs(TreeNode* node, string& path) {
-        if (!node) return;
+    string dfs(TreeNode* node) {
+        if (!node) return "#";
 
-        path += node->val;
-
-        dfs(node->left, path + "L");
-        dfs(node->right, path + "R");
-        
+        string L = dfs(node->left);
+        string R = dfs(node->right);
+        string cur = to_string(node->val) + "," + L + "," + R;
+        if (map[cur] == 1) res.PB(node);
+        map[cur] ++;
+        return cur;
     }
 };
+
 
 // @lc code=end
 
