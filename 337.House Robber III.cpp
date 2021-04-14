@@ -2,18 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-13 20:38:55
- * @LastEditTime: 2021-04-13 20:58:28
- * @FilePath: \Leetcode\113.Path Sum II.cpp
+ * @Date: 2021-04-14 09:22:24
+ * @LastEditTime: 2021-04-14 10:06:47
+ * @FilePath: \Leetcode\337.House Robber III.cpp
  */
 /*
- * @lc app=leetcode.cn id=113 lang=cpp
+ * @lc app=leetcode.cn id=337 lang=cpp
  *
- * [113] 路径总和 II
+ * [337] 打家劫舍 III
  */
 
 // @lc code=start
-
 // Definition for a binary tree node.
 struct TreeNode {
     int val;
@@ -65,40 +64,62 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     16ms    BEAT: 40.33%    O(n) = 
-MEMORY: 19.6MB    BEAT: 30.69%    O(n) = 
-USED TIME: 13:17
-LAST EDIT TIME: 2021年4月13日20:58:13
-Description: 
+TIME:     16ms    BEAT: 88.94%    O(n) = n
+MEMORY: 21.6MB    BEAT: 88.37%    O(n) = n
+LAST EDIT TIME: 2021年4月14日10:5:33
+Description: 与下面的方法相同。用的递归返回值。
+虽然优化过的版本省去了哈希表的空间，但是栈空间的使用代价依旧是 O(n)O(n)，故空间复杂度不变。
+*/
+
+struct SubtreeStatus {
+    int selected;
+    int unselected;
+};
+
+class Solution {
+public:
+    
+    int rob(TreeNode* root) {
+        auto it = dfs(root);
+        return max(it.selected, it.unselected);
+    }
+
+    SubtreeStatus dfs(TreeNode* node) {
+        if (!node) return {0, 0};
+        auto l = dfs(node->left);
+        auto r = dfs(node->right);
+        int selected = node->val + l.unselected + r.unselected;
+        int unselected = max(l.selected, l.unselected) + max(r.selected, r.unselected);
+        return {selected, unselected};
+    }
+};
+
+
+/*
+RESULT: Accept
+TIME:     44ms    BEAT: 19.43%    O(n) = n
+MEMORY: 28.2MB    BEAT: 22.92%    O(n) = n
+USED TIME: 2021年4月14日9:52:16
+LAST EDIT TIME: 2021年4月14日9:49:5
+Description: 树形DP。
+https://leetcode-cn.com/problems/house-robber-iii/solution/da-jia-jie-she-iii-by-leetcode-solution/
 */
 
 class Solution {
 public:
-    // int target;
-    VVI res;
-    vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
-        // target = targetSum;
-        VI tmp;
-        dfs(root, tmp, targetSum);
-        return res;
+    unordered_map<TreeNode*, int> tp, fp;
+    
+    int rob(TreeNode* root) {
+        dfs(root);
+        return max(fp[root], tp[root]);
     }
 
-    void dfs(TreeNode* node, VI& path, int diff) {
+    void dfs(TreeNode* node) {
         if (!node) return;
-        if (!node->left && !node->right) {
-            if (diff - node->val == 0) {
-                path.PB(node->val);
-                res.PB(path);
-                path.pop_back();
-            }
-            return;
-        }
-
-        path.PB(node->val);
-        dfs(node->left, path, diff - node->val);
-        dfs(node->right, path, diff - node->val);
-        path.pop_back();
-        
+        dfs(node->left);
+        dfs(node->right);
+        tp[node] = node->val + fp[node->left] + fp[node->right]; // Choose thie Node
+        fp[node] = max(fp[node->left], tp[node->left]) + max(fp[node->right], tp[node->right]);
     }
 };
 // @lc code=end

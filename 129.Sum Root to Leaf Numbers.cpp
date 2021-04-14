@@ -2,18 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-13 20:38:55
- * @LastEditTime: 2021-04-13 20:58:28
- * @FilePath: \Leetcode\113.Path Sum II.cpp
+ * @Date: 2021-04-13 20:59:17
+ * @LastEditTime: 2021-04-13 21:08:42
+ * @FilePath: \Leetcode\129.Sum Root to Leaf Numbers.cpp
  */
 /*
- * @lc app=leetcode.cn id=113 lang=cpp
+ * @lc app=leetcode.cn id=129 lang=cpp
  *
- * [113] 路径总和 II
+ * [129] 求根到叶子节点数字之和
  */
 
 // @lc code=start
-
 // Definition for a binary tree node.
 struct TreeNode {
     int val;
@@ -23,6 +22,7 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
+
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -65,40 +65,29 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     16ms    BEAT: 40.33%    O(n) = 
-MEMORY: 19.6MB    BEAT: 30.69%    O(n) = 
-USED TIME: 13:17
-LAST EDIT TIME: 2021年4月13日20:58:13
+TIME:     4ms    BEAT: 60.66%    O(n) = 
+MEMORY: 8.8MB    BEAT: 99.05%    O(n) = 
+USED TIME: 05:43
+LAST EDIT TIME: 2021年4月13日21:8:28
 Description: 
 */
 
 class Solution {
 public:
-    // int target;
-    VVI res;
-    vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
-        // target = targetSum;
-        VI tmp;
-        dfs(root, tmp, targetSum);
-        return res;
+    int sum = 0;
+    int sumNumbers(TreeNode* root) {
+        dfs(root);
+        return sum;
     }
 
-    void dfs(TreeNode* node, VI& path, int diff) {
-        if (!node) return;
+    void dfs(TreeNode* node, int n) {
+        if (node == nullptr) return;
         if (!node->left && !node->right) {
-            if (diff - node->val == 0) {
-                path.PB(node->val);
-                res.PB(path);
-                path.pop_back();
-            }
+            sum += n * 10 + node->val;
             return;
         }
-
-        path.PB(node->val);
-        dfs(node->left, path, diff - node->val);
-        dfs(node->right, path, diff - node->val);
-        path.pop_back();
-        
+        dfs(node->left, n + node->val);
+        dfs(node->right, n + node->val);
     }
 };
 // @lc code=end

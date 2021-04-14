@@ -2,18 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-13 20:38:55
- * @LastEditTime: 2021-04-13 20:58:28
- * @FilePath: \Leetcode\113.Path Sum II.cpp
+ * @Date: 2021-04-14 13:57:38
+ * @LastEditTime: 2021-04-14 14:15:02
+ * @FilePath: \Leetcode\95.Unique Binary Search Trees II.cpp
  */
 /*
- * @lc app=leetcode.cn id=113 lang=cpp
+ * @lc app=leetcode.cn id=95 lang=cpp
  *
- * [113] 路径总和 II
+ * [95] 不同的二叉搜索树 II
  */
 
 // @lc code=start
-
 // Definition for a binary tree node.
 struct TreeNode {
     int val;
@@ -65,40 +64,38 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     16ms    BEAT: 40.33%    O(n) = 
-MEMORY: 19.6MB    BEAT: 30.69%    O(n) = 
-USED TIME: 13:17
-LAST EDIT TIME: 2021年4月13日20:58:13
-Description: 
+TIME:     12ms    BEAT: 99.03%    O(n) = 
+MEMORY: 15.9MB    BEAT: 24.74%    O(n) = 
+USED TIME: 20:19
+LAST EDIT TIME: 2021年4月14日14:13:55
+Description: 不太会。也不是不会。值得再看看。
 */
 
 class Solution {
 public:
-    // int target;
-    VVI res;
-    vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
-        // target = targetSum;
-        VI tmp;
-        dfs(root, tmp, targetSum);
-        return res;
+    V<TreeNode*> generateTrees(int n) {
+        if (!n) return {};
+        return backTrack(1, n);
     }
 
-    void dfs(TreeNode* node, VI& path, int diff) {
-        if (!node) return;
-        if (!node->left && !node->right) {
-            if (diff - node->val == 0) {
-                path.PB(node->val);
-                res.PB(path);
-                path.pop_back();
-            }
-            return;
-        }
+    V<TreeNode*> backTrack(int l, int r) {
+        if (l > r) return {nullptr};
+        V<TreeNode*> allTrees;
 
-        path.PB(node->val);
-        dfs(node->left, path, diff - node->val);
-        dfs(node->right, path, diff - node->val);
-        path.pop_back();
-        
+        FOR(i, l, r + 1) {
+            V<TreeNode*> leftTrees = backTrack(l, i - 1);
+            V<TreeNode*> rightTrees = backTrack(i + 1, r);
+
+            for (auto& left: leftTrees) {
+                for (auto& right: rightTrees) {
+                    TreeNode* curTree = new TreeNode(i);
+                    curTree->left = left;
+                    curTree->right = right;
+                    allTrees.PB(curTree);
+                }
+            }
+        }
+        return allTrees;
     }
 };
 // @lc code=end

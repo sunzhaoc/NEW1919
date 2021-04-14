@@ -1,19 +1,10 @@
 /*
- * @Description: 
- * @Version: 1.0
- * @Autor: Vicro
- * @Date: 2021-04-13 20:38:55
- * @LastEditTime: 2021-04-13 20:58:28
- * @FilePath: \Leetcode\113.Path Sum II.cpp
- */
-/*
- * @lc app=leetcode.cn id=113 lang=cpp
+ * @lc app=leetcode.cn id=654 lang=cpp
  *
- * [113] 路径总和 II
+ * [654] 最大二叉树
  */
 
 // @lc code=start
-
 // Definition for a binary tree node.
 struct TreeNode {
     int val;
@@ -65,40 +56,34 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     16ms    BEAT: 40.33%    O(n) = 
-MEMORY: 19.6MB    BEAT: 30.69%    O(n) = 
-USED TIME: 13:17
-LAST EDIT TIME: 2021年4月13日20:58:13
-Description: 
+TIME:     92ms    BEAT: 87.34%    O(n) = 
+MEMORY: 41.2MB    BEAT: 45.10%    O(n) = 
+USED TIME: 08:31
+LAST EDIT TIME: 2021年4月14日14:56:6
+Description: 和106很像。
 */
 
 class Solution {
 public:
-    // int target;
-    VVI res;
-    vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
-        // target = targetSum;
-        VI tmp;
-        dfs(root, tmp, targetSum);
-        return res;
+    TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
+        return backTrack(nums, 0, SZ(nums) - 1);
     }
 
-    void dfs(TreeNode* node, VI& path, int diff) {
-        if (!node) return;
-        if (!node->left && !node->right) {
-            if (diff - node->val == 0) {
-                path.PB(node->val);
-                res.PB(path);
-                path.pop_back();
+    TreeNode* backTrack(VI& nums, int l, int r) {
+        if (l > r) return nullptr;
+
+        int maxValue = INT_MIN, maxValueId;
+        FOR(i, l, r + 1) {
+            if (nums[i] > maxValue) {
+                maxValue = nums[i];
+                maxValueId = i;
             }
-            return;
         }
 
-        path.PB(node->val);
-        dfs(node->left, path, diff - node->val);
-        dfs(node->right, path, diff - node->val);
-        path.pop_back();
-        
+        TreeNode* cur = new TreeNode(maxValue);
+        cur->left = backTrack(nums, l, maxValueId - 1);
+        cur->right = backTrack(nums, maxValueId + 1, r);
+        return cur;
     }
 };
 // @lc code=end

@@ -2,18 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-13 20:38:55
- * @LastEditTime: 2021-04-13 20:58:28
- * @FilePath: \Leetcode\113.Path Sum II.cpp
+ * @Date: 2021-04-14 10:08:30
+ * @LastEditTime: 2021-04-14 13:50:54
+ * @FilePath: \Leetcode\662.Maximum Width of Binary Tree.cpp
  */
 /*
- * @lc app=leetcode.cn id=113 lang=cpp
+ * @lc app=leetcode.cn id=662 lang=cpp
  *
- * [113] 路径总和 II
+ * [662] 二叉树最大宽度
  */
 
 // @lc code=start
-
 // Definition for a binary tree node.
 struct TreeNode {
     int val;
@@ -23,6 +22,7 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
+
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -65,40 +65,33 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     16ms    BEAT: 40.33%    O(n) = 
-MEMORY: 19.6MB    BEAT: 30.69%    O(n) = 
-USED TIME: 13:17
-LAST EDIT TIME: 2021年4月13日20:58:13
-Description: 
+TIME:     12ms    BEAT: 37.29%    O(n) = 
+MEMORY: 16.1MB    BEAT: 31.01%    O(n) = 
+USED TIME: 很久
+LAST EDIT TIME: 2021年4月14日13:49:15 
+Description: 主要是要用ULL类型。不然会溢出。这个弄了很久，一开始用的LL也还是不行。
 */
 
 class Solution {
 public:
-    // int target;
-    VVI res;
-    vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
-        // target = targetSum;
-        VI tmp;
-        dfs(root, tmp, targetSum);
-        return res;
+    VI res;
+    ULL ans = -1;
+    int widthOfBinaryTree(TreeNode* root) {
+        dfs(root, 0, 0);
+        return ans;
     }
 
-    void dfs(TreeNode* node, VI& path, int diff) {
+    void dfs(TreeNode* node, ULL depth, ULL path) {
         if (!node) return;
-        if (!node->left && !node->right) {
-            if (diff - node->val == 0) {
-                path.PB(node->val);
-                res.PB(path);
-                path.pop_back();
-            }
-            return;
+        if (depth == SZ(res)) {
+            res.PB(path);
+            ans = ans == -1 ? 1: ans; // 如果写成ckmax(ans, 1) 或 ans = max(ans, 1) 会报错。
         }
-
-        path.PB(node->val);
-        dfs(node->left, path, diff - node->val);
-        dfs(node->right, path, diff - node->val);
-        path.pop_back();
-        
+        else {
+            ckmax(ans, path - res[depth] + 1);
+        }
+        dfs(node->left, depth + 1, path << 1);
+        dfs(node->right, depth + 1, (path << 1) + 1);
     }
 };
 // @lc code=end

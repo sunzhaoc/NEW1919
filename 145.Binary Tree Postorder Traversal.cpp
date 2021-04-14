@@ -2,14 +2,14 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-13 20:38:55
- * @LastEditTime: 2021-04-13 20:58:28
- * @FilePath: \Leetcode\113.Path Sum II.cpp
+ * @Date: 2021-04-13 21:09:04
+ * @LastEditTime: 2021-04-13 21:11:01
+ * @FilePath: \Leetcode\145.二叉树的后序遍历.cpp
  */
 /*
- * @lc app=leetcode.cn id=113 lang=cpp
+ * @lc app=leetcode.cn id=145 lang=cpp
  *
- * [113] 路径总和 II
+ * [145] 二叉树的后序遍历
  */
 
 // @lc code=start
@@ -65,40 +65,26 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     16ms    BEAT: 40.33%    O(n) = 
-MEMORY: 19.6MB    BEAT: 30.69%    O(n) = 
-USED TIME: 13:17
-LAST EDIT TIME: 2021年4月13日20:58:13
+TIME:     4ms    BEAT: 41.75%    O(n) = 
+MEMORY: 8.2MB    BEAT: 56.10%    O(n) = 
+USED TIME: 00:48
+LAST EDIT TIME: 2021年4月13日21:10:45
 Description: 
 */
 
 class Solution {
 public:
-    // int target;
-    VVI res;
-    vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
-        // target = targetSum;
-        VI tmp;
-        dfs(root, tmp, targetSum);
+    VI res;
+    vector<int> postorderTraversal(TreeNode* root) {
+        dfs(root);
         return res;
     }
 
-    void dfs(TreeNode* node, VI& path, int diff) {
-        if (!node) return;
-        if (!node->left && !node->right) {
-            if (diff - node->val == 0) {
-                path.PB(node->val);
-                res.PB(path);
-                path.pop_back();
-            }
-            return;
-        }
-
-        path.PB(node->val);
-        dfs(node->left, path, diff - node->val);
-        dfs(node->right, path, diff - node->val);
-        path.pop_back();
-        
+    void dfs(TreeNode* node) {
+        if(! node) return;
+        dfs(node->left);
+        dfs(node->right);
+        res.PB(node->val);
     }
 };
 // @lc code=end

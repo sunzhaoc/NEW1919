@@ -2,18 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-13 20:38:55
- * @LastEditTime: 2021-04-13 20:58:28
- * @FilePath: \Leetcode\113.Path Sum II.cpp
+ * @Date: 2021-04-13 21:16:17
+ * @LastEditTime: 2021-04-13 21:50:07
+ * @FilePath: \Leetcode\437.Path Sum III.cpp
  */
 /*
- * @lc app=leetcode.cn id=113 lang=cpp
+ * @lc app=leetcode.cn id=437 lang=cpp
  *
- * [113] 路径总和 II
+ * [437] 路径总和 III
  */
 
 // @lc code=start
-
 // Definition for a binary tree node.
 struct TreeNode {
     int val;
@@ -23,6 +22,7 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
+
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -65,40 +65,37 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     16ms    BEAT: 40.33%    O(n) = 
-MEMORY: 19.6MB    BEAT: 30.69%    O(n) = 
-USED TIME: 13:17
-LAST EDIT TIME: 2021年4月13日20:58:13
-Description: 
+TIME:      8ms    BEAT: 99.86%    O(n) = 
+MEMORY: 18.2MB    BEAT: 26.66%    O(n) = 
+USED TIME: 29:53
+LAST EDIT TIME: 2021年4月13日21:46:42
+Description: 忘记前缀和要初始化map[0] = 1;r
 */
 
 class Solution {
 public:
-    // int target;
-    VVI res;
-    vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
-        // target = targetSum;
-        VI tmp;
-        dfs(root, tmp, targetSum);
-        return res;
+    int cnt = 0;
+    int target;
+    unordered_map<int, int> map;
+    int pathSum(TreeNode* root, int targetSum) {
+        target = targetSum;
+        map[0] = 1;
+        dfs(root, 0);
+        return cnt;
     }
 
-    void dfs(TreeNode* node, VI& path, int diff) {
-        if (!node) return;
-        if (!node->left && !node->right) {
-            if (diff - node->val == 0) {
-                path.PB(node->val);
-                res.PB(path);
-                path.pop_back();
-            }
+    void dfs(TreeNode* node, int sum) {
+        if (node == nullptr) {
             return;
         }
-
-        path.PB(node->val);
-        dfs(node->left, path, diff - node->val);
-        dfs(node->right, path, diff - node->val);
-        path.pop_back();
-        
+        sum += node->val;
+        if (map.find(sum - target) != map.end() && map[sum - target] != 0) {
+            cnt += map[sum - target];
+        }
+        map[sum] ++;
+        dfs(node->left, sum);
+        dfs(node->right, sum);
+        map[sum] --;
     }
 };
 // @lc code=end

@@ -2,14 +2,14 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-13 20:38:55
- * @LastEditTime: 2021-04-13 20:58:28
- * @FilePath: \Leetcode\113.Path Sum II.cpp
+ * @Date: 2021-04-14 14:16:19
+ * @LastEditTime: 2021-04-14 14:44:30
+ * @FilePath: \Leetcode\106.从中序与后序遍历序列构造二叉树.cpp
  */
 /*
- * @lc app=leetcode.cn id=113 lang=cpp
+ * @lc app=leetcode.cn id=106 lang=cpp
  *
- * [113] 路径总和 II
+ * [106] 从中序与后序遍历序列构造二叉树
  */
 
 // @lc code=start
@@ -65,40 +65,34 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     16ms    BEAT: 40.33%    O(n) = 
-MEMORY: 19.6MB    BEAT: 30.69%    O(n) = 
-USED TIME: 13:17
-LAST EDIT TIME: 2021年4月13日20:58:13
-Description: 
+TIME:     12ms    BEAT: 97.21%    O(n) = 
+MEMORY: 26.2MB    BEAT: 19.95%    O(n) = 
+USED TIME: 26:28
+LAST EDIT TIME: 2021年4月14日14:43:47
+Description: 思路一秒就有。实现还是做了一下。
 */
 
 class Solution {
 public:
-    // int target;
-    VVI res;
-    vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
-        // target = targetSum;
-        VI tmp;
-        dfs(root, tmp, targetSum);
-        return res;
+    unordered_map<int, int> mapIn;
+    unordered_map<int, int> mapPost;
+
+    TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
+        REP(i, SZ(inorder)) mapIn[inorder[i]] = i;
+        REP(i, SZ(postorder)) mapPost[inorder[i]] = i;
+        auto ans = backTrack(inorder, postorder, 0, SZ(inorder) - 1, 0, SZ(postorder) - 1);
+        return ans;
     }
 
-    void dfs(TreeNode* node, VI& path, int diff) {
-        if (!node) return;
-        if (!node->left && !node->right) {
-            if (diff - node->val == 0) {
-                path.PB(node->val);
-                res.PB(path);
-                path.pop_back();
-            }
-            return;
-        }
-
-        path.PB(node->val);
-        dfs(node->left, path, diff - node->val);
-        dfs(node->right, path, diff - node->val);
-        path.pop_back();
-        
+    TreeNode* backTrack(VI& inorder, VI& postorder, int il, int ir, int pl, int pr) {
+        if (pl > pr) return nullptr;
+        TreeNode* cur = new TreeNode(postorder[pr]);
+        int midId = mapIn[cur->val];
+        int left = midId - il;
+        int right = ir - midId;
+        cur->left = backTrack(inorder, postorder, il, midId - 1, pl, pl + left - 1);
+        cur->right = backTrack(inorder, postorder, midId + 1, ir, pr - right, pr - 1);
+        return cur;
     }
 };
 // @lc code=end
