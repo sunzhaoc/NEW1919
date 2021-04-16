@@ -2,10 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-16 14:33:01
- * @LastEditTime: 2021-04-16 14:42:41
- * @FilePath: \Leetcode\582. Kill Process.cpp
+ * @Date: 2021-04-16 14:43:01
+ * @LastEditTime: 2021-04-16 14:51:07
+ * @FilePath: \Leetcode\933. Number of Recent Calls.cpp
  */
+/*
+ * @lc app=leetcode.cn id=933 lang=cpp
+ *
+ * [933] 最近的请求次数
+ */
+
+// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -48,31 +55,31 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:    144ms    BEAT: 63.75%    O(n) = 
-MEMORY: 65.9MB    BEAT: 61.25%    O(n) = 
-USED TIME: 07:30
-LAST EDIT TIME: 2021年4月16日14:42:12
-Description: Easy
+TIME:    180ms    BEAT: 43.65%    O(n) = 
+MEMORY: 56.1MB    BEAT: 40.62%    O(n) = 
+USED TIME: 04:04
+LAST EDIT TIME: 2021年4月16日14:50:51
+Description: 
 */
 
-class Solution {
+class RecentCounter {
 public:
-    vector<int> killProcess(vector<int>& pid, vector<int>& ppid, int kill) {
-        unordered_map<int, VI> map;
-        REP(i, SZ(pid)) {
-            map[ppid[i]].PB(pid[i]);
-        }
-        queue<int> q;
-        q.push(kill);
-        VI res;
-        while (q.size()) {
-            int father = q.front();
-            res.PB(father);
-            q.pop();
-            REP(i, SZ(map[father])) {
-                q.push(map[father][i]);
-            }
-        }
-        return res;
+    deque<int> q;
+    RecentCounter() {
+    }
+    
+    int ping(int t) {
+        q.PB(t);
+        int begin = t - 3000;
+        while (q.front() < begin) q.pop_front();
+        return SZ(q);
     }
 };
+
+/**
+ * Your RecentCounter object will be instantiated and called as such:
+ * RecentCounter* obj = new RecentCounter();
+ * int param_1 = obj->ping(t);
+ */
+// @lc code=end
+

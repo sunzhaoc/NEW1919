@@ -2,10 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-16 14:33:01
- * @LastEditTime: 2021-04-16 14:42:41
- * @FilePath: \Leetcode\582. Kill Process.cpp
+ * @Date: 2021-04-16 14:54:01
+ * @LastEditTime: 2021-04-16 15:34:34
+ * @FilePath: \Leetcode\363. Max Sum of Rectangle No Larger Than K.cpp
  */
+/*
+ * @lc app=leetcode.cn id=363 lang=cpp
+ *
+ * [363] 矩形区域不超过 K 的最大数值和
+ */
+
+// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -48,31 +55,50 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:    144ms    BEAT: 63.75%    O(n) = 
-MEMORY: 65.9MB    BEAT: 61.25%    O(n) = 
-USED TIME: 07:30
-LAST EDIT TIME: 2021年4月16日14:42:12
-Description: Easy
+TIME:   ms    BEAT: %    O(n) = 
+MEMORY: MB    BEAT: %    O(n) = 
+USED TIME: 
+LAST EDIT TIME: 
+Description: 
 */
 
 class Solution {
 public:
-    vector<int> killProcess(vector<int>& pid, vector<int>& ppid, int kill) {
-        unordered_map<int, VI> map;
-        REP(i, SZ(pid)) {
-            map[ppid[i]].PB(pid[i]);
-        }
-        queue<int> q;
-        q.push(kill);
-        VI res;
-        while (q.size()) {
-            int father = q.front();
-            res.PB(father);
-            q.pop();
-            REP(i, SZ(map[father])) {
-                q.push(map[father][i]);
+    int maxSumSubmatrix(vector<vector<int>>& matrix, int k) {
+
+    }
+};
+
+
+/*
+RESULT: Time Out
+TIME:   ms    BEAT: %    O(n) = n^4
+MEMORY: MB    BEAT: %    O(n) = n^2
+LAST EDIT TIME: 2021年4月16日15:33:12
+Description: 前缀和。
+*/
+
+class Solution {
+public:
+    int maxSumSubmatrix(vector<vector<int>>& matrix, int k) {
+        VVI map(SZ(matrix) + 1, VI(SZ(matrix[0]) + 1, 0));
+        FOR(i, 0, SZ(matrix)) 
+            FOR(j, 0, SZ(matrix[0])) 
+                map[i + 1][j + 1] = map[i][j + 1] + map[i + 1][j] - map[i][j] + matrix[i][j];
+        int res = INT_MIN;
+        REP(i, SZ(matrix)) {
+            REP(j, SZ(matrix[0])) {
+                FOR(x, i, SZ(matrix)) {
+                    FOR(y, j, SZ(matrix[0])) {
+                        int cur = map[x + 1][y + 1] + map[i][j] - map[x + 1][j] - map[i][y + 1];
+                        if (cur <= k && cur > res) res = cur;
+                    }
+                }
             }
         }
         return res;
     }
 };
+
+// @lc code=end
+
