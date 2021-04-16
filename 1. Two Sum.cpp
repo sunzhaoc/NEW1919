@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-01-12 10:09:44
- * @LastEditTime: 2021-01-12 10:40:05
+ * @LastEditTime: 2021-04-16 10:32:31
  * @FilePath: \Leetcode\1.Two Sum.cpp
  */
 /*
@@ -55,23 +55,23 @@ USED TIME: 05:31
 Description: 暴力枚举。
 */
 
-class Solution {
-public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        vector<int> res;
-        for (int i = 0; i < nums.size(); i ++) {
-            int cha = target - nums[i];
-            for (int j = i + 1; j < nums.size(); j ++) {
-                if (nums[j] + nums[i] == target) {
-                    res.push_back(i);
-                    res.push_back(j);
-                    return res;
-                }
-            }
-        }
-        return {};
-    }
-};
+// class Solution {
+// public:
+//     vector<int> twoSum(vector<int>& nums, int target) {
+//         vector<int> res;
+//         for (int i = 0; i < nums.size(); i ++) {
+//             int cha = target - nums[i];
+//             for (int j = i + 1; j < nums.size(); j ++) {
+//                 if (nums[j] + nums[i] == target) {
+//                     res.push_back(i);
+//                     res.push_back(j);
+//                     return res;
+//                 }
+//             }
+//         }
+//         return {};
+//     }
+// };
 
 
 int main() {

@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-16 08:48:02
- * @LastEditTime: 2021-04-16 09:54:12
+ * @LastEditTime: 2021-04-16 10:14:59
  * @FilePath: \Leetcode\87.Scramble String.cpp
  */
 /*
@@ -55,8 +55,8 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     36ms    BEAT: 38.54%    O(n) = 
-MEMORY: 13.5MB    BEAT: 19.28%    O(n) = 
+TIME:     36ms    BEAT: 38.54%    O(n) = n^4
+MEMORY: 13.5MB    BEAT: 19.28%    O(n) = n^3
 LAST EDIT TIME: 2021年4月16日9:54:14
 Description: 
 */
@@ -77,13 +77,18 @@ public:
 
         // 枚举区间长度 2 - n
         FOR(len, 2, n + 1) {
+            // 枚举S中的起点位置
             REP(i, n - len + 1) {
+                // 枚举T中的起点位置
                 REP(j, n - len + 1) {
+                    // 枚举划分位置
                     FOR(k, 1, len) {
+                        // 不换
                         if (dp[i][j][k] && dp[i + k][j + k][len - k]) {
                             dp[i][j][len] = true;
                             break;
                         }
+                        // 换
                         if (dp[i][j + len - k][k] && dp[i + k][j][len - k]) {
                             dp[i][j][len] = true;
                             break;
