@@ -2,17 +2,10 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-17 21:21:45
- * @LastEditTime: 2021-04-17 22:12:27
- * @FilePath: \Leetcode\220. Contains Duplicate III.cpp
+ * @Date: 2021-04-17 22:13:10
+ * @LastEditTime: 2021-04-17 22:13:45
+ * @FilePath: \Leetcode\weekcom\Double Week 50\T1.cpp
  */
-/*
- * @lc app=leetcode.cn id=220 lang=cpp
- *
- * [220] 存在重复元素 III
- */
-
-// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -55,41 +48,26 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     48ms    BEAT: 31.27%    O(n) = n
-MEMORY: 17.8MB    BEAT: 11.92%    O(n) = k
-LAST EDIT TIME: 2021年4月17日22:12:8
-Description: 完全不会。桶排序。
+TIME:   ms    BEAT: %    O(n) = 
+MEMORY: MB    BEAT: %    O(n) = 
+USED TIME: 
+LAST EDIT TIME: 
+Description: 
 */
 
-class Solution {
-public:
-    LL size;
 
-    bool containsNearbyAlmostDuplicate(vector<int>& nums, int k, int t) {
-        // k - index
-        // t - value
-        int n = SZ(nums);
-        unordered_map<LL, LL> map;
-        size = t + 1L;
-        REP(i, n) {
-            LL u = nums[i] * 1L;
-            LL idx = getIdx(u);
 
-            if (map.find(idx) != map.end()) return true;
-            
-            LL l = idx - 1, r = idx + 1;
-            if (map.find(l) != map.end() && abs(u - map[l]) <= t) return true;
-            if (map.find(r) != map.end() && abs(u - map[r]) <= t) return true;
-            
-            map.insert({idx, u});
-            if (i >= k) map.erase(getIdx(nums[i - k]));
-        }
-        return false;
-    }
 
-    LL getIdx(LL u) {
-        return u >= 0 ? u / size : (u + 1) / size - 1;
-    }
-};
-// @lc code=end
 
+
+
+
+
+int main() {
+    Solution sol;
+    // VI nums = {};
+    auto ans = sol.();
+    // cout << ans << endl;
+    system("pause");
+    return 0;
+}
