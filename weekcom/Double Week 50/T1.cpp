@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-17 22:13:10
- * @LastEditTime: 2021-04-17 22:13:45
+ * @LastEditTime: 2021-04-17 22:33:19
  * @FilePath: \Leetcode\weekcom\Double Week 50\T1.cpp
  */
 
@@ -56,7 +56,21 @@ Description:
 */
 
 
-
+class Solution {
+public:
+    int minOperations(vector<int>& nums) {
+        int n = SZ(nums);
+        if (n == 1) return 0;
+        int cnt = 0;
+        FOR(i, 1, n) {
+            if (nums[i] <= nums[i - 1]) {
+                cnt += nums[i - 1] + 1 - nums[i];
+                nums[i] = nums[i - 1] + 1;
+            }
+        }
+        return cnt;
+    }
+};
 
 
 
@@ -65,9 +79,10 @@ Description:
 
 int main() {
     Solution sol;
-    // VI nums = {};
-    auto ans = sol.();
-    // cout << ans << endl;
+    // VI nums = {1,1,1};
+    VI nums = {1,5,2,4,1};
+    auto ans = sol.minOperations(nums);
+    cout << ans << endl;
     system("pause");
     return 0;
 }

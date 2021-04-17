@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-17 22:13:10
- * @LastEditTime: 2021-04-17 22:13:45
- * @FilePath: \Leetcode\weekcom\Double Week 50\T1.cpp
+ * @LastEditTime: 2021-04-17 23:13:01
+ * @FilePath: \Leetcode\weekcom\Double Week 50\T3.cpp
  */
 
 #include <bits/stdc++.h>
@@ -46,27 +46,31 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
-/*
-RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
-*/
-
-
-
-
-
+class Solution {
+public:
+    vector<int> getMaximumXor(vector<int>& nums, int maximumBit) {
+        int n = SZ(nums);
+        VI a(n, 0);
+        a[0] = nums[0];
+        FOR(i, 1, SZ(nums)) {
+            a[i] = a[i - 1] ^ nums[i];
+        }
+        reverse(ALL(a));
+        VI res;
+        REP(i, n) {
+            res.PB(POW2(maximumBit) - 1 - a[i]);
+        }
+        return res;
+    }
+};
 
 
 
 
 int main() {
     Solution sol;
-    // VI nums = {};
-    auto ans = sol.();
+    VI nums = {0,1,1,3};
+    auto ans = sol.getMaximumXor(nums, 2);
     // cout << ans << endl;
     system("pause");
     return 0;

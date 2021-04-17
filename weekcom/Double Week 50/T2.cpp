@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-17 22:13:10
- * @LastEditTime: 2021-04-17 22:13:45
- * @FilePath: \Leetcode\weekcom\Double Week 50\T1.cpp
+ * @LastEditTime: 2021-04-17 22:41:43
+ * @FilePath: \Leetcode\weekcom\Double Week 50\T2.cpp
  */
 
 #include <bits/stdc++.h>
@@ -46,18 +46,21 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
-/*
-RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
-*/
-
-
-
-
+class Solution {
+public:
+    vector<int> countPoints(vector<vector<int>>& points, vector<vector<int>>& queries) {
+        VI res;
+        REP(i, SZ(queries)) {
+            int cnt = 0;
+            REP(j, SZ(points)) {
+                int x = points[j][0], y = points[j][1];
+                if ((x - queries[i][0]) * (x - queries[i][0]) + (y - queries[i][1]) * (y - queries[i][1]) <= queries[i][2] * queries[i][2]) cnt ++;
+            }
+            res.PB(cnt);
+        }
+        return res;
+    }
+};
 
 
 
@@ -65,8 +68,11 @@ Description:
 
 int main() {
     Solution sol;
-    // VI nums = {};
-    auto ans = sol.();
+    // VVI points = {{1,3},{3,3},{5,3},{2,2}};
+    // VVI queries = {{2,3,1},{4,3,1},{1,1,2}};
+    VVI points = {{1,1},{2,2},{3,3},{4,4},{5,5}};
+    VVI queries = {{1,2,2},{2,2,2},{4,3,2},{4,3,3}};
+    auto ans = sol.countPoints(points, queries);
     // cout << ans << endl;
     system("pause");
     return 0;
