@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-16 14:54:01
- * @LastEditTime: 2021-04-16 15:34:34
+ * @LastEditTime: 2021-04-16 19:13:37
  * @FilePath: \Leetcode\363. Max Sum of Rectangle No Larger Than K.cpp
  */
 /*
@@ -55,17 +55,52 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
+TIME:   152ms    BEAT: 82.07%    O(n) = 
+MEMORY: 8.3MB    BEAT: 87.72%    O(n) = 
+LAST EDIT TIME: 2021年4月16日18:57:5
+Description: 这你妈真是妙到家了啊。
+https://leetcode-cn.com/problems/max-sum-of-rectangle-no-larger-than-k/solution/javacong-bao-li-kai-shi-you-hua-pei-tu-pei-zhu-shi/
 */
 
 class Solution {
 public:
     int maxSumSubmatrix(vector<vector<int>>& matrix, int k) {
+        int row = SZ(matrix), col = SZ(matrix[0]), res = INT_MIN;
+        REP(l, col) {
+            VI rowSum(row, 0);
+            FOR(r, l, col) {
+                REP(i, row) {
+                    rowSum[i] += matrix[i][r];
+                }
+                res = max(res, dpmax(rowSum, k));
+                if (res == k) return k;
+            }
+        }
+        return res;
+    }
 
+
+    int dpmax(VI& arr, int k) {
+        int rollSum = arr[0], rollMax = rollSum;
+
+        FOR(i, 1, SZ(arr)) {
+            if (rollSum > 0) rollSum += arr[i];
+            else rollSum = arr[i];
+            if (rollSum > rollMax) rollMax = rollSum;
+        }
+
+        if (rollMax <= k) return rollMax;
+
+        int res = INT_MIN;
+        REP(l, SZ(arr)) {
+            int sum = 0;
+            FOR(r, l, SZ(arr)) {
+                sum += arr[r];
+                if (sum > res && sum <= k) res = sum;
+                if (res == k) return k;
+            }
+        }
+        return res;
     }
 };
 
