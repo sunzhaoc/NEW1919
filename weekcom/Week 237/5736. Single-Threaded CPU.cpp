@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-17 22:13:10
- * @LastEditTime: 2021-04-18 13:06:50
- * @FilePath: \Leetcode\weekcom\Week 237\T3.cpp
+ * @LastEditTime: 2021-04-18 13:16:49
+ * @FilePath: \Leetcode\weekcom\Week 237\5736. Single-Threaded CPU.cpp
  */
 
 #include <bits/stdc++.h>
@@ -64,8 +64,8 @@ public:
                 return x.S > y.S || (x.S == y.S && x.F > y.F);
             }
         };
-        priority_queue<PLL, VPLL, cmp> q;
         
+        priority_queue<PLL, VPLL, cmp> q;
 
         for (auto it = startTime.begin(); it != startTime.end(); it ++) {
             if (*it <= curTime) continue;

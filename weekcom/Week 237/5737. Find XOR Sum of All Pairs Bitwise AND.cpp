@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-17 22:13:10
- * @LastEditTime: 2021-04-18 11:25:32
- * @FilePath: \Leetcode\weekcom\Week 237\T4.cpp
+ * @LastEditTime: 2021-04-18 13:28:36
+ * @FilePath: \Leetcode\weekcom\Week 237\5737. Find XOR Sum of All Pairs Bitwise AND.cpp
  */
 
 #include <bits/stdc++.h>
@@ -44,17 +44,6 @@ using VD = vector<double>;
 using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
-
-
-/*
-RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
-*/
-
 
 
 class Solution {

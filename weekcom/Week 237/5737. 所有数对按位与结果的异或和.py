@@ -8,10 +8,6 @@ FilePath: \Leetcode\weekcom\Week 237\T4.py
 '''
 
 
-
-# sol = Solution()
-# ans = sol.
-# print(ans)
 class Solution:
     def getXORSum(self, arr1: List[int], arr2: List[int]) -> int:
         res = 0
