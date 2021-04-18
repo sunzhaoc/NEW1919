@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-17 22:13:10
- * @LastEditTime: 2021-04-17 23:17:56
- * @FilePath: \Leetcode\weekcom\Double Week 50\T4.cpp
+ * @LastEditTime: 2021-04-18 11:25:32
+ * @FilePath: \Leetcode\weekcom\Week 237\T4.cpp
  */
 
 #include <bits/stdc++.h>
@@ -57,15 +57,23 @@ Description:
 
 
 
-
 class Solution {
 public:
-    int makeStringSorted(string s) {
-
-    }
+    int getXORSum(vector<int>& arr1, vector<int>& arr2) {
+        int res = 0;
+        VI a;
+        for (int x: arr2) {
+            res ^= x;
+        }
+        for (int x: arr1) {
+            a.PB(x & res);
+        }
+        for (int x: a) {
+            res ^= x;
+        }
+        return res;
+    } 
 };
-
-
 
 
 int main() {

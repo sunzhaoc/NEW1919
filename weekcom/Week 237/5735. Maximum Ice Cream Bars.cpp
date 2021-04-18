@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-17 22:13:10
- * @LastEditTime: 2021-04-17 23:17:56
- * @FilePath: \Leetcode\weekcom\Double Week 50\T4.cpp
+ * @LastEditTime: 2021-04-18 10:32:00
+ * @FilePath: \Leetcode\weekcom\Week 237\T2.cpp
  */
 
 #include <bits/stdc++.h>
@@ -46,22 +46,18 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
-/*
-RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
-*/
-
-
-
-
 class Solution {
 public:
-    int makeStringSorted(string s) {
-
+    int maxIceCream(vector<int>& costs, int coins) {
+        sort(ALL(costs));
+        int cnt = 0;
+        int sum = 0;
+        REP(i, SZ(costs)) {
+            if (sum >= coins) break;
+            sum += costs[i];
+            cnt ++;
+        }
+        return cnt;
     }
 };
 
