@@ -2,17 +2,10 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-19 21:55:16
- * @LastEditTime: 2021-04-19 21:58:22
- * @FilePath: \Leetcode\1689. Partitioning Into Minimum Number Of Deci-Binary Numbers.cpp
+ * @Date: 2021-04-19 22:03:39
+ * @LastEditTime: 2021-04-19 22:07:28
+ * @FilePath: \Leetcode\1769. Minimum Number of Operations to Move All Balls to Each Box.cpp
  */
-/*
- * @lc app=leetcode.cn id=1689 lang=cpp
- *
- * [1689] 十-二进制数的最少数目
- */
-
-// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -57,19 +50,27 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     88ms    BEAT:  7.10%    O(n) = 
-MEMORY: 13.1MB    BEAT: 92.90%    O(n) = 
-USED TIME: 01:40
-LAST EDIT TIME: 2021年4月19日21:57:59
-Description: 本质就是找最大的数。。。
+TIME:   172ms    BEAT: 46.71%    O(n) = n^2
+MEMORY: 9.2MB    BEAT: 27.89%    O(n) = n
+USED TIME: 02:35
+LAST EDIT TIME: 2021年4月19日22:6:49
+Description: 
 */
 
 class Solution {
 public:
-    int minPartitions(string n) {
-        sort(ALL(n));
-        return (n.back() - '0');
+    vector<int> minOperations(string boxes) {
+        VI res;
+        REP(i, SZ(boxes)) {
+            int cnt = 0;
+            REP(j, SZ(boxes)) {
+                if (j == i) continue;
+                if (boxes[j] == '1') {
+                    cnt += abs(i - j);
+                }
+            }
+            res.PB(cnt);
+        }
+        return res;
     }
 };
-// @lc code=end
-

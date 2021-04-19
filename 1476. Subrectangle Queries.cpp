@@ -2,17 +2,10 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-19 21:55:16
- * @LastEditTime: 2021-04-19 21:58:22
- * @FilePath: \Leetcode\1689. Partitioning Into Minimum Number Of Deci-Binary Numbers.cpp
+ * @Date: 2021-04-19 21:59:28
+ * @LastEditTime: 2021-04-19 22:02:58
+ * @FilePath: \Leetcode\1476. Subrectangle Queries.cpp
  */
-/*
- * @lc app=leetcode.cn id=1689 lang=cpp
- *
- * [1689] 十-二进制数的最少数目
- */
-
-// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -57,19 +50,36 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     88ms    BEAT:  7.10%    O(n) = 
-MEMORY: 13.1MB    BEAT: 92.90%    O(n) = 
-USED TIME: 01:40
-LAST EDIT TIME: 2021年4月19日21:57:59
-Description: 本质就是找最大的数。。。
+TIME:     44ms    BEAT: 79.29%    O(n) = 
+MEMORY: 18.2MB    BEAT: 46.87%    O(n) = 
+USED TIME: 02:13
+LAST EDIT TIME: 2021年4月19日22:2:44
+Description: 
 */
 
-class Solution {
+class SubrectangleQueries {
 public:
-    int minPartitions(string n) {
-        sort(ALL(n));
-        return (n.back() - '0');
+    VVI rectangle;
+    SubrectangleQueries(vector<vector<int>>& rectangle) {
+        this->rectangle = rectangle;
+    }
+    
+    void updateSubrectangle(int row1, int col1, int row2, int col2, int newValue) {
+        FOR(i, row1, row2 + 1) {
+            FOR(j, col1, col2 + 1) {
+                rectangle[i][j] = newValue;
+            }
+        }
+    }
+    
+    int getValue(int row, int col) {
+        return rectangle[row][col];
     }
 };
-// @lc code=end
 
+/**
+ * Your SubrectangleQueries object will be instantiated and called as such:
+ * SubrectangleQueries* obj = new SubrectangleQueries(rectangle);
+ * obj->updateSubrectangle(row1,col1,row2,col2,newValue);
+ * int param_2 = obj->getValue(row,col);
+ */
