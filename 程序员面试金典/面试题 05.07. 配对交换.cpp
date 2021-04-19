@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Vicro
+ * @Date: 2021-04-19 17:12:11
+ * @LastEditTime: 2021-04-19 17:14:19
+ * @FilePath: \Leetcode\程序员面试金典\面试题 05.07. 配对交换.cpp
+ */
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -42,9 +50,22 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
+TIME:     4ms    BEAT:  8.16%    O(n) = 
+MEMORY: 5.9MB    BEAT: 34.95%    O(n) = 
+USED TIME: 01:02 python刚做过
+LAST EDIT TIME: 2021年4月19日17:14:1
 Description: 
 */
+
+class Solution {
+public:
+    int exchangeBits(int num) {
+        int even = num & 0xaaaaaaaa;
+        int odd = num & 0x55555555;
+        
+        even >>= 1;
+        odd <<= 1;
+
+        return even + odd;
+    }
+};
