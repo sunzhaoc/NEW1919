@@ -2,24 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-19 12:59:59
- * @LastEditTime: 2021-04-19 13:27:48
- * @FilePath: \Leetcode\817. Linked List Components.cpp
+ * @Date: 2021-04-19 13:29:09
+ * @LastEditTime: 2021-04-19 13:29:33
+ * @FilePath: \Leetcode\1670. Design Front Middle Back Queue.cpp
  */
 /*
- * @lc app=leetcode.cn id=817 lang=cpp
+ * @lc app=leetcode.cn id=1670 lang=cpp
  *
- * [817] 链表组件
+ * [1670] 设计前中后队列
  */
 
 // @lc code=start
-
-// Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
-};
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -62,33 +55,53 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     52ms    BEAT: 40.52%    O(n) = 
-MEMORY: 20.9MB    BEAT: 37.07%    O(n) = 
-USED TIME: 18:27
-LAST EDIT TIME: 2021年4月19日13:27:29
+TIME:   ms    BEAT: %    O(n) = 
+MEMORY: MB    BEAT: %    O(n) = 
+USED TIME: 
+LAST EDIT TIME: 
 Description: 
 */
 
-class Solution {
+class FrontMiddleBackQueue {
 public:
-    int numComponents(ListNode* head, vector<int>& G) {
-        int res = 0;
-        unordered_set<int> s;
-        for (int x: G) s.insert(x);
+    FrontMiddleBackQueue() {
 
-        ListNode* node = head;
-        while (node->next) {
-            if (s.find(node->val) != s.end() && s.find(node->next->val) == s.end()) {
-                res ++;
-            }
-            node = node->next;
-        }
+    }
+    
+    void pushFront(int val) {
 
-        if (s.find(node->val) == s.end()) return res;
-        
-        return res + 1;
-    } 
+    }
+    
+    void pushMiddle(int val) {
+
+    }
+    
+    void pushBack(int val) {
+
+    }
+    
+    int popFront() {
+
+    }
+    
+    int popMiddle() {
+
+    }
+    
+    int popBack() {
+
+    }
 };
 
+/**
+ * Your FrontMiddleBackQueue object will be instantiated and called as such:
+ * FrontMiddleBackQueue* obj = new FrontMiddleBackQueue();
+ * obj->pushFront(val);
+ * obj->pushMiddle(val);
+ * obj->pushBack(val);
+ * int param_4 = obj->popFront();
+ * int param_5 = obj->popMiddle();
+ * int param_6 = obj->popBack();
+ */
 // @lc code=end
 
