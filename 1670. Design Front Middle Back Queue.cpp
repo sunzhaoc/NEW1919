@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-19 13:29:09
- * @LastEditTime: 2021-04-19 13:29:33
+ * @LastEditTime: 2021-04-19 13:54:09
  * @FilePath: \Leetcode\1670. Design Front Middle Back Queue.cpp
  */
 /*
@@ -55,41 +55,59 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
+TIME:     36ms    BEAT: 92.86%    O(n) = 
+MEMORY: 19.5MB    BEAT: 89.93%    O(n) = 
+USED TIME: 05:25
+LAST EDIT TIME: 2021年4月19日13:53:11
+Description: 模拟
 */
 
 class FrontMiddleBackQueue {
 public:
-    FrontMiddleBackQueue() {
+    VI q;
 
+    FrontMiddleBackQueue() {
     }
     
     void pushFront(int val) {
-
+        q.insert(q.begin(), val);
     }
     
     void pushMiddle(int val) {
-
+        int idx = SZ(q) / 2;
+        q.insert(q.begin() + idx, val);
     }
     
     void pushBack(int val) {
-
+        q.PB(val);
     }
     
     int popFront() {
-
+        if (SZ(q)) {
+            int x = q.front();
+            q.erase(q.begin());
+            return x;
+        }
+        return -1;
     }
     
     int popMiddle() {
-
+        if (SZ(q)) {
+            int idx = (SZ(q) - 1) / 2;
+            int x = q[idx];
+            q.erase(q.begin() + idx);
+            return x;
+        }
+        return -1;
     }
     
     int popBack() {
-
+        if (SZ(q)) {
+            int x = q.back();
+            q.pop_back();
+            return x;
+        }
+        return -1;
     }
 };
 
