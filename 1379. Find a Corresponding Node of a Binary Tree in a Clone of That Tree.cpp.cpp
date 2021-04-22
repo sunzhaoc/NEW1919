@@ -2,10 +2,24 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-19 22:03:39
- * @LastEditTime: 2021-04-19 22:27:10
- * @FilePath: \Leetcode\1769. Minimum Number of Operations to Move All Balls to Each Box.cpp
+ * @Date: 2021-04-22 10:01:11
+ * @LastEditTime: 2021-04-22 10:07:38
+ * @FilePath: \Leetcode\1379. Find a Corresponding Node of a Binary Tree in a Clone of That Tree.cpp.cpp
  */
+/*
+ * @lc app=leetcode.cn id=1379 lang=cpp
+ *
+ * [1379] 找出克隆二叉树中的相同节点
+ */
+
+// @lc code=start
+// Definition for a binary tree node.
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -50,61 +64,31 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     8ms    BEAT: 83.42%    O(n) = 
-MEMORY: 9.2MB    BEAT: 24.38%    O(n) = 
-LAST EDIT TIME: 2021年4月19日22:26:41
+TIME:     584ms    BEAT: 89.65%    O(n) = 
+MEMORY: 160.2MB    BEAT: 24.73%    O(n) = 
+USED TIME: 04:43
+LAST EDIT TIME: 2021年4月22日10:7:22
 Description: 
 */
 
 class Solution {
 public:
-    vector<int> minOperations(string boxes) {
-        VI res;
-        int L = 0, R = 0, step = 0;
-        if (boxes[0] == '1') L = 1;
-        FOR(i, 1, SZ(boxes)) {
-            if (boxes[i] == '1') {
-                R ++;
-                step += i;
-            }
+    TreeNode* resNode;
+    bool flag = false;
+    TreeNode* getTargetCopy(TreeNode* original, TreeNode* cloned, TreeNode* target) {
+        backTrack(cloned, target);
+        return resNode;
+    }
+
+    void backTrack(TreeNode* node, TreeNode* target) {
+        if (!node || flag) return;
+        if (node->val == target->val) {
+            flag = true;
+            resNode = node;
         }
-        res.PB(step);
-        FOR(i, 1, SZ(boxes)) {
-            step = step + L - R;
-            if (boxes[i] == '1') {
-                L ++;
-                R --;
-            }
-            res.PB(step);
-        }
-        return res;
+        backTrack(node->left, target);
+        backTrack(node->right, target);
     }
 };
+// @lc code=end
 
-
-/*
-RESULT: Accept
-TIME:   172ms    BEAT: 46.71%    O(n) = n^2
-MEMORY: 9.2MB    BEAT: 27.89%    O(n) = n
-USED TIME: 02:35
-LAST EDIT TIME: 2021年4月19日22:6:49
-Description: 暴力
-*/
-
-class Solution {
-public:
-    vector<int> minOperations(string boxes) {
-        VI res;
-        REP(i, SZ(boxes)) {
-            int cnt = 0;
-            REP(j, SZ(boxes)) {
-                if (j == i) continue;
-                if (boxes[j] == '1') {
-                    cnt += abs(i - j);
-                }
-            }
-            res.PB(cnt);
-        }
-        return res;
-    }
-};

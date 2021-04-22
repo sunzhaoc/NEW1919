@@ -2,9 +2,9 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-19 22:03:39
- * @LastEditTime: 2021-04-19 22:27:10
- * @FilePath: \Leetcode\1769. Minimum Number of Operations to Move All Balls to Each Box.cpp
+ * @Date: 2021-04-22 09:48:50
+ * @LastEditTime: 2021-04-22 09:52:17
+ * @FilePath: \Leetcode\1773. Count Items Matching a Rule.cpp
  */
 
 #include <bits/stdc++.h>
@@ -50,61 +50,26 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     8ms    BEAT: 83.42%    O(n) = 
-MEMORY: 9.2MB    BEAT: 24.38%    O(n) = 
-LAST EDIT TIME: 2021年4月19日22:26:41
+TIME:     84ms    BEAT: 75.06%    O(n) = 
+MEMORY: 30.1MB    BEAT: 76.18%    O(n) = 
+USED TIME: 02:38
+LAST EDIT TIME: 2021年4月22日9:52:4
 Description: 
 */
 
 class Solution {
 public:
-    vector<int> minOperations(string boxes) {
-        VI res;
-        int L = 0, R = 0, step = 0;
-        if (boxes[0] == '1') L = 1;
-        FOR(i, 1, SZ(boxes)) {
-            if (boxes[i] == '1') {
-                R ++;
-                step += i;
-            }
-        }
-        res.PB(step);
-        FOR(i, 1, SZ(boxes)) {
-            step = step + L - R;
-            if (boxes[i] == '1') {
-                L ++;
-                R --;
-            }
-            res.PB(step);
-        }
-        return res;
-    }
-};
+    int countMatches(vector<vector<string>>& items, string ruleKey, string ruleValue) {
+        int idKey;
 
+        if (ruleKey == "type") idKey = 0;
+        else if (ruleKey == "color") idKey = 1;
+        else if (ruleKey == "name") idKey = 2;
 
-/*
-RESULT: Accept
-TIME:   172ms    BEAT: 46.71%    O(n) = n^2
-MEMORY: 9.2MB    BEAT: 27.89%    O(n) = n
-USED TIME: 02:35
-LAST EDIT TIME: 2021年4月19日22:6:49
-Description: 暴力
-*/
-
-class Solution {
-public:
-    vector<int> minOperations(string boxes) {
-        VI res;
-        REP(i, SZ(boxes)) {
-            int cnt = 0;
-            REP(j, SZ(boxes)) {
-                if (j == i) continue;
-                if (boxes[j] == '1') {
-                    cnt += abs(i - j);
-                }
-            }
-            res.PB(cnt);
+        int cnt = 0;
+        REP(i, SZ(items)) {
+            if (items[i][idKey] == ruleValue) cnt ++;
         }
-        return res;
+        return cnt;
     }
 };

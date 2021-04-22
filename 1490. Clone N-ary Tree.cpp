@@ -2,10 +2,29 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-19 22:03:39
- * @LastEditTime: 2021-04-19 22:27:10
- * @FilePath: \Leetcode\1769. Minimum Number of Operations to Move All Balls to Each Box.cpp
+ * @Date: 2021-04-22 08:43:55
+ * @LastEditTime: 2021-04-22 09:01:23
+ * @FilePath: \Leetcode\1490. Clone N-ary Tree.cpp
  */
+
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    vector<Node*> children;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+    }
+
+    Node(int _val, vector<Node*> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -50,61 +69,21 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     8ms    BEAT: 83.42%    O(n) = 
-MEMORY: 9.2MB    BEAT: 24.38%    O(n) = 
-LAST EDIT TIME: 2021年4月19日22:26:41
+TIME:      84ms    BEAT: 21.74%    O(n) = 
+MEMORY: 171.1MB    BEAT: 65.22%    O(n) = 
+USED TIME: 12:16
+LAST EDIT TIME: 2021年4月22日9:1:3
 Description: 
 */
 
 class Solution {
 public:
-    vector<int> minOperations(string boxes) {
-        VI res;
-        int L = 0, R = 0, step = 0;
-        if (boxes[0] == '1') L = 1;
-        FOR(i, 1, SZ(boxes)) {
-            if (boxes[i] == '1') {
-                R ++;
-                step += i;
-            }
+    Node* cloneTree(Node* root) {
+        if (!root) return nullptr;
+        Node* cur = new Node(root->val);
+        for (auto subNode: root->children) {
+            cur->children.PB(cloneTree(subNode));
         }
-        res.PB(step);
-        FOR(i, 1, SZ(boxes)) {
-            step = step + L - R;
-            if (boxes[i] == '1') {
-                L ++;
-                R --;
-            }
-            res.PB(step);
-        }
-        return res;
-    }
-};
-
-
-/*
-RESULT: Accept
-TIME:   172ms    BEAT: 46.71%    O(n) = n^2
-MEMORY: 9.2MB    BEAT: 27.89%    O(n) = n
-USED TIME: 02:35
-LAST EDIT TIME: 2021年4月19日22:6:49
-Description: 暴力
-*/
-
-class Solution {
-public:
-    vector<int> minOperations(string boxes) {
-        VI res;
-        REP(i, SZ(boxes)) {
-            int cnt = 0;
-            REP(j, SZ(boxes)) {
-                if (j == i) continue;
-                if (boxes[j] == '1') {
-                    cnt += abs(i - j);
-                }
-            }
-            res.PB(cnt);
-        }
-        return res;
+        return cur;
     }
 };
