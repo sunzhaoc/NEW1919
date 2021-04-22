@@ -2,22 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-22 12:19:44
- * @LastEditTime: 2021-04-22 12:38:48
- * @FilePath: \Leetcode\1484. Clone Binary Tree With Random Pointer.cpp
+ * @Date: 2021-04-22 13:05:12
+ * @LastEditTime: 2021-04-22 13:11:34
+ * @FilePath: \Leetcode\1637. Widest Vertical Area Between Two Points Containing No Points.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=1637 lang=cpp
+ *
+ * [1637] 两点之间不包含任何点的最宽垂直面积
  */
 
-// Definition for a binary tree node.
-struct Node {
-    int val;
-    Node *left;
-    Node *right;
-    Node *random;
-    Node() : val(0), left(nullptr), right(nullptr), random(nullptr) {}
-    Node(int x) : val(x), left(nullptr), right(nullptr), random(nullptr) {}
-    Node(int x, Node *left, Node *right, Node *random) : val(x), left(left), right(right), random(random) {}
-};
-
+// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -62,25 +57,25 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:    304ms    BEAT: 31.58%    O(n) = 
-MEMORY: 75.7MB    BEAT: 70.18%    O(n) = 
-USED TIME: 04:13
-LAST EDIT TIME: 2021年4月22日12:38:32
+TIME:    364ms    BEAT: 39.49%    O(n) = 
+MEMORY: 64.7MB    BEAT: 43.08%    O(n) = 
+USED TIME: 03:50
+LAST EDIT TIME: 2021年4月22日13:10:55
 Description: 
 */
 
 class Solution {
 public:
-    unordered_map<Node*, NodeCopy*> map;
-    NodeCopy* copyRandomBinaryTree(Node* root) {
-        if (!root) return nullptr;
-        if (map.count(root)) return map[root];
-
-        map[root] = new NodeCopy(root->val);
-        map[root]->left = copyRandomBinaryTree(root->left);
-        map[root]->right = copyRandomBinaryTree(root->right);
-        map[root]->random = copyRandomBinaryTree(root->random);
-
-        return map[root];
+    int maxWidthOfVerticalArea(VVI& points) {
+        sort(ALL(points), [](const VI& x, const VI& y) {
+            return x[0] < y[0];
+        });
+        int cnt = INT_MIN;
+        FOR(i, 1, SZ(points)) {
+            ckmax(cnt, points[i][0] - points[i - 1][0]);
+        }
+        return cnt;
     }
 };
+// @lc code=end
+

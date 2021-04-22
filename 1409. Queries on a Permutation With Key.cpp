@@ -2,22 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-22 12:19:44
- * @LastEditTime: 2021-04-22 12:38:48
- * @FilePath: \Leetcode\1484. Clone Binary Tree With Random Pointer.cpp
+ * @Date: 2021-04-22 12:53:02
+ * @LastEditTime: 2021-04-22 13:03:06
+ * @FilePath: \Leetcode\1409. Queries on a Permutation With Key.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=1409 lang=cpp
+ *
+ * [1409] 查询带键的排列
  */
 
-// Definition for a binary tree node.
-struct Node {
-    int val;
-    Node *left;
-    Node *right;
-    Node *random;
-    Node() : val(0), left(nullptr), right(nullptr), random(nullptr) {}
-    Node(int x) : val(x), left(nullptr), right(nullptr), random(nullptr) {}
-    Node(int x, Node *left, Node *right, Node *random) : val(x), left(left), right(right), random(random) {}
-};
-
+// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -62,25 +57,33 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:    304ms    BEAT: 31.58%    O(n) = 
-MEMORY: 75.7MB    BEAT: 70.18%    O(n) = 
-USED TIME: 04:13
-LAST EDIT TIME: 2021年4月22日12:38:32
+TIME:    24ms    BEAT: 38.33%    O(n) = 
+MEMORY: 8.2MB    BEAT: 48.90%    O(n) = 
+USED TIME: 08:00
+LAST EDIT TIME: 2021年4月22日13:2:54
 Description: 
 */
 
 class Solution {
 public:
-    unordered_map<Node*, NodeCopy*> map;
-    NodeCopy* copyRandomBinaryTree(Node* root) {
-        if (!root) return nullptr;
-        if (map.count(root)) return map[root];
-
-        map[root] = new NodeCopy(root->val);
-        map[root]->left = copyRandomBinaryTree(root->left);
-        map[root]->right = copyRandomBinaryTree(root->right);
-        map[root]->random = copyRandomBinaryTree(root->random);
-
-        return map[root];
+    vector<int> processQueries(vector<int>& queries, int m) {
+        VI P, res;
+        REP(i, m) P.PB(i + 1);
+        for (int query: queries) {
+            int pos = -1;
+            REP(i, m) {
+                if (P[i] == query) {
+                    pos = i;
+                    break;
+                }
+            }
+            res.PB(pos);
+            P.erase(P.begin() + pos);
+            P.insert(P.begin(), query);
+        }
+        return res;
     }
 };
+
+// @lc code=end
+

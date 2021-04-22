@@ -2,22 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-22 12:19:44
- * @LastEditTime: 2021-04-22 12:38:48
- * @FilePath: \Leetcode\1484. Clone Binary Tree With Random Pointer.cpp
+ * @Date: 2021-04-22 15:02:24
+ * @LastEditTime: 2021-04-22 15:10:07
+ * @FilePath: \Leetcode\1656.设计有序流.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=1656 lang=cpp
+ *
+ * [1656] 设计有序流
  */
 
-// Definition for a binary tree node.
-struct Node {
-    int val;
-    Node *left;
-    Node *right;
-    Node *random;
-    Node() : val(0), left(nullptr), right(nullptr), random(nullptr) {}
-    Node(int x) : val(x), left(nullptr), right(nullptr), random(nullptr) {}
-    Node(int x, Node *left, Node *right, Node *random) : val(x), left(left), right(right), random(random) {}
-};
-
+// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -62,25 +57,38 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:    304ms    BEAT: 31.58%    O(n) = 
-MEMORY: 75.7MB    BEAT: 70.18%    O(n) = 
-USED TIME: 04:13
-LAST EDIT TIME: 2021年4月22日12:38:32
+TIME:    184ms    BEAT:  6.58%    O(n) = 
+MEMORY: 81.7MB    BEAT: 79.74%    O(n) = 
+USED TIME: 07:06
+LAST EDIT TIME: 2021年4月22日15:9:49
 Description: 
 */
 
-class Solution {
+class OrderedStream {
 public:
-    unordered_map<Node*, NodeCopy*> map;
-    NodeCopy* copyRandomBinaryTree(Node* root) {
-        if (!root) return nullptr;
-        if (map.count(root)) return map[root];
-
-        map[root] = new NodeCopy(root->val);
-        map[root]->left = copyRandomBinaryTree(root->left);
-        map[root]->right = copyRandomBinaryTree(root->right);
-        map[root]->random = copyRandomBinaryTree(root->random);
-
-        return map[root];
+    VS nums;
+    int ptr = 0;
+    OrderedStream(int n) {
+        nums.resize(n, "");
+    }
+    
+    vector<string> insert(int idKey, string value) {
+        nums[idKey - 1] = value;
+        VS res;
+        int idx = ptr;
+        while (nums[idx] != "") {
+            res.PB(nums[idx]);
+            idx ++;
+        }
+        ptr = idx;
+        return res;
     }
 };
+
+/**
+ * Your OrderedStream object will be instantiated and called as such:
+ * OrderedStream* obj = new OrderedStream(n);
+ * vector<string> param_1 = obj->insert(idKey,value);
+ */
+// @lc code=end
+

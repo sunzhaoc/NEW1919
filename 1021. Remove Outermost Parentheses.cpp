@@ -2,22 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-22 12:19:44
- * @LastEditTime: 2021-04-22 12:38:48
- * @FilePath: \Leetcode\1484. Clone Binary Tree With Random Pointer.cpp
+ * @Date: 2021-04-22 15:16:41
+ * @LastEditTime: 2021-04-22 15:38:09
+ * @FilePath: \Leetcode\1021. Remove Outermost Parentheses.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=1021 lang=cpp
+ *
+ * [1021] 删除最外层的括号
  */
 
-// Definition for a binary tree node.
-struct Node {
-    int val;
-    Node *left;
-    Node *right;
-    Node *random;
-    Node() : val(0), left(nullptr), right(nullptr), random(nullptr) {}
-    Node(int x) : val(x), left(nullptr), right(nullptr), random(nullptr) {}
-    Node(int x, Node *left, Node *right, Node *random) : val(x), left(left), right(right), random(random) {}
-};
-
+// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -41,7 +36,7 @@ template<class T> inline T sqr(T x){ return x * x; }
 # define S second
 # define L left
 # define R right
-# define V vector
+# define V vector 
 template<class T> int CMP(T a[], const T b[], int n) { return memcmp(a, b, n * sizeof(T)); }
 template<class T> void COPY(T a[], const T b[], int n) { memcpy(a, b, n * sizeof(T)); }
 template<class T> void SET(T a[], int val, int n) { memset(a, val, n*sizeof(T)); }
@@ -62,25 +57,24 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:    304ms    BEAT: 31.58%    O(n) = 
-MEMORY: 75.7MB    BEAT: 70.18%    O(n) = 
-USED TIME: 04:13
-LAST EDIT TIME: 2021年4月22日12:38:32
-Description: 
+TIME:     4ms    BEAT: 61.49%    O(n) = 
+MEMORY: 6.7MB    BEAT: 33.97%    O(n) = 
+LAST EDIT TIME: 2021年4月22日15:37:19
+Description: 不会。
 */
 
 class Solution {
 public:
-    unordered_map<Node*, NodeCopy*> map;
-    NodeCopy* copyRandomBinaryTree(Node* root) {
-        if (!root) return nullptr;
-        if (map.count(root)) return map[root];
-
-        map[root] = new NodeCopy(root->val);
-        map[root]->left = copyRandomBinaryTree(root->left);
-        map[root]->right = copyRandomBinaryTree(root->right);
-        map[root]->random = copyRandomBinaryTree(root->random);
-
-        return map[root];
+    string removeOuterParentheses(string S) {
+        int cnt = 0;
+        string res = "";
+        for (char ch: S) {
+            if (ch == '(' && cnt ++ > 0) res += '(';
+            else if (ch == ')' && cnt -- > 1) res += ')';
+        }
+        return res;
     }
 };
+
+// @lc code=end
+

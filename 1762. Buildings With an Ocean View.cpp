@@ -2,22 +2,10 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-22 12:19:44
- * @LastEditTime: 2021-04-22 12:38:48
- * @FilePath: \Leetcode\1484. Clone Binary Tree With Random Pointer.cpp
+ * @Date: 2021-04-22 14:05:03
+ * @LastEditTime: 2021-04-22 14:09:14
+ * @FilePath: \Leetcode\1762. Buildings With an Ocean View.cpp
  */
-
-// Definition for a binary tree node.
-struct Node {
-    int val;
-    Node *left;
-    Node *right;
-    Node *random;
-    Node() : val(0), left(nullptr), right(nullptr), random(nullptr) {}
-    Node(int x) : val(x), left(nullptr), right(nullptr), random(nullptr) {}
-    Node(int x, Node *left, Node *right, Node *random) : val(x), left(left), right(right), random(random) {}
-};
-
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -62,25 +50,26 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:    304ms    BEAT: 31.58%    O(n) = 
-MEMORY: 75.7MB    BEAT: 70.18%    O(n) = 
-USED TIME: 04:13
-LAST EDIT TIME: 2021年4月22日12:38:32
+TIME:    148ms    BEAT: 67.57%    O(n) = 
+MEMORY: 67.1MB    BEAT: 64.86%    O(n) = 
+USED TIME: 03:41
+LAST EDIT TIME: 2021年4月22日14:8:59
 Description: 
 */
 
 class Solution {
 public:
-    unordered_map<Node*, NodeCopy*> map;
-    NodeCopy* copyRandomBinaryTree(Node* root) {
-        if (!root) return nullptr;
-        if (map.count(root)) return map[root];
-
-        map[root] = new NodeCopy(root->val);
-        map[root]->left = copyRandomBinaryTree(root->left);
-        map[root]->right = copyRandomBinaryTree(root->right);
-        map[root]->random = copyRandomBinaryTree(root->random);
-
-        return map[root];
+    vector<int> findBuildings(vector<int>& heights) {
+        VI res;
+        res.PB(SZ(heights) - 1);
+        int maxBuilt = heights.back();
+        for (int i = SZ(heights) - 2; i >= 0; i --) {
+            if (heights[i] > maxBuilt) {
+                res.PB(i);
+                ckmax(maxBuilt, heights[i]);
+            }
+        }
+        sort(ALL(res));
+        return res;
     }
 };

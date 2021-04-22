@@ -2,22 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-22 12:19:44
- * @LastEditTime: 2021-04-22 12:38:48
- * @FilePath: \Leetcode\1484. Clone Binary Tree With Random Pointer.cpp
+ * @Date: 2021-04-22 14:19:02
+ * @LastEditTime: 2021-04-22 14:30:39
+ * @FilePath: \Leetcode\1370.上升下降字符串.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=1370 lang=cpp
+ *
+ * [1370] 上升下降字符串
  */
 
-// Definition for a binary tree node.
-struct Node {
-    int val;
-    Node *left;
-    Node *right;
-    Node *random;
-    Node() : val(0), left(nullptr), right(nullptr), random(nullptr) {}
-    Node(int x) : val(x), left(nullptr), right(nullptr), random(nullptr) {}
-    Node(int x, Node *left, Node *right, Node *random) : val(x), left(left), right(right), random(random) {}
-};
-
+// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -62,25 +57,47 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:    304ms    BEAT: 31.58%    O(n) = 
-MEMORY: 75.7MB    BEAT: 70.18%    O(n) = 
-USED TIME: 04:13
-LAST EDIT TIME: 2021年4月22日12:38:32
+TIME:     4ms    BEAT: 92.32%    O(n) = 
+MEMORY: 7.3MB    BEAT: 87.61%    O(n) = 
+USED TIME: 14:54
+LAST EDIT TIME: 2021年4月22日14:30:29
 Description: 
 */
 
 class Solution {
 public:
-    unordered_map<Node*, NodeCopy*> map;
-    NodeCopy* copyRandomBinaryTree(Node* root) {
-        if (!root) return nullptr;
-        if (map.count(root)) return map[root];
-
-        map[root] = new NodeCopy(root->val);
-        map[root]->left = copyRandomBinaryTree(root->left);
-        map[root]->right = copyRandomBinaryTree(root->right);
-        map[root]->random = copyRandomBinaryTree(root->random);
-
-        return map[root];
+    string sortString(string s) {
+        VI nums(26, 0);
+        REP(i, SZ(s)) {
+            nums[s[i] - 'a'] ++;
+        }
+        string res = "";
+        int n = SZ(s);
+        while (SZ(res) < n)
+        {
+            int idx = 0;
+            // ->
+            while (idx < 26) {
+                if (nums[idx] > 0) {
+                    nums[idx] --;
+                    res += idx + 'a';
+                }
+                idx ++;
+            }
+            
+            idx = 25;
+            while (idx >= 0) {
+                if (nums[idx] > 0) {
+                    nums[idx] --;
+                    res += idx + 'a';
+                }
+                idx --;
+            }
+        }
+        return res;
+        
     }
 };
+// 
+// @lc code=end
+

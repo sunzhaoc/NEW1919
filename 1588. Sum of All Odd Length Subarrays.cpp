@@ -2,22 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-22 12:19:44
- * @LastEditTime: 2021-04-22 12:38:48
- * @FilePath: \Leetcode\1484. Clone Binary Tree With Random Pointer.cpp
+ * @Date: 2021-04-22 13:35:06
+ * @LastEditTime: 2021-04-22 14:00:23
+ * @FilePath: \Leetcode\1588. Sum of All Odd Length Subarrays.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=1588 lang=cpp
+ *
+ * [1588] 所有奇数长度子数组的和
  */
 
-// Definition for a binary tree node.
-struct Node {
-    int val;
-    Node *left;
-    Node *right;
-    Node *random;
-    Node() : val(0), left(nullptr), right(nullptr), random(nullptr) {}
-    Node(int x) : val(x), left(nullptr), right(nullptr), random(nullptr) {}
-    Node(int x, Node *left, Node *right, Node *random) : val(x), left(left), right(right), random(random) {}
-};
-
+// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -62,25 +57,25 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:    304ms    BEAT: 31.58%    O(n) = 
-MEMORY: 75.7MB    BEAT: 70.18%    O(n) = 
-USED TIME: 04:13
-LAST EDIT TIME: 2021年4月22日12:38:32
+TIME:   4ms    BEAT: 77.60%    O(n) = n
+MEMORY: 8MB    BEAT: 70.02%    O(n) = 1
+USED TIME: 。。。
+LAST EDIT TIME: 2021年4月22日14:0:6
 Description: 
 */
 
 class Solution {
 public:
-    unordered_map<Node*, NodeCopy*> map;
-    NodeCopy* copyRandomBinaryTree(Node* root) {
-        if (!root) return nullptr;
-        if (map.count(root)) return map[root];
-
-        map[root] = new NodeCopy(root->val);
-        map[root]->left = copyRandomBinaryTree(root->left);
-        map[root]->right = copyRandomBinaryTree(root->right);
-        map[root]->random = copyRandomBinaryTree(root->random);
-
-        return map[root];
+    int sumOddLengthSubarrays(vector<int>& arr) {
+        int len = SZ(arr), res = 0;
+        REP(i, len) {
+            int LeftOdd = (i + 1) / 2, LeftEven = i / 2 + 1;
+            int RightOdd = (len - i) / 2, RightEven = (len - 1 - i) / 2 + 1;
+            res += arr[i] * (LeftOdd * RightOdd + LeftEven * RightEven);
+        }
+        return res;
     }
 };
+
+// @lc code=end
+

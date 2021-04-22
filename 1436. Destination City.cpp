@@ -2,22 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-22 12:19:44
- * @LastEditTime: 2021-04-22 12:38:48
- * @FilePath: \Leetcode\1484. Clone Binary Tree With Random Pointer.cpp
+ * @Date: 2021-04-22 15:50:33
+ * @LastEditTime: 2021-04-22 15:57:04
+ * @FilePath: \Leetcode\1436.旅行终点站.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=1436 lang=cpp
+ *
+ * [1436] 旅行终点站
  */
 
-// Definition for a binary tree node.
-struct Node {
-    int val;
-    Node *left;
-    Node *right;
-    Node *random;
-    Node() : val(0), left(nullptr), right(nullptr), random(nullptr) {}
-    Node(int x) : val(x), left(nullptr), right(nullptr), random(nullptr) {}
-    Node(int x, Node *left, Node *right, Node *random) : val(x), left(left), right(right), random(random) {}
-};
-
+// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -41,7 +36,7 @@ template<class T> inline T sqr(T x){ return x * x; }
 # define S second
 # define L left
 # define R right
-# define V vector
+# define V vector 
 template<class T> int CMP(T a[], const T b[], int n) { return memcmp(a, b, n * sizeof(T)); }
 template<class T> void COPY(T a[], const T b[], int n) { memcpy(a, b, n * sizeof(T)); }
 template<class T> void SET(T a[], int val, int n) { memset(a, val, n*sizeof(T)); }
@@ -62,25 +57,26 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:    304ms    BEAT: 31.58%    O(n) = 
-MEMORY: 75.7MB    BEAT: 70.18%    O(n) = 
-USED TIME: 04:13
-LAST EDIT TIME: 2021年4月22日12:38:32
+TIME:     16ms    BEAT: 60.50%    O(n) = 
+MEMORY: 11.2MB    BEAT: 17.64%    O(n) = 
+USED TIME: 08:21
+LAST EDIT TIME: 2021年4月22日15:56:48
 Description: 
 */
 
 class Solution {
 public:
-    unordered_map<Node*, NodeCopy*> map;
-    NodeCopy* copyRandomBinaryTree(Node* root) {
-        if (!root) return nullptr;
-        if (map.count(root)) return map[root];
-
-        map[root] = new NodeCopy(root->val);
-        map[root]->left = copyRandomBinaryTree(root->left);
-        map[root]->right = copyRandomBinaryTree(root->right);
-        map[root]->random = copyRandomBinaryTree(root->random);
-
-        return map[root];
+    string destCity(vector<vector<string>>& paths) {
+        unordered_map<string, int> map;
+        for (auto p: paths) {
+            map[p[0]] ++;
+            map[p[1]] += 0;
+        }
+        for (auto h: map) {
+            if (h.S == 0) return h.F;
+        }
+        return "";
     }
 };
+// @lc code=end
+

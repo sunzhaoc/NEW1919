@@ -2,22 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-22 12:19:44
- * @LastEditTime: 2021-04-22 12:38:48
- * @FilePath: \Leetcode\1484. Clone Binary Tree With Random Pointer.cpp
+ * @Date: 2021-04-22 12:42:35
+ * @LastEditTime: 2021-04-22 12:52:25
+ * @FilePath: \Leetcode\1282. Group the People Given the Group Size They Belong To.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=1282 lang=cpp
+ *
+ * [1282] 用户分组
  */
 
-// Definition for a binary tree node.
-struct Node {
-    int val;
-    Node *left;
-    Node *right;
-    Node *random;
-    Node() : val(0), left(nullptr), right(nullptr), random(nullptr) {}
-    Node(int x) : val(x), left(nullptr), right(nullptr), random(nullptr) {}
-    Node(int x, Node *left, Node *right, Node *random) : val(x), left(left), right(right), random(random) {}
-};
-
+// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -62,25 +57,33 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:    304ms    BEAT: 31.58%    O(n) = 
-MEMORY: 75.7MB    BEAT: 70.18%    O(n) = 
-USED TIME: 04:13
-LAST EDIT TIME: 2021年4月22日12:38:32
+TIME:     12ms    BEAT: 84.84%    O(n) = 
+MEMORY: 12.7MB    BEAT: 61.23%    O(n) = 
+USED TIME: 07:53
+LAST EDIT TIME: 2021年4月22日12:51:12
 Description: 
 */
 
 class Solution {
 public:
-    unordered_map<Node*, NodeCopy*> map;
-    NodeCopy* copyRandomBinaryTree(Node* root) {
-        if (!root) return nullptr;
-        if (map.count(root)) return map[root];
-
-        map[root] = new NodeCopy(root->val);
-        map[root]->left = copyRandomBinaryTree(root->left);
-        map[root]->right = copyRandomBinaryTree(root->right);
-        map[root]->random = copyRandomBinaryTree(root->random);
-
-        return map[root];
+    vector<vector<int>> groupThePeople(vector<int>& groupSizes) {
+        unordered_map<int, VI> map;
+        REP(i, SZ(groupSizes)) map[groupSizes[i]].PB(i);
+        VVI res;
+        for (auto it = map.begin(); it != map.end(); it ++) {
+            int key = it->F;
+            VI tmp;
+            REP(i, SZ(it->S)) {
+                tmp.PB(it->S[i]);
+                if (SZ(tmp) == key) {
+                    res.PB(tmp);
+                    tmp.clear();
+                }
+            }
+        }
+        return res;
     }
 };
+
+// @lc code=end
+
