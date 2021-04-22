@@ -2,27 +2,20 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-22 10:40:58
- * @LastEditTime: 2021-04-22 10:52:22
- * @FilePath: \Leetcode\1506. Find Root of N-Ary Tree.cpp
+ * @Date: 2021-04-22 12:19:44
+ * @LastEditTime: 2021-04-22 12:20:00
+ * @FilePath: \Leetcode\1484. Clone Binary Tree With Random Pointer.cpp
  */
 
-// Definition for a Node.
-class Node {
-public:
+// Definition for a binary tree node.
+struct Node {
     int val;
-    vector<Node*> children;
-
-    Node() {}
-
-    Node(int _val) {
-        val = _val;
-    }
-
-    Node(int _val, vector<Node*> _children) {
-        val = _val;
-        children = _children;
-    }
+    Node *left;
+    Node *right;
+    Node *random;
+    Node() : val(0), left(nullptr), right(nullptr), random(nullptr) {}
+    Node(int x) : val(x), left(nullptr), right(nullptr), random(nullptr) {}
+    Node(int x, Node *left, Node *right, Node *random) : val(x), left(left), right(right), random(random) {}
 };
 
 
@@ -69,29 +62,16 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     136ms    BEAT: 51.61%    O(n) = 
-MEMORY: 246.3MB    BEAT: 93.55%    O(n) = 
-USED TIME: ...
-LAST EDIT TIME: 2021年4月22日10:52:6
+TIME:   ms    BEAT: %    O(n) = 
+MEMORY: MB    BEAT: %    O(n) = 
+USED TIME: 
+LAST EDIT TIME: 
 Description: 
 */
 
 class Solution {
 public:
-    Node* findRoot(vector<Node*> tree) {
-        int xorsum = 0;
-
-        for (auto node: tree) {
-            xorsum ^= node->val;
-            for (auto child: node->children) {
-                xorsum ^= child->val;
-            }
-        }
+    NodeCopy* copyRandomBinaryTree(Node* root) {
         
-        for (auto node: tree) {
-            if (node->val == xorsum) return node;
-        }
-
-        return nullptr;
     }
 };

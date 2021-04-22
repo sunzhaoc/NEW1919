@@ -2,29 +2,25 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: Vicro
- * @Date: 2021-04-22 10:40:58
- * @LastEditTime: 2021-04-22 10:52:22
- * @FilePath: \Leetcode\1506. Find Root of N-Ary Tree.cpp
+ * @Date: 2021-04-22 12:13:02
+ * @LastEditTime: 2021-04-22 12:18:59
+ * @FilePath: \Leetcode\1315. Sum of Nodes with Even-Valued Grandparent.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=1315 lang=cpp
+ *
+ * [1315] 祖父节点值为偶数的节点和
  */
 
-// Definition for a Node.
-class Node {
-public:
+// @lc code=start
+
+// Definition for a binary tree node.
+struct TreeNode {
     int val;
-    vector<Node*> children;
-
-    Node() {}
-
-    Node(int _val) {
-        val = _val;
-    }
-
-    Node(int _val, vector<Node*> _children) {
-        val = _val;
-        children = _children;
-    }
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
-
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -69,29 +65,34 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     136ms    BEAT: 51.61%    O(n) = 
-MEMORY: 246.3MB    BEAT: 93.55%    O(n) = 
-USED TIME: ...
-LAST EDIT TIME: 2021年4月22日10:52:6
+TIME:     48ms    BEAT: 65.56%    O(n) = 
+MEMORY: 37.2MB    BEAT: 35.27%    O(n) = 
+USED TIME: 04:23
+LAST EDIT TIME: 2021年4月22日12:18:43
 Description: 
 */
 
 class Solution {
 public:
-    Node* findRoot(vector<Node*> tree) {
-        int xorsum = 0;
+    int sum;
+    int sumEvenGrandparent(TreeNode* root) {
+        dfs(root);
+        return sum;
+    }
 
-        for (auto node: tree) {
-            xorsum ^= node->val;
-            for (auto child: node->children) {
-                xorsum ^= child->val;
-            }
-        }
-        
-        for (auto node: tree) {
-            if (node->val == xorsum) return node;
-        }
+    void dfs(TreeNode* node) {
+        if (!node) return;
+        if (node->val % 2 == 0) backTrack(node, 0);
+        dfs(node->left);
+        dfs(node->right);
+    }
 
-        return nullptr;
+    void backTrack(TreeNode* node, int depth) {
+        if (!node) return;
+        if (depth == 2) sum += node->val;
+        backTrack(node->left, depth + 1);
+        backTrack(node->right, depth + 1);
     }
 };
+// @lc code=end
+
