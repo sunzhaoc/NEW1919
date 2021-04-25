@@ -1,3 +1,12 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: 冰凝水
+ * @Date: 2021-04-25 10:14:44
+ * @LastEditTime: 2021-04-25 18:12:42
+ * @FilePath: \Leetcode\Week Competition\Weekly Contest 236\t1.cpp
+ */
+
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -47,12 +56,29 @@ using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
 
+class Solution {
+public:
+    int arraySign(vector<int>& nums) {
+        int a = 0;
+        int b = 0;
+        for (auto x: nums) {
+            if (x > 0) a ++;
+            else if (x < 0) b ++;
+            else if (x == 0) return 0;
+        }
+        return b % 2 == 0 ? 1 : -1;
+    }
+};
 
-/*
-RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
-*/
+
+// int main() {
+//     Solution sol;
+//     // VI nums = {};
+//     // VVI nums = {};
+//     auto ans = sol.();
+//     // cout << ans << endl;
+//     // REP(i, SZ(ans)) cout << ans[i] << endl;
+//     // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
+//     system("pause");
+//     return 0;
+// }

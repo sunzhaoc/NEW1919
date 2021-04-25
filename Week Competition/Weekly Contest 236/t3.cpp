@@ -1,3 +1,12 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: 冰凝水
+ * @Date: 2021-04-25 10:14:44
+ * @LastEditTime: 2021-04-25 18:31:14
+ * @FilePath: \Leetcode\Week Competition\Weekly Contest 236\t3.cpp
+ */
+
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -47,12 +56,35 @@ using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
 
+class Solution {
+public:
+    int minSideJumps(vector<int>& obstacles) {
+        int n = SZ(obstacles);
+        stack<int> st1;
+        stack<int> st2;
+        stack<int> st3;
+        RREP(i, SZ(obstacles)) {
+            if (obstacles[i] == 1) st1.push(i);
+            else if (obstacles[i] == 2) st2.push(i);
+            else if (obstacles[i] == 3) st3.push(i);
+        }
+        if (st2.empty()) return 0;
+        int curLine = 2, curPos = 0;
+        while (st1.empty() || st2.empty() || st3.empty()) {
+            int maxLen = max(st1.top(), max(st2.top(), st3.top()));
+            while (st1.top() <= maxLen) 
+        }        
+    }
+};
 
-/*
-RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
-*/
+// int main() {
+//     Solution sol;
+//     // VI nums = {};
+//     // VVI nums = {};
+//     auto ans = sol.();
+//     // cout << ans << endl;
+//     // REP(i, SZ(ans)) cout << ans[i] << endl;
+//     // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
+//     system("pause");
+//     return 0;
+// }

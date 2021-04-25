@@ -3,9 +3,10 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-04-25 10:14:44
- * @LastEditTime: 2021-04-25 10:18:20
- * @FilePath: \Leetcode\Week Competition\Weekly Contest 238\t2.cpp
+ * @LastEditTime: 2021-04-25 18:10:18
+ * @FilePath: \Leetcode\Week Competition\模版\t2.cpp
  */
+
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -20,11 +21,19 @@ template<class T> inline void ckmax(T &a,T b){ a = max(a, b); }
 template<class T> inline T sqr(T x){ return x * x; }
 # define SZ(A) ((int)A.size())
 # define LENGTH(A) ((int)A.length())
-# define MP(A, B) make_pair(A, B)
-# define PB(X) push_back(X)
-# define FOR(i, a, b) for(int i = (a); i < (b); ++i)
+# define MP make_pair
+# define PB push_back
+# define PPB pop_back
+# define PF push_front
+# define PPF pop_front
+# define LB lower_bound
+# define UB upper_bound
+# define RREP(i, a) for (int i = (a - 1); i >= 0; --i)
+# define FOR(i, a, b) for(int i = (a); i < (b); ++i) 
 # define REP(i, a) for(int i = 0; i < (a); ++i)
 # define ALL(A) A.begin(), A.end()
+# define RALL(A) A.rbegin(), A.rend()
+# define complete_unique(a) a.erase(unique(begin(a),end(a)),end(a))
 # define F first
 # define S second
 # define L left
@@ -46,7 +55,6 @@ using VD = vector<double>;
 using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
-
 
 
 

@@ -1,3 +1,12 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: 冰凝水
+ * @Date: 2021-04-25 10:14:44
+ * @LastEditTime: 2021-04-25 18:21:09
+ * @FilePath: \Leetcode\Week Competition\Weekly Contest 236\t2.cpp
+ */
+
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -48,11 +57,31 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
-/*
-RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
-*/
+class Solution {
+public:
+    int findTheWinner(int n, int k) {
+        VI people(n);
+        REP(i, SZ(people)) {
+            people[i] = i + 1;
+        }
+        int curPos = 0;
+        while (SZ(people) > 1) {
+            people.erase(people.begin() + (curPos + k - 1) % SZ(people));
+            curPos = (curPos + k - 1) % (SZ(people) + 1);
+        }
+        return people[0];
+    }
+};
+
+
+int main() {
+    Solution sol;
+    // VI nums = {};
+    // VVI nums = {};
+    auto ans = sol.findTheWinner(6, 5);
+    cout << ans << endl;
+    // REP(i, SZ(ans)) cout << ans[i] << endl;
+    // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
+    system("pause");
+    return 0;
+}
