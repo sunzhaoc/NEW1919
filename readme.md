@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2020-11-30 21:56:56
- * @LastEditTime: 2021-04-22 16:00:37
+ * @LastEditTime: 2021-04-25 10:17:14
  * @FilePath: \Leetcode\readme.md
 -->
 <!--
@@ -69,49 +69,18 @@ Description:
 */
 
 
-class Solution {
-public:
-
-    }
-};
-
-
 int main() {
     Solution sol;
-    ans = sol.();
-    cout << ans << endl;
+    // VI nums = {};
+    // VVI nums = {};
+    auto ans = sol.();
+    // cout << ans << endl;
+    // REP(i, SZ(ans)) cout << ans[i] << endl;
+    // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
     system("pause");
     return 0;
 }
 
-
-
-
-int main() {
-    Solution sol;
-    vector<int> nums = {};
-    int ans = sol.(nums);
-    cout << ans << endl; 
-    system("pause");
-    return 0;
-}
-
-int main() {
-    Solution sol;
-    vector<vector<int>> nums = {};
-    vector<vector<int>> ans = sol.(nums);
-    for (int i = 0; i < ans.size(); i ++) {
-        for (int j = 0; j < ans[0].size(); j ++) {
-            cout << ans[i][j] << " ";
-        }
-        cout << endl;
-    }
-    system("pause");
-    return 0;
-}
-
-
-vector<vecotr<int>>
 
 /*
 LAST EDIT TIME: 
