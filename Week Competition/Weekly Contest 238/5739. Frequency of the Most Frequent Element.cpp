@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: Vicro
  * @Date: 2021-04-25 10:14:44
- * @LastEditTime: 2021-04-25 12:15:48
- * @FilePath: \Leetcode\Week Competition\Weekly Contest 238\t2.cpp
+ * @LastEditTime: 2021-04-25 14:36:41
+ * @FilePath: \Leetcode\Week Competition\Weekly Contest 238\5739. Frequency of the Most Frequent Element.cpp
  */
 
 #include <bits/stdc++.h>
@@ -48,35 +48,40 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
+/*
+RESULT: Accept
+TIME:    204ms    BEAT: 100.00%    O(n) = 
+MEMORY: 77.5MB    BEAT: 100.00%    O(n) = 
+USED TIME: 很久。
+LAST EDIT TIME: 
+Description: 比赛没做出来。用滑动窗口来做。
+*/
+
 class Solution {
 public:
-    int maxFrequency(vector<int>& nums, int k) {
-        int n = SZ(nums);
+    int maxFrequency(vector<int>& nums, LL k) {
         sort(ALL(nums));
-        queue<int> q;
-        int len = 0;
-        int maxLen = 1;
-        REP(i, n) {
-            while (!q.empty() && q.size() * (nums[i] - q.back()) > k) {
-                k += q.back() - q.front();
-                q.pop();
-                len --;
+        int l = 0, r = 0;
+        int res = 0;
+        while (r < SZ(nums)) {
+            while (k >= 0 && r < SZ(nums)) {
+                r ++;
+                if (r < SZ(nums)) k -= (r - l) * 1ll * (nums[r] - nums[r - 1]);
             }
-            if (q.empty()) q.push(nums[i]), len = 1;
-            else {
-                k -= q.size() * (nums[i] - q.back());
-                q.push(nums[i]);
-                len ++;
-                ckmax(maxLen, len);
+            ckmax(res, r - l); 
+            while (k < 0) {
+                k += nums[r] - nums[l];
+                l ++;
             }
         }
-        return maxLen;
+        return res;
     }
 };
 
 int main() {
     Solution sol;
-    VI nums = {1,4,8,13};
+    // VI nums = {1,4,8,13};
+    VI nums = {1,2,4};
     // VVI nums = {};
     auto ans = sol.maxFrequency(nums, 5);
     cout << ans << endl;
