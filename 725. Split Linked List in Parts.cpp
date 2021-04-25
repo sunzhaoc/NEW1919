@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-06 19:40:27
  * @LastEditTime: 2021-04-06 19:55:51
  * @FilePath: \Leetcode\725.Split Linked List in Parts.cpp

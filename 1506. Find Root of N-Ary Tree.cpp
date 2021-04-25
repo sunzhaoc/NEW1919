@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 10:40:58
  * @LastEditTime: 2021-04-22 10:52:22
  * @FilePath: \Leetcode\1506. Find Root of N-Ary Tree.cpp

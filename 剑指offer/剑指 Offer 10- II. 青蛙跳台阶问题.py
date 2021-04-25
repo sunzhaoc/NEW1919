@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-12-10 16:26:55
 LastEditTime: 2020-12-15 20:34:11
 FilePath: \Leetcode\剑指 Offer 10- II. 青蛙跳台阶问题.py

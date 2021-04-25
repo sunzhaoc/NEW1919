@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-17 22:14:25
 LastEditTime: 2021-04-17 23:17:00
 FilePath: \Leetcode\weekcom\Double Week 50\T2.py

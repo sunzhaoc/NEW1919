@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-22 20:56:40
  * @LastEditTime: 2021-03-22 21:10:15
  * @FilePath: \Leetcode\416.Partition Equal Subset Sum.cpp

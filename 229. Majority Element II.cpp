@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2020-12-24 15:39:47
  * @LastEditTime: 2020-12-24 17:09:50
  * @FilePath: \Leetcode\229.Majority Element II.cpp

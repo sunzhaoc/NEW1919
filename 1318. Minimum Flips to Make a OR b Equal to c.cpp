@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-15 19:18:15
  * @LastEditTime: 2021-04-15 19:18:42
  * @FilePath: \Leetcode\1318.或运算的最小翻转次数.cpp

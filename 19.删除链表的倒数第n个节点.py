@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-03-02 18:24:49
 LastEditTime: 2021-03-02 18:30:29
 FilePath: \Leetcode\19.删除链表的倒数第n个节点.py

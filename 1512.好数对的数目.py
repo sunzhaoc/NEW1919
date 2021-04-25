@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 09:13:14
 LastEditTime: 2021-04-22 09:15:07
 FilePath: \Leetcode\1512.好数对的数目.py

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-13 13:45:54
  * @LastEditTime: 2021-04-13 13:46:48
  * @FilePath: \Leetcode\530.Minimum Absolute Difference in BST.cpp

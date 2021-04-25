@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 21:19:29
  * @LastEditTime: 2021-04-22 21:23:17
  * @FilePath: \Leetcode\1213. Intersection of Three Sorted Arrays.cpp

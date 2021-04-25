@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2020-12-16 13:16:58
 LastEditTime: 2020-12-16 14:34:45
 FilePath: \Leetcode\290.单词规律.py

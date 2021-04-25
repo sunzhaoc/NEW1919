@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-12-08 15:32:57
 LastEditTime: 2020-12-08 20:46:13
 FilePath: \Leetcode\842.将数组拆分成斐波那契序列.py

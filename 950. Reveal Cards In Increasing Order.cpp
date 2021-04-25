@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 19:22:46
  * @LastEditTime: 2021-04-22 19:45:00
  * @FilePath: \Leetcode\950. Reveal Cards In Increasing Order.cpp

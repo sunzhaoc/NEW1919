@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2020-12-27 16:47:16
  * @LastEditTime: 2020-12-28 21:47:32
  * @FilePath: \Leetcode\1705.Maximum Number of Eaten Apples.cpp

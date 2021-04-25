@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2020-12-25 11:00:36
 LastEditTime: 2020-12-25 11:15:36
 FilePath: \Leetcode\剑指 Offer 09. 用两个栈实现队列.py

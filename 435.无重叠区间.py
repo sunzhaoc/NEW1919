@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-11-21 15:24:03
 LastEditTime: 2020-11-23 14:32:32
 FilePath: \Leetcode\Chinese\435.无重叠区间.py

@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-11-29 21:43:24
 LastEditTime: 2020-11-29 21:52:34
 FilePath: \Leetcode\867.转置矩阵.py

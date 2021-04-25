@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 10:08:43
 LastEditTime: 2021-04-22 10:12:59
 FilePath: \Leetcode\1678.设计-goal-解析器.py

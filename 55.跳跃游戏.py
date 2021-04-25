@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-11-19 16:45:02
 LastEditTime: 2020-11-19 21:39:20
 FilePath: \Leetcode\Chinese\55.跳跃游戏.py

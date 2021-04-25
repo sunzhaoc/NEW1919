@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-05 16:47:07
  * @LastEditTime: 2021-01-05 17:27:19
  * @FilePath: \Leetcode\剑指 Offer 45. 把数组排成最小的数.cpp

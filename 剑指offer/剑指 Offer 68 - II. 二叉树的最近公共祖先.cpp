@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-07 13:57:47
  * @LastEditTime: 2021-01-07 14:08:54
  * @FilePath: \Leetcode\剑指 Offer 68 - II. 二叉树的最近公共祖先.cpp

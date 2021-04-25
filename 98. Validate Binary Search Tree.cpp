@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-07 15:38:05
  * @LastEditTime: 2021-01-07 16:53:45
  * @FilePath: \Leetcode\98.验证二叉搜索树.cpp

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-05 20:10:26
  * @LastEditTime: 2021-01-05 20:17:20
  * @FilePath: \Leetcode\剑指 Offer 52. 两个链表的第一个公共节点.cpp

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-04 14:31:27
  * @LastEditTime: 2021-01-04 16:51:51
  * @FilePath: \Leetcode\78.Subsets.cpp

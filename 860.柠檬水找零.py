@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autuor: Vicro
+Autuor: 冰凝水
 Date: 2020-11-12 21:47:16
 LastEditTime: 2020-11-12 22:07:13
 FilePath: \Leetcode\Chinese\860.柠檬水找零.py

@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-12-10 16:09:26
 LastEditTime: 2020-12-10 16:11:56
 FilePath: \Leetcode\剑指 Offer 10- I. 斐波那契数列.py

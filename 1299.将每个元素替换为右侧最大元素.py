@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 16:00:47
 LastEditTime: 2021-04-22 16:03:19
 FilePath: \Leetcode\1299.将每个元素替换为右侧最大元素.py

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-30 19:59:32
  * @LastEditTime: 2021-03-31 09:39:44
  * @FilePath: \Leetcode\278.First Bad Version.cpp

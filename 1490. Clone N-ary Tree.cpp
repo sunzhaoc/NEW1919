@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 08:43:55
  * @LastEditTime: 2021-04-22 09:01:23
  * @FilePath: \Leetcode\1490. Clone N-ary Tree.cpp

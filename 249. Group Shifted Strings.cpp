@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-03 16:11:35
  * @LastEditTime: 2021-03-03 16:37:57
  * @FilePath: \Leetcode\249.Group Shifted Strings.cpp

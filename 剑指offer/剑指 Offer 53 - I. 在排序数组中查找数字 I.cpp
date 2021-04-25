@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-05 20:22:28
  * @LastEditTime: 2021-01-06 15:28:46
  * @FilePath: \Leetcode\剑指 Offer 53 - I. 在排序数组中查找数字 I.cpp

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-09 20:02:13
  * @LastEditTime: 2021-04-09 21:13:56
  * @FilePath: \Leetcode\707.Design Linked List.cpp

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Author: Vicro
+ * @Author: 冰凝水
  * @Date: 2020-12-01 14:03:40
  * @LastEditTime: 2020-12-14 21:44:57
  * @FilePath: \Leetcode\941.Valid Mountain Array.cpp

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-19 16:59:08
  * @LastEditTime: 2021-01-19 17:11:03
  * @FilePath: \Leetcode\628.Maximum Product of Three Numbers.cpp

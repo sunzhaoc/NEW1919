@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Author: Vicro
+ * @Author: 冰凝水
  * @Date: 2020-12-01 21:52:12
  * @LastEditTime: 2020-12-01 22:36:32
  * @FilePath: \Leetcode\501.Find Mode in Binary Search Tree.cpp

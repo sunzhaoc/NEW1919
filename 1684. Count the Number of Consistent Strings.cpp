@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 10:21:31
  * @LastEditTime: 2021-04-22 10:28:24
  * @FilePath: \Leetcode\1684. Count the Number of Consistent Strings.cpp

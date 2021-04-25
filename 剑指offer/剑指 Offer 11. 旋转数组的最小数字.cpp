@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Author: Vicro
+ * @Author: 冰凝水
  * @Date: 2020-12-03 22:17:37
  * @LastEditTime: 2020-12-03 22:27:46
  * @FilePath: \Leetcode\剑指 Offer 11. 旋转数组的最小数字.cpp

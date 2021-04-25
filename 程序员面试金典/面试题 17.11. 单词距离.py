@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-19 19:56:08
 LastEditTime: 2021-04-19 20:17:01
 FilePath: \Leetcode\程序员面试金典\面试题 17.11. 单词距离.py

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-18 13:58:32
  * @LastEditTime: 2021-01-18 14:07:23
  * @FilePath: \Leetcode\53.Maximum Subarray.cpp

@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-03 23:21:55
 LastEditTime: 2021-04-04 00:04:22
 FilePath: \Leetcode\demo03.py
@@ -9,7 +9,7 @@ FilePath: \Leetcode\demo03.py
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-03 23:21:55
  * @LastEditTime: 2021-04-03 23:21:56
  * @FilePath: \Leetcode\demno3.cpp

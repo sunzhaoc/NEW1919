@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-19 10:12:26
  * @LastEditTime: 2021-01-19 16:03:00
  * @FilePath: \Leetcode\1584.Min Cost to Connect All Points.cpp

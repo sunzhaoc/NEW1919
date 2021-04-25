@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-01 09:43:51
  * @LastEditTime: 2021-04-01 13:32:42
  * @FilePath: \Leetcode\767.Reorganize String.cpp

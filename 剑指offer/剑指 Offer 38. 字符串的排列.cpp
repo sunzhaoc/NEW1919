@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2020-12-24 14:22:36
  * @LastEditTime: 2020-12-24 14:51:39
  * @FilePath: \Leetcode\剑指 Offer 38. 字符串的排列.cpp

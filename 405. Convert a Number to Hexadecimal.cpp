@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-15 19:57:11
  * @LastEditTime: 2021-04-15 20:30:34
  * @FilePath: \Leetcode\405.Convert a Number to Hexadecimal.cpp

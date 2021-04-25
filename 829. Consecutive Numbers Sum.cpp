@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-24 09:03:29
  * @LastEditTime: 2021-03-26 10:36:19
  * @FilePath: \Leetcode\829.连续整数求和.cpp

@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 09:53:04
 LastEditTime: 2021-04-22 09:56:16
 FilePath: \Leetcode\1165. 单行键盘.py

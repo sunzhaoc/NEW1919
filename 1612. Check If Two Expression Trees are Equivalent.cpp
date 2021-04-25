@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 20:22:09
  * @LastEditTime: 2021-04-22 20:40:45
  * @FilePath: \Leetcode\1612. Check If Two Expression Trees are Equivalent.cpp

@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-03-02 20:44:20
 LastEditTime: 2021-03-02 20:47:35
 FilePath: \Leetcode\766.托普利茨矩阵.py

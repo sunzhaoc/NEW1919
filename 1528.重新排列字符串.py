@@ -1,7 +1,7 @@
 '''
 Description:
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 15:42:44
 LastEditTime: 2021-04-22 15:47:32
 FilePath: \Leetcode\1528.重新排列字符串.py

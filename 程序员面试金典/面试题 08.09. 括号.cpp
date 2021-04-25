@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-07 20:03:03
  * @LastEditTime: 2021-04-07 20:03:53
  * @FilePath: \Leetcode\程序员面试金典\面试题 08.09. 括号.cpp
@@ -9,7 +9,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-07 19:35:55
  * @LastEditTime: 2021-04-07 20:02:15
  * @FilePath: \Leetcode\temp.cpp

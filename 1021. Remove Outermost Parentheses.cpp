@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 15:16:41
  * @LastEditTime: 2021-04-22 15:38:09
  * @FilePath: \Leetcode\1021. Remove Outermost Parentheses.cpp

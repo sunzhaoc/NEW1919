@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-05 14:49:44
 LastEditTime: 2021-04-06 14:33:33
 FilePath: \Leetcode\weekcom\LCCUP2021 春季赛 个人\LCP 30. 魔塔游戏.py

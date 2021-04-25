@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-14 10:13:03
  * @LastEditTime: 2021-03-15 21:32:06
  * @FilePath: \Leetcode\1792.Maximum Average Pass Ratio.cpp

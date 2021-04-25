@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-05 10:12:59
  * @LastEditTime: 2021-01-05 10:22:16
  * @FilePath: \Leetcode\剑指 Offer 28. 对称的二叉树.cpp

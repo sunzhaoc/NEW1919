@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-15 15:22:25
  * @LastEditTime: 2021-01-15 15:46:44
  * @FilePath: \Leetcode\724.Find Pivot Index.cpp

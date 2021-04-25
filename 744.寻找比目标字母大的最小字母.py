@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 1970-01-01 08:00:00
 LastEditTime: 2020-10-06 22:19:22
 FilePath: /Leetcode/Chinese/744.寻找比目标字母大的最小字母.py

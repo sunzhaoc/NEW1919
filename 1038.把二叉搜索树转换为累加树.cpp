@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 14:31:38
  * @LastEditTime: 2021-04-22 14:36:51
  * @FilePath: \Leetcode\1038.把二叉搜索树转换为累加树.cpp

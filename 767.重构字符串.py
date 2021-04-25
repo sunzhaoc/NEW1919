@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-11-30 13:20:22
 LastEditTime: 2021-04-01 16:03:03
 FilePath: \Leetcode\Python3\767.重构字符串.py

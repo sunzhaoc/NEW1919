@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-22 20:36:07
  * @LastEditTime: 2021-03-22 20:54:34
  * @FilePath: \Leetcode\647.Palindromic Substrings.cpp

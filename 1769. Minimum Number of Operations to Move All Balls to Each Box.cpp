@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-19 22:03:39
  * @LastEditTime: 2021-04-19 22:27:10
  * @FilePath: \Leetcode\1769. Minimum Number of Operations to Move All Balls to Each Box.cpp

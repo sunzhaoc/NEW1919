@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2020-12-24 18:40:37
  * @LastEditTime: 2020-12-24 19:40:52
  * @FilePath: \Leetcode\剑指 Offer 40. 最小的k个数.cpp

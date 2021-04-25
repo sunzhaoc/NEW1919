@@ -1,7 +1,7 @@
 /*
  * @Description:
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-29 13:24:20
  * @LastEditTime: 2021-03-29 13:35:38
  * @FilePath: \Leetcode\190.Reverse Bits.cpp

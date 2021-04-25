@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-13 16:25:08
  * @LastEditTime: 2021-04-13 18:11:50
  * @FilePath: \Leetcode\671.Second Minimum Node In a Binary Tree.cpp

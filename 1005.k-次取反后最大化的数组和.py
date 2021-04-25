@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autuor: Vicro
+Autuor: 冰凝水
 Date: 2020-11-13 14:47:12
 LastEditTime: 2020-11-13 16:22:27
 FilePath: \Leetcode\Chinese\1005.k-次取反后最大化的数组和.py

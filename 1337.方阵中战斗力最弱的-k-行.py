@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 1970-01-01 08:00:00
 LastEditTime: 2020-10-04 21:38:25
 FilePath: /Leetcode/Chinese/1337.方阵中战斗力最弱的-k-行.py

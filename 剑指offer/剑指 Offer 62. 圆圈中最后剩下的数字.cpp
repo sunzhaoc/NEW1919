@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Author: Vicro
+ * @Author: 冰凝水
  * @Date: 2020-12-04 21:38:36
  * @LastEditTime: 2020-12-07 13:50:11
  * @FilePath: \Leetcode\剑指 Offer 62. 圆圈中最后剩下的数字.cpp

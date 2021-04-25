@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-18 14:59:34
  * @LastEditTime: 2021-01-18 20:10:00
  * @FilePath: \Leetcode\611.Valid Triangle Number.cpp

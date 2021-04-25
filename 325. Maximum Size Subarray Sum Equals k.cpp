@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-16 21:23:10
  * @LastEditTime: 2021-01-16 21:37:31
  * @FilePath: \Leetcode\325.Maximum Size Subarray Sum Equals k.cpp

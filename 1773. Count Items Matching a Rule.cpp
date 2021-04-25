@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 09:48:50
  * @LastEditTime: 2021-04-22 09:52:17
  * @FilePath: \Leetcode\1773. Count Items Matching a Rule.cpp

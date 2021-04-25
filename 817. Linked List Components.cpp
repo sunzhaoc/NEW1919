@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-19 12:59:59
  * @LastEditTime: 2021-04-19 13:27:48
  * @FilePath: \Leetcode\817. Linked List Components.cpp

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2020-12-21 15:14:19
  * @LastEditTime: 2020-12-21 15:40:31
  * @FilePath: \Leetcode\372.Super Pow.cpp

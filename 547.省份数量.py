@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-01-07 09:25:54
 LastEditTime: 2021-01-07 10:00:15
 FilePath: \Leetcode\547.省份数量.py

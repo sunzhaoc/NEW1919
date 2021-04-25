@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-07 10:30:58
  * @LastEditTime: 2021-01-07 13:12:58
  * @FilePath: \Leetcode\剑指 Offer 59 - I. 滑动窗口的最大值.cpp

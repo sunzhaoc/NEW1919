@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 10:01:11
  * @LastEditTime: 2021-04-22 10:07:38
  * @FilePath: \Leetcode\1379. Find a Corresponding Node of a Binary Tree in a Clone of That Tree.cpp.cpp

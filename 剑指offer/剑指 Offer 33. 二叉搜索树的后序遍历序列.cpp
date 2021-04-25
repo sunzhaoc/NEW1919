@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-05 14:38:14
  * @LastEditTime: 2021-01-05 14:58:57
  * @FilePath: \Leetcode\剑指 Offer 33. 二叉搜索树的后序遍历序列.cpp

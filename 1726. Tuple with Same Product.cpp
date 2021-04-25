@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-17 10:13:43
  * @LastEditTime: 2021-01-18 11:18:02
  * @FilePath: \Leetcode\1726.Tuple with Same Product.cpp

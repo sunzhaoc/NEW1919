@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-14 14:27:39
  * @LastEditTime: 2021-01-14 15:48:03
  * @FilePath: \Leetcode\1018.Binary Prefix Divisible By 5.cpp

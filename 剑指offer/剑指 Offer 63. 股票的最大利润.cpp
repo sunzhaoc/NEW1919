@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-07 14:30:10
  * @LastEditTime: 2021-01-07 14:45:21
  * @FilePath: \Leetcode\剑指 Offer 63. 股票的最大利润.cpp

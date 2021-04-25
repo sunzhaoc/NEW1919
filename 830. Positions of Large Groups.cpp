@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-05 09:10:56
  * @LastEditTime: 2021-01-05 09:24:30
  * @FilePath: \Leetcode\830.Positions of Large Groups.cpp

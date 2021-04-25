@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-06 21:23:31
  * @LastEditTime: 2021-04-06 21:43:20
  * @FilePath: \Leetcode\138.Copy List with Random Pointer.cpp

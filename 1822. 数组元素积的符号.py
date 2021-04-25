@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 08:36:28
 LastEditTime: 2021-04-22 08:40:38
 FilePath: \Leetcode\1822. 数组元素积的符号.py

@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 10:37:37
 LastEditTime: 2021-04-22 10:40:24
 FilePath: \Leetcode\1614.括号的最大嵌套深度.py

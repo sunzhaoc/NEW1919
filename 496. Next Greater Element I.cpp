@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-05 13:17:34
  * @LastEditTime: 2021-03-17 21:36:03
  * @FilePath: \Leetcode\496.Next Greater Element I.cpp

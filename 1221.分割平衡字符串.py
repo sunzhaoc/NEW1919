@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 14:12:21
 LastEditTime: 2021-04-22 14:14:29
 FilePath: \Leetcode\1221.分割平衡字符串.py

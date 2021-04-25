@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-12 20:52:39
  * @LastEditTime: 2021-04-12 20:56:43
  * @FilePath: \Leetcode\28.实现-str-str.cpp

@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 10:13:32
 LastEditTime: 2021-04-22 10:16:35
 FilePath: \Leetcode\1389.按既定顺序创建目标数组.py

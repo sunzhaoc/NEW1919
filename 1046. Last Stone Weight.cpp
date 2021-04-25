@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2020-12-30 12:24:32
  * @LastEditTime: 2020-12-30 12:42:31
  * @FilePath: \Leetcode\1046.Last Stone Weight.cpp

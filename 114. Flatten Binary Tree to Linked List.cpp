@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-02 14:09:46
  * @LastEditTime: 2021-03-02 15:38:39
  * @FilePath: \Leetcode\114.Flatten Binary Tree to Linked List.cpp

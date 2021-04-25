@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-06 16:24:39
  * @LastEditTime: 2021-01-06 16:37:49
  * @FilePath: \Leetcode\剑指 Offer 55 - II. 平衡二叉树.cpp

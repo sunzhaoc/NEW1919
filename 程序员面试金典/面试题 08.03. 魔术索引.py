@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-19 20:50:50
 LastEditTime: 2021-04-19 20:52:33
 FilePath: \Leetcode\面试题 08.03. 魔术索引.py

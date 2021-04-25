@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-11 16:26:33
  * @LastEditTime: 2021-01-11 16:30:52
  * @FilePath: \Leetcode\1720.Decode XORed Array.cpp

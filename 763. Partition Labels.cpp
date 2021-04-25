@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 21:44:16
  * @LastEditTime: 2021-04-22 22:30:55
  * @FilePath: \Leetcode\763. Partition Labels.cpp

@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-05 14:49:44
 LastEditTime: 2021-04-05 16:59:02
 FilePath: \Leetcode\weekcom\t1.py

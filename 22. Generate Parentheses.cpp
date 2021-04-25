@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-02 09:45:22
  * @LastEditTime: 2021-03-02 10:03:29
  * @FilePath: \Leetcode\22.Generate Parentheses.cpp

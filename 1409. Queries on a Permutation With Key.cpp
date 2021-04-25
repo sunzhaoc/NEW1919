@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 12:53:02
  * @LastEditTime: 2021-04-22 13:03:06
  * @FilePath: \Leetcode\1409. Queries on a Permutation With Key.cpp

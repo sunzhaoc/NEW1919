@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-19 21:55:16
  * @LastEditTime: 2021-04-19 21:58:22
  * @FilePath: \Leetcode\1689. Partitioning Into Minimum Number Of Deci-Binary Numbers.cpp

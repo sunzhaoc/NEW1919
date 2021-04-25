@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-08 21:32:47
  * @LastEditTime: 2021-04-08 21:34:07
  * @FilePath: \Leetcode\HUAWEI\HJ63 DNA序列.cpp

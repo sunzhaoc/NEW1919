@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-04 10:05:59
  * @LastEditTime: 2021-04-04 14:48:07
  * @FilePath: \Leetcode\1813.Truncate Sentence.cpp

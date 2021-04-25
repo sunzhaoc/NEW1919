@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 09:27:22
 LastEditTime: 2021-04-22 09:29:26
 FilePath: \Leetcode\LCP 06. 拿硬币.py

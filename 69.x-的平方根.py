@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 1970-01-01 08:00:00
 LastEditTime: 2020-10-04 19:57:15
 FilePath: /Leetcode/Chinese/69.x-的平方根.py

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Author: Vicro
+ * @Author: 冰凝水
  * @Date: 2020-12-07 14:42:50
  * @LastEditTime: 2020-12-07 15:45:15
  * @FilePath: \Leetcode\剑指 Offer 06. 从尾到头打印链表.cpp

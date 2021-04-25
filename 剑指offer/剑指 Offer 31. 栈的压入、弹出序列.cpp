@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-05 10:22:59
  * @LastEditTime: 2021-01-05 11:12:02
  * @FilePath: \Leetcode\剑指 Offer 31. 栈的压入、弹出序列.cpp

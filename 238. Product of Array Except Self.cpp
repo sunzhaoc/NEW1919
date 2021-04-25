@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-19 16:19:43
  * @LastEditTime: 2021-01-19 16:58:20
  * @FilePath: \Leetcode\238.Product of Array Except Self.cpp

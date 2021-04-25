@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-16 13:58:40
  * @LastEditTime: 2021-04-16 14:31:28
  * @FilePath: \Leetcode\353. Design Snake Game.cpp

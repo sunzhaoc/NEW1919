@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Author: Vicro
+ * @Author: 冰凝水
  * @Date: 2020-12-04 17:14:13
  * @LastEditTime: 2020-12-04 21:35:41
  * @FilePath: \Leetcode\剑指 Offer 64. 求1+2+…+n.cpp

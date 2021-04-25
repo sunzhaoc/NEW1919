@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-30 19:27:35
  * @LastEditTime: 2021-03-31 09:35:58
  * @FilePath: \Leetcode\287.Find the Duplicate Number.cpp

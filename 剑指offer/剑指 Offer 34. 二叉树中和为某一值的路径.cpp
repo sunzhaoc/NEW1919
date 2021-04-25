@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-05 15:06:04
  * @LastEditTime: 2021-01-05 15:34:45
  * @FilePath: \Leetcode\剑指 Offer 34. 二叉树中和为某一值的路径.cpp

@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 09:15:27
 LastEditTime: 2021-04-22 09:18:25
 FilePath: \Leetcode\1431.拥有最多糖果的孩子.py

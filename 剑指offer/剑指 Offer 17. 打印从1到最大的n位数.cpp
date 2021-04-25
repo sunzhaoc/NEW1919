@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Author: Vicro
+ * @Author: 冰凝水
  * @Date: 2020-12-03 22:53:19
  * @LastEditTime: 2020-12-03 23:05:34
  * @FilePath: \Leetcode\剑指 Offer 17. 打印从1到最大的n位数.cpp

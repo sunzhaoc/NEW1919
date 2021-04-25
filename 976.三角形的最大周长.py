@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-11-29 22:28:56
 LastEditTime: 2020-11-29 22:46:46
 FilePath: \Leetcode\976.三角形的最大周长.py

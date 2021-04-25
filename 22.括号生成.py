@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-12-07 15:52:38
 LastEditTime: 2020-12-07 17:42:14
 FilePath: \Leetcode\22.括号生成.py

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-15 12:37:38
  * @LastEditTime: 2021-01-15 13:43:42
  * @FilePath: \Leetcode\523.Continuous Subarray Sum.cpp

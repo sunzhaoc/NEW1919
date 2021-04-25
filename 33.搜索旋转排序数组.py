@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 1970-01-01 08:00:00
 LastEditTime: 2020-10-13 22:51:06
 FilePath: /Leetcode/Chinese/33.搜索旋转排序数组.py

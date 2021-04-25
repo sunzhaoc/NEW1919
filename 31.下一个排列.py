@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-03-03 10:30:34
 LastEditTime: 2021-03-03 11:15:22
 FilePath: \Leetcode\31.下一个排列.py

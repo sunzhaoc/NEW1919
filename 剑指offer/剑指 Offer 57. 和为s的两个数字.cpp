@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-06 18:41:29
  * @LastEditTime: 2021-01-06 19:04:27
  * @FilePath: \Leetcode\剑指 Offer 57. 和为s的两个数字.cpp

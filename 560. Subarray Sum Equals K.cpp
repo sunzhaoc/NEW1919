@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-14 16:57:09
  * @LastEditTime: 2021-03-18 20:16:51
  * @FilePath: \Leetcode\560.Subarray Sum Equals K.cpp

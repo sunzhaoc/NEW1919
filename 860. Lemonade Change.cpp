@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Author: Vicro
+ * @Author: 冰凝水
  * @Date: 2020-12-10 10:20:34
  * @LastEditTime: 2020-12-10 10:31:11
  * @FilePath: \Leetcode\860.柠檬水找零.cpp

@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 1970-01-01 08:00:00
 LastEditTime: 2020-10-04 20:48:54
 FilePath: /Leetcode/Chinese/367.有效的完全平方数.py

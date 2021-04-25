@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-12-04 13:18:25
 LastEditTime: 2021-03-01 19:47:32
 FilePath: \Leetcode\659.分割数组为连续子序列.py

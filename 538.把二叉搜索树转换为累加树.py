@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-12-02 21:35:01
 LastEditTime: 2020-12-02 22:12:52
 FilePath: \Leetcode\538.把二叉搜索树转换为累加树.py

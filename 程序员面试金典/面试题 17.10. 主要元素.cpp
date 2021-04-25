@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-15 19:37:07
  * @LastEditTime: 2021-04-15 19:38:12
  * @FilePath: \Leetcode\程序员面试金典\面试题 17.10. 主要元素.cpp

@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-11-24 22:14:25
 LastEditTime: 2020-11-25 19:32:06
 FilePath: \Leetcode\649.dota-2-参议院.py

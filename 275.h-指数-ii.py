@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autuor: Vicro
+Autuor: 冰凝水
 Date: 2020-10-07 20:38:29
 LastEditTime: 2020-10-07 21:17:44
 FilePath: \Leetcode\Chinese\275.h-指数-ii.py

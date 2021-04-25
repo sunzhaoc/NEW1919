@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 08:41:16
 LastEditTime: 2021-04-22 08:43:31
 FilePath: \Leetcode\1119. 删去字符串中的元音.py

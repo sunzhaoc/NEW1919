@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Author: Vicro
+ * @Author: 冰凝水
  * @Date: 2020-12-01 09:37:48
  * @LastEditTime: 2021-03-17 19:38:36
  * @FilePath: \Leetcode\34.Find First and Last Position of Element in Sorted Array.cpp

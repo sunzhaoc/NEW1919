@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 21:37:48
 LastEditTime: 2021-04-22 21:41:59
 FilePath: \Leetcode\311. 稀疏矩阵的乘法.py

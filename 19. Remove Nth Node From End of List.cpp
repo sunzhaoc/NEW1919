@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-02 16:14:16
  * @LastEditTime: 2021-03-02 18:36:23
  * @FilePath: \Leetcode\19.Remove Nth Node From End of List.cpp

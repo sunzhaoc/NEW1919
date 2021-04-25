@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 12:42:35
  * @LastEditTime: 2021-04-22 12:52:25
  * @FilePath: \Leetcode\1282. Group the People Given the Group Size They Belong To.cpp

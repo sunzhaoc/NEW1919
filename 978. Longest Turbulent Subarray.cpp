@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-02-08 20:54:48
  * @LastEditTime: 2021-02-08 21:15:50
  * @FilePath: \Leetcode\978.Longest Turbulent Subarray.cpp

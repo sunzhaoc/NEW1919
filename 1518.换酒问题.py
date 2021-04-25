@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autuor: Vicro
+Autuor: 冰凝水
 Date: 2020-11-12 22:36:33
 LastEditTime: 2020-11-13 11:31:41
 FilePath: \Leetcode\Chinese\1518.换酒问题.py

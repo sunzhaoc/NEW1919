@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-16 10:17:56
  * @LastEditTime: 2021-04-16 10:31:47
  * @FilePath: \Leetcode\622.Design Circular Queue.cpp

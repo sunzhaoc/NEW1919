@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 13:35:06
  * @LastEditTime: 2021-04-22 14:00:23
  * @FilePath: \Leetcode\1588. Sum of All Odd Length Subarrays.cpp

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-02 20:48:17
  * @LastEditTime: 2021-03-02 21:28:35
  * @FilePath: \Leetcode\832.Flipping an Image.cpp

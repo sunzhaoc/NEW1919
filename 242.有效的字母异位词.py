@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-03-03 15:59:43
 LastEditTime: 2021-03-03 16:07:26
 FilePath: \Leetcode\242.有效的字母异位词.py

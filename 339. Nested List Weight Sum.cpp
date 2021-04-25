@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 13:20:19
  * @LastEditTime: 2021-04-22 13:28:31
  * @FilePath: \Leetcode\339. Nested List Weight Sum.cpp

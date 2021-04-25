@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-12-03 19:13:27
 LastEditTime: 2020-12-04 14:58:16
 FilePath: \Leetcode\剑指 Offer 03. 数组中重复的数字.py

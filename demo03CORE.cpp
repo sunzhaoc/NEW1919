@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-14 19:24:16
  * @LastEditTime: 2021-04-14 19:40:15
  * @FilePath: \Leetcode\demo.cpp
@@ -9,7 +9,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-05 20:05:57
  * @LastEditTime: 2021-04-14 19:23:50
  * @FilePath: \Leetcode\ACRush.cpp

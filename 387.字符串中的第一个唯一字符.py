@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2020-12-23 19:36:00
 LastEditTime: 2020-12-23 19:45:41
 FilePath: \Leetcode\387.字符串中的第一个唯一字符.py

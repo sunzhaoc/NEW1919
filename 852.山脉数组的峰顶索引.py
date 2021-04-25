@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 1970-01-01 08:00:00
 LastEditTime: 2020-10-04 20:30:17
 FilePath: /Leetcode/Chinese/852.山脉数组的峰顶索引.py

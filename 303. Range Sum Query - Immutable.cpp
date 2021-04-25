@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-16 21:45:33
  * @LastEditTime: 2021-01-18 22:03:26
  * @FilePath: \Leetcode\303.Range Sum Query - Immutable.cpp

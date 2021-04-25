@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-19 16:59:19
 LastEditTime: 2021-04-19 17:11:57
 FilePath: \Leetcode\程序员面试金典\面试题 05.07. 配对交换.py

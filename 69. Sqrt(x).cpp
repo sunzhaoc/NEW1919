@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-17 19:09:04
  * @LastEditTime: 2021-03-17 19:26:50
  * @FilePath: \Leetcode\69.Sqrt(x).cpp

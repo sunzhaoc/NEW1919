@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Author: Vicro
+ * @Author: 冰凝水
  * @Date: 2020-11-25 14:44:59
  * @LastEditTime: 2020-12-14 21:44:42
  * @FilePath: \Leetcode\649.Dota2 Senate.cpp

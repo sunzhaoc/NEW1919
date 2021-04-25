@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-15 17:17:46
  * @LastEditTime: 2021-03-15 21:23:43
  * @FilePath: \Leetcode\1793.Maximum Score of a Good Subarray.cpp

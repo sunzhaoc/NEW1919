@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-07 13:13:16
  * @LastEditTime: 2021-01-07 13:38:54
  * @FilePath: \Leetcode\剑指 Offer 61. 扑克牌中的顺子.cpp

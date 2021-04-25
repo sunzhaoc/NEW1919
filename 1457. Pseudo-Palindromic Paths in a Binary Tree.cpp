@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-01 19:52:54
  * @LastEditTime: 2021-03-01 20:23:26
  * @FilePath: \Leetcode\1457.Pseudo-Palindromic Paths in a Binary Tree.cpp

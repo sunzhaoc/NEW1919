@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-01 16:50:49
  * @LastEditTime: 2021-04-01 18:43:08
  * @FilePath: \Leetcode\1292.Maximum Side Length of a Square with Sum Less than or Equal to Threshold.cpp

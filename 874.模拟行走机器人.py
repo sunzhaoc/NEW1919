@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autuor: Vicro
+Autuor: 冰凝水
 Date: 2020-11-13 17:25:01
 LastEditTime: 2020-11-19 14:07:45
 FilePath: \Leetcode\Chinese\874.模拟行走机器人.py

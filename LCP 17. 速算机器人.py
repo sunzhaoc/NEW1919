@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 14:09:46
 LastEditTime: 2021-04-22 14:12:02
 FilePath: \Leetcode\LCP 17. 速算机器人.py

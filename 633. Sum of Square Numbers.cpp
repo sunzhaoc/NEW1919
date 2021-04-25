@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2020-12-21 15:44:07
  * @LastEditTime: 2020-12-21 21:30:46
  * @FilePath: \Leetcode\633.Sum of Square Numbers.cpp

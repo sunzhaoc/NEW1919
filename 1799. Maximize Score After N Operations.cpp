@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-20 23:30:39
  * @LastEditTime: 2021-03-23 16:37:43
  * @FilePath: \Leetcode\1799.Maximize Score After N Operations.cpp

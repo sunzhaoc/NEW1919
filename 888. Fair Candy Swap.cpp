@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-02-01 19:12:20
  * @LastEditTime: 2021-02-01 19:44:36
  * @FilePath: \Leetcode\888.Fair Candy Swap.cpp

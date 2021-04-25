@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 19:13:53
 LastEditTime: 2021-04-22 19:18:55
 FilePath: \Leetcode\1134. 阿姆斯特朗数.py

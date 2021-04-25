@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-11-25 18:53:55
 LastEditTime: 2020-11-26 15:09:32
 FilePath: \Leetcode\621.任务调度器.py

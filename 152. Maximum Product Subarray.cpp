@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-18 13:26:57
  * @LastEditTime: 2021-01-18 13:56:29
  * @FilePath: \Leetcode\152.Maximum Product Subarray.cpp

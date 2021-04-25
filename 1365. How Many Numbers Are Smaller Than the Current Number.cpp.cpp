@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 10:30:04
  * @LastEditTime: 2021-04-22 10:36:01
  * @FilePath: \Leetcode\1365. How Many Numbers Are Smaller Than the Current Number.cpp.cpp

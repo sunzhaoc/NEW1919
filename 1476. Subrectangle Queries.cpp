@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-19 21:59:28
  * @LastEditTime: 2021-04-19 22:02:58
  * @FilePath: \Leetcode\1476. Subrectangle Queries.cpp

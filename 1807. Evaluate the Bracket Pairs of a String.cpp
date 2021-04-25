@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-30 12:33:31
  * @LastEditTime: 2021-03-30 15:21:32
  * @FilePath: \Leetcode\1807.Evaluate the Bracket Pairs of a String.cpp

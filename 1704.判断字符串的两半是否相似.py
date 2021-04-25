@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2020-12-27 10:31:24
 LastEditTime: 2020-12-27 17:08:06
 FilePath: \Leetcode\5637.判断字符串的两半是否相似.py

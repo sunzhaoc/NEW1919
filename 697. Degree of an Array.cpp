@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-20 21:48:41
  * @LastEditTime: 2021-01-20 22:09:45
  * @FilePath: \Leetcode\697.Degree of an Array.cpp

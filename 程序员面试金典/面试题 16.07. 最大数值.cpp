@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-19 15:54:41
  * @LastEditTime: 2021-04-19 16:08:22
  * @FilePath: \Leetcode\程序员面试金典\面试题 16.07. 最大数值.cpp

@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 10:53:32
 LastEditTime: 2021-04-22 10:55:17
 FilePath: \Leetcode\1342.将数字变成-0-的操作次数.py

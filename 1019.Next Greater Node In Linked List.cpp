@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-19 10:16:13
  * @LastEditTime: 2021-04-19 10:58:05
  * @FilePath: \Leetcode\1019.Next Greater Node In Linked List.cpp

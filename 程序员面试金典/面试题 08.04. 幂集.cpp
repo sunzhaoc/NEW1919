@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-07 19:35:55
  * @LastEditTime: 2021-04-07 19:53:59
  * @FilePath: \Leetcode\程序员面试金典\面试题 08.04. 幂集.cpp

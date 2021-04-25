@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autuor: Vicro
+Autuor: 冰凝水
 Date: 2020-10-08 21:18:56
 LastEditTime: 2020-10-13 21:55:31
 FilePath: /Leetcode/Chinese/1292.元素和小于等于阈值的正方形的最大边长.py

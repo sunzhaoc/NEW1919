@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-01 16:39:15
  * @LastEditTime: 2021-04-01 16:50:35
  * @FilePath: \Leetcode\1281.Subtract the Product and Sum of Digits of an Integer.cpp

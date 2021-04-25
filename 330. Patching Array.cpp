@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2020-12-29 21:18:04
  * @LastEditTime: 2020-12-29 22:24:20
  * @FilePath: \Leetcode\330.Patching Array.cpp

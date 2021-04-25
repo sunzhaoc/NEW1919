@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-06 20:16:46
  * @LastEditTime: 2021-01-07 10:28:48
  * @FilePath: \Leetcode\剑指 Offer 58 - I. 翻转单词顺序.cpp

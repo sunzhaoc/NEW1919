@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-24 09:02:15
  * @LastEditTime: 2021-03-24 10:12:12
  * @FilePath: \Leetcode\462.Minimum Moves to Equal Array Elements II.cpp

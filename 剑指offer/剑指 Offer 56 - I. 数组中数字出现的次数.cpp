@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-06 17:00:42
  * @LastEditTime: 2021-01-06 17:10:12
  * @FilePath: \Leetcode\剑指 Offer 56 - I. 数组中数字出现的次数.cpp

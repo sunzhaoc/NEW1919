@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-04 00:03:07
  * @LastEditTime: 2021-04-04 14:42:37
  * @FilePath: \Leetcode\1810.Sentence Similarity III.cpp

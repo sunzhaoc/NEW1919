@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-18 14:12:26
  * @LastEditTime: 2021-03-24 18:27:59
  * @FilePath: \Leetcode\320.Generalized Abbreviation.cpp

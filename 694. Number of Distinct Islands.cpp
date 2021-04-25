@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-08 13:36:37
  * @LastEditTime: 2021-04-08 15:56:41
  * @FilePath: \Leetcode\694.Number of Distinct Islands.cpp

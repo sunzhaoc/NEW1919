@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 1970-01-01 08:00:00
 LastEditTime: 2020-09-29 23:20:03
 FilePath: /Leetcode/Chinese/35.搜索插入位置.py

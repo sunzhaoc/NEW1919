@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-30 12:33:41
  * @LastEditTime: 2021-03-30 16:11:21
  * @FilePath: \Leetcode\1808.Maximize Number of Nice Divisors.cpp

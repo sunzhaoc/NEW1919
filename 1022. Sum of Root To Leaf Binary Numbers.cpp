@@ -1,7 +1,7 @@
 /*
  * @Description:
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-13 16:01:21
  * @LastEditTime: 2021-04-13 16:09:48
  * @FilePath: \Leetcode\1022.从根到叶的二进制数之和.cpp

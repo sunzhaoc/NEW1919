@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-09 08:46:55
  * @LastEditTime: 2021-03-09 08:47:30
  * @FilePath: \Leetcode\1047.删除字符串中的所有相邻重复项.cpp

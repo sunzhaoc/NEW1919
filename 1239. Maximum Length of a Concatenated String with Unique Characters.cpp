@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-15 21:19:11
  * @LastEditTime: 2021-04-15 22:00:11
  * @FilePath: \Leetcode\1239.Maximum Length of a Concatenated String with Unique Characters.cpp

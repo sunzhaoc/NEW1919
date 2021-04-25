@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-07 19:07:24
  * @LastEditTime: 2021-04-07 19:12:28
  * @FilePath: \Leetcode\1688.Count of Matches in Tournament.cpp

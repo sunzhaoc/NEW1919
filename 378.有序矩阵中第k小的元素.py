@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autuor: Vicro
+Autuor: 冰凝水
 Date: 2020-10-08 19:45:37
 LastEditTime: 2020-10-08 20:39:34
 FilePath: \Leetcode\Chinese\378.有序矩阵中第k小的元素.py

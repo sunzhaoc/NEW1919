@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-01-10 10:28:49
 LastEditTime: 2021-01-10 10:44:30
 FilePath: \Leetcode\demo01.py

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-05 15:36:05
  * @LastEditTime: 2021-01-05 16:09:42
  * @FilePath: \Leetcode\剑指 Offer 35. 复杂链表的复制.cpp

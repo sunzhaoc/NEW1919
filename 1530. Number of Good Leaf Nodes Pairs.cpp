@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-01 20:24:22
  * @LastEditTime: 2021-03-01 21:24:31
  * @FilePath: \Leetcode\1530.Number of Good Leaf Nodes Pairs.cpp

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-17 10:13:36
  * @LastEditTime: 2021-01-18 11:20:17
  * @FilePath: \Leetcode\1725.Number Of Rectangles That Can Form The Largest Square.cpp

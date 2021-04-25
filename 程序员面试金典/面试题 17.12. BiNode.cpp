@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-13 18:53:57
  * @LastEditTime: 2021-04-13 19:00:56
  * @FilePath: \Leetcode\程序员面试金典\面试题 17.12. BiNode.cpp

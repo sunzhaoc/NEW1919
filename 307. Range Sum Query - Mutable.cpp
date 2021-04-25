@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-19 20:42:04
  * @LastEditTime: 2021-01-20 17:09:07
  * @FilePath: \Leetcode\307.Range Sum Query - Mutable.cpp

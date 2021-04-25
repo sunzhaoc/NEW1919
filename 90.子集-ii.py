@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-11-30 15:56:54
 LastEditTime: 2020-11-30 16:37:12
 FilePath: \Leetcode\90.子集-ii.py

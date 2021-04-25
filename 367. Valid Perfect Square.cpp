@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-31 09:56:43
  * @LastEditTime: 2021-03-31 14:25:18
  * @FilePath: \Leetcode\367.Valid Perfect Square.cpp

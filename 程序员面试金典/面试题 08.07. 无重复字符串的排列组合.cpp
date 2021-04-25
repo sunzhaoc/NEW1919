@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-07 20:34:31
  * @LastEditTime: 2021-04-08 11:49:05
  * @FilePath: \Leetcode\程序员面试金典\面试题 08.07. 无重复字符串的排列组合.cpp
@@ -9,7 +9,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-07 19:35:55
  * @LastEditTime: 2021-04-07 20:26:48
  * @FilePath: \Leetcode\temp.cpp

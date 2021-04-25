@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Author: Vicro
+ * @Author: 冰凝水
  * @Date: 2020-12-07 13:50:44
  * @LastEditTime: 2020-12-14 22:08:44
  * @FilePath: \Leetcode\118.Pascal's Triangle.cpp

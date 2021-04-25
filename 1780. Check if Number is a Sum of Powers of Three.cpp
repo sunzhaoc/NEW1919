@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-09 11:09:08
  * @LastEditTime: 2021-04-09 15:05:27
  * @FilePath: \Leetcode\1780.Check if Number is a Sum of Powers of Three.cpp

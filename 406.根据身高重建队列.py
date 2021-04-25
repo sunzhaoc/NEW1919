@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-11-19 16:07:19
 LastEditTime: 2020-11-19 16:41:15
 FilePath: \Leetcode\Chinese\406.根据身高重建队列.py

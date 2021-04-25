@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-06 19:07:19
  * @LastEditTime: 2021-01-06 19:38:10
  * @FilePath: \Leetcode\剑指 Offer 57 - II. 和为s的连续正数序列.cpp

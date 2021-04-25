@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2020-12-24 10:47:36
  * @LastEditTime: 2020-12-24 13:01:19
  * @FilePath: \Leetcode\剑指 Offer 21. 调整数组顺序使奇数位于偶数前面.cpp

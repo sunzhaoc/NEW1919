@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-24 09:03:52
  * @LastEditTime: 2021-03-26 10:51:39
  * @FilePath: \Leetcode\891.Sum of Subsequence Widths.cpp

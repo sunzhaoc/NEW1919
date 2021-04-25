@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-16 10:47:49
  * @LastEditTime: 2021-04-16 11:11:57
  * @FilePath: \Leetcode\程序员面试金典\面试题 17.09. 第 k 个数.cpp

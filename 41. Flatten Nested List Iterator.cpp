@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-23 08:26:42
  * @LastEditTime: 2021-03-23 09:42:08
  * @FilePath: \Leetcode\41.Flatten Nested List Iterator.cpp

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-09 15:51:51
  * @LastEditTime: 2021-04-09 16:24:52
  * @FilePath: \Leetcode\294.Flip Game II.cpp

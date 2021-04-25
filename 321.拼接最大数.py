@@ -1,7 +1,7 @@
 '''
 Description: k
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-12-02 13:45:44
 LastEditTime: 2020-12-02 16:26:47
 FilePath: \Leetcode\321.拼接最大数.py

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 20:10:38
  * @LastEditTime: 2021-04-22 20:20:15
  * @FilePath: \Leetcode\1602. Find Nearest Right Node in Binary Tree.cpp

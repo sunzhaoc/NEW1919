@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-13 14:30:37
  * @LastEditTime: 2021-04-13 14:48:20
  * @FilePath: \Leetcode\606.Construct String from Binary Tree.cpp

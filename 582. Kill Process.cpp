@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-16 14:33:01
  * @LastEditTime: 2021-04-16 14:42:41
  * @FilePath: \Leetcode\582. Kill Process.cpp

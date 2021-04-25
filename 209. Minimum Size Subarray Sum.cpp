@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-18 20:37:38
  * @LastEditTime: 2021-01-18 21:57:30
  * @FilePath: \Leetcode\209.Minimum Size Subarray Sum.cpp

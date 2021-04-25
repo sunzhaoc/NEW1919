@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autuor: Vicro
+Autuor: 冰凝水
 Date: 2020-11-12 22:11:16
 LastEditTime: 2020-11-12 22:35:11
 FilePath: \Leetcode\Chinese\944.删列造序.py

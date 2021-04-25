@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-14 22:39:38
  * @LastEditTime: 2021-01-14 22:56:35
  * @FilePath: \Leetcode\288.Unique Word Abbreviation.cpp

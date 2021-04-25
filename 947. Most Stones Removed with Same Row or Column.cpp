@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-15 09:45:28
  * @LastEditTime: 2021-01-15 12:28:24
  * @FilePath: \Leetcode\947.Most Stones Removed with Same Row or Column.cpp

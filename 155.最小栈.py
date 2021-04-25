@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-01-04 19:50:18
 LastEditTime: 2021-01-04 19:58:26
 FilePath: \Leetcode\155.最小栈.py

@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 09:56:44
 LastEditTime: 2021-04-22 10:00:33
 FilePath: \Leetcode\760. 找出变位映射.py

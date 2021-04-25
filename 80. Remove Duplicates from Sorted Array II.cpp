@@ -1,7 +1,7 @@
 /*
  * @Description:  
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-30 16:28:56
  * @LastEditTime: 2021-04-06 08:51:55
  * @FilePath: \Leetcode\80.Remove Duplicates from Sorted Array II.cpp

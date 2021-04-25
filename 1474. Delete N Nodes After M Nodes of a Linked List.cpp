@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-09 19:39:23
  * @LastEditTime: 2021-04-09 20:01:34
  * @FilePath: \Leetcode\1474.Delete N Nodes After M Nodes of a Linked List.cpp

@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 11:11:52
 LastEditTime: 2021-04-22 12:03:58
 FilePath: \Leetcode\1662.检查两个字符串数组是否相等.py

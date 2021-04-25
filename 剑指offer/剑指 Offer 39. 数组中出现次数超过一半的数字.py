@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2020-12-24 15:32:00
 LastEditTime: 2020-12-24 15:37:20
 FilePath: \Leetcode\剑指 Offer 39. 数组中出现次数超过一半的数字.py

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-12 17:12:53
  * @LastEditTime: 2021-04-12 17:13:42
  * @FilePath: \Leetcode\HUAWEI\HJ72 百钱买百鸡问题.cpp

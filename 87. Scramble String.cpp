@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-16 08:48:02
  * @LastEditTime: 2021-04-16 10:14:59
  * @FilePath: \Leetcode\87.Scramble String.cpp

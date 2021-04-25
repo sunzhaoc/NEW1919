@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-04 09:09:26
  * @LastEditTime: 2021-03-23 10:18:58
  * @FilePath: \Leetcode\131.Palindrome Partitioning.cpp

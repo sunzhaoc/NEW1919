@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-16 13:20:27
  * @LastEditTime: 2021-04-16 13:56:33
  * @FilePath: \Leetcode\1673. Find the Most Competitive Subsequence.cpp

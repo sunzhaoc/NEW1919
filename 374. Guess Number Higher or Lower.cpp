@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-31 10:02:35
  * @LastEditTime: 2021-03-31 14:24:59
  * @FilePath: \Leetcode\374.Guess Number Higher or Lower.cpp

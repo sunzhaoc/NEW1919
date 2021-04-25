@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-02 09:53:41
  * @LastEditTime: 2021-04-02 10:18:19
  * @FilePath: \Leetcode\237.Delete Node in a Linked List.cpp

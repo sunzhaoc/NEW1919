@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-04 14:02:52
  * @LastEditTime: 2021-01-06 13:34:02
  * @FilePath: \Leetcode\17.Letter Combinations of a Phone Number.cpp
@@ -9,7 +9,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-04 14:02:52
  * @LastEditTime: 2021-01-04 14:25:02
  * @FilePath: \Leetcode\17.Letter Combinations of a Phone Number.cpp

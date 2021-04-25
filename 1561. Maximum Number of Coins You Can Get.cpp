@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 16:03:33
  * @LastEditTime: 2021-04-22 16:10:43
  * @FilePath: \Leetcode\1561.你可以获得的最大硬币数目.cpp

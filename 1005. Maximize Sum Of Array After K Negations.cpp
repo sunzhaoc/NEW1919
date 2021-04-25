@@ -1,7 +1,7 @@
 /*
  * @Description:
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-01 16:17:23
  * @LastEditTime: 2021-04-01 16:37:51
  * @FilePath: \Leetcode\1005.Maximize Sum Of Array After K Negations.cpp

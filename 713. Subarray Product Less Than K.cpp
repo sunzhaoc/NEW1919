@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-15 13:46:51
  * @LastEditTime: 2021-01-15 15:17:45
  * @FilePath: \Leetcode\713.Subarray Product Less Than K.cpp

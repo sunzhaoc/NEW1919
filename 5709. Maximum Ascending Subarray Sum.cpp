@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-21 10:11:19
  * @LastEditTime: 2021-03-21 14:30:18
  * @FilePath: \Leetcode\5709.Maximum Ascending Subarray Sum.cpp

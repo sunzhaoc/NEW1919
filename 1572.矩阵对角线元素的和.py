@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 13:15:08
 LastEditTime: 2021-04-22 13:19:29
 FilePath: \Leetcode\1572.矩阵对角线元素的和.py

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2020-12-16 14:23:43
  * @LastEditTime: 2020-12-16 15:02:59
  * @FilePath: \Leetcode\290.Word Pattern.cpp

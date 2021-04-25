@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 20:42:21
 LastEditTime: 2021-04-22 20:46:49
 FilePath: \Leetcode\1464.数组中两元素的最大乘积.py

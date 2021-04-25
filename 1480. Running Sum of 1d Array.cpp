@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-12 22:43:03
  * @LastEditTime: 2021-04-12 22:45:28
  * @FilePath: \Leetcode\1480.Running Sum of 1d Array.cpp

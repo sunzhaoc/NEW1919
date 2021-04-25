@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-02-02 22:33:21
  * @LastEditTime: 2021-02-02 23:29:51
  * @FilePath: \Leetcode\424.Longest Repeating Character Replacement.cpp

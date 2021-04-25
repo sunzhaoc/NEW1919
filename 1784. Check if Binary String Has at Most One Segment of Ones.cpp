@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-07 10:18:55
  * @LastEditTime: 2021-03-07 22:36:24
  * @FilePath: \Leetcode\5697.Check if Binary String Has at Most One Segment of Ones.cpp

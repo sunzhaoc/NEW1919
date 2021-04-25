@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2020-12-21 14:03:57
  * @LastEditTime: 2021-03-22 12:37:35
  * @FilePath: \Leetcode\191.Number of 1 Bits.cpp

@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-11-29 20:18:54
 LastEditTime: 2020-11-29 20:25:36
 FilePath: \Leetcode\429.n叉树的层序遍历.py

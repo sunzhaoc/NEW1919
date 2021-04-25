@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 14:37:28
 LastEditTime: 2021-04-22 14:42:23
 FilePath: \Leetcode\1534.统计好三元组.py

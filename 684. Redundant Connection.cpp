@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-13 13:10:56
  * @LastEditTime: 2021-01-13 14:05:01
  * @FilePath: \Leetcode\684.Redundant Connection.cpp

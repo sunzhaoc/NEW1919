@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-11-19 14:17:55
 LastEditTime: 2020-11-19 15:09:38
 FilePath: \Leetcode\Chinese\1281.整数的各位积和之差.py

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-09 15:13:48
  * @LastEditTime: 2021-04-09 15:26:19
  * @FilePath: \Leetcode\1286.Iterator for Combination.cpp

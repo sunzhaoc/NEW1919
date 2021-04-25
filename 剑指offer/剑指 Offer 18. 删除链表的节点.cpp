@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2020-12-30 15:45:52
  * @LastEditTime: 2020-12-30 16:09:41
  * @FilePath: \Leetcode\剑指 Offer 18. 删除链表的节点.cpp

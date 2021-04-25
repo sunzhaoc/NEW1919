@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-06 16:27:51
  * @LastEditTime: 2021-04-06 16:30:08
  * @FilePath: \Leetcode\1290.Convert Binary Number in a Linked List to Integer.cpp

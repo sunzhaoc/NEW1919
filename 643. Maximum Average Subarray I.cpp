@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-02-04 23:04:05
  * @LastEditTime: 2021-02-04 23:16:00
  * @FilePath: \Leetcode\643.Maximum Average Subarray I.cpp

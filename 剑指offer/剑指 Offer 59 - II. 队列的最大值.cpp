@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-07 14:10:36
  * @LastEditTime: 2021-01-07 14:25:40
  * @FilePath: \Leetcode\剑指 Offer 59 - II. 队列的最大值.cpp

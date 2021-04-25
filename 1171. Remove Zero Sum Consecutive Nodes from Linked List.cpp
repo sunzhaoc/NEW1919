@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-19 10:58:32
  * @LastEditTime: 2021-04-19 12:59:27
  * @FilePath: \Leetcode\1171. Remove Zero Sum Consecutive Nodes from Linked List.cpp

@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 09:24:55
 LastEditTime: 2021-04-22 09:26:45
 FilePath: \Leetcode\1486.数组异或操作.py

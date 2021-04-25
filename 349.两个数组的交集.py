@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-12-01 13:53:15
 LastEditTime: 2020-12-01 13:57:03
 FilePath: \Leetcode\349.两个数组的交集.py

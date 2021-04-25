@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-19 14:29:58
  * @LastEditTime: 2021-04-19 15:01:36
  * @FilePath: \Leetcode\1367. Linked List in Binary Tree.cpp

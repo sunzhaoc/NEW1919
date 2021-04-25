@@ -1,7 +1,7 @@
 '''
 Description: ()
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-11-30 17:01:12
 LastEditTime: 2020-11-30 17:05:10
 FilePath: \Leetcode\47.全排列-ii.py

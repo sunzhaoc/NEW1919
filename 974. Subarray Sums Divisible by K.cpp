@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-15 21:21:04
  * @LastEditTime: 2021-01-15 21:53:50
  * @FilePath: \Leetcode\974.Subarray Sums Divisible by K.cpp

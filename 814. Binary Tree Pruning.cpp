@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-30 15:37:25
  * @LastEditTime: 2021-01-30 16:25:09
  * @FilePath: \Leetcode\814.Binary Tree Pruning.cpp

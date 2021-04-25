@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-11-23 14:35:55
 LastEditTime: 2020-11-23 15:09:59
 FilePath: \Leetcode\Chinese\452.用最少数量的箭引爆气球.py

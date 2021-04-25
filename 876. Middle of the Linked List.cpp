@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-06 09:30:37
  * @LastEditTime: 2021-04-06 09:42:57
  * @FilePath: \Leetcode\876.Middle of the Linked List.cpp

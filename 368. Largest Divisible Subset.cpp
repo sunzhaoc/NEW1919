@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-23 10:11:28
  * @LastEditTime: 2021-04-23 10:57:37
  * @FilePath: \Leetcode\368. Largest Divisible Subset.cpp

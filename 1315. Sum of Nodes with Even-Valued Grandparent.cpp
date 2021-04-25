@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 12:13:02
  * @LastEditTime: 2021-04-22 12:18:59
  * @FilePath: \Leetcode\1315. Sum of Nodes with Even-Valued Grandparent.cpp

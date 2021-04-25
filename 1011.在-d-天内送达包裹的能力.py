@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autuor: Vicro
+Autuor: 冰凝水
 Date: 2020-10-08 21:00:02
 LastEditTime: 2020-10-08 21:17:11
 FilePath: \Leetcode\Chinese\1011.在-d-天内送达包裹的能力.py

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-04 15:42:51
  * @LastEditTime: 2021-03-04 19:44:56
  * @FilePath: \Leetcode\673.Number of Longest Increasing Subsequence.cpp

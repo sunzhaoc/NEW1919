@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-04 20:51:53
  * @LastEditTime: 2021-04-08 12:02:15
  * @FilePath: \Leetcode\程序员面试金典\面试题 08.08. 有重复字符串的排列组合.cpp

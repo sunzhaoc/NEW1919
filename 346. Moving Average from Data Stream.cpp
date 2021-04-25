@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-16 13:12:33
  * @LastEditTime: 2021-04-16 13:20:05
  * @FilePath: \Leetcode\346. Moving Average from Data Stream.cpp

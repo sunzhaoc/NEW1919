@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2020-12-30 13:24:55
  * @LastEditTime: 2020-12-30 14:26:44
  * @FilePath: \Leetcode\剑指 Offer 09. 用两个栈实现队列.cpp

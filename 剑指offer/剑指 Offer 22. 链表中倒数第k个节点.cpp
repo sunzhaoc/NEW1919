@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2020-12-30 16:11:53
  * @LastEditTime: 2020-12-30 16:34:56
  * @FilePath: \Leetcode\剑指 Offer 22. 链表中倒数第k个节点.cpp

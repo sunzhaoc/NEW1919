@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-05 20:05:57
  * @LastEditTime: 2021-04-19 16:52:00
  * @FilePath: \Leetcode\程序员面试金典\面试题 04.10. 检查子树.cpp

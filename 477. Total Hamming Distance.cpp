@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-09 20:53:47
  * @LastEditTime: 2021-03-09 21:14:35
  * @FilePath: \Leetcode\477.Total Hamming Distance.cpp

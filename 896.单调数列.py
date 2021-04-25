@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-03-02 18:58:01
 LastEditTime: 2021-03-02 19:02:02
 FilePath: \Leetcode\896.单调数列.py

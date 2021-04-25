@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 12:04:15
  * @LastEditTime: 2021-04-22 12:08:15
  * @FilePath: \Leetcode\1551. Minimum Operations to Make Array Equal.cpp

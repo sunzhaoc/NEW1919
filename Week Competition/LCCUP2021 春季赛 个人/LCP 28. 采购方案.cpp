@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-05 14:48:06
  * @LastEditTime: 2021-04-06 14:20:08
  * @FilePath: \Leetcode\weekcom\LCCUP2021 春季赛 个人\LCP 28. 采购方案.cpp

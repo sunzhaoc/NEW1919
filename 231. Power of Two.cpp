@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-04 20:27:27
  * @LastEditTime: 2021-03-04 21:15:38
  * @FilePath: \Leetcode\231.Power of Two.cpp

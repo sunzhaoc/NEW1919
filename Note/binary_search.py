@@ -1,7 +1,7 @@
 '''
 Description: 二分查找的例程 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-01-06 14:32:50
 LastEditTime: 2021-03-18 15:40:00
 FilePath: \Leetcode\STAR\binary_search.py

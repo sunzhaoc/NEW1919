@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-03-03 17:12:45
 LastEditTime: 2021-03-03 17:22:42
 FilePath: \Leetcode\266.回文排列.py

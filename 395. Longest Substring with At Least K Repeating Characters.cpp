@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-02 19:03:02
  * @LastEditTime: 2021-03-02 20:30:47
  * @FilePath: \Leetcode\395.Longest Substring with At Least K Repeating Characters.cpp

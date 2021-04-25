@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-11 08:52:35
  * @LastEditTime: 2021-03-11 09:10:07
  * @FilePath: \Leetcode\96.不同的二叉搜索树.cpp

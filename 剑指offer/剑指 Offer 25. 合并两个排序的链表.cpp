@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2020-12-30 17:09:19
  * @LastEditTime: 2020-12-30 20:17:53
  * @FilePath: \Leetcode\剑指 Offer 25. 合并两个排序的链表.cpp

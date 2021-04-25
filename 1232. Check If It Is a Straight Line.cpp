@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-18 12:56:03
  * @LastEditTime: 2021-01-18 13:26:02
  * @FilePath: \Leetcode\1232.Check If It Is a Straight Line.cpp

@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 10:16:52
 LastEditTime: 2021-04-22 10:19:47
 FilePath: \Leetcode\1313.解压缩编码列表.py

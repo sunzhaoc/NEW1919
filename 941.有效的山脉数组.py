@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-12-01 14:42:08
 LastEditTime: 2020-12-01 14:48:39
 FilePath: \Leetcode\941.有效的山脉数组.py

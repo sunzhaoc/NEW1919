@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2020-12-21 14:37:42
  * @LastEditTime: 2020-12-21 22:39:18
  * @FilePath: \Leetcode\50.pow-x-n.cpp

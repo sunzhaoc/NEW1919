@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-01 09:15:33
  * @LastEditTime: 2021-04-01 09:40:41
  * @FilePath: \Leetcode\1006.Clumsy Factorial.cpp

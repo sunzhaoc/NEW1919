@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-04 10:07:31
 LastEditTime: 2021-04-04 14:50:09
 FilePath: \Leetcode\1815.绝对差值和.py

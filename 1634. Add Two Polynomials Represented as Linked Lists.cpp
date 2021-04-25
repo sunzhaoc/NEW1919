@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-19 13:56:16
  * @LastEditTime: 2021-04-19 14:27:41
  * @FilePath: \Leetcode\1634. Add Two Polynomials Represented as Linked Lists.cpp

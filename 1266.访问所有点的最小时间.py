@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 10:55:34
 LastEditTime: 2021-04-22 11:11:29
 FilePath: \Leetcode\1266.访问所有点的最小时间.py

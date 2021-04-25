@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-09 10:01:46
  * @LastEditTime: 2021-04-09 11:05:05
  * @FilePath: \Leetcode\1415.The k-th Lexicographical String of All Happy Strings of Length n.cpp

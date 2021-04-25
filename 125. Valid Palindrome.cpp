@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-30 12:03:27
  * @LastEditTime: 2021-01-30 12:36:03
  * @FilePath: \Leetcode\125.Valid Palindrome.cpp

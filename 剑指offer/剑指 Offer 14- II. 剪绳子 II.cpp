@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2020-12-18 15:09:28
  * @LastEditTime: 2020-12-18 16:02:34
  * @FilePath: \Leetcode\剑指 Offer 14- II. 剪绳子 II.cpp

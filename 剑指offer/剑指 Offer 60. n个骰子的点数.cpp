@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-07 14:46:12
  * @LastEditTime: 2021-01-07 14:47:06
  * @FilePath: \Leetcode\剑指 Offer 60. n个骰子的点数.cpp

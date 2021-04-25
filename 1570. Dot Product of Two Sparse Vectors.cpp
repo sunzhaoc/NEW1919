@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-19 21:42:35
  * @LastEditTime: 2021-04-19 21:52:09
  * @FilePath: \Leetcode\1570. Dot Product of Two Sparse Vectors.cpp

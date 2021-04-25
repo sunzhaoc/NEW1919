@@ -1,7 +1,7 @@
 /*
  * @Description:
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-01-10 13:34:55
  * @LastEditTime: 2021-01-10 14:03:47
  * @FilePath: \Leetcode\228.Summary Ranges.cpp

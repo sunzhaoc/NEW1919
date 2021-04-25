@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-09 20:11:35
  * @LastEditTime: 2021-03-09 20:53:15
  * @FilePath: \Leetcode\201.Bitwise AND of Numbers Range.cpp

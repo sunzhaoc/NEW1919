@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 13:05:12
  * @LastEditTime: 2021-04-22 13:11:34
  * @FilePath: \Leetcode\1637. Widest Vertical Area Between Two Points Containing No Points.cpp

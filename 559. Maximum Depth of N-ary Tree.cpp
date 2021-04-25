@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-13 18:13:19
  * @LastEditTime: 2021-04-13 18:18:29
  * @FilePath: \Leetcode\559.Maximum Depth of N-ary Tree.cpp

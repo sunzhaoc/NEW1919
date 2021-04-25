@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-17 22:13:10
  * @LastEditTime: 2021-04-18 13:28:36
  * @FilePath: \Leetcode\weekcom\Week 237\5737. Find XOR Sum of All Pairs Bitwise AND.cpp

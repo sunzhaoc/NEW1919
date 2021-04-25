@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 12:08:28
 LastEditTime: 2021-04-22 12:12:34
 FilePath: \Leetcode\1295.统计位数为偶数的数字.py

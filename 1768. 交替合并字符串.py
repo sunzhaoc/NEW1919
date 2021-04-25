@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 16:11:37
 LastEditTime: 2021-04-22 16:18:58
 FilePath: \Leetcode\1768. 交替合并字符串.py

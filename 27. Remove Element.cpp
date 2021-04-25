@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-12 21:33:31
  * @LastEditTime: 2021-04-12 21:37:19
  * @FilePath: \Leetcode\27.Remove Element.cpp

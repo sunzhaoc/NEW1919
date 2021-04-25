@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-12-03 18:05:17
 LastEditTime: 2020-12-03 18:37:21
 FilePath: \Leetcode\204.计数质数.py

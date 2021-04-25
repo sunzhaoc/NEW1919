@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 09:10:48
 LastEditTime: 2021-04-22 09:12:51
 FilePath: \Leetcode\1672.最富有客户的资产总量.py

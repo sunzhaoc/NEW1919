@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2020-12-27 16:06:52
  * @LastEditTime: 2020-12-27 16:15:41
  * @FilePath: \Leetcode\205.同构字符串.cpp

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 19:46:01
  * @LastEditTime: 2021-04-22 19:53:02
  * @FilePath: \Leetcode\1630. Arithmetic Subarrays.cpp

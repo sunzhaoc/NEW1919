@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2020-12-24 09:16:30
 LastEditTime: 2020-12-24 10:42:00
 FilePath: \Leetcode\135.分发糖果.py

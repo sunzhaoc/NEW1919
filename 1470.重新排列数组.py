@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 09:18:59
 LastEditTime: 2021-04-22 09:22:10
 FilePath: \Leetcode\1470.重新排列数组.py

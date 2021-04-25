@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-04 21:19:11
  * @LastEditTime: 2021-03-04 21:50:55
  * @FilePath: \Leetcode\762.Prime Number of Set Bits in Binary Representation.cpp

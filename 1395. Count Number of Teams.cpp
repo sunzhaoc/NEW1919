@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 16:20:00
  * @LastEditTime: 2021-04-22 16:38:09
  * @FilePath: \Leetcode\1395. Count Number of Teams.cpp

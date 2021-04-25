@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-06 16:10:56
  * @LastEditTime: 2021-04-06 16:27:01
  * @FilePath: \Leetcode\86.Partition List.cpp

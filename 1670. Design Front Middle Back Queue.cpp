@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-19 13:29:09
  * @LastEditTime: 2021-04-19 13:54:09
  * @FilePath: \Leetcode\1670. Design Front Middle Back Queue.cpp

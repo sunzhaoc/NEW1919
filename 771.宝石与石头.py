@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Autor: Vicro
+Autor: 冰凝水
 Date: 2021-04-22 09:08:20
 LastEditTime: 2021-04-22 09:10:30
 FilePath: \Leetcode\771.宝石与石头.py

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-03 15:52:35
  * @LastEditTime: 2021-03-03 15:58:57
  * @FilePath: \Leetcode\242.Valid Anagram.cpp

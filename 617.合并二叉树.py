@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-11-27 12:16:56
 LastEditTime: 2020-11-27 12:21:01
 FilePath: \Leetcode\617.合并二叉树.py

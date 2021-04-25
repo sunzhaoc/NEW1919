@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-11-30 21:01:59
 LastEditTime: 2020-11-30 21:30:19
 FilePath: \Leetcode\40.组合总和-ii.py

@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-04-22 20:54:42
  * @LastEditTime: 2021-04-22 21:02:37
  * @FilePath: \Leetcode\1180. Count Substrings with Only One Distinct Letter.cpp

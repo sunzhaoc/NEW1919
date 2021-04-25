@@ -1,7 +1,7 @@
 '''
 Description: 
 Version: 1.0
-Author: Vicro
+Author: 冰凝水
 Date: 2020-11-29 21:11:06
 LastEditTime: 2020-11-29 21:36:17
 FilePath: \Leetcode\116.填充每个节点的下一个右侧节点指针.py

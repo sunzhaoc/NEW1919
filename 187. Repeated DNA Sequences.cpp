@@ -1,7 +1,7 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: Vicro
+ * @Autor: 冰凝水
  * @Date: 2021-03-18 18:31:42
  * @LastEditTime: 2021-03-18 18:42:45
  * @FilePath: \Leetcode\187.Repeated DNA Sequences.cpp
