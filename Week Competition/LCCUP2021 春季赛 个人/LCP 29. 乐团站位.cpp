@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-04-05 14:48:06
- * @LastEditTime: 2021-04-06 16:06:54
- * @FilePath: \Leetcode\weekcom\LCCUP2021 春季赛 个人\LCP 29. 乐团站位.cpp
+ * @LastEditTime: 2021-04-26 20:24:35
+ * @FilePath: \Leetcode\Week Competition\LCCUP2021 春季赛 个人\LCP 29. 乐团站位.cpp
  */
 #include <iostream>
 #include <string>

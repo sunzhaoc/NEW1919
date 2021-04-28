@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-04-12 20:52:39
- * @LastEditTime: 2021-04-12 20:56:43
- * @FilePath: \Leetcode\28.实现-str-str.cpp
+ * @LastEditTime: 2021-04-27 18:38:36
+ * @FilePath: \Leetcode\28. Implement strStr().cpp
  */
 /*
  * @lc app=leetcode.cn id=28 lang=cpp
@@ -50,6 +50,36 @@ using VVI = vector<VI>;
 using VD = vector<double>;
 using VS = vector<string>;
 using VVS = vector<VS>;
+
+
+/*
+RESULT: Accept
+TIME:   4ms    BEAT: 62.42%    O(n) = 
+MEMORY: 7MB    BEAT: 11.37%    O(n) = 
+LAST EDIT TIME: KMP
+Description: 
+*/
+
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        int n = haystack.size(), m = needle.size();
+        if (m == 0) return 0;
+        vector<int> ne(m + 1);
+        for (int i = 1, j = 0; i <= m; i ++) {
+            while (j && needle[i] != needle[j]) j = ne[j - 1];
+            if (needle[i] == needle[j]) j ++;
+            ne[i] = j;
+        }
+        for (int i = 0, j = 0; i < n; i ++) {
+            while (j && haystack[i] != needle[j]) j = ne[j - 1];
+            if (haystack[i] == needle[j]) j ++;
+            if (j == m) return i - m + 1;
+        }
+        return -1;
+    }
+};
+
 
 /*
 RESULT: Accept
