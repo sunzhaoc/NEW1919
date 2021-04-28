@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-04-27 12:11:28
- * @LastEditTime: 2021-04-27 12:49:03
+ * @LastEditTime: 2021-04-28 20:25:28
  * @FilePath: \Leetcode\demo.cpp
  */
 #include <bits/stdc++.h>
@@ -55,100 +55,25 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
+VI parent;
+unordered_map<string, int> nameMap;
 
-/*
-RESULT: Accept
-TIME:     68ms    BEAT: 7.20%    O(n) = 
-MEMORY: 27.4MB    BEAT: 7.63%    O(n) = 
-LAST EDIT TIME: 2021年4月27日12:48:42
-Description: 逆波兰表达式。
-*/
-
-class Solution {
-public:
-    int calculate(string s) {
-        // 中缀转后缀
-        stack<char> sign;
-        vector<string> postExpres;
-        int idx = 0;
-        while (idx < s.length()) {
-            if ((idx == 0 || s[idx - 1] == '(') && (s[idx] == '+' || s[idx] == '-')) postExpres.push_back("0");
-            // 若是空格，跳过
-            if (s[idx] == ' ') {
-                idx ++;
-                continue;
-            }
-
-            // 若是数字，直接放入。
-            if (isdigit(s[idx])) {
-                LL sum = 0;
-                while (idx < s.length() && isdigit(s[idx])) sum = sum * 10 + s[idx ++] - '0';
-                postExpres.push_back(to_string(sum));
-                continue;
-            }
-
-            // 若是符号
-            if (sign.empty() || s[idx] == '(' || s[idx] == '*' || s[idx] == '/') {
-                sign.push(s[idx ++]);
-                continue;
-            }
-            if (s[idx] == ')') {
-                while (sign.size() && sign.top() != '(') {
-                    string tmp = "";
-                    tmp += sign.top();
-                    postExpres.push_back(tmp);
-                    sign.pop();
-                }
-                sign.pop();
-                idx ++;
-                continue;
-            }
-            if (s[idx] == '+' || s[idx] == '-') {
-                while (sign.size() && sign.top() != '(') {
-                    string tmp = "";
-                    tmp += sign.top();
-                    postExpres.push_back(tmp);
-                    sign.pop();
-                }
-                sign.push(s[idx ++]);
-                continue;
+void init(VVS& dic) {
+    int id = 0;
+    REP(i, SZ(dic)) {
+        REP(j, 2) {
+            if (nameMap.find(dic[i][j]) == nameMap.end()) {
+                nameMap[dic[i][j]] = id ++;
             }
         }
-    
-        while (sign.size()) {
-            string tmp = "";
-            tmp += sign.top();
-            postExpres.push_back(tmp);
-            sign.pop();
-        }
-
-        // 计算逆波兰表达式
-        int res = 0;
-        stack<int> st;
-        for (string& ch: postExpres) {
-            if (isdigit(ch[0])) {
-                st.push(stoi(ch));
-                continue;
-            }
-            int b = st.top();
-            st.pop();
-            int a = st.top();
-            st.pop();
-            if (ch == "+") st.push(a + b);
-            else if (ch == "-") st.push(a - b);
-            else if (ch == "*") st.push(a * b);
-            else st.push(a / b);            
-        }
-        return st.top();
     }
-};
-
+    REP(i, SZ(nameMap)) {
+        parent.PB(i);
+    }
+}
 
 int main() {
-    Solution sol;
-    // auto ans = sol.calculate("(1+(4+5+2)-3)+(6+8)");
-    auto ans = sol.calculate("2147483647");
-    cout << ans << endl;
-    system("pause");
-    return 0;
+    int M, N;
+    cin >> M >> N;
+    int dx[8] = {}, dy[8] = {};
 }
