@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-04-27 12:11:28
- * @LastEditTime: 2021-04-28 20:25:28
+ * @LastEditTime: 2021-04-28 20:47:28
  * @FilePath: \Leetcode\demo.cpp
  */
 #include <bits/stdc++.h>
@@ -55,25 +55,22 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
-VI parent;
-unordered_map<string, int> nameMap;
 
-void init(VVS& dic) {
-    int id = 0;
-    REP(i, SZ(dic)) {
-        REP(j, 2) {
-            if (nameMap.find(dic[i][j]) == nameMap.end()) {
-                nameMap[dic[i][j]] = id ++;
-            }
-        }
-    }
-    REP(i, SZ(nameMap)) {
-        parent.PB(i);
-    }
+
+
+int dx[8] = {1,0}, dy[8] = {0,1};
+int M, N;
+
+void dfs(int x, int y, VVI& map, int pre, int val) {
+    if (x > N || y > M) return;
+    for
+
+    // if (x == N - 1 && y == M - 1) 
 }
 
 int main() {
-    int M, N;
     cin >> M >> N;
-    int dx[8] = {}, dy[8] = {};
+    VVI map(M, VI(N));
+    REP(i, M) REP(j, N) cin >> map[i][j];    
+    return 0;
 }

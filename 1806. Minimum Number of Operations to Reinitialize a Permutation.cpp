@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-03-30 12:33:18
- * @LastEditTime: 2021-03-30 15:10:50
- * @FilePath: \Leetcode\1806.Minimum Number of Operations to Reinitialize a Permutation.cpp
+ * @LastEditTime: 2021-04-29 08:38:35
+ * @FilePath: \Leetcode\1806. Minimum Number of Operations to Reinitialize a Permutation.cpp
  */
 
 #include <iostream>
