@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: 冰凝水
+ * @Date: 2021-04-25 21:59:52
+ * @LastEditTime: 2021-04-30 19:51:10
+ * @FilePath: \Leetcode\AcWing\798. 差分矩阵.cpp
+ */
 # include <bits/stdc++.h> 
 using namespace std;
 
@@ -15,6 +23,7 @@ int main() {
     int n, m, q;
     cin >> n >> m >> q;
     for (int i = 1; i <= n; i ++) for (int j = 1; j <= m; j ++) cin >> nums[i][j];
+    
     //下面两个都行
     // for (int i = 1; i <= n; i ++) for (int j = 1; j <= m; j ++) insert(i, j, i, j, nums[i][j]); // 官解。
     for (int i = 1; i <= n; i ++) for (int j = 1; j <= m; j ++) diff[i][j] = nums[i][j] - nums[i - 1][j] - nums[i][j - 1] + nums[i - 1][j - 1]; // 自己写的，好理解。
