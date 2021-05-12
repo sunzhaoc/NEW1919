@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-03-11 13:44:38
- * @LastEditTime: 2021-05-12 10:21:34
+ * @LastEditTime: 2021-05-12 14:46:13
  * @FilePath: \Leetcode\215. 数组中的第K个最大元素.cpp
  */
 /*
@@ -62,6 +62,37 @@ using VD = vector<double>;
 using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
+
+
+/*
+RESULT: Accept
+TIME:    52ms    BEAT: 28.41%    O(n) = 
+MEMORY: 9.7MB    BEAT: 68.69%    O(n) = 
+LAST EDIT TIME: 2021年5月12日14:45:37
+Description: 二刷。快速排序算法。
+*/
+
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        return quick_sort(nums, 0, SZ(nums) - 1, k);
+    }
+
+    int quick_sort(VI& q, int l, int r, int k) {
+        if (l == r) return q[l];
+
+        int x = q[l], i = l - 1, j = r + 1;
+        while (i < j) {
+            while (q[++ i] > x);
+            while (q[-- j] < x);
+            if (i < j) swap(q[i], q[j]);
+        }
+
+        int sl = j - l + 1;
+        if (k <= sl) return quick_sort(q, l, j, k);
+        return quick_sort(q, j + 1, r, k - sl);
+    }
+};
 
 
 /*
