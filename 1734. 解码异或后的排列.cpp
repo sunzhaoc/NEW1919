@@ -2,9 +2,9 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: 冰凝水
- * @Date: 2021-04-25 10:14:44
- * @LastEditTime: 2021-05-02 11:52:23
- * @FilePath: \Leetcode\Week Competition\Weekly Contest 239\t3.cpp
+ * @Date: 2021-05-11 10:57:46
+ * @LastEditTime: 2021-05-11 15:13:54
+ * @FilePath: \Leetcode\1734. 解码异或后的排列.cpp
  */
 
 
@@ -57,55 +57,26 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
+/*
+RESULT: Accept
+TIME:    152ms    BEAT: 80.08%    O(n) = 
+MEMORY: 95.7MB    BEAT: 78.88%    O(n) = 
+LAST EDIT TIME: 2021年5月11日15:13:29
+Description: 
+*/
+
 class Solution {
 public:
-    int getMinSwaps(string num, int k) {
-        int n = SZ(num);
-        REP(i, k) {
-            RREP(j, n - 1) {
-                if (num[j] < num[j + 1]) {
-                    int idx = j + 1;
+    vector<int> decode(vector<int>& encoded) {
+        int n = SZ(encoded);
+        int a = 0;
+        for (int i = 0; i < n; i += 2) a ^= encoded[i];
+        int b = 0;
+        REP(i, n + 1) b ^= (i + 1);
 
-                    int minId;
-                    int minNum = INT_MAX; 
-                    while (idx < n) {
-                        if (num[idx] == num[j] + 1) {
-                            minId = idx;
-                            minNum = num[idx] - '0';
-                            break;
-                        }
-                        else if (num[idx] > num[j] && num[idx] < minNum) {
-                            minId = idx;
-                            minNum = num[idx];
-                        }
-                        idx ++;
-                    }
-                    
-                    char tmp = num[minId];
-                    num[minId] = num[j];
-                    num[j] = tmp;
-
-                    sort(num.begin() + j, num.end());
-                    break;
-                }
-
-            }
-
-            int tmp = 561;
-        }
+        VI res(n + 1);
+        res.back() = a ^ b;
+        RREP(i, n) res[i] = res[i + 1] ^ encoded[i];
+        return res;
     }
 };
-
-
-int main() {
-    Solution sol;
-    // VI nums = {};
-    // VVI nums = {};
-    auto ans = sol.getMinSwaps("5489355142", 4);
-    // auto ans = sol.getMinSwaps("11112", 4);
-    // cout << ans << endl;
-    // REP(i, SZ(ans)) cout << ans[i] << endl;
-    // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
-    system("pause");
-    return 0;
-}

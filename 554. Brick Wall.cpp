@@ -2,11 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: 冰凝水
- * @Date: 2021-04-25 10:14:44
- * @LastEditTime: 2021-05-02 11:52:23
- * @FilePath: \Leetcode\Week Competition\Weekly Contest 239\t3.cpp
+ * @Date: 2021-05-02 16:59:23
+ * @LastEditTime: 2021-05-02 17:06:01
+ * @FilePath: \Leetcode\554.砖墙.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=554 lang=cpp
+ *
+ * [554] 砖墙
  */
 
+// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -57,55 +63,33 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
+/*
+RESULT: Accept
+TIME:     68ms    BEAT: 21.61%    O(n) = 
+MEMORY: 22.7MB    BEAT: 24.08%    O(n) = 
+LAST EDIT TIME: 2021年5月2日17:5:44
+Description: 
+*/
+
 class Solution {
 public:
-    int getMinSwaps(string num, int k) {
-        int n = SZ(num);
-        REP(i, k) {
-            RREP(j, n - 1) {
-                if (num[j] < num[j + 1]) {
-                    int idx = j + 1;
-
-                    int minId;
-                    int minNum = INT_MAX; 
-                    while (idx < n) {
-                        if (num[idx] == num[j] + 1) {
-                            minId = idx;
-                            minNum = num[idx] - '0';
-                            break;
-                        }
-                        else if (num[idx] > num[j] && num[idx] < minNum) {
-                            minId = idx;
-                            minNum = num[idx];
-                        }
-                        idx ++;
-                    }
-                    
-                    char tmp = num[minId];
-                    num[minId] = num[j];
-                    num[j] = tmp;
-
-                    sort(num.begin() + j, num.end());
-                    break;
-                }
-
+    int leastBricks(vector<vector<int>>& wall) {
+        int n = SZ(wall);
+        unordered_map<int, int> map;   
+        for (int i = 0, sum = 0; i < n; i ++, sum = 0) {
+            for (int cur: wall[i]) {
+                sum += cur;
+                map[sum] ++;
             }
-
-            int tmp = 561;
+            map.erase(sum);
         }
+        int res = n;
+        for (auto& [u, cnt]: map) {
+            res = min(res, n - cnt);
+        }
+        return res;
     }
+    
 };
+// @lc code=end
 
-
-int main() {
-    Solution sol;
-    // VI nums = {};
-    // VVI nums = {};
-    auto ans = sol.getMinSwaps("5489355142", 4);
-    // auto ans = sol.getMinSwaps("11112", 4);
-    // cout << ans << endl;
-    // REP(i, SZ(ans)) cout << ans[i] << endl;
-    // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
-    system("pause");
-    return 0;
-}

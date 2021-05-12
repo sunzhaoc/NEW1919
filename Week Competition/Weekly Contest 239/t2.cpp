@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-04-25 10:14:44
- * @LastEditTime: 2021-04-25 18:10:18
- * @FilePath: \Leetcode\Week Competition\模版\t2.cpp
+ * @LastEditTime: 2021-05-02 11:09:52
+ * @FilePath: \Leetcode\Week Competition\Weekly Contest 239\t2.cpp
  */
 
 
@@ -57,15 +57,74 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
+class Solution {
+public:
+    bool res = false;
+    bool splitString(string s) {
+        int n = SZ(s);
+        REP(i, n) {
+            if (s[i] != '0') {
+                s = s.substr(i, n - i);
+                break;
+            }
+        }        
 
-// int main() {
-//     Solution sol;
-//     // VI nums = {};
-//     // VVI nums = {};
-//     auto ans = sol.();
-//     // cout << ans << endl;
-//     // REP(i, SZ(ans)) cout << ans[i] << endl;
-//     // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
-//     system("pause");
-//     return 0;
-// }
+        V<ULL> path;
+        backTrack(s, 0, path);
+        
+        return res;
+    }
+    
+    void backTrack(string s, int idx, V<ULL>& path) {
+        if (idx >= SZ(s)) {
+            if (SZ(path) == 1) res = false;
+            else res = true;
+            return;
+        }
+        
+        FOR(i, idx, SZ(s)) {
+            if (s[i] != '0') {
+                idx = i;
+                break;
+            }
+        }        
+
+        FOR(i, idx, SZ(s)) {
+            if (i - idx + 1 > SZ(s) /2) break;
+            ULL num = stoi(s.substr(idx, i - idx + 1));
+            if (num == 100) {
+                int tmp = 9;
+            }
+            if (path.empty()) {
+                path.PB(num);
+                backTrack(s, i + 1, path);
+                path.PPB();
+                if (res) return;
+            }
+            else if (path.back() - num == 1) {
+                path.PB(num);
+                backTrack(s, i + 1, path);
+                path.PPB();
+                if (res) return;
+            }
+            else if (path.back() < num) break;
+        }
+    }
+};
+
+
+int main() {
+    Solution sol;
+    // VI nums = {};
+    // VVI nums = {};
+    // auto ans = sol.splitString("10009998");
+    auto ans = sol.splitString("3202872336");
+    // auto ans = sol.splitString("050043");
+    // auto ans = sol.splitString("9080701");
+    // auto ans = sol.splitString("1234");
+    cout << ans << endl;
+    // REP(i, SZ(ans)) cout << ans[i] << endl;
+    // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
+    system("pause");
+    return 0;
+}

@@ -2,10 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: 冰凝水
- * @Date: 2021-04-25 10:14:44
- * @LastEditTime: 2021-05-02 11:52:23
- * @FilePath: \Leetcode\Week Competition\Weekly Contest 239\t3.cpp
+ * @Date: 2021-05-12 08:39:56
+ * @LastEditTime: 2021-05-12 08:44:49
+ * @FilePath: \Leetcode\1310.子数组异或查询.cpp
  */
+/*
+ * @lc app=leetcode.cn id=1310 lang=cpp
+ *
+ * [1310] 子数组异或查询
+ */
+
+// @lc code=start
 
 
 #include <bits/stdc++.h>
@@ -57,55 +64,27 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
+/*
+RESULT: Accept
+TIME:     76ms    BEAT: 77.25%    O(n) = 
+MEMORY: 31.6MB    BEAT: 73.33%    O(n) = 
+USED TIME: 04:11
+LAST EDIT TIME: 2021年5月12日8:44:21
+Description: 
+*/
+
 class Solution {
 public:
-    int getMinSwaps(string num, int k) {
-        int n = SZ(num);
-        REP(i, k) {
-            RREP(j, n - 1) {
-                if (num[j] < num[j + 1]) {
-                    int idx = j + 1;
-
-                    int minId;
-                    int minNum = INT_MAX; 
-                    while (idx < n) {
-                        if (num[idx] == num[j] + 1) {
-                            minId = idx;
-                            minNum = num[idx] - '0';
-                            break;
-                        }
-                        else if (num[idx] > num[j] && num[idx] < minNum) {
-                            minId = idx;
-                            minNum = num[idx];
-                        }
-                        idx ++;
-                    }
-                    
-                    char tmp = num[minId];
-                    num[minId] = num[j];
-                    num[j] = tmp;
-
-                    sort(num.begin() + j, num.end());
-                    break;
-                }
-
-            }
-
-            int tmp = 561;
+    vector<int> xorQueries(vector<int>& arr, vector<vector<int>>& queries) {
+        int n = SZ(arr);
+        VI res;
+        FOR(i, 1, n) arr[i] ^= arr[i - 1];
+        REP(i, SZ(queries)) {
+            if (queries[i][0] != 0) res.PB(arr[queries[i][1]] ^ arr[queries[i][0] - 1]);
+            else res.PB(arr[queries[i][1]] ^ 0);
         }
+        return res;
     }
 };
+// @lc code=end
 
-
-int main() {
-    Solution sol;
-    // VI nums = {};
-    // VVI nums = {};
-    auto ans = sol.getMinSwaps("5489355142", 4);
-    // auto ans = sol.getMinSwaps("11112", 4);
-    // cout << ans << endl;
-    // REP(i, SZ(ans)) cout << ans[i] << endl;
-    // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
-    system("pause");
-    return 0;
-}
