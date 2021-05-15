@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-04-12 20:39:09
- * @LastEditTime: 2021-04-12 20:51:28
- * @FilePath: \Leetcode\13.罗马数字转整数.cpp
+ * @LastEditTime: 2021-05-15 14:44:53
+ * @FilePath: \Leetcode\13. Roman to Integer.cpp
  */
 /*
  * @lc app=leetcode.cn id=13 lang=cpp
@@ -50,6 +50,42 @@ using VVI = vector<VI>;
 using VD = vector<double>;
 using VS = vector<string>;
 using VVS = vector<VS>;
+
+
+/*
+RESULT: Accept
+TIME:     0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 5.8MB    BEAT:  88.69%    O(n) = 
+LAST EDIT TIME: 二刷
+Description: 
+*/
+
+class Solution {
+public:
+    int romanToInt(string s) {
+        int res = 0;
+        REP(i, SZ(s) - 1) {
+            if (getValue(s[i]) < getValue(s[i + 1])) res -= getValue(s[i]);
+            else res += getValue(s[i]);
+        }
+        res += getValue(s.back());
+        return res;
+    }
+
+    int getValue(char& ch) {
+        switch(ch) {
+            case 'I': return 1;
+            case 'V': return 5;
+            case 'X': return 10;
+            case 'L': return 50;
+            case 'C': return 100;
+            case 'D': return 500;
+            case 'M': return 1000;
+        }
+        return -1;
+    }
+};
+
 
 /*
 RESULT: Accept

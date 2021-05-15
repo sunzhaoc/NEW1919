@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-05-12 14:53:23
- * @LastEditTime: 2021-05-12 14:57:40
+ * @LastEditTime: 2021-05-14 10:18:06
  * @FilePath: \Leetcode\912.排序数组.cpp
  */
 /*
@@ -61,6 +61,39 @@ using VD = vector<double>;
 using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
+
+
+/*
+RESULT: Accept
+TIME:    204ms    BEAT: 5.00%    O(n) = 
+MEMORY: 70.4MB    BEAT: 5.07%    O(n) = 
+LAST EDIT TIME: 归并排序。
+Description: 
+*/
+
+class Solution {
+public:
+    void merge_sort(VI& q, int l, int r) {
+        if (l >= r) return;
+
+        VI tmp(r - l + 1);
+        int mid = r + l >> 1;
+        merge_sort(q, l, mid);
+        merge_sort(q, mid + 1, r);
+
+        int k = 0, i = l, j = mid + 1;
+        while (i <= mid && j <= r) tmp[k ++] = q[i] > q[j] ? q[j ++] : q[i ++];
+        while (i <= mid) tmp[k ++] = q[i ++];
+        while (j <= r) tmp[k ++] = q[j ++];
+
+        for (i = l, j = 0; i <= r; i ++, j ++) q[i] = tmp[j];
+    }
+    
+    vector<int> sortArray(vector<int>& nums) {
+        merge_sort(nums, 0, SZ(nums) - 1);
+        return nums;
+    }
+};
 
 
 /*

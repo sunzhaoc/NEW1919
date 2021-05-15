@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-03-09 14:18:33
- * @LastEditTime: 2021-05-12 15:13:21
+ * @LastEditTime: 2021-05-14 10:11:34
  * @FilePath: \Leetcode\75. Sort Colors.cpp
  */
 /*
@@ -61,6 +61,42 @@ using VD = vector<double>;
 using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
+
+
+/*
+RESULT: Accept
+TIME:   0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 9MB    BEAT:   5.87%    O(n) = 
+LAST EDIT TIME: 三刷，归并排序。
+Description: 
+*/
+
+class Solution {
+public:
+    void merge_sort(VI& nums, int l, int r) {
+        if (l >= r) return;
+
+        VI tmp(r - l + 1);
+        int mid = l + r >> 1;
+        merge_sort(nums, l, mid);
+        merge_sort(nums, mid + 1, r);
+
+        int k = 0, i = l, j = mid + 1;
+        while (i <= mid && j <= r) {
+            if (nums[i] > nums[j]) tmp[k ++] = nums[j ++];
+            else tmp[k ++] = nums[i ++];
+        }
+        while (i <= mid) tmp[k ++] = nums[i ++];
+        while (j <= r) tmp[k ++] = nums[j ++];
+
+        for (i = l, j = 0; i <= r; i ++, j ++) nums[i] = tmp[j];
+    }
+
+    void sortColors(vector<int>& nums) {
+        int n = SZ(nums);
+        merge_sort(nums, 0, n - 1);
+    }
+};
 
 
 /*

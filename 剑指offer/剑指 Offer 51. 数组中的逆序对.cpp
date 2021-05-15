@@ -2,17 +2,10 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: 冰凝水
- * @Date: 2021-05-13 08:54:54
- * @LastEditTime: 2021-05-13 09:56:25
- * @FilePath: \Leetcode\1269.停在原地的方案数.cpp
+ * @Date: 2021-05-14 10:32:44
+ * @LastEditTime: 2021-05-14 10:33:19
+ * @FilePath: \Leetcode\剑指offer\剑指 Offer 51. 数组中的逆序对.cpp
  */
-/*
- * @lc app=leetcode.cn id=1269 lang=cpp
- *
- * [1269] 停在原地的方案数
- */
-
-// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -65,29 +58,38 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     16ms    BEAT: 77.12%    O(n) = 
-MEMORY: 12.3MB    BEAT: 49.15%    O(n) = 
-LAST EDIT TIME: 2021年5月13日9:56:10
-Description: 
+TIME:     408ms    BEAT: 23.86%    O(n) = 
+MEMORY: 106.1MB    BEAT: 22.11%    O(n) = 
+USED TIME: 06:51
+LAST EDIT TIME: 2021年5月14日10:32:54
+Description: 归并排序。
 */
 
 class Solution {
 public:
-    int numWays(int steps, int arrLen) {
-        int n = min(steps + 1, arrLen); 
+    LL merge_sort(VI& nums, int l, int r) {
+        if (l >= r) return 0;
+        
+        VI tmp(r - l + 1);
+        int mid = l + r >> 1;
+        LL res = merge_sort(nums, l, mid) + merge_sort(nums, mid + 1, r);
 
-        VI dp(n, 0);
-        dp[0] = 1;
-        FOR(i, 1, steps + 1) {
-            VI dp_next(n);
-            dp_next[0] = (0ll + dp[0] + dp[1]) % MOD;
-            for (int idx = 1; idx < n - 1 && dp_next[idx - 1]; idx ++) dp_next[idx] = (0ll + dp[idx - 1] + dp[idx] + dp[idx + 1]) % MOD;
-            dp_next[n - 1] = (0ll + dp[n - 2] + dp[n - 1]) % MOD;
-            dp = move(dp_next);
+        int k = 0, i = l, j = mid + 1;
+        while (i <= mid && j <= r) {
+            if (nums[i] > nums[j]) {
+                res += (mid - i + 1);
+                tmp[k ++] = nums[j ++];
+            }
+            else tmp[k ++] = nums[i ++];
         }
-        return dp[0];
+        while (i <= mid) tmp[k ++] = nums[i ++];
+        while (j <= r) tmp[k ++] = nums[j ++];
+
+        for (i = l, j = 0; i <= r; i ++, j ++) nums[i] = tmp[j];
+        return res;
+    }
+
+    int reversePairs(vector<int>& nums) {
+        return merge_sort(nums, 0, SZ(nums) - 1);
     }
 };
-
-// @lc code=end
-

@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-04-19 15:51:36
- * @LastEditTime: 2021-04-19 15:52:09
+ * @LastEditTime: 2021-05-14 10:53:12
  * @FilePath: \Leetcode\程序员面试金典\面试题 16.02. 单词频率.cpp
  */
 
@@ -44,6 +44,17 @@ using VD = vector<double>;
 using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
+
+class WordsFrequency {
+public:
+    WordsFrequency(vector<string>& book) {
+
+    }
+    
+    int get(string word) {
+
+    }
+};
 
 
 /*

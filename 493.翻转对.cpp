@@ -2,14 +2,14 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: 冰凝水
- * @Date: 2021-05-13 08:54:54
- * @LastEditTime: 2021-05-13 09:56:25
- * @FilePath: \Leetcode\1269.停在原地的方案数.cpp
+ * @Date: 2021-05-14 10:55:52
+ * @LastEditTime: 2021-05-14 11:08:01
+ * @FilePath: \Leetcode\493.翻转对.cpp
  */
 /*
- * @lc app=leetcode.cn id=1269 lang=cpp
+ * @lc app=leetcode.cn id=493 lang=cpp
  *
- * [1269] 停在原地的方案数
+ * [493] 翻转对
  */
 
 // @lc code=start
@@ -65,27 +65,46 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     16ms    BEAT: 77.12%    O(n) = 
-MEMORY: 12.3MB    BEAT: 49.15%    O(n) = 
-LAST EDIT TIME: 2021年5月13日9:56:10
-Description: 
+TIME:     484ms    BEAT: 33.05%    O(n) = 
+MEMORY: 108.5MB    BEAT: 12.98%    O(n) = 
+USED TIME: 17:05
+LAST EDIT TIME: 2021年5月14日11:6:33
+Description: 归并排序。
 */
 
 class Solution {
 public:
-    int numWays(int steps, int arrLen) {
-        int n = min(steps + 1, arrLen); 
+    int reversePairs(vector<int>& nums) {
+        return merge_sort(nums, 0, SZ(nums) - 1);
+    }
 
-        VI dp(n, 0);
-        dp[0] = 1;
-        FOR(i, 1, steps + 1) {
-            VI dp_next(n);
-            dp_next[0] = (0ll + dp[0] + dp[1]) % MOD;
-            for (int idx = 1; idx < n - 1 && dp_next[idx - 1]; idx ++) dp_next[idx] = (0ll + dp[idx - 1] + dp[idx] + dp[idx + 1]) % MOD;
-            dp_next[n - 1] = (0ll + dp[n - 2] + dp[n - 1]) % MOD;
-            dp = move(dp_next);
+    int merge_sort(VI& q, int l, int r) {
+        if (l >= r) return 0;
+        VI tmp(r - l + 1);
+        int mid = r + l >> 1;
+        int res = merge_sort(q, l, mid) + merge_sort(q, mid + 1, r);
+        
+        // 重要的在归并排序的基础上，加了这一段。
+        int k = 0, i = l, j = mid + 1;
+        while (i <= mid && j <= r) {
+            if (q[i] + 0ll > 2 * (q[j] + 0ll)) {
+                res += mid - i + 1;
+                j ++;
+            }
+            else i ++;
         }
-        return dp[0];
+
+        k = 0, i = l, j = mid + 1;
+        while (i <= mid && j <= r) {
+            if (q[i] > q[j]) tmp[k ++] = q[j ++];
+            else tmp[k ++] = q[i ++];
+        }
+        
+        while (i <= mid) tmp[k ++] = q[i ++];
+        while (j <= r) tmp[k ++] = q[j ++];
+
+        for (i = l, j = 0; i <= r; i ++, j ++) q[i] = tmp[j];
+        return res;
     }
 };
 

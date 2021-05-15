@@ -2,17 +2,11 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: 冰凝水
- * @Date: 2021-05-13 08:54:54
- * @LastEditTime: 2021-05-13 09:56:25
- * @FilePath: \Leetcode\1269.停在原地的方案数.cpp
- */
-/*
- * @lc app=leetcode.cn id=1269 lang=cpp
- *
- * [1269] 停在原地的方案数
+ * @Date: 2021-04-25 10:14:44
+ * @LastEditTime: 2021-04-25 10:16:56
+ * @FilePath: \Leetcode\Week Competition\Weekly Contest 238\t1.cpp
  */
 
-// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -63,31 +57,14 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
-/*
-RESULT: Accept
-TIME:     16ms    BEAT: 77.12%    O(n) = 
-MEMORY: 12.3MB    BEAT: 49.15%    O(n) = 
-LAST EDIT TIME: 2021年5月13日9:56:10
-Description: 
-*/
-
-class Solution {
-public:
-    int numWays(int steps, int arrLen) {
-        int n = min(steps + 1, arrLen); 
-
-        VI dp(n, 0);
-        dp[0] = 1;
-        FOR(i, 1, steps + 1) {
-            VI dp_next(n);
-            dp_next[0] = (0ll + dp[0] + dp[1]) % MOD;
-            for (int idx = 1; idx < n - 1 && dp_next[idx - 1]; idx ++) dp_next[idx] = (0ll + dp[idx - 1] + dp[idx] + dp[idx + 1]) % MOD;
-            dp_next[n - 1] = (0ll + dp[n - 2] + dp[n - 1]) % MOD;
-            dp = move(dp_next);
-        }
-        return dp[0];
-    }
-};
-
-// @lc code=end
-
+// int main() {
+//     Solution sol;
+//     // VI nums = {};
+//     // VVI nums = {};
+//     auto ans = sol.();
+//     // cout << ans << endl;
+//     // REP(i, SZ(ans)) cout << ans[i] << endl;
+//     // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
+//     system("pause");
+//     return 0;
+// }

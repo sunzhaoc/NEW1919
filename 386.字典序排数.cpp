@@ -2,17 +2,18 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: 冰凝水
- * @Date: 2021-05-13 08:54:54
- * @LastEditTime: 2021-05-13 09:56:25
- * @FilePath: \Leetcode\1269.停在原地的方案数.cpp
+ * @Date: 2021-05-14 10:36:03
+ * @LastEditTime: 2021-05-14 10:50:33
+ * @FilePath: \Leetcode\386.字典序排数.cpp
  */
 /*
- * @lc app=leetcode.cn id=1269 lang=cpp
+ * @lc app=leetcode.cn id=386 lang=cpp
  *
- * [1269] 停在原地的方案数
+ * [386] 字典序排数
  */
 
 // @lc code=start
+
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -65,29 +66,25 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     16ms    BEAT: 77.12%    O(n) = 
-MEMORY: 12.3MB    BEAT: 49.15%    O(n) = 
-LAST EDIT TIME: 2021年5月13日9:56:10
+TIME:     16ms    BEAT: 53.55%    O(n) = 
+MEMORY: 11.8MB    BEAT: 38.73%    O(n) = 
+LAST EDIT TIME: 2021年5月14日10:50:21
 Description: 
 */
 
 class Solution {
 public:
-    int numWays(int steps, int arrLen) {
-        int n = min(steps + 1, arrLen); 
+    VI res;
+    vector<int> lexicalOrder(int n) {
+        FOR(i, 1, 10) dfs(i, n);
+        return res;
+    }
 
-        VI dp(n, 0);
-        dp[0] = 1;
-        FOR(i, 1, steps + 1) {
-            VI dp_next(n);
-            dp_next[0] = (0ll + dp[0] + dp[1]) % MOD;
-            for (int idx = 1; idx < n - 1 && dp_next[idx - 1]; idx ++) dp_next[idx] = (0ll + dp[idx - 1] + dp[idx] + dp[idx + 1]) % MOD;
-            dp_next[n - 1] = (0ll + dp[n - 2] + dp[n - 1]) % MOD;
-            dp = move(dp_next);
-        }
-        return dp[0];
+    void dfs(int num, int& n) {
+        if (num > n) return;
+        res.PB(num);
+        REP(i, 10) dfs(num * 10 + i, n);
     }
 };
-
 // @lc code=end
 

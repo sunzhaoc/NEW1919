@@ -2,14 +2,14 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: 冰凝水
- * @Date: 2021-05-13 08:54:54
- * @LastEditTime: 2021-05-13 09:56:25
- * @FilePath: \Leetcode\1269.停在原地的方案数.cpp
+ * @Date: 2021-05-14 09:22:13
+ * @LastEditTime: 2021-05-14 09:33:17
+ * @FilePath: \Leetcode\12.整数转罗马数字.cpp
  */
 /*
- * @lc app=leetcode.cn id=1269 lang=cpp
+ * @lc app=leetcode.cn id=12 lang=cpp
  *
- * [1269] 停在原地的方案数
+ * [12] 整数转罗马数字
  */
 
 // @lc code=start
@@ -65,27 +65,25 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     16ms    BEAT: 77.12%    O(n) = 
-MEMORY: 12.3MB    BEAT: 49.15%    O(n) = 
-LAST EDIT TIME: 2021年5月13日9:56:10
+TIME:    16ms    BEAT: 26.40%    O(n) = 
+MEMORY: 9.2MB    BEAT: 16.43%    O(n) = 
+LAST EDIT TIME: 2021年5月14日9:32:58
 Description: 
 */
 
 class Solution {
 public:
-    int numWays(int steps, int arrLen) {
-        int n = min(steps + 1, arrLen); 
-
-        VI dp(n, 0);
-        dp[0] = 1;
-        FOR(i, 1, steps + 1) {
-            VI dp_next(n);
-            dp_next[0] = (0ll + dp[0] + dp[1]) % MOD;
-            for (int idx = 1; idx < n - 1 && dp_next[idx - 1]; idx ++) dp_next[idx] = (0ll + dp[idx - 1] + dp[idx] + dp[idx + 1]) % MOD;
-            dp_next[n - 1] = (0ll + dp[n - 2] + dp[n - 1]) % MOD;
-            dp = move(dp_next);
+    string intToRoman(int num) {
+        V<pair<int, string>> map = {MP(1000, "M"), MP(900, "CM"), MP(500, "D"), MP(400, "CD"), MP(100, "C"), MP(90, "XC"), MP(50, "L"), MP(40, "XL"), MP(10, "X"), MP(9, "IX"), MP(5, "V"), MP(4, "IV"), MP(1, "I")};
+        
+        string res = "";
+        REP(i, 13) {
+            while (num >= map[i].first) {
+                num -= map[i].first;
+                res += map[i].second;
+            }
         }
-        return dp[0];
+        return res;
     }
 };
 
