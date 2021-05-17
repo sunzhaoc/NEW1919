@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-04-25 10:14:44
- * @LastEditTime: 2021-04-25 18:10:25
- * @FilePath: \Leetcode\Week Competition\模版\t4.cpp
+ * @LastEditTime: 2021-05-15 23:20:29
+ * @FilePath: \Leetcode\Week Competition\Biweekly Contest 52\t4.cpp
  */
 
 
@@ -57,7 +57,13 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
-
+class Solution {
+public:
+    int sumOfFlooredPairs(vector<int>& nums) {
+        LL res = SZ(nums);
+        
+    }
+};
 
 // int main() {
 //     Solution sol;

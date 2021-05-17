@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-04-12 20:15:15
- * @LastEditTime: 2021-04-12 20:38:20
- * @FilePath: \Leetcode\415.Add Strings.cpp
+ * @LastEditTime: 2021-05-17 10:46:25
+ * @FilePath: \Leetcode\415. 字符串相加.cpp
  */
 /*
  * @lc app=leetcode.cn id=415 lang=cpp
@@ -50,6 +50,36 @@ using VVI = vector<VI>;
 using VD = vector<double>;
 using VS = vector<string>;
 using VVS = vector<VS>;
+
+
+/*
+RESULT: Accept
+TIME:     4ms    BEAT: 75.16%    O(n) = 
+MEMORY: 6.8MB    BEAT: 26.24%    O(n) = 
+USED TIME: 04:10
+LAST EDIT TIME: 2021年5月17日10:45:32
+Description: 高精度加法。 
+*/
+
+class Solution {
+public:
+    string addStrings(string num1, string num2) {
+        if (SZ(num1) < SZ(num2)) return addStrings(num2, num1);
+        reverse(ALL(num1));
+        reverse(ALL(num2));
+        int t = 0;
+        string res = "";
+        REP(i, SZ(num1)) {
+            t += num1[i] - '0';
+            if (i < SZ(num2)) t += num2[i] - '0';
+            res += to_string(t % 10);
+            t /= 10;
+        }
+        if (t) res += '1';
+        reverse(ALL(res));
+        return res;
+    }
+};
 
 
 /*

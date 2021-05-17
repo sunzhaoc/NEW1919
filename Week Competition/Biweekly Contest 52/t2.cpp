@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-04-25 10:14:44
- * @LastEditTime: 2021-04-25 18:10:18
- * @FilePath: \Leetcode\Week Competition\模版\t2.cpp
+ * @LastEditTime: 2021-05-15 22:45:28
+ * @FilePath: \Leetcode\Week Competition\Biweekly Contest 52\t2.cpp
  */
 
 
@@ -56,7 +56,31 @@ using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
 
-
+class Solution {
+public:
+    vector<int> memLeak(int memory1, int memory2) {
+        int i = 1;
+        while (1) {
+            if (memory1 >= memory2) {
+                if (memory1 >= i) {
+                    memory1 -= i;
+                    i ++;
+                }
+                else {
+                    return {i, memory1, memory2};
+                }
+            }
+            else {
+                if (memory2 >= i) {
+                    memory2 -= i;
+                    i ++;
+                }
+                else return {i, memory1, memory2};
+            }
+        }
+        return -1;
+    }
+};
 
 // int main() {
 //     Solution sol;

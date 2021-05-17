@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-04-13 19:04:21
- * @LastEditTime: 2021-04-13 19:10:19
- * @FilePath: \Leetcode\993.二叉树的堂兄弟节点.cpp
+ * @LastEditTime: 2021-05-17 09:40:28
+ * @FilePath: \Leetcode\993. Cousins in Binary Tree.cpp
  */
 /*
  * @lc app=leetcode.cn id=993 lang=cpp
@@ -64,6 +64,43 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
+TIME:      4ms    BEAT: 72.41%    O(n) = 
+MEMORY: 10.7MB    BEAT: 75.50%    O(n) = 
+USED TIME: 05:24
+LAST EDIT TIME: 2021年5月17日9:40:14
+Description: 
+*/
+
+class Solution {
+public:
+    int depthX = 0, depthY = 0;
+    TreeNode* X = nullptr, * Y = nullptr;
+    bool isCousins(TreeNode* root, int x, int y) {
+        dfs(root, nullptr, 0, x, y);
+        if (depthX == depthY && X != Y) return true;
+        return false;
+    }
+
+    void dfs(TreeNode* node, TreeNode* pre, int depth, int& x, int& y) {
+        if (!node) return;
+        dfs(node->left, node, depth + 1, x, y);
+        if (node->val == x) {
+            X = pre;
+            depthX = depth;
+        }
+        else if (node->val == y) {
+            Y = pre;
+            depthY = depth;
+        }
+        if (X && Y) return;
+        dfs(node->right, node, depth + 1, x, y);
+        if (X && Y) return;
+    }
+};
+
+
+/*
+RESULT: Accept
 TIME:      4ms    BEAT: 73.55%    O(n) = 
 MEMORY: 10.4MB    BEAT: 99.01%    O(n) = 
 USED TIME: 07:10
@@ -95,5 +132,6 @@ public:
         dfs(node->right, node, depth + 1, x, y);
     }
 };
+
 // @lc code=end
 

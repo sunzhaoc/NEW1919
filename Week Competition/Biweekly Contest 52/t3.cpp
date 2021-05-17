@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-04-25 10:14:44
- * @LastEditTime: 2021-04-25 10:16:56
- * @FilePath: \Leetcode\Week Competition\Weekly Contest 238\t1.cpp
+ * @LastEditTime: 2021-05-15 23:13:49
+ * @FilePath: \Leetcode\Week Competition\Biweekly Contest 52\t3.cpp
  */
 
 
@@ -57,14 +57,67 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
-// int main() {
-//     Solution sol;
-//     // VI nums = {};
-//     // VVI nums = {};
-//     auto ans = sol.();
-//     // cout << ans << endl;
-//     // REP(i, SZ(ans)) cout << ans[i] << endl;
-//     // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
-//     system("pause");
-//     return 0;
-// }
+class Solution {
+public:
+    vector<vector<char>> rotateTheBox(vector<vector<char>>& box) {
+        int m = SZ(box), n = SZ(box[0]);
+        vector<vector<char>> res(n, vector<char>(m));
+        REP(i, m) {
+            REP(j, n) {
+                res[j][m - 1 - i] = box[i][j];
+            }
+        }
+        
+        REP(j, m) { // col
+            int rock = 0, blank = 0;
+            REP(i, n) { // row
+                if (i == n - 1 && res[i][j] != '*') {
+                    if (res[i][j] == '#') rock ++;
+                    else blank ++;
+                    int k = i;
+                    while (rock) {
+                        res[k][j] = '#';
+                        rock --;
+                        k --;
+                    }
+                    while (blank) {
+                        res[k][j] = '.';
+                        blank --;
+                        k --;
+                    }
+                }
+                
+                else if (res[i][j] == '#') rock ++;
+                else if (res[i][j] == '.') blank ++;
+                else if (res[i][j] == '*') {
+                    int k = i - 1;
+                    while (rock) {
+                        res[k][j] = '#';
+                        rock --;
+                        k --;
+                    }
+                    while (blank) {
+                        res[k][j] = '.';
+                        blank --;
+                        k --;
+                    }
+                }
+
+            }
+        }
+        return res;
+    }
+};
+
+
+int main() {
+    Solution sol;
+    vector<vector<char>> box = {{'#','.','#'}};
+    // vector<vector<char>> box = {{'#','.','*','.'},{'#','#','*','.'}};
+    auto ans = sol.rotateTheBox(box);
+    // cout << ans << endl;
+    // REP(i, SZ(ans)) cout << ans[i] << endl;
+    REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
+    system("pause");
+    return 0;
+}

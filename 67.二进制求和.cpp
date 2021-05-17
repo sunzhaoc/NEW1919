@@ -2,11 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: 冰凝水
- * @Date: 2021-04-25 10:14:44
- * @LastEditTime: 2021-05-15 22:38:54
- * @FilePath: \Leetcode\Week Competition\Biweekly Contest 52\t1.cpp
+ * @Date: 2021-05-17 10:47:07
+ * @LastEditTime: 2021-05-17 10:51:29
+ * @FilePath: \Leetcode\67.二进制求和.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=67 lang=cpp
+ *
+ * [67] 二进制求和
  */
 
+// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -56,43 +62,35 @@ using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
 
+
+/*
+RESULT: Accept
+TIME:     4ms    BEAT: 57.82%    O(n) = 
+MEMORY: 6.2MB    BEAT: 68.86%    O(n) = 
+USED TIME: 02:46
+LAST EDIT TIME: 2021年5月17日10:50:19
+Description: 高精度加法。
+*/
+
 class Solution {
 public:
-    string sortSentence(string s) {
-        int l = 0, r = 0;
+    string addBinary(string a, string b) {
+        if (a.size() < b.size()) return addBinary(b, a);
+        reverse(ALL(a));
+        reverse(ALL(b));
+        int t = 0;
         string res = "";
-        V<pair<string, int>> map;
-        while (r < SZ(s)) {
-            if (s[r] >= '0' && s[r] <= '9') {
-                string tmp = s.substr(l, r - l);
-                map.PB(MP(tmp, s[r]));
-                l = r + 2;
-            }
-            r ++;
+        REP(i, SZ(a)) {
+            t += a[i] - '0';
+            if (i < SZ(b)) t += b[i] - '0';
+            res += to_string(t % 2);
+            t /= 2;
         }
-
-        sort(ALL(map), [](const pair<string, int>& x, const pair<string, int>& y) {
-            return x.second < y.second;
-        });
-
-        REP(i, SZ(map)) {
-            res += map[i].first;
-            if (i != SZ(map) - 1) res += " ";
-        }
+        if (t) res += '1';
+        reverse(ALL(res));
         return res;
-
     }
 };
 
+// @lc code=end
 
-int main() {
-    Solution sol;
-    // VI nums = {};
-    // VVI nums = {};
-    auto ans = sol.sortSentence("is2 sentence4 This1 a3");
-    cout << ans << endl;
-    // REP(i, SZ(ans)) cout << ans[i] << endl;
-    // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
-    system("pause");
-    return 0;
-}
