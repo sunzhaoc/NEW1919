@@ -2,9 +2,9 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: 冰凝水
- * @Date: 2021-04-05 20:05:57
- * @LastEditTime: 2021-05-17 14:15:30
- * @FilePath: \Leetcode\ACRush.cpp
+ * @Date: 2021-05-17 23:13:43
+ * @LastEditTime: 2021-05-17 23:21:47
+ * @FilePath: \Leetcode\程序员面试金典\面试题 17.14. 最小K个数.cpp
  */
 
 #include <bits/stdc++.h>
@@ -58,10 +58,52 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
+TIME:     44ms    BEAT: 37.96%    O(n) = 
+MEMORY: 18.7MB    BEAT:  6.73%    O(n) = 
+USED TIME: 04:09
+LAST EDIT TIME: 2021年5月17日23:21:49
 Description: 
 */
 
+class Solution {
+public:
+    vector<int> smallestK(vector<int>& arr, int k) {
+        if (k == 0) return {};
+        priority_queue<int> st;
+
+        REP(i, k) st.push(arr[i]);
+        FOR(i, k, SZ(arr)) {
+            if (st.top() > arr[i]) {
+                st.pop();
+                st.push(arr[i]);
+            }
+        }
+
+        VI res;
+        REP(i, k) {
+            res.PB(st.top());
+            st.pop();
+        }
+        return res;
+    }
+};
+
+
+/*
+RESULT: Accept
+TIME:     32ms    BEAT: 72.10%    O(n) = 
+MEMORY: 17.7MB    BEAT: 65.86%    O(n) = 
+USED TIME: 00:58
+LAST EDIT TIME: 2021年5月17日23:15:31
+Description: 
+*/
+
+class Solution {
+public:
+    vector<int> smallestK(vector<int>& arr, int k) {
+        VI res;
+        sort(ALL(arr));
+        REP(i, k) res.PB(arr[i]);
+        return res;
+    }
+};
