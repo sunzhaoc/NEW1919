@@ -11,7 +11,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-04-05 20:05:57
- * @LastEditTime: 2021-05-18 10:31:55
+ * @LastEditTime: 2021-05-18 10:37:17
  * @FilePath: \Leetcode\1442.形成两个异或相等数组的三元组数目.cpp
  */
 
@@ -66,11 +66,10 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
+TIME:     4ms    BEAT: 73.95%    O(n) = n
+MEMORY: 7.6MB    BEAT: 25.12%    O(n) = n
+LAST EDIT TIME: 2021年5月18日10:32:34
+Description: 前缀异或 + 哈希。
 */
 
 class Solution {
@@ -82,8 +81,8 @@ public:
         REP(k, n) {
             int val = arr[k];
             if (cnt.count(s ^ val)) ans += cnt[s ^ val] * k - total[s ^ val];
-            cnt[s] ++;
-            total[s] += k;
+            cnt[s] ++;  // 出现次数。
+            total[s] += k;  // 下标之和。
             s ^= val;
         }
         return ans;

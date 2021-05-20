@@ -1,10 +1,17 @@
 /*
+ * @lc app=leetcode.cn id=692 lang=cpp
+ *
+ * [692] 前K个高频单词
+ */
+
+// @lc code=start
+/*
  * @Description: 
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-04-05 20:05:57
- * @LastEditTime: 2021-05-18 15:59:50
- * @FilePath: \Leetcode\ACRush.cpp
+ * @LastEditTime: 2021-05-20 08:47:09
+ * @FilePath: \Leetcode\692.前k个高频单词.cpp
  */
 
 #include <bits/stdc++.h>
@@ -58,10 +65,30 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
+TIME:     16ms    BEAT: 56.49%    O(n) = 
+MEMORY: 11.2MB    BEAT: 21.79%    O(n) = 
+USED TIME: 09:23
+LAST EDIT TIME: 2021年5月20日8:46:52
 Description: 
 */
+
+class Solution {
+public:
+    vector<string> topKFrequent(vector<string>& words, int k) {
+        VS res;
+        unordered_map<string, int> m;
+        for (auto word: words) m[word] ++;
+        V<pair<string, int>> m2;
+        for (auto it = m.begin(); it != m.end(); it ++) {
+            m2.PB(MP(it->first, it->second));
+        }
+        sort(ALL(m2), [](const pair<string, int>& x, const pair<string, int>& y) {
+            return x.second > y.second || (x.second == y.second && x.first < y.first);
+        });
+        REP(i, k) res.PB(m2[i].first);
+        return res;
+    }
+};
+
+// @lc code=end
 

@@ -2,17 +2,18 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: 冰凝水
- * @Date: 2021-04-25 15:24:37
- * @LastEditTime: 2021-05-18 15:23:26
- * @FilePath: \Leetcode\43. Multiply Strings.cpp
+ * @Date: 2021-05-18 15:49:10
+ * @LastEditTime: 2021-05-18 15:54:02
+ * @FilePath: \Leetcode\程序员面试金典\面试题 17.16. 按摩师.cpp
  */
 /*
- * @lc app=leetcode.cn id=43 lang=cpp
- *
- * [43] 字符串相乘
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: 冰凝水
+ * @Date: 2021-04-05 20:05:57
+ * @LastEditTime: 2021-05-17 14:15:30
+ * @FilePath: \Leetcode\ACRush.cpp
  */
-
-// @lc code=start
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -29,10 +30,13 @@ template<class T> inline T sqr(T x){ return x * x; }
 # define LENGTH(A) ((int)A.length())
 # define MP make_pair
 # define PB push_back
+# define PPB pop_back
 # define PF push_front
+# define PPF pop_front
 # define LB lower_bound
 # define UB upper_bound
-# define FOR(i, a, b) for(int i = (a); i < (b); ++i)
+# define RREP(i, a) for (int i = (a - 1); i >= 0; --i)
+# define FOR(i, a, b) for(int i = (a); i < (b); ++i) 
 # define REP(i, a) for(int i = 0; i < (a); ++i)
 # define ALL(A) A.begin(), A.end()
 # define RALL(A) A.rbegin(), A.rend()
@@ -62,58 +66,24 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:    16ms    BEAT: 33.24%    O(n) = 
-MEMORY: 7.9MB    BEAT: 37.77%    O(n) = 
-USED TIME: 30:39
-LAST EDIT TIME: 2021年4月25日15:56:37
-Description: 
+TIME:     0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 7.7MB    BEAT:  12.64%    O(n) = 
+USED TIME: 03:47
+LAST EDIT TIME: 2021年5月18日15:53:47
+Description: 弱智DP。
 */
 
 class Solution {
 public:
-    string multiply(string num1, string num2) {
-        if (num1 == "0" || num2 == "0") return "0";
-        V<V<char>> q(SZ(num2), V<char>(SZ(num1) + SZ(num2), '0'));
-        reverse(ALL(num1));
-        reverse(ALL(num2));
-        REP(a, SZ(num2)) {
-            int z = 0;
-            REP(b, SZ(num1)) {
-                int x = (num2[a] - '0') * (num1[b] - '0') + z;
-                z = x / 10;
-                x = x % 10;
-                q[a][a + b] = x + '0';
-                if (b == SZ(num1) - 1 && z > 0) {
-                    q[a][a + b + 1] = z + '0';
-                }
-            }
+    int massage(vector<int>& nums) {
+        if (SZ(nums) == 0)  return 0;
+        if (SZ(nums) == 1) return nums[0];
+        VI dp(SZ(nums), 0);
+        dp[0] = nums[0];
+        dp[1] = max(nums[1], dp[0]);
+        FOR(i, 2, SZ(nums)) {
+            dp[i] = max(dp[i - 1], nums[i] + dp[i - 2]);
         }
-        int a = 0;
-        REP(j, SZ(q[0])) {
-            int sum = 0;
-            sum += a;
-            REP(i, SZ(q)) {
-                sum += q[i][j] - '0';
-            }
-            q[0][j] = (sum % 10) + '0';
-            a = sum / 10;
-        }
-        string res = "";
-        REP(i, SZ(q[0])) {
-            res += q[0][i];
-        }
-        reverse(ALL(res));
-        return res[0] == '0' ? res.substr(1) : res;
+        return dp.back();
     }
 };
-
-
-int main () {
-    Solution sol;
-    auto ans = sol.multiply("2567", "48");
-    cout << ans << endl;
-    system("pause");
-    return 0;
-}
-// @lc code=end
-
