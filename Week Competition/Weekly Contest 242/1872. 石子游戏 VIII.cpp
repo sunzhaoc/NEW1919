@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-04-25 10:14:44
- * @LastEditTime: 2021-05-24 14:55:15
+ * @LastEditTime: 2021-05-24 15:09:10
  * @FilePath: \Leetcode\Week Competition\Weekly Contest 242\1872. 石子游戏 VIII.cpp
  */
 
@@ -61,8 +61,15 @@ class Solution {
 public:
     int stoneGameVIII(vector<int>& stones) {
         reverse(ALL(stones));
-        VI f(SZ(stones));
-        
+        int n = SZ(stones);
+        VI f(n + 1), s(n + 1);
+        FOR(i, 1, n + 1) s[i] = s[i - 1] + stones[i - 1];
+        int v = s[n] - s[0] + f[1];
+        FOR(i, 2, n + 1) {
+            f[i] = v;
+            v = max(v, s[n] - s[i + 1] - f[i]);
+        }
+        return f[n];
     }
 };
 
