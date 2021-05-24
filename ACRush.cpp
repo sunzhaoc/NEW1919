@@ -1,11 +1,3 @@
-/*
- * @Description: 
- * @Version: 1.0
- * @Autor: 冰凝水
- * @Date: 2021-04-05 20:05:57
- * @LastEditTime: 2021-05-18 15:59:50
- * @FilePath: \Leetcode\ACRush.cpp
- */
 
 #include <bits/stdc++.h>
 using namespace std;
