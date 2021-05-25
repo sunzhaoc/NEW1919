@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-04-25 10:14:44
- * @LastEditTime: 2021-05-25 10:47:09
+ * @LastEditTime: 2021-05-25 13:08:04
  * @FilePath: \Leetcode\Week Competition\Weekly Contest 236\t4.cpp
  */
 
@@ -59,32 +59,33 @@ using VVS = vector<VS>;
 class Solution {
 public:
     int s[1024];
+    
+    const int M = 1024, INF = 1e8;
     int minChanges(vector<int>& nums, int k) {
-        int n = SZ(nums), m = (n + k - 1) / k; // 上取整
-        VVI f(k + 1, VI(1024, INT_MAX));
+        int n = SZ(nums), m = (n + k - 1) / k;
+        VVI f(k + 1, VI(1024, INF));
         int sum = 0, minv = INT_MAX;
         f[0][0] = 0;
-
-        for (int i = 1; i <= k; i ++) {
+        for(int i = 1; i <= k; i++) {
             int len = m;
             memset(s, 0, sizeof s);
-            if (n % k && i > n % k) len --;
-            REP(j, len) s[nums[j * k + i - 1]] ++;
+            if(n % k && n % k < i) len--;
+            for(int j = 0; j < len; j ++) s[nums[j * k + i - 1]] ++;
             int maxv = 0;
-            REP(j, 1024) if (s[j]) maxv = max(maxv, s[j]);
+            for(int j = 0; j < 1024; j ++) if(s[j]) maxv = max(maxv, s[j]);
             sum += len - maxv, minv = min(minv, maxv);
 
-            REP(j, 1024) {
-                REP(u, len) {
+            for(int j = 0; j < 1024; j ++) {
+                for(int u = 0; u < len; u ++) {
                     int x = nums[u * k + i - 1], cost = len - s[x];
-                    f[i][j] = min(f[i][j], f[i - 1][j ^ x] + cost);
+                    ckmin(f[i][j], f[i - 1][j ^ x] + cost);
                 }
             }
         }
-
         return min(sum + minv, f[k][0]);
     }
 };
+
 
 
 // int main() {
