@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-04-25 10:14:44
- * @LastEditTime: 2021-05-25 10:26:01
- * @FilePath: \Leetcode\Week Competition\Weekly Contest 236\t4.cpp
+ * @LastEditTime: 2021-04-25 10:16:56
+ * @FilePath: \Leetcode\Week Competition\Weekly Contest 238\t1.cpp
  */
 
 
@@ -55,22 +55,6 @@ using VD = vector<double>;
 using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
-
-class Solution {
-public:
-    int minChanges(vector<int>& nums, int k) {
-        int n = SZ(nums), m = (n + k - 1) / k; // 上取整
-        VVI f(k + 1, VI(1024, INT_MAX));
-        int sum = 0, minv = INT_MAX;
-        f[0][0] = 0;
-
-        for (int i = 1; i <= k; i ++) {
-            int len = m;
-            VI s(1024);
-            if (n % k && n % k < i) len --; 
-        }
-    }
-};
 
 
 // int main() {

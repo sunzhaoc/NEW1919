@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Author: 冰凝水
  * @Date: 2020-12-03 18:42:59
- * @LastEditTime: 2021-05-24 18:25:25
+ * @LastEditTime: 2021-05-24 22:42:47
  * @FilePath: \Leetcode\204. Count Primes.cpp
  */
 /*
@@ -65,26 +65,51 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:    64ms    BEAT: 60.91%    O(n) = 
-MEMORY: 7.1MB    BEAT: 56.18%    O(n) = 
-USED TIME: 03:50
-LAST EDIT TIME: 2021年5月24日18:25:14
-Description: 
+TIME:    208ms    BEAT: 26.91%    O(n) = 
+MEMORY: 74.9MB    BEAT:  5.07%    O(n) = 
+LAST EDIT TIME: 2021年5月24日22:41:45
+Description: 线性筛。
 */
 
 class Solution {
 public:
-    int countPrimes(int n) {
-        if (n < 2) return 0;
-        V<bool> st(n, false);
+    int countPrimes(int x) { 
+        vector<int> prime(x);
+        vector<int> st(x);
         int cnt = 0;
-        FOR(i, 2, n) {
-            if (!st[i]) {
-                cnt ++;
-                for (int j = i; j < n; j += i) st[j] = true;
+        for(int i = 2; i < x; i++) {
+            if(!st[i]) prime[cnt++] = i;
+            for(int j = 0; prime[j] <= (x - 1) / i; j++) {
+                st[prime[j] * i] = true;
+                if(i % prime[j] == 0) break;
             }
         }
         return cnt;
+    }
+};
+
+
+/*
+RESULT: Accept
+TIME:    64ms    BEAT: 60.91%    O(n) = 
+MEMORY: 7.1MB    BEAT: 56.18%    O(n) = 
+USED TIME: 03:50
+LAST EDIT TIME: 2021年5月24日18:25:14
+Description: 埃氏筛。
+*/
+
+class Solution {
+public:
+    int countPrimes(int x) {
+        int cnt = 0;
+        vector<bool> isPrime(x);
+        for (int i = 2; i < x; i ++) {
+            if (!isPrime[i]) {
+                cnt ++;
+                for (int j = i + i; j < x; j += i) isPrime[j] = true;
+            }
+        }
+        return cnt; 
     }
 };
 
