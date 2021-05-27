@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-05-24 17:52:02
- * @LastEditTime: 2021-05-27 14:11:17
+ * @LastEditTime: 2021-05-27 15:00:00
  * @FilePath: \Leetcode\AcWing\868. 筛质数.cpp
  */
 
@@ -19,7 +19,7 @@ void get_primes(int x) {
         if (!isPrime[i]) primes[cnt ++] = i;
         for (int j = 0; primes[j] <= x / i; j ++) {
             isPrime[primes[j] * i] = true;
-            if (i % primes[j] == 0) break;
+            if (i % primes[j] == 0) break;  // primes[j]一定是i的最小质因子，primes[j]也一定是primes[j] * i的最小质因子。
         }
     }
     cout << cnt << endl;

@@ -2,44 +2,18 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: 冰凝水
- * @Date: 2021-05-27 13:31:20
- * @LastEditTime: 2021-05-27 14:10:20
+ * @Date: 2021-05-24 17:52:02
+ * @LastEditTime: 2021-05-27 14:38:33
  * @FilePath: \Leetcode\AcWing\0.demo.cpp
  */
 
-/*
- * 
- * 　　┏┓　　　┏┓+ +
- * 　┏┛┻━━━┛┻┓ + +
- * 　┃　　　　　　　┃ 　
- * 　┃　　　━　　　┃ ++ + + +
- *  ████━████ ┃+
- * 　┃　　　　　　　┃ +
- * 　┃　　　┻　　　┃
- * 　┃　　　　　　　┃ + +
- * 　┗━┓　　　┏━┛
- * 　　　┃　　　┃　　　　　　　　　　　
- * 　　　┃　　　┃ + + + +
- * 　　　┃　　　┃
- * 　　　┃　　　┃ +  神兽保佑
- * 　　　┃　　　┃    代码无bug　　
- * 　　　┃　　　┃　　+　　　　　　　　　
- * 　　　┃　 　　┗━━━┓ + +
- * 　　　┃ 　　　　　　　┣┓
- * 　　　┃ 　　　　　　　┏┛
- * 　　　┗┓┓┏━┳┓┏┛ + + + +
- * 　　　　┃┫┫　┃┫┫
- * 　　　　┗┻┛　┗┻┛+ + + +
- * 
- */
-
-# include<bits/stdc++.h>
+# include <bits/stdc++.h>
 using namespace std;
 
-
+// 线性筛。时间复杂度约为n
 void get_primes(int x) {
     vector<bool> isPrime(x + 1);
-    vector<int> primes;
+    vector<int> primes(x);
     int cnt = 0;
     for (int i = 2; i <= x; i ++) {
         if (!isPrime[i]) primes[cnt ++] = i;
@@ -51,9 +25,11 @@ void get_primes(int x) {
     cout << cnt << endl;
 } 
 
+
 int main() {
-    int x;
-    cin >> x;
-    get_primes(x);
+    int n;
+    cin >> n;
+    get_primes(n);
+    system("pause");
     return 0;
 }
