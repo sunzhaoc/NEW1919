@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-05-24 17:52:02
- * @LastEditTime: 2021-05-24 22:22:01
- * @FilePath: \Leetcode\AcWing\tmp.cpp
+ * @LastEditTime: 2021-05-27 14:11:17
+ * @FilePath: \Leetcode\AcWing\868. 筛质数.cpp
  */
 
 # include <bits/stdc++.h>
@@ -13,16 +13,17 @@ using namespace std;
 // 线性筛。时间复杂度约为n
 void get_primes(int x) {
     vector<bool> isPrime(x + 1);
-    vector<int> primes;
+    vector<int> primes(x);
+    int cnt = 0;
     for (int i = 2; i <= x; i ++) {
-        if (!isPrime[i]) primes.push_back(i);
-        for (int j = 0; j < primes.size() && primes[j] * i <= x; j ++) {
-            isPrime[i * primes[j]] = true; 
+        if (!isPrime[i]) primes[cnt ++] = i;
+        for (int j = 0; primes[j] <= x / i; j ++) {
+            isPrime[primes[j] * i] = true;
             if (i % primes[j] == 0) break;
         }
     }
-    cout << primes.size() << endl;
-}
+    cout << cnt << endl;
+} 
 
 
 // 埃氏筛，1-n中有n/ln(n)个质数 时间复杂度约为nloglogn

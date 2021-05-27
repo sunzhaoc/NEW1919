@@ -2,9 +2,9 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: 冰凝水
- * @Date: 2021-05-27 13:31:20
- * @LastEditTime: 2021-05-27 14:10:20
- * @FilePath: \Leetcode\AcWing\0.demo.cpp
+ * @Date: 2021-05-27 14:11:49
+ * @LastEditTime: 2021-05-27 14:12:05
+ * @FilePath: \Leetcode\AcWing\874. 筛法求欧拉函数.cpp
  */
 
 /*
@@ -33,27 +33,4 @@
  * 
  */
 
-# include<bits/stdc++.h>
-using namespace std;
 
-
-void get_primes(int x) {
-    vector<bool> isPrime(x + 1);
-    vector<int> primes;
-    int cnt = 0;
-    for (int i = 2; i <= x; i ++) {
-        if (!isPrime[i]) primes[cnt ++] = i;
-        for (int j = 0; primes[j] <= x / i; j ++) {
-            isPrime[primes[j] * i] = true;
-            if (i % primes[j] == 0) break;
-        }
-    }
-    cout << cnt << endl;
-} 
-
-int main() {
-    int x;
-    cin >> x;
-    get_primes(x);
-    return 0;
-}
