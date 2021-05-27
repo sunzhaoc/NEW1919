@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2020-12-21 14:37:42
- * @LastEditTime: 2021-05-27 16:30:17
+ * @LastEditTime: 2021-05-27 16:38:13
  * @FilePath: \Leetcode\50. pow-x-n.cpp
  */
 /*
@@ -94,7 +94,7 @@ RESULT: Accept
 TIME:     0ms    BEAT: 100.00%    O(n) = 
 MEMORY: 5.9MB    BEAT:  18.19%    O(n) = 
 LAST EDIT TIME: 2021年5月27日16:30:1
-Description: 
+Description: 快速幂（位运算）
 */
 
 class Solution {
