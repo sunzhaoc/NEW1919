@@ -1,3 +1,18 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: 冰凝水
+ * @Date: 2021-05-28 10:33:20
+ * @LastEditTime: 2021-05-28 15:27:13
+ * @FilePath: \Leetcode\394.字符串解码.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=394 lang=cpp
+ *
+ * [394] 字符串解码
+ */
+
+// @lc code=start
 
 /*
  * 
@@ -5,7 +20,7 @@
  * 　┏┛┻━━━┛┻┓ + +
  * 　┃　　　　　　　┃ 　
  * 　┃　　　━　　　┃ ++ + + +
- *  ██姜██━██狗██ ┃+
+ *  ████━████ ┃+
  * 　┃　　　　　　　┃ +
  * 　┃　　　┻　　　┃
  * 　┃　　　　　　　┃ + +
@@ -76,10 +91,68 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
+TIME:     4ms    BEAT: 35.48%    O(n) = 
+MEMORY: 6.5MB    BEAT: 38.77%    O(n) = 
+LAST EDIT TIME: 2021年5月28日15:26:53
 Description: 
 */
+
+class Solution {
+public:
+    string decodeString(string s) {
+        stack<int> nums;
+        stack<string> alpha;
+        int idx = 0;
+        while (idx < SZ(s)) {
+            if (s[idx] >= '0' && s[idx] <= '9') {
+                int a = 0;
+                while (s[idx] >= '0' && s[idx] <= '9') {
+                    a = a * 10 + (s[idx] -'0');
+                    idx ++;
+                }
+                nums.push(a);
+                continue;
+            }
+            else if (s[idx] == '[' || (s[idx] >= 'a' && s[idx] <= 'z')) {
+                string tmp = "";
+                tmp = tmp + s[idx];
+                alpha.push(tmp);
+                idx ++;
+            }
+            else {
+                int times = nums.top();
+                nums.pop();
+                string res = "";
+                while (alpha.top() != "[") {
+                    res += alpha.top();
+                    alpha.pop();
+                }
+                // reverse(ALL(res));
+                alpha.pop();
+                string tmp = "";
+                REP(i, times) tmp += res;
+                alpha.push(tmp);
+                idx ++;
+            }
+        }
+        string res = "";
+        while (!alpha.empty()) {
+            res += alpha.top();
+            alpha.pop();
+        }
+        reverse(ALL(res));
+        return res;
+    }
+};
+
+
+int main() {
+    Solution sol;
+    // auto ans = sol.decodeString("2[abc]3[cd]ef");
+    auto ans = sol.decodeString("100[a]2[bc]");
+    cout << ans << endl;
+    system("pause");
+    return 0;
+}
+// @lc code=end
 

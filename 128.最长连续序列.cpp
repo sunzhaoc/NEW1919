@@ -1,3 +1,18 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: 冰凝水
+ * @Date: 2021-05-28 15:28:28
+ * @LastEditTime: 2021-05-28 15:53:19
+ * @FilePath: \Leetcode\128.最长连续序列.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=128 lang=cpp
+ *
+ * [128] 最长连续序列
+ */
+
+// @lc code=start
 
 /*
  * 
@@ -5,7 +20,7 @@
  * 　┏┛┻━━━┛┻┓ + +
  * 　┃　　　　　　　┃ 　
  * 　┃　　　━　　　┃ ++ + + +
- *  ██姜██━██狗██ ┃+
+ *  ████━████ ┃+
  * 　┃　　　　　　　┃ +
  * 　┃　　　┻　　　┃
  * 　┃　　　　　　　┃ + +
@@ -76,10 +91,71 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
+TIME:     68ms    BEAT: 19.52%    O(n) = 
+MEMORY: 30.2MB    BEAT:  5.01%    O(n) = 
+LAST EDIT TIME: 2021年5月28日15:53:5
 Description: 
 */
+
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        unordered_set<int> m;
+        for (const int& num: nums) m.insert(num);
+        int res = 0;
+        for (const int& num: m) {
+            if (!m.count(num - 1)) { // No number smaller than this number
+                int curNum = num;
+                int curLen = 1;
+                while (m.count(curNum + 1)) {
+                    curNum ++;
+                    curLen ++;
+                }
+                ckmax(res, curLen);
+            }
+        }
+        return res;
+    }
+};
+
+
+/*
+RESULT: Accept
+TIME:     80ms    BEAT: 18.67%    O(n) = 
+MEMORY: 30.3MB    BEAT:  5.01%    O(n) = 
+LAST EDIT TIME: 2021年5月28日15:44:43
+Description: 
+*/
+
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        if (SZ(nums) == 0) return 0;
+        sort(ALL(nums));
+        int idx = 0;
+        int cnt = 1;
+        while (idx < SZ(nums)) {
+            unordered_set<int> m;
+            m.insert(nums[idx]);
+            while (idx + 1< SZ(nums) && nums[idx + 1] <= nums[idx] + 1) {
+                m.insert(nums[idx + 1]);
+                idx ++;
+            }
+            ckmax(cnt, SZ(m));
+            idx ++;
+        }
+        return cnt;
+    }
+};
+
+
+int main() {
+    Solution sol;
+    VI nums = {1,2,0,1};
+    auto ans = sol.longestConsecutive(nums);
+    cout << ans << endl;
+    system("pause");
+    return -1;
+}
+// @lc code=end
 

@@ -1,3 +1,10 @@
+/*
+ * @lc app=leetcode.cn id=477 lang=cpp
+ *
+ * [477] 汉明距离总和
+ */
+
+// @lc code=start
 
 /*
  * 
@@ -5,7 +12,7 @@
  * 　┏┛┻━━━┛┻┓ + +
  * 　┃　　　　　　　┃ 　
  * 　┃　　　━　　　┃ ++ + + +
- *  ██姜██━██狗██ ┃+
+ *  ████━████ ┃+
  * 　┃　　　　　　　┃ +
  * 　┃　　　┻　　　┃
  * 　┃　　　　　　　┃ + +
@@ -76,10 +83,119 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
+TIME:     40ms    BEAT: 95.65%    O(n) = 
+MEMORY: 18.6MB    BEAT: 10.51%    O(n) = 
+LAST EDIT TIME: 2021年5月28日9:34:13
 Description: 
 */
+
+class Solution {
+public:
+    int totalHammingDistance(vector<int>& nums) {
+        int cnt = 0, n = SZ(nums);
+        for (int i = 0; i < 30; i ++) {
+            int tmp = 0;
+            for (int val: nums) {
+                tmp += (val >> i) & 1;
+            }
+            cnt += tmp * (n - tmp);
+        }
+        return cnt;
+    }
+};
+
+
+/*
+RESULT: Time Out
+TIME:   ms    BEAT: %    O(n) = 
+MEMORY: MB    BEAT: %    O(n) = 
+LAST EDIT TIME: 2021年5月28日9:28:23
+Description: 暴力枚举，超时。
+*/
+
+class Solution {
+public:
+    int hammingDistance(int& x) {
+        int cnt = 0;
+        while (x) {
+            cnt ++;
+            x &= (x - 1);
+        }
+        return cnt;
+    }
+
+    int totalHammingDistance(vector<int>& nums) {
+        int res = 0;
+        REP(i, SZ(nums)) {
+            FOR(j, i + 1, SZ(nums)) {
+                int x = nums[i] ^ nums[j];
+                res += hammingDistance(x);
+            }
+        }
+        return res;
+    }
+};
+
+
+/*
+RESULT: Accept
+TIME:     40ms    BEAT: 94.46%    O(n) = 
+MEMORY: 17.6MB    BEAT: 53.10%    O(n) = 
+USED TIME: 04:49
+LAST EDIT TIME: 2021年3月9日21:11:39
+Description: 用了数学知识。
+*/
+
+class Solution {
+public:
+    int totalHammingDistance(vector<int>& nums) {
+        if (nums.size() < 2) return 0;
+        int n = nums.size();
+        vector<int> st(32, 0);
+        for (int num: nums) {
+            int i = 0;
+            while (num) {
+                st[i] += num & 1;
+                num >>= 1;
+                i ++;
+            }
+        }
+        int res = 0;
+        for (int i = 0; i < 32; i ++) {
+            res += st[i] * (n - st[i]);
+        }
+        return res;
+    }
+};
+
+
+/*
+RESULT: Time Out
+*/
+
+class Solution {
+public:
+    int totalHammingDistance(vector<int>& nums) {
+        if (nums.size() < 2) return 0;
+        int ans = 0;
+        for (int i = 0; i < nums.size() - 1; i ++) {
+            for (int j = i + 1; j < nums.size(); j ++) {
+                ans += calHamming(nums[i], nums[j]);
+            }
+        }
+        return ans;
+    }
+    
+    int calHamming(int x, int y) {
+        int tmp = x ^ y;
+        int ans = 0;
+        while (tmp) {
+            if (tmp & 1) ans ++;
+            tmp >>= 1;
+        }
+        return ans;
+    }
+};
+
+// @lc code=end
 

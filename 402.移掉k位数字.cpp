@@ -1,3 +1,10 @@
+/*
+ * @lc app=leetcode.cn id=402 lang=cpp
+ *
+ * [402] 移掉K位数字
+ */
+
+// @lc code=start
 
 /*
  * 
@@ -76,10 +83,49 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
+TIME:     0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 7.1MB    BEAT:  27.44%    O(n) = 
+LAST EDIT TIME: 2021年5月28日16:22:34
 Description: 
 */
+
+class Solution {
+public:
+    string removeKdigits(string num, int k) {
+        stack<char> s;
+
+        REP(i, SZ(num)) {
+            char ch = num[i];
+            if (s.empty() || ch >= s.top()) s.push(ch);
+            else {
+                while (!s.empty() && ch < s.top() && k) {
+                    s.pop();
+                    k --;
+                }
+                s.push(ch);
+            }
+            if (k == 0) {
+                FOR(j, i + 1, SZ(num)) s.push(num[j]);
+                break;
+            }
+        }
+        while (k --) s.pop();
+        string res = "";
+        while (s.size()) {
+            res += s.top();
+            s.pop();
+        }
+        RREP(i, SZ(res)) {
+            if (res[i] != '0') {
+                res = res.substr(0, i + 1);
+                break;
+            }
+            else if (i == 0 && res[i] == '0') res = "";
+        }
+        reverse(ALL(res));
+        
+        return res == "" ? "0" : res;
+    }
+};
+// @lc code=end
 

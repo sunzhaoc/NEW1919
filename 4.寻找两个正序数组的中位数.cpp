@@ -1,3 +1,10 @@
+/*
+ * @lc app=leetcode.cn id=4 lang=cpp
+ *
+ * [4] 寻找两个正序数组的中位数
+ */
+
+// @lc code=start
 
 /*
  * 
@@ -5,7 +12,7 @@
  * 　┏┛┻━━━┛┻┓ + +
  * 　┃　　　　　　　┃ 　
  * 　┃　　　━　　　┃ ++ + + +
- *  ██姜██━██狗██ ┃+
+ *  ████━████ ┃+
  * 　┃　　　　　　　┃ +
  * 　┃　　　┻　　　┃
  * 　┃　　　　　　　┃ + +
@@ -82,4 +89,25 @@ USED TIME:
 LAST EDIT TIME: 
 Description: 
 */
+
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        int n1 = SZ(nums1), n2 = SZ(nums2);
+        int p1 = 0, p2 = 0;
+        int cnt = 0, mid = n1 + n2 >> 1;
+        sort(ALL(nums1));
+        sort(ALL(nums2));
+        while (cnt < mid) {
+            if (p1 < n1 && p2 < n2 && nums1[p1] < nums2[p2]) p1 ++;
+            else if (p1 < n1 && p2 < n2 && nums1[p1] < nums2[p2]) p2 ++;
+            else if (p1 >= n1) p2 ++;
+            else if (p2 >= n2) p1 ++;
+            cnt ++;
+        }
+        if ((n1 + n2) % 2 == 1)
+        
+    }
+};
+// @lc code=end
 
