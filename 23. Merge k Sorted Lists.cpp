@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-04-06 20:42:41
- * @LastEditTime: 2021-04-06 21:09:40
- * @FilePath: \Leetcode\23.Merge k Sorted Lists.cpp
+ * @LastEditTime: 2021-05-30 10:58:02
+ * @FilePath: \Leetcode\23. Merge k Sorted Lists.cpp
  */
 /*
  * @lc app=leetcode.cn id=23 lang=cpp

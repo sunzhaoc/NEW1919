@@ -50,23 +50,23 @@ LAST EDIT TIME:
 Description: 比赛写的。
 */
 
-class Solution {
-public:
-    bool checkOnesSegment(string s) {
-        if (s.length()==0) return false;
-        if (s.length() == 1 && s[0] == '1') return true;
-        bool tmp = true;
-        for (int i = 0; i < s.length(); i ++){
-            if (s[i] == '1' && tmp) continue;
-            else if (s[i] == '0') {
-                tmp = false;
-            }
-            else if (s[i] == '1' && !tmp) return false;
-        }
-        return true;
+// class Solution {
+// public:
+//     bool checkOnesSegment(string s) {
+//         if (s.length()==0) return false;
+//         if (s.length() == 1 && s[0] == '1') return true;
+//         bool tmp = true;
+//         for (int i = 0; i < s.length(); i ++){
+//             if (s[i] == '1' && tmp) continue;
+//             else if (s[i] == '0') {
+//                 tmp = false;
+//             }
+//             else if (s[i] == '1' && !tmp) return false;
+//         }
+//         return true;
         
-    }
-};
+//     }
+// };
 
 
 int main() {

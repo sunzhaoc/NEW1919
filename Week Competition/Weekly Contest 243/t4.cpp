@@ -1,30 +1,16 @@
 /*
- * 
- * 　　┏┓　　　┏┓+ +
- * 　┏┛┻━━━┛┻┓ + +
- * 　┃　　　　　　　┃ 　
- * 　┃　　　━　　　┃ ++ + + +
- *  ██姜██━██狗██ ┃+
- * 　┃　　　　　　　┃ +
- * 　┃　　　┻　　　┃
- * 　┃　　　　　　　┃ + +
- * 　┗━┓　　　┏━┛
- * 　　　┃　　　┃　　　　　　　　　　　
- * 　　　┃　　　┃ + + + +
- * 　　　┃　　　┃
- * 　　　┃　　　┃ +  神兽保佑
- * 　　　┃　　　┃    代码无bug　　
- * 　　　┃　　　┃　　+　　　　　　　　　
- * 　　　┃　 　　┗━━━┓ + +
- * 　　　┃ 　　　　　　　┣┓
- * 　　　┃ 　　　　　　　┏┛
- * 　　　┗┓┓┏━┳┓┏┛ + + + +
- * 　　　　┃┫┫　┃┫┫
- * 　　　　┗┻┛　┗┻┛+ + + +
- * 
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: 冰凝水
+ * @Date: 2021-04-25 10:14:44
+ * @LastEditTime: 2021-04-25 18:10:25
+ * @FilePath: \Leetcode\Week Competition\模版\t4.cpp
  */
+
+
 #include <bits/stdc++.h>
 using namespace std;
+
 # define POW2(X) (1 << (X))
 # define CKBIT(S,X) (((S) & POW2(X)) != 0)
 const double pi = acos(-1.0);
@@ -71,11 +57,16 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
-/*
-RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
-*/
+
+
+// int main() {
+//     Solution sol;
+//     // VI nums = {};
+//     // VVI nums = {};
+//     auto ans = sol.();
+//     // cout << ans << endl;
+//     // REP(i, SZ(ans)) cout << ans[i] << endl;
+//     // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
+//     system("pause");
+//     return 0;
+// }

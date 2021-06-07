@@ -1,4 +1,12 @@
 /*
+ * @lc app=leetcode.cn id=438 lang=cpp
+ *
+ * [438] 找到字符串中所有字母异位词
+ */
+
+// @lc code=start
+
+/*
  * 
  * 　　┏┓　　　┏┓+ +
  * 　┏┛┻━━━┛┻┓ + +
@@ -23,8 +31,10 @@
  * 　　　　┗┻┛　┗┻┛+ + + +
  * 
  */
+
 #include <bits/stdc++.h>
 using namespace std;
+
 # define POW2(X) (1 << (X))
 # define CKBIT(S,X) (((S) & POW2(X)) != 0)
 const double pi = acos(-1.0);
@@ -79,3 +89,31 @@ USED TIME:
 LAST EDIT TIME: 
 Description: 
 */
+
+class Solution {
+public:
+    vector<int> findAnagrams(string s, string p) {
+        VI s_map(26, 0), p_map(26, 0);
+        int idx = 0;
+        VI res;
+        for (char& ch: p) p_map[ch - 'a'] ++;
+        REP(i, SZ(p) - 1) s_map[s[i] - 'a'] ++;
+        while (idx + SZ(p) - 1 < SZ(s)) {
+            s_map[s[idx + SZ(p) - 1]] ++;
+            bool flag = true;
+            REP(i, 26) {
+                if (s_map[i] != p_map[i]) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) res.push_back(idx);
+            s_map[s[idx]] --;
+            idx ++;
+        }
+        return res;
+    }
+};
+
+// @lc code=end
+

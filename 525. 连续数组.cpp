@@ -2,14 +2,14 @@
  * @Description: 
  * @Version: 1.0
  * @Autor: 冰凝水
- * @Date: 2021-04-06 11:04:50
- * @LastEditTime: 2021-04-06 11:15:06
- * @FilePath: \Leetcode\203.Remove Linked List Elements.cpp
+ * @Date: 2021-01-18 22:04:37
+ * @LastEditTime: 2021-06-03 08:31:11
+ * @FilePath: \Leetcode\525. 连续数组.cpp
  */
 /*
- * @lc app=leetcode.cn id=203 lang=cpp
+ * @lc app=leetcode.cn id=525 lang=cpp
  *
- * [203] 移除链表元素
+ * [525] 连续数组
  */
 
 // @lc code=start
@@ -88,74 +88,122 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
-// Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
-
-
 /*
 RESULT: Accept
-TIME:     20ms    BEAT: 97.72%    O(n) = 
-MEMORY: 14.7MB    BEAT: 51.96%    O(n) = 
-LAST EDIT TIME: 2021年6月5日21:51:39
+TIME:    160ms    BEAT: 38.08%    O(n) = 
+MEMORY: 81.9MB    BEAT: 21.96%    O(n) =  
+LAST EDIT TIME: 2021年6月3日8:31:11
 Description: 
 */
 
 class Solution {
 public:
-    ListNode* removeElements(ListNode* head, int val) {
-        ListNode* pre = new ListNode(-1);
-        pre->next = head;
-        ListNode* cur = head;
-        while (cur) {
-            if (cur->val == val) {
-                pre->next = cur->next;
-                cur = cur->next;
-                continue;
-            }
-            cur = cur->next;
-            pre = pre->next;
+    int findMaxLength(vector<int>& nums) {
+        for (int& x: nums) if (x == 0) x = -1;
+        unordered_map<int, int> m;
+        m[0] = -1;
+        int max_len = 0, sum = 0;
+        REP(i, SZ(nums)) {
+            sum += nums[i];
+
+            auto it = m.find(sum);
+            if (it != m.end()) ckmax(max_len, i - it->second);
+            else m[sum] = i;
         }
-        for (auto it = head; it; it = it->next) if (it->val != val) return it;
-        return nullptr;
+        return max_len;
     }
 };
 
 
 /*
 RESULT: Accept
-TIME:     20ms    BEAT: 97.99%    O(n) = n
-MEMORY: 14.6MB    BEAT: 67.09%    O(n) = 1
-USED TIME: 08:14
-LAST EDIT TIME: 2021年4月6日11:14:29
-Description: Easy
+TIME:    144ms    BEAT: 76.40%    O(n) = 
+MEMORY: 76.9MB    BEAT: 76.40%    O(n) = 
+USED TIME: 06:08
+LAST EDIT TIME: 2021年3月18日20:55:45
+Description: 二刷
 */
 
 class Solution {
 public:
-    ListNode* removeElements(ListNode* head, int val) {
-        ListNode* pre = new ListNode(-1);
-        pre->next = head;
-        ListNode* cur = head;
-        while (cur) {
-            if (cur->val != val) {
-                cur = cur->next;
-                pre = pre->next;
-                continue;
+    int findMaxLength(vector<int>& nums) {
+        for (int i = 0; i < nums.size(); i ++) {
+            if (nums[i] == 0) nums[i] = -1;
+        }
+
+        unordered_map<int, int> map;
+
+        map[0] = -1;
+        int max_len = 0;
+        int sum = 0;
+
+        for (int i = 0; i < nums.size(); i ++) {
+            sum += nums[i];
+
+            auto it = map.find(sum);
+            if (it != map.end()) {
+                max_len = max(max_len, i - it->second);
             }
-            pre->next = cur->next;
-            cur = cur->next;
+            else {
+                map[sum] = i;
+            }
         }
-        for (auto it = head; it; it = it->next) {
-            if (it->val != val) return it;
-        }
-        return nullptr;
+        return max_len;
     }
 };
+
+
+/*
+RESULT: Accept
+TIME:   124ms    BEAT: 99.80%    O(n) = n
+MEMORY:  77MB    BEAT: 93.18%    O(n) = 1
+LAST EDIT TIME: 2021年1月19日10:3:0
+Description: 前缀和。把所有的0都换成-1，这个方法有点妙。
+*/
+
+class Solution {
+public:
+    int findMaxLength(vector<int>& nums) {
+        for (int i = 0; i < nums.size(); i ++) {
+            if (nums[i] == 0) {
+                nums[i] = -1;
+            }
+        }
+
+        int max_len = 0;
+
+        unordered_map<int, int> map;
+        map[0] = -1;
+
+        int sum = 0;
+        for (int i = 0; i < nums.size(); i ++) {
+            sum += nums[i];
+
+            auto it = map.find(sum);
+            if (it != map.end()) {
+                max_len = max(max_len, i - it->second);
+            }
+            else {
+                map[sum] = i;
+            }
+        }
+
+        return max_len;
+    }
+};
+
+
+int main() {
+    Solution sol;
+    // vector<int> nums = {0,1};
+    // vector<int> nums = {0,1,0};
+    // vector<int> nums = {1,1,1,1,1,1,0,1,0,1,0};
+    vector<int> nums = {1,0,1,0,1,1,1,1,1,1,1,0,1,0,1,0,1,0};
+    int ans = sol.findMaxLength(nums);
+    cout << ans << endl; 
+    system("pause");
+    return 0;
+}
+
 // @lc code=end
 

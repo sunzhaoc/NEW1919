@@ -1,4 +1,12 @@
 /*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: 冰凝水
+ * @Date: 2021-06-01 09:28:28
+ * @LastEditTime: 2021-06-01 09:28:45
+ * @FilePath: \Leetcode\1744. 你能在你最喜欢的那天吃到你最喜欢的糖果吗？.cpp
+ */
+/*
  * 
  * 　　┏┓　　　┏┓+ +
  * 　┏┛┻━━━┛┻┓ + +
@@ -23,8 +31,10 @@
  * 　　　　┗┻┛　┗┻┛+ + + +
  * 
  */
+
 #include <bits/stdc++.h>
 using namespace std;
+
 # define POW2(X) (1 << (X))
 # define CKBIT(S,X) (((S) & POW2(X)) != 0)
 const double pi = acos(-1.0);
@@ -79,3 +89,10 @@ USED TIME:
 LAST EDIT TIME: 
 Description: 
 */
+
+class Solution {
+public:
+    vector<bool> canEat(vector<int>& candiesCount, vector<vector<int>>& queries) {
+        
+    }
+};

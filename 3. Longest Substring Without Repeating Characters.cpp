@@ -146,7 +146,7 @@ Description:
 
 int main() {
     Solution sol;
-    // int ans = sol.lengthOfLongestSubstring("abcabcbb");
+    int ans = sol.lengthOfLongestSubstring("abcabcbb");
     // int ans = sol.lengthOfLongestSubstring("bbbbb");
     // int ans = sol.lengthOfLongestSubstring("pwwkew");
     // int ans = sol.lengthOfLongestSubstring("");

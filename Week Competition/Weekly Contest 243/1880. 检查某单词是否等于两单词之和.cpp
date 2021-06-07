@@ -1,4 +1,12 @@
 /*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: 冰凝水
+ * @Date: 2021-04-25 10:14:44
+ * @LastEditTime: 2021-05-31 10:34:28
+ * @FilePath: \Leetcode\Week Competition\Weekly Contest 243\t1.cpp
+ */
+/*
  * 
  * 　　┏┓　　　┏┓+ +
  * 　┏┛┻━━━┛┻┓ + +
@@ -23,8 +31,10 @@
  * 　　　　┗┻┛　┗┻┛+ + + +
  * 
  */
+
 #include <bits/stdc++.h>
 using namespace std;
+
 # define POW2(X) (1 << (X))
 # define CKBIT(S,X) (((S) & POW2(X)) != 0)
 const double pi = acos(-1.0);
@@ -71,11 +81,16 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
-/*
-RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
-Description: 
-*/
+class Solution {
+public:
+    int decode(const string& s) {
+        int res = 0;
+        for (const char& ch: s) {
+            res = res * 10 + (ch - 'a');
+        }
+        return res;
+    }
+    bool isSumEqual(string firstWord, string secondWord, string targetWord) {
+        return decode(firstWord) + decode(secondWord) == decode(targetWord);
+    }
+};

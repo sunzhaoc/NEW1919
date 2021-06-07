@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-06-03 08:53:15
- * @LastEditTime: 2021-06-03 09:15:28
- * @FilePath: \Leetcode\AcWing\0.demo.cpp
+ * @LastEditTime: 2021-06-03 09:21:37
+ * @FilePath: \Leetcode\AcWing\802. 区间和.cpp
  */
 
 # include<bits/stdc++.h>
@@ -13,7 +13,7 @@ using namespace std;
 const int N = 300010;
 int a[N], s[N];
 int n, m;
-vector<pair<int, int>> adds(n), query(m);
+vector<pair<int, int>> adds, query;
 vector<int> alls;
 
 int find(int x) {
@@ -31,13 +31,13 @@ int main() {
     for (int i = 0; i < n; i ++) {
         int idx, val;
         cin >> idx >> val;
-        adds[i] = make_pair(idx, val);
+        adds.push_back({idx, val});
         alls.push_back(idx);
     }
     for (int i = 0; i < m; i ++) {
         int l, r;
         cin >> l >> r;
-        query[i] = make_pair(l, r);
+        query.push_back({l, r});
         alls.push_back(l);
         alls.push_back(r);
     }
@@ -55,7 +55,7 @@ int main() {
     
     for (auto item: query) {
         int l = find(item.first), r = find(item.second);
-        cout << a[r] - a[l - 1] << endl;
+        cout << s[r] - s[l - 1] << endl;
     }
     return 0;
 }

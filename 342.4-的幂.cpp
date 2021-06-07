@@ -1,4 +1,19 @@
 /*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: 冰凝水
+ * @Date: 2021-05-31 09:01:45
+ * @LastEditTime: 2021-05-31 09:15:35
+ * @FilePath: \Leetcode\342.4-的幂.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=342 lang=cpp
+ *
+ * [342] 4的幂
+ */
+
+// @lc code=start
+/*
  * 
  * 　　┏┓　　　┏┓+ +
  * 　┏┛┻━━━┛┻┓ + +
@@ -23,8 +38,10 @@
  * 　　　　┗┻┛　┗┻┛+ + + +
  * 
  */
+
 #include <bits/stdc++.h>
 using namespace std;
+
 # define POW2(X) (1 << (X))
 # define CKBIT(S,X) (((S) & POW2(X)) != 0)
 const double pi = acos(-1.0);
@@ -73,9 +90,18 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-USED TIME: 
-LAST EDIT TIME: 
+TIME:     4ms    BEAT: 42.62%    O(n) = 
+MEMORY: 5.9MB    BEAT:  7.50%    O(n) = 
+LAST EDIT TIME: 2021年5月31日9:15:22
 Description: 
 */
+
+class Solution {
+public:
+    bool isPowerOfFour(int n) {
+        return n > 0 && (n & (n - 1)) == 0 && (n & 0xaaaaaaaa) == 0;
+    }
+};
+
+// @lc code=end
+
