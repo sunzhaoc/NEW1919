@@ -1,61 +1,52 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: 冰凝水
- * @Date: 2021-06-03 08:53:15
- * @LastEditTime: 2021-06-03 09:15:28
+ * @Author: 冰凝水
+ * @Date: 2021-06-07 14:10:15
+ * @LastEditTime: 2021-06-07 15:21:30
  * @FilePath: \Leetcode\AcWing\0.demo.cpp
  */
 
 # include<bits/stdc++.h>
 using namespace std;
 
-const int N = 300010;
-int a[N], s[N];
-int n, m;
-vector<pair<int, int>> adds(n), query(m);
-vector<int> alls;
+const int N = 510;
 
-int find(int x) {
-    int l = 0, r = alls.size() - 1;
-    while (l < r) {
-        int mid = (r - l) / 2 + l;
-        if (alls[mid] >= x) r = mid;
-        else l = mid + 1;
+int n, m;
+int g[N][N];
+int dist[N];
+bool st[N]; 
+
+int dijkstra() {
+    memset(dist, INT_MAX, sizeof dist);    // 11 1111
+    dist[1] = 0;
+    for (int i = 0; i < n; i ++) {
+        // 在还未确定最短路的点中，寻找距离最小的点
+        int t = -1;
+        for (int j = 1; j <= n; j ++) 
+            if (!st[j] && (t == -1 || dist[t] > dist[j])) t = j;
+        st[t] = true;
+        
+        // 用t更新其他点的距离
+        for (int j = 1; j <= n; j ++) {
+            dist[j] = min(dist[j], dist[t] + g[t][j]);
+        }
     }
-    return r + 1;
+
+    if (dist[n] == INT_MAX) return -1;
+    return dist[n];
 }
 
 int main() {
-    cin >> n >> m;
-    for (int i = 0; i < n; i ++) {
-        int idx, val;
-        cin >> idx >> val;
-        adds[i] = make_pair(idx, val);
-        alls.push_back(idx);
-    }
-    for (int i = 0; i < m; i ++) {
-        int l, r;
-        cin >> l >> r;
-        query[i] = make_pair(l, r);
-        alls.push_back(l);
-        alls.push_back(r);
-    }
-    
-    sort(alls.begin(), alls.end());
-    // 去重
-    alls.erase(unique(alls.begin(), alls.end()), alls.end());
-    
-    for (auto item: adds) {
-        int x = find(item.first);
-        a[x] += item.second;
-    }
+    scanf("%d%d", &n, &m);
 
-    for (int i = 1; i <= alls.size(); i ++) s[i] = s[i - 1] + a[i];
-    
-    for (auto item: query) {
-        int l = find(item.first), r = find(item.second);
-        cout << a[r] - a[l - 1] << endl;
+    memset(g, 0x3f, sizeof g);
+    while (m --) {
+        int a, b, c;
+        scanf("%d%d%d", &a, &b, &c);
+        g[a][b] = min(g[a][b], c);
     }
+    int t = dijkstra();
+    printf("%d\n", t);
     return 0;
 }
