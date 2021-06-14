@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Author: 冰凝水
  * @Date: 2021-04-25 10:19:28
- * @LastEditTime: 2021-06-12 21:39:56
- * @FilePath: \Leetcode\Week Competition\模版\t1.cpp
+ * @LastEditTime: 2021-06-12 23:35:04
+ * @FilePath: \Leetcode\Week Competition\Biweekly Contest 54\t2.cpp
  */
 
 /*
@@ -81,7 +81,25 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
+class Solution {
+public:
+    int chalkReplacer(vector<int>& chalk, int k) {
+        int k2 = k;
+        REP(i, SZ(chalk)) {
+            if (chalk[i] > k2) return i;
+            k2 -= chalk[i];
+        }
 
+        LL sum = accumulate(chalk.begin(), chalk.end(), 0);
+        k %= sum;
+        
+        REP(i, SZ(chalk)) {
+            if (chalk[i] > k) return i;
+            k -= chalk[i];
+        }
+        return -1;
+    }
+};
 
 
 // int main() {

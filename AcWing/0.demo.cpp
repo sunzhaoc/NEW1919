@@ -3,50 +3,35 @@
  * @Version: 1.0
  * @Author: 冰凝水
  * @Date: 2021-06-07 14:10:15
- * @LastEditTime: 2021-06-07 15:21:30
+ * @LastEditTime: 2021-06-08 10:52:31
  * @FilePath: \Leetcode\AcWing\0.demo.cpp
  */
 
 # include<bits/stdc++.h>
 using namespace std;
 
-const int N = 510;
+const int N = 100010;
 
 int n, m;
-int g[N][N];
+int h[N], w[N], e[N], ne[N];
 int dist[N];
 bool st[N]; 
+int idx = 0;
 
-int dijkstra() {
-    memset(dist, INT_MAX, sizeof dist);    // 11 1111
-    dist[1] = 0;
-    for (int i = 0; i < n; i ++) {
-        // 在还未确定最短路的点中，寻找距离最小的点
-        int t = -1;
-        for (int j = 1; j <= n; j ++) 
-            if (!st[j] && (t == -1 || dist[t] > dist[j])) t = j;
-        st[t] = true;
-        
-        // 用t更新其他点的距离
-        for (int j = 1; j <= n; j ++) {
-            dist[j] = min(dist[j], dist[t] + g[t][j]);
-        }
-    }
 
-    if (dist[n] == INT_MAX) return -1;
-    return dist[n];
+void add(int a, int b, int c) {
+    e[idx] = b, w[idx] = c, ne[idx] = h[a], h[a] = idx ++;
 }
 
 int main() {
     scanf("%d%d", &n, &m);
+    memset(h, -1, sizeof h);
 
-    memset(g, 0x3f, sizeof g);
     while (m --) {
         int a, b, c;
         scanf("%d%d%d", &a, &b, &c);
-        g[a][b] = min(g[a][b], c);
+        add(a, b, c);
     }
-    int t = dijkstra();
-    printf("%d\n", t);
+    int tmp = 0;
     return 0;
 }

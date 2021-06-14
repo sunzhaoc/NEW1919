@@ -2,11 +2,10 @@
  * @Description: 
  * @Version: 1.0
  * @Author: 冰凝水
- * @Date: 2021-04-25 10:19:28
- * @LastEditTime: 2021-06-12 21:39:56
- * @FilePath: \Leetcode\Week Competition\模版\t1.cpp
+ * @Date: 2021-06-13 12:28:15
+ * @LastEditTime: 2021-06-13 12:34:03
+ * @FilePath: \Leetcode\Week Competition\Weekly Contest 245\5785. 合并若干三元组以形成目标三元组.cpp
  */
-
 /*
  * 
  * 　　┏┓　　　┏┓+ +
@@ -32,7 +31,6 @@
  * 　　　　┗┻┛　┗┻┛+ + + +
  * 
  */
-
 #include <bits/stdc++.h>
 using namespace std;
 # define POW2(X) (1 << (X))
@@ -81,17 +79,31 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
+/*
+RESULT: Accept
+TIME:   ms    BEAT: %    O(n) = 
+MEMORY: MB    BEAT: %    O(n) = 
+USED TIME: 
+LAST EDIT TIME: 
+Description: 
+*/
 
-
-
-// int main() {
-//     Solution sol;
-//     // VI nums = {};
-//     // VVI nums = {};
-//     auto ans = sol.();
-//     // cout << ans << endl;
-//     // REP(i, SZ(ans)) cout << ans[i] << endl;
-//     // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
-//     system("pause");
-//     return 0;
-// }
+class Solution {
+public:
+    bool mergeTriplets(vector<vector<int>>& triplets, vector<int>& target) {
+        vector<int> res(3, 0);
+        int n = triplets.size();
+        for (int i = 0; i < n; i ++) {
+            int a = triplets[i][0];
+            int b = triplets[i][1];
+            int c = triplets[i][2];
+            if (a <= target[0] && b <= target[1] && c <= target[2]) {
+                res[0] = max(res[0], a);
+                res[1] = max(res[1], b);
+                res[2] = max(res[2], c);
+            }
+        }
+        for (int i = 0; i < 3; i ++) if (res[i] != target[i]) return false;
+        return true;
+    }
+};

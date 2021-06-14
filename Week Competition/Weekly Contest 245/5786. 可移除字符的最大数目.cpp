@@ -2,11 +2,10 @@
  * @Description: 
  * @Version: 1.0
  * @Author: 冰凝水
- * @Date: 2021-04-25 10:19:28
- * @LastEditTime: 2021-06-12 21:39:56
- * @FilePath: \Leetcode\Week Competition\模版\t1.cpp
+ * @Date: 2021-06-13 12:58:12
+ * @LastEditTime: 2021-06-13 13:21:54
+ * @FilePath: \Leetcode\Week Competition\Weekly Contest 245\5786. 可移除字符的最大数目.cpp
  */
-
 /*
  * 
  * 　　┏┓　　　┏┓+ +
@@ -32,7 +31,6 @@
  * 　　　　┗┻┛　┗┻┛+ + + +
  * 
  */
-
 #include <bits/stdc++.h>
 using namespace std;
 # define POW2(X) (1 << (X))
@@ -80,18 +78,25 @@ using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
 
+class Solution {
+public:
+    bool checksubSeq(string s, string& p, vector<int>& removable, int idx) {
+        int i = 0, j = 0;
+        for (int k = 0; k <= idx; k ++) s[removable[k]] = '#';
+        while (i < s.size() && j < p.size()) {
+            if (s[i] == p[j]) j ++;
+            i ++;
+        }
+        return j == p.size();
+    }
 
-
-
-
-// int main() {
-//     Solution sol;
-//     // VI nums = {};
-//     // VVI nums = {};
-//     auto ans = sol.();
-//     // cout << ans << endl;
-//     // REP(i, SZ(ans)) cout << ans[i] << endl;
-//     // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
-//     system("pause");
-//     return 0;
-// }
+    int maximumRemovals(string s, string p, vector<int>& removable) {
+        int l = 0, r = removable.size() - 1;
+        while (l <= r) {
+            int mid = (l + r) >> 1;
+            if (checksubSeq(s, p, removable, mid)) l = mid + 1;
+            else r = mid - 1;
+        }
+        return l;
+    }
+};

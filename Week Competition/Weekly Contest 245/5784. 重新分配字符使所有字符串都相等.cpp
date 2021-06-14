@@ -2,11 +2,10 @@
  * @Description: 
  * @Version: 1.0
  * @Author: 冰凝水
- * @Date: 2021-04-25 10:19:28
- * @LastEditTime: 2021-06-12 21:39:56
- * @FilePath: \Leetcode\Week Competition\模版\t1.cpp
+ * @Date: 2021-06-13 12:42:46
+ * @LastEditTime: 2021-06-13 12:50:01
+ * @FilePath: \Leetcode\Week Competition\Weekly Contest 245\5784. 重新分配字符使所有字符串都相等.cpp
  */
-
 /*
  * 
  * 　　┏┓　　　┏┓+ +
@@ -32,13 +31,12 @@
  * 　　　　┗┻┛　┗┻┛+ + + +
  * 
  */
-
 #include <bits/stdc++.h>
 using namespace std;
 # define POW2(X) (1 << (X))
 # define CKBIT(S,X) (((S) & POW2(X)) != 0)
 const double pi = acos(-1.0);
-const double eps = 1e-11;
+const double eps = 1e-11;m
 const int MOD = 1e9 + 7;
 template<class T> inline void ckmin(T &a,T b){ a = min(a, b); }
 template<class T> inline void ckmax(T &a,T b){ a = max(a, b); }
@@ -63,7 +61,7 @@ template<class T> inline T sqr(T x){ return x * x; }
 # define L left
 # define R right
 # define V vector 
-template<class T> int CMP(T a[], const T b[], int n) { return memcmp(a, b, n * sizeof(T)); }
+template<class T> int CMP(T a[], const T b[], int n) { return emcmp(a, b, n * sizeof(T)); }
 template<class T> void COPY(T a[], const T b[], int n) { memcpy(a, b, n * sizeof(T)); }
 template<class T> void SET(T a[], int val, int n) { memset(a, val, n*sizeof(T)); }
 using uint = unsigned int;
@@ -81,17 +79,19 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
-
-
-
-// int main() {
-//     Solution sol;
-//     // VI nums = {};
-//     // VVI nums = {};
-//     auto ans = sol.();
-//     // cout << ans << endl;
-//     // REP(i, SZ(ans)) cout << ans[i] << endl;
-//     // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
-//     system("pause");
-//     return 0;
-// }
+class Solution {
+public:
+    bool makeEqual(vector<string>& words) {
+        int n = words.size();
+        vector<int> map(26, 0);
+        for (int i = 0; i < words.size(); i ++) {
+            for (int j = 0; j < words[i].size(); j ++) {
+                map[words[i][j] - 'a'] ++;
+            }
+        }
+        for (int i = 0; i < map.size(); i ++) {
+            if (map[i] % n != 0) return false;
+        }
+        return true;
+    }
+};

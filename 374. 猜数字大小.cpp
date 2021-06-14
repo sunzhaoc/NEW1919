@@ -1,10 +1,25 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Author: 冰凝水
- * @Date: 2021-04-25 10:19:28
- * @LastEditTime: 2021-06-12 21:39:56
- * @FilePath: \Leetcode\Week Competition\模版\t1.cpp
+ * @Autor: 冰凝水
+ * @Date: 2021-03-31 10:02:35
+ * @LastEditTime: 2021-06-14 13:04:11
+ * @FilePath: \Leetcode\374. 猜数字大小.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=374 lang=cpp
+ *
+ * [374] 猜数字大小
+ */
+
+// @lc code=start
+/** 
+ * Forward declaration of guess API.
+ * @param  num   your guess
+ * @return 	     -1 if num is lower than the guess number
+ *			      1 if num is higher than the guess number
+ *               otherwise return 0
+ * int guess(int num);
  */
 
 /*
@@ -32,7 +47,6 @@
  * 　　　　┗┻┛　┗┻┛+ + + +
  * 
  */
-
 #include <bits/stdc++.h>
 using namespace std;
 # define POW2(X) (1 << (X))
@@ -81,17 +95,50 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
+/*
+RESULT: Accept
+TIME:     0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 5.9MB    BEAT:   5.06%    O(n) = 
+LAST EDIT TIME: 2021年6月14日13:3:59
+Description: 二分
+*/
+
+class Solution {
+public:
+    int guessNumber(int n) {
+        int l = 1, r = n;
+        while (l <= r) {
+            int mid = (r - l) / 2 + l;
+            if (guess(mid) == 0) return mid;
+            if (guess(mid) == -1) r = mid - 1;
+            else l = mid + 1;
+        }
+        return -1;
+    }
+};
 
 
+/*
+RESULT: Accept
+TIME:     0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 5.8MB    BEAT:  82.19%    O(n) = 
+USED TIME: 02:18
+LAST EDIT TIME: 2021年3月31日10:5:51
+Description: 二刷，之前是python。二分。弱智。
+*/
 
-// int main() {
-//     Solution sol;
-//     // VI nums = {};
-//     // VVI nums = {};
-//     auto ans = sol.();
-//     // cout << ans << endl;
-//     // REP(i, SZ(ans)) cout << ans[i] << endl;
-//     // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
-//     system("pause");
-//     return 0;
-// }
+class Solution {
+public:
+    int guessNumber(int n) {
+        int l = 1, r = n;
+        while (l <= r) {
+            int mid = (r - l) / 2 + l;
+            if (guess(mid) == 0) return mid;
+            if (guess(mid) == 1) l = mid + 1;
+            else r = mid - 1;
+        }
+        return -1;
+    }
+};
+// @lc code=end
+

@@ -1,16 +1,40 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: 冰凝水
- * @Date: 2021-04-25 10:14:44
- * @LastEditTime: 2021-04-25 18:10:18
- * @FilePath: \Leetcode\Week Competition\模版\t2.cpp
+ * @Author: 冰凝水
+ * @Date: 2021-04-25 10:19:28
+ * @LastEditTime: 2021-06-12 21:39:56
+ * @FilePath: \Leetcode\Week Competition\模版\t1.cpp
  */
 
+/*
+ * 
+ * 　　┏┓　　　┏┓+ +
+ * 　┏┛┻━━━┛┻┓ + +
+ * 　┃　　　　　　　┃ 　
+ * 　┃　　　━　　　┃ ++ + + +
+ *  ██姜██━██狗██ ┃+
+ * 　┃　　　　　　　┃ +
+ * 　┃　　　┻　　　┃
+ * 　┃　　　　　　　┃ + +
+ * 　┗━┓　　　┏━┛
+ * 　　　┃　　　┃　　　　　　　　　　　
+ * 　　　┃　　　┃ + + + +
+ * 　　　┃　　　┃
+ * 　　　┃　　　┃ +  神兽保佑
+ * 　　　┃　　　┃    代码无bug　　
+ * 　　　┃　　　┃　　+　　　　　　　　　
+ * 　　　┃　 　　┗━━━┓ + +
+ * 　　　┃ 　　　　　　　┣┓
+ * 　　　┃ 　　　　　　　┏┛
+ * 　　　┗┓┓┏━┳┓┏┛ + + + +
+ * 　　　　┃┫┫　┃┫┫
+ * 　　　　┗┻┛　┗┻┛+ + + +
+ * 
+ */
 
 #include <bits/stdc++.h>
 using namespace std;
-
 # define POW2(X) (1 << (X))
 # define CKBIT(S,X) (((S) & POW2(X)) != 0)
 const double pi = acos(-1.0);
@@ -55,6 +79,8 @@ using VD = vector<double>;
 using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
+
+
 
 
 

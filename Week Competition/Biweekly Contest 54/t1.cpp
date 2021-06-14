@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Author: 冰凝水
  * @Date: 2021-04-25 10:19:28
- * @LastEditTime: 2021-06-12 21:39:56
- * @FilePath: \Leetcode\Week Competition\模版\t1.cpp
+ * @LastEditTime: 2021-06-12 23:31:18
+ * @FilePath: \Leetcode\Week Competition\Biweekly Contest 54\t1.cpp
  */
 
 /*
@@ -81,7 +81,18 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
-
+class Solution {
+public:
+    bool isCovered(vector<vector<int>>& ranges, int left, int right) {
+        VI dp(50 + 1, 0);
+        REP(i, SZ(ranges)) {
+            int l = ranges[i][0], r = ranges[i][1];
+            FOR(j, l, r + 1) dp[j] = 1;
+        }
+        FOR(i, left, right + 1) if (dp[i] == 0) return false;
+        return true;
+    }
+};
 
 
 // int main() {

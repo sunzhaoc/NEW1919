@@ -2,11 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Author: 冰凝水
- * @Date: 2021-04-25 10:19:28
- * @LastEditTime: 2021-06-12 21:39:56
- * @FilePath: \Leetcode\Week Competition\模版\t1.cpp
+ * @Date: 2021-06-09 08:55:53
+ * @LastEditTime: 2021-06-09 09:06:25
+ * @FilePath: \Leetcode\879.盈利计划.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=879 lang=cpp
+ *
+ * [879] 盈利计划
  */
 
+// @lc code=start
 /*
  * 
  * 　　┏┓　　　┏┓+ +
@@ -32,7 +38,6 @@
  * 　　　　┗┻┛　┗┻┛+ + + +
  * 
  */
-
 #include <bits/stdc++.h>
 using namespace std;
 # define POW2(X) (1 << (X))
@@ -81,17 +86,35 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
+/*
+RESULT: Accept
+TIME:    224ms    BEAT: 30.43%    O(n) = 
+MEMORY: 52.6MB    BEAT:  9.32%    O(n) = 
+LAST EDIT TIME: 2021年6月9日9:6:9
+Description: 
+*/
 
+class Solution {
+public:
+    int profitableSchemes(int n, int minProfit, vector<int>& group, vector<int>& profit) {
+        int len = SZ(group);
+        V<VVI> dp(len + 1, VVI(n + 1, VI(minProfit + 1)));
+        dp[0][0][0] = 1;
+        for (int i = 1; i <= len; i ++) {
+            int member = group[i - 1], earn = profit[i - 1];
+            for (int j = 0; j <= n; j ++) {
+                for (int k = 0; k <= minProfit; k ++) {
+                    if (j < member) dp[i][j][k] = dp[i - 1][j][k];
+                    else {
+                        dp[i][j][k] = (dp[i - 1][j][k] + dp[i - 1][j - member][max(0, k - earn)]) % (int)(1e9 + 7);
+                    }
+                }
+            }
+        }
+        int res = 0;
+        REP(i, n + 1) res = (res + dp[len][i][minProfit]) % MOD;
+        return res;
+    }
+};
+// @lc code=end
 
-
-// int main() {
-//     Solution sol;
-//     // VI nums = {};
-//     // VVI nums = {};
-//     auto ans = sol.();
-//     // cout << ans << endl;
-//     // REP(i, SZ(ans)) cout << ans[i] << endl;
-//     // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
-//     system("pause");
-//     return 0;
-// }

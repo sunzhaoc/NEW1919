@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-05-18 16:01:32
- * @LastEditTime: 2021-05-27 22:17:26
+ * @LastEditTime: 2021-06-08 13:33:31
  * @FilePath: \Leetcode\demo.cpp
  */
 
@@ -71,7 +71,7 @@ int main() {
     LL totalSec = sum_sec + sum_min * 60 + sum_hour * 3600;
     
     int tmp_hour = 0, tmp_min = 0, tmp_sec = 0;
-    REP(i, 33) {
+    REP(i, 30) {
         tmp_hour += hourList[i];
         tmp_min += minList[i];
         tmp_sec += secList[i];

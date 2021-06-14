@@ -2,11 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Author: 冰凝水
- * @Date: 2021-04-25 10:19:28
- * @LastEditTime: 2021-06-12 21:39:56
- * @FilePath: \Leetcode\Week Competition\模版\t1.cpp
+ * @Date: 2021-06-08 09:00:45
+ * @LastEditTime: 2021-06-08 09:17:05
+ * @FilePath: \Leetcode\1049.最后一块石头的重量-ii.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=1049 lang=cpp
+ *
+ * [1049] 最后一块石头的重量 II
  */
 
+// @lc code=start
 /*
  * 
  * 　　┏┓　　　┏┓+ +
@@ -32,7 +38,6 @@
  * 　　　　┗┻┛　┗┻┛+ + + +
  * 
  */
-
 #include <bits/stdc++.h>
 using namespace std;
 # define POW2(X) (1 << (X))
@@ -81,17 +86,28 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
+/*
+RESULT: Accept
+TIME:     8ms    BEAT: 42.57%    O(n) = 
+MEMORY: 8.9MB    BEAT: 31.06%    O(n) = 
+LAST EDIT TIME: 2021年6月8日9:16:49
+Description: 01背包问题 
+*/
 
+class Solution {
+public:
+    int lastStoneWeightII(vector<int>& stones) {
+        int sum = accumulate(ALL(stones), 0);
+        int n = SZ(stones), m = sum / 2;
+        VVI dp(n + 1, VI(m + 1, 0));
+        for (int i = 1; i <= n; i ++) {
+            for (int j = 0; j <= m; j ++) {
+                if (j < stones[i - 1]) dp[i][j] = dp[i - 1][j];
+                else dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - stones[i - 1]] + stones[i - 1]);
+            }
+        }
+        return sum - 2 * dp[n][m];
+    }
+};
+// @lc code=end
 
-
-// int main() {
-//     Solution sol;
-//     // VI nums = {};
-//     // VVI nums = {};
-//     auto ans = sol.();
-//     // cout << ans << endl;
-//     // REP(i, SZ(ans)) cout << ans[i] << endl;
-//     // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
-//     system("pause");
-//     return 0;
-// }

@@ -72,8 +72,7 @@ int main() {
     
     for (int i = 1; i <= N; i ++) { // 考虑前i个物品
         for (int j = V; j >= max(v[i], V - preSum[i]); j --) { // 考虑背包为j的情况，常数优化。
-            if (j < v[i]) dp[j] = dp[j];
-            else dp[j] = max(dp[j], dp[j - v[i]] + w[i]);
+            dp[j] = max(dp[j], dp[j - v[i]] + w[i]);
         }
     }
     

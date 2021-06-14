@@ -32,7 +32,16 @@ FilePath: \Leetcode\Week Competition\Biweekly Contest 54\t1.py
  * 　　　　┗┻┛　┗┻┛+ + + +
  * 
 """
-
+class Solution:
+    def chalkReplacer(self, chalk: List[int], k: int) -> int:
+        s = sum(chalk)
+        k %= s
+        
+        for id, cost in enumerate(chalk):
+            if cost > k:
+                return id
+            k -= cost
+        return -1
 
 # sol = Solution()
 # ans = sol.

@@ -2,11 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Author: 冰凝水
- * @Date: 2021-04-25 10:19:28
- * @LastEditTime: 2021-06-12 21:39:56
- * @FilePath: \Leetcode\Week Competition\模版\t1.cpp
+ * @Date: 2021-06-08 09:41:11
+ * @LastEditTime: 2021-06-08 10:12:56
+ * @FilePath: \Leetcode\743.网络延迟时间.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=743 lang=cpp
+ *
+ * [743] 网络延迟时间
  */
 
+// @lc code=start
 /*
  * 
  * 　　┏┓　　　┏┓+ +
@@ -32,7 +38,6 @@
  * 　　　　┗┻┛　┗┻┛+ + + +
  * 
  */
-
 #include <bits/stdc++.h>
 using namespace std;
 # define POW2(X) (1 << (X))
@@ -81,17 +86,50 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
+/*
+RESULT: Accept
+TIME:    124ms    BEAT: 85.58%    O(n) = 
+MEMORY: 36.4MB    BEAT: 74.20%    O(n) = 
+LAST EDIT TIME: 2021年6月8日10:11:38
+Description: Dijkstra算法
+*/
 
+class Solution {
+public:
+    VVI g;
+    VI dist;
+    V<bool> st;
 
+    int dijkstra(int& n, int& k) {
+        for (int i = 0; i < n; i ++) {
+            int t = -1;
+            for (int j = 1; j <= n; j ++) {
+                if (!st[j] && (t == -1 || dist[t] > dist[j])) t = j;
+            }
+            
+            st[t] = true;
 
-// int main() {
-//     Solution sol;
-//     // VI nums = {};
-//     // VVI nums = {};
-//     auto ans = sol.();
-//     // cout << ans << endl;
-//     // REP(i, SZ(ans)) cout << ans[i] << endl;
-//     // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
-//     system("pause");
-//     return 0;
-// }
+            for (int j = 1; j <= n; j ++) {
+                ckmin(dist[j], dist[t] + g[t][j]);
+            }
+            int tmp = 0;
+        }
+        return *max_element(dist.begin() + 1, dist.end());
+    }
+
+    int networkDelayTime(vector<vector<int>>& times, int n, int k) {
+        g.resize(n + 1, VI(n + 1, 0x3f3f3f3f));
+        dist.resize(n + 1, 0x3f3f3f3f);
+        st.resize(n + 1, false);
+        dist[k] = 0;
+        for (int i = 0; i < SZ(times); i ++) {
+            ckmin(g[times[i][0]][times[i][1]], times[i][2]);
+        }
+        int res = dijkstra(n, k);
+        if (res >= 0x3f3f3f3f) return -1;
+        return res;
+    }
+};
+
+// @lc code=end
+
