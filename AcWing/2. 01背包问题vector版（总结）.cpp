@@ -27,6 +27,7 @@ int main() {
 
 /*
 Description: 01背包的一维vector写法。时间复杂度O(NV)，空间复杂度O(V)
+这个是最常用的版本。
 */
 # include<bits/stdc++.h>
 using namespace std;
@@ -40,9 +41,8 @@ int main() {
     vector<int> dp(V + 1, 0);
     
     for (int i = 1; i <= N; i ++) { // 考虑前i个物品
-        for (int j = V; j >= 1; j --) { // 考虑背包为j的情况，注意这里是倒序遍历背包容量
-            if (j < v[i]) dp[j] = dp[j];
-            else dp[j] = max(dp[j], dp[j - v[i]] + w[i]);
+        for (int j = V; j >= v[i]; j --) { // 考虑背包为j的情况，注意这里是倒序遍历背包容量
+            dp[j] = max(dp[j], dp[j - v[i]] + w[i]);
         }
     }
     
@@ -52,7 +52,7 @@ int main() {
 
 
 /*
-Description: 01背包的一维vector写法。时间复杂度O(NV)，空间复杂度O(V)，加了一个常数优化 + 前缀和。
+Description: 01背包的一维vector写法。时间复杂度O(NV)，空间复杂度O(V)，加了一个常数优化 + 后缀和。
 */
 # include<bits/stdc++.h>
 using namespace std;
@@ -65,7 +65,7 @@ int main() {
     
     vector<int> dp(V + 1, 0);
     
-    // 前缀和优化
+    // 后缀和优化
     vector<int> preSum(N + 1);
     preSum.back() = v.back();
     for (int i = v.size() - 2; i >= 1; i --) preSum[i] = preSum[i + 1] + v[i];
@@ -79,6 +79,7 @@ int main() {
     cout << dp.back() << endl;
     return 0;
 }
+
 
 
 /*

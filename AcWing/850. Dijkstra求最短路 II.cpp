@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Author: 冰凝水
  * @Date: 2021-06-07 14:10:15
- * @LastEditTime: 2021-06-08 10:56:13
+ * @LastEditTime: 2021-06-17 19:41:28
  * @FilePath: \Leetcode\AcWing\850. Dijkstra求最短路 II.cpp
  */
 
@@ -13,7 +13,7 @@ using namespace std;
 const int N = 510;
 
 int n, m;
-int h[N], w[N], e[N], ne[N];
+int h[N], w[N], e[N], ne[N], idx;
 int dist[N];
 bool st[N]; 
 int idx = 0;
@@ -27,7 +27,7 @@ int dijstra() {
     dist[1] = 0;
 
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> heap;
-    heap.push({0, 1});
+    heap.push({0, 1});  // 距离是0，编号是1
 
     while (heap.size()) {
         auto t = heap.top();
@@ -35,9 +35,12 @@ int dijstra() {
         int ver = t.second, distance = t.first;
         if (st[ver]) continue;
 
-        for (int i = h[t]; i != -1; i = ne[i]) {
+        for (int i = h[ver]; i != -1; i = ne[i]) {
             int j = e[i];
-            if (dist[j] > dist[t]) t = j;
+            if (dist[j] > distance + w[i]) {
+                dist[j] = distance + w[i];
+                heap.push({dist[j], j});
+            }
         }
     }
 

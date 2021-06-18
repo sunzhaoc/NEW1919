@@ -1,4 +1,19 @@
 /*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: 冰凝水
+ * @Date: 2021-06-16 09:05:45
+ * @LastEditTime: 2021-06-16 09:14:43
+ * @FilePath: \Leetcode\877.石子游戏.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=877 lang=cpp
+ *
+ * [877] 石子游戏
+ */
+
+// @lc code=start
+/*
  * 
  * 　　┏┓　　　┏┓+ +
  * 　┏┛┻━━━┛┻┓ + +
@@ -73,8 +88,25 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-LAST EDIT TIME: 
-Description: 
+TIME:     28ms    BEAT: 24.19%    O(n) = 
+MEMORY: 16.1MB    BEAT: 10.03%    O(n) = 
+LAST EDIT TIME: 2021年6月16日9:14:27
+Description: 博弈论。
 */
+
+class Solution {
+public:
+    bool stoneGame(vector<int>& piles) {
+        int n = SZ(piles);
+        VVI dp(n, VI(n));
+        REP(i, n) dp[i][i] = piles[i];
+        RREP(i, n - 1) {
+            FOR(j, i + 1, n) {
+                dp[i][j] = max(piles[i] - dp[i + 1][j], piles[j] - dp[i][j - 1]);
+            }
+        }
+        return dp[0][n - 1] > 0;
+    }
+};
+// @lc code=end
+
