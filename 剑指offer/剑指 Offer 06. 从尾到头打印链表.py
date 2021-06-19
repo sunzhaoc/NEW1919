@@ -3,8 +3,8 @@ Description:
 Version: 1.0
 Author: 冰凝水
 Date: 2020-12-03 20:11:05
-LastEditTime: 2020-12-03 20:22:47
-FilePath: \Leetcode\剑指 Offer 06. 从尾到头打印链表.py
+LastEditTime: 2021-06-18 15:11:57
+FilePath: \Leetcode\剑指offer\剑指 Offer 06. 从尾到头打印链表.py
 '''
 
 # Definition for singly-linked list.
@@ -20,13 +20,13 @@ TIME: 56ms BEAT: 37.52%
 MEMORY: 15MB BEAT: 43.29%
 Description: 
 """
-# class Solution:
-#     def reversePrint(self, head: ListNode) -> List[int]:
-#         res = []
-#         while head:
-#             res.append(head.val)
-#             head = head.next
-#         return res[::-1]
+class Solution:
+    def reversePrint(self, head: ListNode) -> List[int]:
+        res = []
+        while head:
+            res.append(head.val)
+            head = head.next
+        return res[::-1]
 
 
 """

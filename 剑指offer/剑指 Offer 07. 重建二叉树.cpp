@@ -1,12 +1,20 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: 冰凝水
- * @Date: 2020-12-30 13:24:55
- * @LastEditTime: 2021-06-18 15:43:26
- * @FilePath: \Leetcode\剑指offer\剑指 Offer 09. 用两个栈实现队列.cpp
+ * @Author: 冰凝水
+ * @Date: 2021-06-18 15:12:52
+ * @LastEditTime: 2021-06-18 15:33:11
+ * @FilePath: \Leetcode\剑指offer\剑指 Offer 07. 重建二叉树.cpp
  */
-
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
 /*
  * 
  * 　　┏┓　　　┏┓+ +
@@ -79,123 +87,43 @@ using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
 
-
-/*
-RESULT: Accept
-TIME:   352ms    BEAT: 48.59%    O(n) = 
-MEMORY: 101MB    BEAT: 92.75%    O(n) = 
-LAST EDIT TIME: 2021年6月18日15:43:1
-Description: 二刷。
-*/
-
-class CQueue {
-public:
-    stack<int> st1, st2;
-    
-    CQueue() {
-    }
-    
-    void appendTail(int value) {
-        st1.push(value);
-    }
-    
-    int deleteHead() {
-        if (st2.size()) {
-            int res = st2.top();
-            st2.pop();
-            return res;
-        }
-
-        if (st1.empty()) return -1;
-        while (st1.size()) {
-            st2.push(st1.top());
-            st1.pop();
-        }
-        int res = st2.top();
-        st2.pop();
-        return res;
-    }
-};
-
-
-
-/*
-RESULT: Accept
-TIME:     620ms    BEAT:  7.91%    O(n) = 
-MEMORY: 108.3MB    BEAT: 18.52%    O(n) = 
-LAST EDIT TIME: 2021年6月18日15:37:31
-Description: 二刷。
-*/
-
-class CQueue {
-public:
-    stack<int> st1, st2;
-    
-    CQueue() {
-    }
-    
-    void appendTail(int value) {
-        st1.push(value);
-    }
-    
-    int deleteHead() {
-        if (st1.empty()) return -1;
-
-        while (st1.size()) {
-            st2.push(st1.top());
-            st1.pop();
-        }
-        int res = st2.top();
-        st2.pop();
-        while (st2.size()) {
-            st1.push(st2.top());
-            st2.pop();
-        }
-        return res;
-    }
+// Definition for a binary tree node.
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
 
 /*
 RESULT: Accept
-TIME:     520ms    BEAT: 72.41%    O(n) = 1
-MEMORY: 101.6MB    BEAT: 43.32%    O(n) = 1
-Description: 
+TIME:     16ms    BEAT: 84.71%    O(n) = 
+MEMORY: 24.9MB    BEAT: 38.33%    O(n) = 
+LAST EDIT TIME: 2021年6月18日15:32:57
+Description: 二刷。
 */
 
-// class CQueue {
-// public:
-//     stack<int> stack1, stack2;
+class Solution {
+public:
+    unordered_map<int, int> inMap;
+    int num = 0;
 
-//     CQueue() {
+    TreeNode* dfs(vector<int>& preorder, vector<int>& inorder, int l, int r) {
+        if (l > r) return nullptr;
+        int val = preorder[num ++];
+        TreeNode *root = new TreeNode(val);
 
-//     }
+        int idx = inMap[val];
+
+        root->left = dfs(preorder, inorder, l, idx - 1);
+        root->right = dfs(preorder, inorder, idx + 1, r);
+        return root;
+    }
     
-//     void appendTail(int value) {
-//         stack1.push(value);
-//     }
-
-//     int deleteHead() {
-//         if (!stack2.empty()) {
-//             int ans = stack2.top();
-//             stack2.pop();
-//             return ans;
-//         }
-
-//         if (stack1.empty()) return -1;
-//         while (!stack1.empty()) {
-//             stack2.push(stack1.top());
-//             stack1.pop();
-//         }
-//         int ans = stack2.top();
-//         stack2.pop();
-//         return ans;
-//     }
-// };
-
-/**
- * Your CQueue object will be instantiated and called as such:
- * CQueue* obj = new CQueue();
- * obj->appendTail(value);
- * int param_2 = obj->deleteHead();
- */
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        int n = preorder.size();
+        for (int i = 0; i < n; i ++) inMap[inorder[i]] = i;
+        dfs(preorder, inorder, 0, n - 1);
+    }
+};

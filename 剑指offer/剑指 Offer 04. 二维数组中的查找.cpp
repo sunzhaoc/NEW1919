@@ -3,13 +3,38 @@
  * @Version: 1.0
  * @Author: 冰凝水
  * @Date: 2020-12-04 14:14:02
- * @LastEditTime: 2021-03-17 13:30:08
- * @FilePath: \Leetcode\剑指 Offer 04. 二维数组中的查找.cpp
+ * @LastEditTime: 2021-06-18 14:56:39
+ * @FilePath: \Leetcode\剑指offer\剑指 Offer 04. 二维数组中的查找.cpp
  */
 
 #include <vector>
 #include <iostream>
 using namespace std;
+
+/*
+RESULT: Accept
+TIME:     28ms    BEAT: 64.92%    O(n) = m + n;
+MEMORY: 12.7MB    BEAT: 56.05%    O(n) = 1
+LAST EDIT TIME: 2021年6月18日14:56:5
+Description: 二刷。
+*/
+
+class Solution {
+public:
+    bool findNumberIn2DArray(vector<vector<int>>& array, int target) {
+        int n = array.size();
+        if (n == 0) return false;
+        int m = array[0].size();
+        int i = 0, j = m - 1;
+        while (i >= 0 && i < n && j >= 0 && j < m ){
+            if (array[i][j] == target) return true;
+            if (array[i][j] > target) j --;
+            else i ++;
+        }
+        return false;
+    }
+};
+
 
 /*
 RESULT: Accept
