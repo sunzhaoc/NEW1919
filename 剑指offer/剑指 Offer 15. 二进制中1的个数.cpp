@@ -2,11 +2,10 @@
  * @Description: 
  * @Version: 1.0
  * @Author: 冰凝水
- * @Date: 2021-04-25 10:19:28
- * @LastEditTime: 2021-06-12 21:39:56
- * @FilePath: \Leetcode\Week Competition\模版\t1.cpp
+ * @Date: 2021-06-21 18:41:55
+ * @LastEditTime: 2021-06-21 18:45:26
+ * @FilePath: \Leetcode\剑指offer\剑指 Offer 15. 二进制中1的个数.cpp
  */
-
 /*
  * 
  * 　　┏┓　　　┏┓+ +
@@ -32,7 +31,6 @@
  * 　　　　┗┻┛　┗┻┛+ + + +
  * 
  */
-
 #include <bits/stdc++.h>
 using namespace std;
 # define POW2(X) (1 << (X))
@@ -81,17 +79,43 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
+/*
+RESULT: Accept
+TIME:     0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 5.9MB    BEAT:  26.86%    O(n) = 
+LAST EDIT TIME: 
+Description: 
+*/
+
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+        int cnt = 0;
+        while (n) {
+            n -= n & (-n);
+            cnt ++;
+        }
+        return cnt;
+    }
+};
 
 
+/*
+RESULT: Accept
+TIME:     0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 5.9MB    BEAT:  56.90%    O(n) = 
+LAST EDIT TIME: 2021年6月21日18:42:51
+Description: 
+*/
 
-// int main() {
-//     Solution sol;
-//     // VI nums = {};
-//     // VVI nums = {};
-//     auto ans = sol.();
-//     // cout << ans << endl;
-//     // REP(i, SZ(ans)) cout << ans[i] << endl;
-//     // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
-//     system("pause");
-//     return 0;
-// }
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+        int cnt = 0;
+        while (n) {
+            n &= (n - 1);
+            cnt ++;
+        }
+        return cnt;
+    }
+};

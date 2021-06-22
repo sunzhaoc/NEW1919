@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2020-12-15 20:34:24
- * @LastEditTime: 2021-06-18 16:13:32
+ * @LastEditTime: 2021-06-22 15:35:35
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 10- II. 青蛙跳台阶问题.cpp
  */
 
@@ -82,10 +82,10 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-LAST EDIT TIME: 
-Description: 
+TIME:     0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 5.9MB    BEAT:  42.52%    O(n) = 
+LAST EDIT TIME: 2021年6月22日15:35:18
+Description: DP
 */
 
 class Solution {
@@ -94,32 +94,14 @@ public:
     int numWays(int n) {
         int a = 1, b = 1;
         for (int i = 0; i < n; i ++) {
-            a = b;
+            int tmp = b;
             b = (a + b) % N;
+            a = tmp;
         }
         return a;
     }
 };
 
-
-/*
-RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-Description: 
-*/
-
-class Solution {
-public:
-    int numWays(int n) {
-        int a = 1, b = 1;
-        for (int i = 0; i < n; i ++) {
-            a = b;
-            b = (a + b) % 1000000007;
-        }
-        return a;
-    }
-};
 
 
 int main() {

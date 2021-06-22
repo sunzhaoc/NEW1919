@@ -2,11 +2,10 @@
  * @Description: 
  * @Version: 1.0
  * @Author: 冰凝水
- * @Date: 2021-04-25 10:19:28
- * @LastEditTime: 2021-06-12 21:39:56
- * @FilePath: \Leetcode\Week Competition\模版\t1.cpp
+ * @Date: 2021-06-21 18:50:30
+ * @LastEditTime: 2021-06-21 19:07:11
+ * @FilePath: \Leetcode\剑指offer\剑指 Offer 16. 数值的整数次方.cpp
  */
-
 /*
  * 
  * 　　┏┓　　　┏┓+ +
@@ -32,7 +31,6 @@
  * 　　　　┗┻┛　┗┻┛+ + + +
  * 
  */
-
 #include <bits/stdc++.h>
 using namespace std;
 # define POW2(X) (1 << (X))
@@ -81,17 +79,49 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
+/*
+RESULT: Accept
+TIME:     4ms    BEAT: 37.35%    O(n) = 
+MEMORY: 5.8MB    BEAT: 66.23%    O(n) = 
+LAST EDIT TIME: 2021年6月21日19:6:38
+Description: 快速幂（位运算）
+*/
+
+class Solution {
+public:
+    double quick_pow(double a, long long k) {
+        double res = 1, base = a;
+        while (k) {
+            if (k & 1) res = res * base;
+            base = base * base;
+            k >>= 1;
+        }
+        return res;
+    }
+    double myPow(double x, int n) {
+        if (n >= 0) return quick_pow(x, n);
+        return 1 / quick_pow(x, -(long long)n);
+    }
+};
 
 
+/*
+RESULT: Accept
+TIME:     0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 5.9MB    BEAT:   7.66%    O(n) = 
+LAST EDIT TIME: 2021年6月21日19:6:53
+Description: 快速幂（递归）
+*/
 
-// int main() {
-//     Solution sol;
-//     // VI nums = {};
-//     // VVI nums = {};
-//     auto ans = sol.();
-//     // cout << ans << endl;
-//     // REP(i, SZ(ans)) cout << ans[i] << endl;
-//     // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
-//     system("pause");
-//     return 0;
-// }
+class Solution {
+public:
+    double quick_pow(double a, long long k) {
+        if (k == 0) return 1;
+        double res = quick_pow(a, k / 2);
+        return k % 2 == 0 ? res * res : res * res * a;
+    }
+    double myPow(double x, int n) {
+        if (n >= 0) return quick_pow(x, n);
+        return 1 / quick_pow(x, -(long long)n);
+    }
+};
