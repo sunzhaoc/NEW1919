@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-01-04 19:40:01
- * @LastEditTime: 2021-01-04 19:49:13
- * @FilePath: \Leetcode\剑指 Offer 30. 包含min函数的栈.cpp
+ * @LastEditTime: 2021-06-22 16:06:40
+ * @FilePath: \Leetcode\剑指offer\剑指 Offer 30. 包含min函数的栈.cpp
  */
 
 #include <stack>

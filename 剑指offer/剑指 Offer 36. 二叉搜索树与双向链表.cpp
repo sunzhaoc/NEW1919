@@ -1,11 +1,35 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: 冰凝水
- * @Date: 2021-01-05 14:38:14
- * @LastEditTime: 2021-06-22 16:19:49
- * @FilePath: \Leetcode\剑指offer\剑指 Offer 33. 二叉搜索树的后序遍历序列.cpp
+ * @Author: 冰凝水
+ * @Date: 2021-06-22 16:36:30
+ * @LastEditTime: 2021-06-24 08:43:32
+ * @FilePath: \Leetcode\剑指offer\剑指 Offer 36. 二叉搜索树与双向链表.cpp
  */
+
+
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    Node* left;
+    Node* right;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+        left = NULL;
+        right = NULL;
+    }
+
+    Node(int _val, Node* _left, Node* _right) {
+        val = _val;
+        left = _left;
+        right = _right;
+    }
+};
+
 
 /*
  * 
@@ -82,61 +106,35 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     0ms    BEAT: 100.00%    O(n) = 
-MEMORY: 6.7MB    BEAT:  84.45%    O(n) = 
-LAST EDIT TIME: 2021年6月22日16:19:33
+TIME:   ms    BEAT: %    O(n) = 
+MEMORY: MB    BEAT: %    O(n) = 
+LAST EDIT TIME: 
 Description: 
 */
 
 class Solution {
 public:
-    bool dfs(vector<int>& node, int l, int r) {
-        if (l >= r) return true;
-        int val = node[r];
-        int idx = l;
-        while (idx < r && node[idx] < val) idx ++;
-        for (int i = idx; i < r; i ++) if (node[i] < val) return false;
+    Node* pre, * cur;
+    void dfs(Node* node) {
+        if (!node) return;
+        dfs(node->left);
 
-        return dfs(node, l, idx - 1) && dfs(node, idx, r - 1);
+        if (pre) pre->right = node;
+        else cur = node;
+        node->left = pre;
+        pre = node;
+
+        dfs(node->right);
     }
 
-    bool verifyPostorder(vector<int>& postorder) {
-        if (postorder.size() < 2) return true;
-        return dfs(postorder, 0, postorder.size() - 1);
+    Node* treeToDoublyList(Node* root) {
+        if (!root) return nullptr;
+        dfs(root);
+
+        cur->left = pre;
+        pre->right = cur;
+
+
+        return cur;
     }
 };
-
-
-/*
-RESULT: Accept
-TIME:     0ms    BEAT: 100.00%    O(n) = 
-MEMORY: 7.1MB    BEAT:  80.61%    O(n) = 
-USED TIME:
-Description: 递归。
-*/
-
-// class Solution {
-// public:
-//     bool valid(vector<int>& node, int left, int right) {
-//         if (left >= right) return true;
-//         int val = node[right];
-
-//         int temp = left;
-//         while (temp < right && node[temp] < val) 
-//         {
-//             temp ++;
-//         }
-
-//         for (int i = temp; i < right; i ++) {
-//             if(node[i] < val) return false;
-//         }
-
-//         return valid(node, left, temp - 1) && valid(node, temp, right - 1);
-        
-//     }
-
-//     bool verifyPostorder(vector<int>& postorder) {
-//         if (postorder.size() < 2) return true;
-//         return valid(postorder, 0, postorder.size() - 1);
-//     }
-// };
