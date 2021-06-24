@@ -2,11 +2,17 @@
  * @Description: 
  * @Version: 1.0
  * @Author: 冰凝水
- * @Date: 2021-06-24 09:15:28
- * @LastEditTime: 2021-06-24 09:43:39
- * @FilePath: \Leetcode\剑指offer\剑指 Offer 43. 1～n 整数中 1 出现的次数.cpp
+ * @Date: 2021-06-24 09:36:36
+ * @LastEditTime: 2021-06-24 09:44:30
+ * @FilePath: \Leetcode\233.数字-1-的个数.cpp
+ */
+/*
+ * @lc app=leetcode.cn id=233 lang=cpp
+ *
+ * [233] 数字 1 的个数
  */
 
+// @lc code=start
 /*
  * 
  * 　　┏┓　　　┏┓+ +
@@ -32,7 +38,6 @@
  * 　　　　┗┻┛　┗┻┛+ + + +
  * 
  */
-
 #include <bits/stdc++.h>
 using namespace std;
 # define POW2(X) (1 << (X))
@@ -84,8 +89,8 @@ using VVS = vector<VS>;
 /*
 RESULT: Accept
 TIME:     0ms    BEAT: 100.00%    O(n) = 
-MEMORY: 5.8MB    BEAT:  77.98%    O(n) = 
-LAST EDIT TIME: 2021年6月24日9:35:55
+MEMORY: 5.8MB    BEAT:  65.60%    O(n) = 
+LAST EDIT TIME: 2021年6月24日9:44:4
 Description: 
 */
 
@@ -93,9 +98,8 @@ class Solution {
 public:
     int countDigitOne(int n) {
         long long digit = 1;
-        int res = 0;
-        int high = n / 10, cur = n % 10, low = 0;
-        while (high != 0 || cur != 0)  { // 当 high 和 cur 同时为 0 时，说明已经越过最高位，因此跳出
+        int res = 0, high = n / 10, cur = n % 10, low = 0;
+        while (high != 0 || cur != 0){
             if (cur == 0) res += high * digit;
             else if (cur == 1) res += high * digit + low + 1;
             else res += (high + 1) * digit;
@@ -108,3 +112,6 @@ public:
         return res;
     }
 };
+
+// @lc code=end
+
