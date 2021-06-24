@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-05-14 10:32:44
- * @LastEditTime: 2021-05-14 10:33:19
+ * @LastEditTime: 2021-06-24 15:30:11
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 51. 数组中的逆序对.cpp
  */
 
@@ -58,22 +58,19 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     408ms    BEAT: 23.86%    O(n) = 
-MEMORY: 106.1MB    BEAT: 22.11%    O(n) = 
-USED TIME: 06:51
-LAST EDIT TIME: 2021年5月14日10:32:54
+TIME:     424ms    BEAT: 20.96%    O(n) = 
+MEMORY: 106.1MB    BEAT: 20.26%    O(n) = 
+LAST EDIT TIME: 2021年6月24日15:29:33
 Description: 归并排序。
 */
 
 class Solution {
 public:
-    LL merge_sort(VI& nums, int l, int r) {
+    long long merge_sort(vector<int>& nums, int l, int r) {
         if (l >= r) return 0;
-        
-        VI tmp(r - l + 1);
-        int mid = l + r >> 1;
-        LL res = merge_sort(nums, l, mid) + merge_sort(nums, mid + 1, r);
-
+        vector<int> tmp(r - l + 1);
+        int mid = (r + l) >> 1;
+        long long res = merge_sort(nums, l, mid) + merge_sort(nums, mid + 1, r);
         int k = 0, i = l, j = mid + 1;
         while (i <= mid && j <= r) {
             if (nums[i] > nums[j]) {
@@ -85,11 +82,50 @@ public:
         while (i <= mid) tmp[k ++] = nums[i ++];
         while (j <= r) tmp[k ++] = nums[j ++];
 
-        for (i = l, j = 0; i <= r; i ++, j ++) nums[i] = tmp[j];
+        for (int i = l, j = 0; i <= r; i ++, j ++) nums[i] = tmp[j];
         return res;
     }
 
     int reversePairs(vector<int>& nums) {
-        return merge_sort(nums, 0, SZ(nums) - 1);
+        return merge_sort(nums, 0, nums.size() - 1);
     }
 };
+
+
+/*
+RESULT: Accept
+TIME:     408ms    BEAT: 23.86%    O(n) = 
+MEMORY: 106.1MB    BEAT: 22.11%    O(n) = 
+USED TIME: 06:51
+LAST EDIT TIME: 2021年5月14日10:32:54
+Description: 归并排序。
+*/
+
+// class Solution {
+// public:
+//     LL merge_sort(VI& nums, int l, int r) {
+//         if (l >= r) return 0;
+        
+//         VI tmp(r - l + 1);
+//         int mid = l + r >> 1;
+//         LL res = merge_sort(nums, l, mid) + merge_sort(nums, mid + 1, r);
+
+//         int k = 0, i = l, j = mid + 1;
+//         while (i <= mid && j <= r) {
+//             if (nums[i] > nums[j]) {
+//                 res += (mid - i + 1);
+//                 tmp[k ++] = nums[j ++];
+//             }
+//             else tmp[k ++] = nums[i ++];
+//         }
+//         while (i <= mid) tmp[k ++] = nums[i ++];
+//         while (j <= r) tmp[k ++] = nums[j ++];
+
+//         for (i = l, j = 0; i <= r; i ++, j ++) nums[i] = tmp[j];
+//         return res;
+//     }
+
+//     int reversePairs(vector<int>& nums) {
+//         return merge_sort(nums, 0, SZ(nums) - 1);
+//     }
+// };

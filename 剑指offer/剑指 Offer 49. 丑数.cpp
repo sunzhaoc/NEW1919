@@ -1,10 +1,10 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: 冰凝水
- * @Date: 2021-01-05 19:27:05
- * @LastEditTime: 2021-06-24 15:21:02
- * @FilePath: \Leetcode\剑指offer\剑指 Offer 50. 第一个只出现一次的字符.cpp
+ * @Author: 冰凝水
+ * @Date: 2021-06-24 15:00:51
+ * @LastEditTime: 2021-06-24 15:16:18
+ * @FilePath: \Leetcode\剑指offer\剑指 Offer 49. 丑数.cpp
  */
 /*
  * 
@@ -81,50 +81,24 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     68ms    BEAT: 20.62%    O(n) = 
-MEMORY: 10.6MB    BEAT: 23.36%    O(n) = 
-LAST EDIT TIME: 2021年6月24日15:20:40
+TIME:    16ms    BEAT: 31.23%    O(n) = 
+MEMORY: 7.5MB    BEAT: 61.81%    O(n) = 
+LAST EDIT TIME: 2021年6月24日15:1:6
 Description: 
 */
 
 class Solution {
 public:
-    char firstUniqChar(string s) {
-        unordered_map<char, bool> m;
-        for (char& ch: s) m[ch] = m.find(ch) == m.end();
-        for (char& ch: s) if (m[ch]) return ch;
-        return ' ';
+    int nthUglyNumber(int n) {
+        vector<int> dp(n);
+        dp[0] = 1;
+        int p2 = 0, p3 = 0, p5 = 0;
+        for (int i = 1; i < n; i ++) {
+            dp[i] = min(min(2 * dp[p2], 3 * dp[p3]), 5 * dp[p5]);
+            if (dp[i] == 2 * dp[p2]) p2 ++;
+            if (dp[i] == 3 * dp[p3]) p3 ++;
+            if (dp[i] == 5 * dp[p5]) p5 ++;
+        }
+        return dp.back();
     }
 };
-
-
-/*
-RESULT: Accept
-TIME:   172ms    BEAT: 28.67%    O(n) = n
-MEMORY:  11MB    BEAT: 18.38%    O(n) = 1
-USED TIME: 15:27 
-Description: 
-*/
-
-class Solution {
-public:
-    char firstUniqChar(string s) {
-        unordered_map<char, bool> map;
-        for (char i: s) {
-            map[i] = map.find(i) == map.end();
-        }
-        for (char i: s) {
-            if (map[i]) return i;
-        }
-        return ' ';
-    }
-};
-
-
-int main() {
-    Solution sol;
-    char ans = sol.firstUniqChar("abaccdeff");
-    cout << ans << endl;
-    system("pause");
-    return 0;
-}
