@@ -1,19 +1,17 @@
 /*
- * @Description: 
- * @Version: 1.0
- * @Autor: 冰凝水
- * @Date: 2021-01-07 13:13:16
- * @LastEditTime: 2021-06-28 17:07:04
- * @FilePath: \Leetcode\剑指offer\剑指 Offer 61. 扑克牌中的顺子.cpp
+ * @lc app=leetcode.cn id=168 lang=cpp
+ *
+ * [168] Excel表列名称
  */
 
+// @lc code=start
 /*
  * @Description: 
  * @Version: 1.0
  * @Author: 冰凝水
  * @Date: 2021-04-05 20:05:57
- * @LastEditTime: 2021-06-28 15:09:38
- * @FilePath: \Leetcode\ACRush.cpp
+ * @LastEditTime: 2021-06-29 22:26:16
+ * @FilePath: \Leetcode\Leetcode\168.excel表列名称.cpp
  */
 /*
  * 
@@ -90,85 +88,24 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     8ms    BEAT: 11.17%    O(n) = 
-MEMORY: 9.8MB    BEAT: 66.65%    O(n) = 
-LAST EDIT TIME: 2021年6月28日17:7:8
+TIME:     0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 5.7MB    BEAT:  76.55%    O(n) = 
+LAST EDIT TIME: 2021年6月29日20:53:15
 Description: 
 */
 
 class Solution {
 public:
-    bool isStraight(vector<int>& nums) {
-        sort(ALL(nums));
-        int jocker = 0;
-        REP(i, SZ(nums) - 1) {
-            if (nums[i] == 0) jocker ++;
-            else if (nums[i] == nums[i + 1]) return false;
+    string convertToTitle(int columnNumber) {
+        string ans;
+        while (columnNumber) {
+            --columnNumber;
+            ans += columnNumber % 26 + 'A';
+            columnNumber /= 26;
         }
-        return nums.back() - nums[jocker] < 5;
+        reverse(ans.begin(), ans.end());
+        return ans;
     }
 };
+// @lc code=end
 
-
-/*
-RESULT: Accept
-TIME:      0ms    BEAT: 100.00%    O(n) = 5log5 = 1
-MEMORY: 10.2MB    BEAT:  67.04%    O(n) = 1
-USED TIME: 07:05
-Description: 排序 + 遍历。
-*/
-
-// class Solution {
-// public:
-//     bool isStraight(vector<int>& nums) {
-//         sort(nums.begin(), nums.end());
-
-//         int joker = 0;
-//         for (int i = 0; i < 4; i ++) {
-//             if (nums[i] == 0) joker ++;
-//             else if (nums[i] == nums[i + 1]) return false;
-//         }
-        
-//         return nums[4] - nums[joker] < 5;
-//     }
-// };
-
-
-/*
-RESULT: Accept
-TIME:      4ms    BEAT: 62.00%    O(n) = n = 5 = 1
-MEMORY: 10.2MB    BEAT: 75.00%    O(n) = n = 5 = 1
-USED TIME: 12:00
-Description: set + 遍历。
-*/
-
-// class Solution {
-// public:
-//     bool isStraight(vector<int>& nums) {
-//         int countZero = 0;
-//         int minNum = 999, maxNum = -1;
-//         set<int> repeat;
-
-//         for (int i: nums) {
-//             if (i == 0) countZero ++;
-//             else {
-//                 minNum = min(minNum, i);
-//                 maxNum = max(maxNum, i);
-//                 if (repeat.find(i) != repeat.end()) return false;
-//                 repeat.insert(i);
-//             }
-//         }
-
-//         return maxNum - minNum < 5;
-//     }
-// };
-
-
-int main() {
-    Solution sol;
-    vector<int> nums = {0, 0, 2, 2, 5};
-    bool ans = sol.isStraight(nums);
-    cout << ans << endl;
-    system("pause");
-    return 0;
-}
