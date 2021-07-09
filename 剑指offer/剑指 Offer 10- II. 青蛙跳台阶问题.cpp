@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2020-12-15 20:34:24
- * @LastEditTime: 2021-06-22 15:35:35
+ * @LastEditTime: 2021-07-09 10:07:34
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 10- II. 青蛙跳台阶问题.cpp
  */
 
@@ -83,25 +83,47 @@ using VVS = vector<VS>;
 /*
 RESULT: Accept
 TIME:     0ms    BEAT: 100.00%    O(n) = 
-MEMORY: 5.9MB    BEAT:  42.52%    O(n) = 
-LAST EDIT TIME: 2021年6月22日15:35:18
+MEMORY: 5.7MB    BEAT:  95.46%    O(n) = 
+LAST EDIT TIME: 2021年7月9日10:6:18
 Description: DP
 */
 
 class Solution {
 public:
-    const int N = 1e9 + 7;
     int numWays(int n) {
-        int a = 1, b = 1;
-        for (int i = 0; i < n; i ++) {
-            int tmp = b;
-            b = (a + b) % N;
-            a = tmp;
+        int a = 1, b = 1, tmp;
+        if (n <= 1) return 1;
+        for (int i = 2; i <= n; i ++) {
+            tmp = (a + b) % MOD;
+            a = b;
+            b = tmp;
         }
-        return a;
+        return tmp;
     }
 };
 
+
+/*
+RESULT: Accept
+TIME:     0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 5.9MB    BEAT:  42.52%    O(n) = 
+LAST EDIT TIME: 2021年6月22日15:35:18
+Description: DP
+*/
+
+// class Solution {
+// public:
+//     const int N = 1e9 + 7;
+//     int numWays(int n) {
+//         int a = 1, b = 1;
+//         for (int i = 0; i < n; i ++) {
+//             int tmp = b;
+//             b = (a + b) % N;
+//             a = tmp;
+//         }
+//         return a;
+//     }
+// };
 
 
 int main() {

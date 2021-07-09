@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Author: 冰凝水
  * @Date: 2021-06-21 18:50:30
- * @LastEditTime: 2021-06-21 19:07:11
+ * @LastEditTime: 2021-07-09 11:15:10
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 16. 数值的整数次方.cpp
  */
 /*
@@ -81,6 +81,28 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
+TIME:     4ms    BEAT: 37.47%    O(n) = 
+MEMORY: 5.8MB    BEAT: 75.04%    O(n) = 
+LAST EDIT TIME: 2021年7月9日11:7:43
+Description: 快速幂（递归）
+*/
+
+class Solution {
+public:
+    double quick_pow(double a, LL k) {
+        if (k == 0) return 1;
+        double res = quick_pow(a, k / 2);
+        return k & 1 == 1 ? res * res * a : res * res;
+    }
+    double myPow(double x, int n) {
+        if (n >= 0) return quick_pow(x, n);
+        return 1 / quick_pow(x, -(LL)n);
+    }
+};
+
+
+/*
+RESULT: Accept
 TIME:     4ms    BEAT: 37.35%    O(n) = 
 MEMORY: 5.8MB    BEAT: 66.23%    O(n) = 
 LAST EDIT TIME: 2021年6月21日19:6:38
@@ -113,15 +135,15 @@ LAST EDIT TIME: 2021年6月21日19:6:53
 Description: 快速幂（递归）
 */
 
-class Solution {
-public:
-    double quick_pow(double a, long long k) {
-        if (k == 0) return 1;
-        double res = quick_pow(a, k / 2);
-        return k % 2 == 0 ? res * res : res * res * a;
-    }
-    double myPow(double x, int n) {
-        if (n >= 0) return quick_pow(x, n);
-        return 1 / quick_pow(x, -(long long)n);
-    }
-};
+// class Solution {
+// public:
+//     double quick_pow(double a, long long k) {
+//         if (k == 0) return 1;
+//         double res = quick_pow(a, k / 2);
+//         return k % 2 == 0 ? res * res : res * res * a;
+//     }
+//     double myPow(double x, int n) {
+//         if (n >= 0) return quick_pow(x, n);
+//         return 1 / quick_pow(x, -(long long)n);
+//     }
+// };

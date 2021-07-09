@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Author: 冰凝水
  * @Date: 2021-06-21 18:41:55
- * @LastEditTime: 2021-06-21 18:45:26
+ * @LastEditTime: 2021-07-09 11:04:28
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 15. 二进制中1的个数.cpp
  */
 /*
@@ -82,8 +82,29 @@ using VVS = vector<VS>;
 /*
 RESULT: Accept
 TIME:     0ms    BEAT: 100.00%    O(n) = 
-MEMORY: 5.9MB    BEAT:  26.86%    O(n) = 
-LAST EDIT TIME: 
+MEMORY: 5.8MB    BEAT:  82.65%    O(n) = 
+LAST EDIT TIME: 2021年7月9日11:4:14s
+Description: 
+*/
+
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+        int cnt = 0;
+        while (n) {
+            n &= (n - 1);
+            cnt ++;
+        }
+        return cnt;
+    }
+};
+
+
+/*
+RESULT: Accept
+TIME:     4ms    BEAT: 40.58%    O(n) = 
+MEMORY: 5.9MB    BEAT: 19.46%    O(n) = 
+LAST EDIT TIME: 2021年7月9日11:2:52
 Description: 
 */
 
@@ -103,19 +124,40 @@ public:
 /*
 RESULT: Accept
 TIME:     0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 5.9MB    BEAT:  26.86%    O(n) = 
+LAST EDIT TIME: 
+Description: 
+*/
+
+// class Solution {
+// public:
+//     int hammingWeight(uint32_t n) {
+//         int cnt = 0;
+//         while (n) {
+//             n -= n & (-n);
+//             cnt ++;
+//         }
+//         return cnt;
+//     }
+// };
+
+
+/*
+RESULT: Accept
+TIME:     0ms    BEAT: 100.00%    O(n) = 
 MEMORY: 5.9MB    BEAT:  56.90%    O(n) = 
 LAST EDIT TIME: 2021年6月21日18:42:51
 Description: 
 */
 
-class Solution {
-public:
-    int hammingWeight(uint32_t n) {
-        int cnt = 0;
-        while (n) {
-            n &= (n - 1);
-            cnt ++;
-        }
-        return cnt;
-    }
-};
+// class Solution {
+// public:
+//     int hammingWeight(uint32_t n) {
+//         int cnt = 0;
+//         while (n) {
+//             n &= (n - 1);
+//             cnt ++;
+//         }
+//         return cnt;
+//     }
+// };

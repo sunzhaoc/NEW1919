@@ -1,19 +1,6 @@
 {
     "files.associations": {
-        "iostream": "cpp",
-        "array": "cpp",
-        "deque": "cpp",
-        "forward_list": "cpp",
-        "list": "cpp",
-        "string": "cpp",
-        "unordered_map": "cpp",
-        "unordered_set": "cpp",
-        "vector": "cpp",
-        "string_view": "cpp",
-        "initializer_list": "cpp",
-        "regex": "cpp",
-        "random": "cpp",
-        "valarray": "cpp"
+        "iostream": "cpp"
     },
     "files.exclude": {
         "**/.classpath": true,
@@ -21,5 +8,5 @@
         "**/.settings": true,
         "**/.factorypath": true
     },
-    "python.pythonPath": "X:\\SOFTWARE\\anaconda3\\envs\\empty_env\\python.exe"
+    "python.pythonPath": "X:\\SOFTWARE\\Anaconda\\envs\\leetcode\\python.exe"
 }

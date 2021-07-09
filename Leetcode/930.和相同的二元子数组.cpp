@@ -1,13 +1,18 @@
 /*
- * @Description: 
- * @Version: 1.0
- * @Autor: 冰凝水
- * @Date: 2020-12-30 14:28:24
- * @LastEditTime: 2021-07-09 10:42:40
- * @FilePath: \Leetcode\剑指offer\剑指 Offer 13. 机器人的运动范围.cpp
+ * @lc app=leetcode.cn id=930 lang=cpp
+ *
+ * [930] 和相同的二元子数组
  */
 
-
+// @lc code=start
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: 冰凝水
+ * @Date: 2021-04-05 20:05:57
+ * @LastEditTime: 2021-07-08 08:59:21
+ * @FilePath: \Leetcode\930.和相同的二元子数组.cpp
+ */
 /*
  * 
  * 　　┏┓　　　┏┓+ +
@@ -64,7 +69,7 @@ template<class T> inline T sqr(T x){ return x * x; }
 # define R right
 # define V vector 
 template<class T> int CMP(T a[], const T b[], int n) { return memcmp(a, b, n * sizeof(T)); }
-template<class T> void COPY(T a[], const T b[], int n) { memcpy(a, b, n * sizeof(T)); }
+template<class T> void COPY(T aAC[], const T b[], int n) { memcpy(a, b, n * sizeof(T)); }
 template<class T> void SET(T a[], int val, int n) { memset(a, val, n*sizeof(T)); }
 using uint = unsigned int;
 using LL = long long;
@@ -81,77 +86,26 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
-
 /*
 RESULT: Accept
-TIME:     4ms    BEAT: 74.75%    O(n) = mn
-MEMORY: 7.1MB    BEAT: 41.49%    O(n) = mn
-Description: 递推。
+TIME:     48ms    BEAT: 77.63%    O(n) = 
+MEMORY: 35.6MB    BEAT: 17.26%    O(n) = 
+LAST EDIT TIME: 2021年7月8日8:59:1
+Description: 
 */
 
 class Solution {
 public:
-    int movingCount(int m, int n, int k) {
-        vector<vector<int>> visited(m, vector<int>(n, 0));
-        visited[0][0] = 1;
-        int ans = 1;
-        for (int i = 0; i < m; i ++) {
-            for (int j = 0; j < n; j ++) {
-                if ((i == 0 && j == 0) || get(i) + get(j) > k) continue;
-                if (i - 1 >= 0) visited[i][j] |= visited[i - 1][j];
-                if (j - 1 >= 0) visited[i][j] |= visited[i][j - 1];
-                ans += visited[i][j];
-            }
+    int numSubarraysWithSum(vector<int>& nums, int goal) {
+        int sum = 0, res = 0;
+        unordered_map<int, int> m;
+        for (auto num: nums) {
+            m[sum] ++;
+            sum += num;
+            res += m[sum - goal];
         }
-        return ans;
-    }
-
-private:
-    int get(int x) {
-        if (x < 10) return x;
-        else return (x % 10) + (x / 10);
+        return res;
     }
 };
+// @lc code=end
 
-
-/*
-RESULT: Accept
-TIME:    36ms    BEAT: 5.93%    O(n) = mn
-MEMORY: 9.9MB    BEAT: 5.01%    O(n) = mn
-Description: BFS
-*/
-
-// class Solution {
-// public:
-//     int movingCount(int m, int n, int k) {
-//         int ans = 0;
-//         vector<vector<bool>> visited(m, vector<bool>(n, 0));
-//         queue<vector<int>> que;
-//         que.push({0, 0, 0, 0});
-//         while (que.size() > 0) {
-//             vector<int> x = que.front();
-//             que.pop();
-//             // 横坐标，纵坐标，横坐标各位和，纵坐标各位和
-//             int i = x[0], j = x[1], si = x[2], sj = x[3];
-//             if (i >= m || j >= n || si + sj > k || visited[i][j]) continue;
-//             visited[i][j] = true;
-//             ans ++;
-//             // 向下移动
-//             que.push({i + 1, j, (i + 1) % 10 != 0 ? si + 1 : si - 8, sj});
-//             // 向右移动
-//             que.push({i, j + 1, si, (j + 1) % 10 != 0 ? sj + 1 : sj - 8});
-//         }
-//         return ans;
-//     }
-// };
-
-
-int main() {
-    Solution sol;
-    // int ans = sol.movingCount(2, 3, 1);
-    // int ans = sol.movingCount(3, 1, 0);
-    int ans = sol.movingCount(16, 8, 4);
-    cout << ans << endl;
-    system("pause");
-    return 0;
-}

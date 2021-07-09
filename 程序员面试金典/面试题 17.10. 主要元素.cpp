@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-04-15 19:37:07
- * @LastEditTime: 2021-04-15 19:38:12
+ * @LastEditTime: 2021-07-09 08:59:20
  * @FilePath: \Leetcode\程序员面试金典\面试题 17.10. 主要元素.cpp
  */
 #include <bits/stdc++.h>
@@ -47,6 +47,36 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
+TIME:     16ms    BEAT: 90.87%    O(n) = 
+MEMORY: 18.4MB    BEAT: 11.33%    O(n) = 
+LAST EDIT TIME: 2021年7月9日8:57:31
+Description: 摩尔投票。
+*/
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int people = -1, ticket = 0;
+        for (int &i: nums) {
+            if (ticket == 0) {
+                ticket ++;
+                people = i;
+            }
+            else if (people == i) ticket ++;
+            else ticket --;
+        }
+        if (ticket > 0) {
+            int n = 0;
+            for (int &i: nums) if (i == people) n ++;
+            if (n > nums.size() / 2) return people;
+        }
+        return -1;
+    }
+};
+
+
+/*
+RESULT: Accept
 TIME:     16ms    BEAT: 91.23%    O(n) = 
 MEMORY: 18.4MB    BEAT: 29.09%    O(n) = 
 USED TIME: 17:27
@@ -54,28 +84,28 @@ LAST EDIT TIME: 2021年4月15日19:37:16
 Description: 摩尔投票。需要注意的是，最后，如果 count > 0 也得检查是不是真的超过了数组长度的二分之一。
 */
 
-class Solution {
-public:
-    int majorityElement(vector<int>& nums) {
-        int people = -1, ticket = 0;
-        for (int i: nums) {
-            if (ticket == 0) {
-                ticket = 1;
-                people = i;
-            }
-            else if (people == i) {
-                ticket ++;
-            }
-            else {
-                ticket --;
-            }
-        }
+// class Solution {
+// public:
+//     int majorityElement(vector<int>& nums) {
+//         int people = -1, ticket = 0;
+//         for (int i: nums) {
+//             if (ticket == 0) {
+//                 ticket = 1;
+//                 people = i;
+//             }
+//             else if (people == i) {
+//                 ticket ++;
+//             }
+//             else {
+//                 ticket --;
+//             }
+//         }
         
-        if (ticket > 0) {
-            int n = 0;
-            for (int i: nums) if (i == people) n ++;
-            if (n > SZ(nums) / 2) return people;
-        }
-        return -1;
-    }
-};
+//         if (ticket > 0) {
+//             int n = 0;
+//             for (int i: nums) if (i == people) n ++;
+//             if (n > SZ(nums) / 2) return people;
+//         }
+//         return -1;
+//     }
+// };

@@ -3,18 +3,17 @@
  * @Version: 1.0
  * @Author: 冰凝水
  * @Date: 2020-12-07 14:42:50
- * @LastEditTime: 2021-06-18 15:11:14
+ * @LastEditTime: 2021-07-09 09:26:19
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 06. 从尾到头打印链表.cpp
  */
 
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
+
+// Definition for singly-linked list.
+struct ListNode {
+int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
 
 /*
  * 
@@ -91,21 +90,40 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
+TIME:     4ms    BEAT: 87.84%    O(n) = n
+MEMORY: 8.5MB    BEAT: 52.59%    O(n) = n
+LAST EDIT TIME: 2021年7月9日9:23:40
+Description: 三刷。
+*/
+
+class Solution {
+public:
+    vector<int> reversePrint(ListNode* head) {
+        VI res;
+        for (ListNode* it = head; it; it = it->next) res.emplace_back(it->val);
+        reverse(ALL(res));
+        return res;
+    }
+};
+
+
+/*
+RESULT: Accept
 TIME:     4ms    BEAT: 87.72%    O(n) = 
 MEMORY: 8.4MB    BEAT: 78.19%    O(n) = 
 LAST EDIT TIME: 2021年6月18日15:10:56
 Description: 二刷。
 */
 
-class Solution {
-public:
-    vector<int> reversePrint(ListNode* head) {
-        vector<int> res;
-        for (auto it = head; it; it = it->next) res.push_back(it->val);
-        reverse(res.begin(), res.end());
-        return res;
-    }
-};
+// class Solution {
+// public:
+//     vector<int> reversePrint(ListNode* head) {
+//         vector<int> res;
+//         for (auto it = head; it; it = it->next) res.push_back(it->val);
+//         reverse(res.begin(), res.end());
+//         return res;
+//     }
+// };
 
 
 /*

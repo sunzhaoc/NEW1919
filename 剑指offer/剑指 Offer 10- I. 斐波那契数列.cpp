@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Author: 冰凝水
  * @Date: 2020-12-10 16:03:45
- * @LastEditTime: 2021-06-18 16:09:27
+ * @LastEditTime: 2021-07-09 10:02:58
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 10- I. 斐波那契数列.cpp
  */
 
@@ -82,26 +82,49 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
+TIME:     0ms    BEAT: 100.00%    O(n) = n
+MEMORY: 5.7MB    BEAT:  96.23%    O(n) = 1
+LAST EDIT TIME: 2021年7月9日10:2:20
+Description: 三刷。
+*/
+
+class Solution {
+public:
+    int fib(int n) {
+        if (n <= 1) return n;
+        int a = 0, b = 1, tmp;
+        for (int i = 2; i <= n; i ++) {
+            tmp = (a + b) % MOD;
+            a = b;
+            b = tmp;
+        }
+        return b;
+    }
+};
+
+
+/*
+RESULT: Accept
 TIME:     0ms    BEAT: 100.00%    O(n) = 
 MEMORY: 5.9MB    BEAT:  34.50%    O(n) = 
 LAST EDIT TIME: 2021年6月18日16:9:7 
 Description: 二刷。
 */
 
-class Solution {
-public:
-    const int N = 1e9 + 7;
-    int fib(int n) {
-        if (n <= 1) return n;
-        int a = 0, b = 1, c = 0;
-        for (int i = 2; i <= n; i ++) {
-            c = (a + b) % N;
-            a = b;
-            b = c;
-        }
-        return c;
-    }
-};
+// class Solution {
+// public:
+//     const int N = 1e9 + 7;
+//     int fib(int n) {
+//         if (n <= 1) return n;
+//         int a = 0, b = 1, c = 0;
+//         for (int i = 2; i <= n; i ++) {
+//             c = (a + b) % N;
+//             a = b;
+//             b = c;
+//         }
+//         return c;
+//     }
+// };
 
 
 /*
@@ -122,7 +145,7 @@ Description:
 //             a = b;
 //             b = c;
 //         }
-        
+
 //         return c;
 //     }
 // };

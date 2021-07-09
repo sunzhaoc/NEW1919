@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Author: 冰凝水
  * @Date: 2020-12-03 22:17:37
- * @LastEditTime: 2021-06-18 16:00:56
+ * @LastEditTime: 2021-07-09 10:17:22
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 11. 旋转数组的最小数字.cpp
  */
 /*
@@ -81,16 +81,16 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:      0ms    BEAT: 100.00%    O(n) = 
-MEMORY: 11.8MB    BEAT:  29.93%    O(n) = 
-LAST EDIT TIME: 2021年6月18日16:0:50
-Description: 二刷。二分。
+TIME:      8ms    BEAT: 54.81%    O(n) = 
+MEMORY: 11.8MB    BEAT: 69.59%    O(n) = 
+LAST EDIT TIME: 2021年7月9日10:16:51
+Description: 三刷，二分。
 */
 
 class Solution {
 public:
     int minArray(vector<int>& numbers) {
-        int l = 0, r = numbers.size() - 1;
+        int l = 0, r = SZ(numbers) - 1;
         while (l < r) {
             int mid = (r - l) / 2 + l;
             if (numbers[mid] < numbers[r]) r = mid;
@@ -100,6 +100,29 @@ public:
         return numbers[l];
     }
 };
+
+
+/*
+RESULT: Accept
+TIME:      0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 11.8MB    BEAT:  29.93%    O(n) = 
+LAST EDIT TIME: 2021年6月18日16:0:50
+Description: 二刷。二分。
+*/
+
+// class Solution {
+// public:
+//     int minArray(vector<int>& numbers) {
+//         int l = 0, r = numbers.size() - 1;
+//         while (l < r) {
+//             int mid = (r - l) / 2 + l;
+//             if (numbers[mid] < numbers[r]) r = mid;
+//             else if (numbers[mid] > numbers[r]) l = mid + 1;
+//             else r --;
+//         }
+//         return numbers[l];
+//     }
+// };
 
 
 /*

@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2020-12-30 13:24:55
- * @LastEditTime: 2021-06-18 15:43:26
+ * @LastEditTime: 2021-07-09 09:58:51
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 09. 用两个栈实现队列.cpp
  */
 
@@ -82,17 +82,17 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   352ms    BEAT: 48.59%    O(n) = 
-MEMORY: 101MB    BEAT: 92.75%    O(n) = 
-LAST EDIT TIME: 2021年6月18日15:43:1
-Description: 二刷。
+TIME:   244ms    BEAT: 99.78%    O(n) = 
+MEMORY: 101MB    BEAT: 81.76%    O(n) = 
+LAST EDIT TIME: 2021年7月9日9:58:15
+Description: 三刷
 */
 
 class CQueue {
 public:
     stack<int> st1, st2;
-    
     CQueue() {
+
     }
     
     void appendTail(int value) {
@@ -105,9 +105,9 @@ public:
             st2.pop();
             return res;
         }
-
+        
         if (st1.empty()) return -1;
-        while (st1.size()) {
+        while (SZ(st1)) {
             st2.push(st1.top());
             st1.pop();
         }
@@ -117,6 +117,43 @@ public:
     }
 };
 
+
+/*
+RESULT: Accept
+TIME:   352ms    BEAT: 48.59%    O(n) = 
+MEMORY: 101MB    BEAT: 92.75%    O(n) = 
+LAST EDIT TIME: 2021年6月18日15:43:1
+Description: 二刷。
+*/
+
+// class CQueue {
+// public:
+//     stack<int> st1, st2;
+    
+//     CQueue() {
+//     }
+    
+//     void appendTail(int value) {
+//         st1.push(value);
+//     }
+    
+//     int deleteHead() {
+//         if (st2.size()) {
+//             int res = st2.top();
+//             st2.pop();
+//             return res;
+//         }
+
+//         if (st1.empty()) return -1;
+//         while (st1.size()) {
+//             st2.push(st1.top());
+//             st1.pop();
+//         }
+//         int res = st2.top();
+//         st2.pop();
+//         return res;
+//     }
+// };
 
 
 /*
@@ -127,33 +164,33 @@ LAST EDIT TIME: 2021年6月18日15:37:31
 Description: 二刷。
 */
 
-class CQueue {
-public:
-    stack<int> st1, st2;
+// class CQueue {
+// public:
+//     stack<int> st1, st2;
     
-    CQueue() {
-    }
+//     CQueue() {
+//     }
     
-    void appendTail(int value) {
-        st1.push(value);
-    }
+//     void appendTail(int value) {
+//         st1.push(value);
+//     }
     
-    int deleteHead() {
-        if (st1.empty()) return -1;
+//     int deleteHead() {
+//         if (st1.empty()) return -1;
 
-        while (st1.size()) {
-            st2.push(st1.top());
-            st1.pop();
-        }
-        int res = st2.top();
-        st2.pop();
-        while (st2.size()) {
-            st1.push(st2.top());
-            st2.pop();
-        }
-        return res;
-    }
-};
+//         while (st1.size()) {
+//             st2.push(st1.top());
+//             st1.pop();
+//         }
+//         int res = st2.top();
+//         st2.pop();
+//         while (st2.size()) {
+//             st1.push(st2.top());
+//             st2.pop();
+//         }
+//         return res;
+//     }
+// };
 
 
 /*

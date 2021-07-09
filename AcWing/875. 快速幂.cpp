@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-05-27 15:34:57
- * @LastEditTime: 2021-05-27 16:41:24
+ * @LastEditTime: 2021-07-06 19:25:39
  * @FilePath: \Leetcode\AcWing\875. 快速幂.cpp
  */
 /*
@@ -39,7 +39,7 @@ using namespace std;
 long long quick_pow(int a, int k, int p) {
     if (k == 0) return 1;
     long long res = quick_pow(a, k / 2, p);
-    return k % 2 == 0 ? res * res % p : res * res % p * a % p;
+    return k & 1 == 1 ? res * res % p * a % p : res * res % p;
 }
 
 // 位运算

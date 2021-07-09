@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Author: 冰凝水
  * @Date: 2021-06-18 15:12:52
- * @LastEditTime: 2021-06-18 15:33:11
+ * @LastEditTime: 2021-07-09 09:54:02
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 07. 重建二叉树.cpp
  */
 /**
@@ -98,32 +98,60 @@ struct TreeNode {
 
 /*
 RESULT: Accept
+TIME:   16ms    BEAT: 84.14%    O(n) = 
+MEMORY: 25MB    BEAT: 30.39%    O(n) = 
+LAST EDIT TIME: 2021年7月9日9:53:45
+Description: 
+*/
+
+class Solution {
+public:
+    unordered_map<int, int> m; // val, idx
+    int cnt = 0;
+    TreeNode* dfs(vector<int>& preorder, vector<int>& inorder, int l, int r) {
+        if (l > r) return nullptr;
+        int val = preorder[cnt ++];
+        TreeNode *root = new TreeNode(val);
+        int idx = m[val];
+        root->left = dfs(preorder, inorder, l, idx - 1);
+        root->right = dfs(preorder, inorder, idx + 1, r);
+        return root;
+    }
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        REP(i, SZ(inorder)) m[inorder[i]] = i;
+        return dfs(preorder, inorder, 0, SZ(preorder) - 1);
+    }
+};
+
+
+/*
+RESULT: Accept
 TIME:     16ms    BEAT: 84.71%    O(n) = 
 MEMORY: 24.9MB    BEAT: 38.33%    O(n) = 
 LAST EDIT TIME: 2021年6月18日15:32:57
 Description: 二刷。
 */
 
-class Solution {
-public:
-    unordered_map<int, int> inMap;
-    int num = 0;
+// class Solution {
+// public:
+//     unordered_map<int, int> inMap;
+//     int num = 0;
 
-    TreeNode* dfs(vector<int>& preorder, vector<int>& inorder, int l, int r) {
-        if (l > r) return nullptr;
-        int val = preorder[num ++];
-        TreeNode *root = new TreeNode(val);
+//     TreeNode* dfs(vector<int>& preorder, vector<int>& inorder, int l, int r) {
+//         if (l > r) return nullptr;
+//         int val = preorder[num ++];
+//         TreeNode *root = new TreeNode(val);
 
-        int idx = inMap[val];
+//         int idx = inMap[val];
 
-        root->left = dfs(preorder, inorder, l, idx - 1);
-        root->right = dfs(preorder, inorder, idx + 1, r);
-        return root;
-    }
+//         root->left = dfs(preorder, inorder, l, idx - 1);
+//         root->right = dfs(preorder, inorder, idx + 1, r);
+//         return root;
+//     }
     
-    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        int n = preorder.size();
-        for (int i = 0; i < n; i ++) inMap[inorder[i]] = i;
-        dfs(preorder, inorder, 0, n - 1);
-    }
-};
+//     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+//         int n = preorder.size();
+//         for (int i = 0; i < n; i ++) inMap[inorder[i]] = i;
+//         dfs(preorder, inorder, 0, n - 1);
+//     }
+// };

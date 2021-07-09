@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Author: 冰凝水
  * @Date: 2020-12-03 21:50:54
- * @LastEditTime: 2021-06-18 15:07:08
+ * @LastEditTime: 2021-07-09 09:17:52
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 05. 替换空格.cpp
  */
 
@@ -83,26 +83,24 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     4ms    BEAT: 31.49%    O(n) = n
-MEMORY: 6.1MB    BEAT: 49.26%    O(n) = 1
-LAST EDIT TIME: 2021年6月18日15:6:40
-Description: 原地修改。二刷。
+TIME:     0ms    BEAT: 100.00%    O(n) = n
+MEMORY: 6.2MB    BEAT:   7.71%    O(n) = 1
+LAST EDIT TIME: 2021年7月9日9:17:13
+Description: 原地算法。需先计算数量。
 */
 
 class Solution {
 public:
     string replaceSpace(string s) {
-        int cnt = 0, n = s.length();
-        for (char& ch: s) if (ch == ' ') cnt ++;
-
+        int cnt = 0, n = SZ(s);
+        for (char &ch: s) if (ch == ' ') cnt ++;
         s.resize(n + cnt * 2);
-        for (int i = n - 1, j = s.size() - 1; i >= 0; i --, j --) {
+        for (int i = n - 1, j = SZ(s) - 1; i >= 0; i --, j --) {
             if (s[i] != ' ') s[j] = s[i];
             else {
-                s[j] = '0';
-                s[j - 1] = '2';
-                s[j - 2] = '%';
-                j -= 2;
+                s[j --] = '0';
+                s[j --] = '2';
+                s[j] = '%';
             }
         }
         return s;
@@ -113,22 +111,72 @@ public:
 /*
 RESULT: Accept
 TIME:     0ms    BEAT: 100.00%    O(n) = n
-MEMORY: 6.1MB    BEAT:  67.30%    O(n) = n
-LAST EDIT TIME: 2021年6月18日15:0:43
-Description: 二刷
+MEMORY: 6.1MB    BEAT:  50.57%    O(n) = n
+LAST EDIT TIME: 2021年7月9日9:12:46
+Description: 
 */
 
 class Solution {
 public:
     string replaceSpace(string s) {
         string res = "";
-        for (auto& ch: s) {
+        for (char& ch: s) {
             if (ch != ' ') res += ch;
             else res += "%20";
         }
         return res;
     }
 };
+
+
+/*
+RESULT: Accept
+TIME:     4ms    BEAT: 31.49%    O(n) = n
+MEMORY: 6.1MB    BEAT: 49.26%    O(n) = 1
+LAST EDIT TIME: 2021年6月18日15:6:40
+Description: 原地修改。二刷。
+*/
+
+// class Solution {
+// public:
+//     string replaceSpace(string s) {
+//         int cnt = 0, n = s.length();
+//         for (char& ch: s) if (ch == ' ') cnt ++;
+
+//         s.resize(n + cnt * 2);
+//         for (int i = n - 1, j = s.size() - 1; i >= 0; i --, j --) {
+//             if (s[i] != ' ') s[j] = s[i];
+//             else {
+//                 s[j] = '0';
+//                 s[j - 1] = '2';
+//                 s[j - 2] = '%';
+//                 j -= 2;
+//             }
+//         }
+//         return s;
+//     }
+// };
+
+
+/*
+RESULT: Accept
+TIME:     0ms    BEAT: 100.00%    O(n) = n
+MEMORY: 6.1MB    BEAT:  67.30%    O(n) = n
+LAST EDIT TIME: 2021年6月18日15:0:43
+Description: 二刷
+*/
+
+// class Solution {
+// public:
+//     string replaceSpace(string s) {
+//         string res = "";
+//         for (auto& ch: s) {
+//             if (ch != ' ') res += ch;
+//             else res += "%20";
+//         }
+//         return res;
+//     }
+// };
 
 
 /*

@@ -1,11 +1,12 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: 冰凝水
- * @Date: 2020-12-18 15:09:28
- * @LastEditTime: 2021-07-09 11:00:02
- * @FilePath: \Leetcode\剑指offer\剑指 Offer 14- II. 剪绳子 II.cpp
+ * @Author: 冰凝水
+ * @Date: 2021-04-25 10:19:28
+ * @LastEditTime: 2021-07-04 11:03:52
+ * @FilePath: \Leetcode\Week Competition\Weekly Contest 248\t3.cpp
  */
+
 /*
  * 
  * 　　┏┓　　　┏┓+ +
@@ -31,6 +32,7 @@
  * 　　　　┗┻┛　┗┻┛+ + + +
  * 
  */
+
 #include <bits/stdc++.h>
 using namespace std;
 # define POW2(X) (1 << (X))
@@ -79,96 +81,37 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
-/*
-RESULT: Accept
-TIME:     0ms    BEAT: 100.00%    O(n) = 
-MEMORY: 5.7MB    BEAT:  94.53%    O(n) = 
-LAST EDIT TIME: 2021年7月9日10:59:33
-Description: 快速幂。
-*/
-
 class Solution {
 public:
-    long long quick_pow(int a, int k) {
-        if (k == 0) return 1;
-        long long res = quick_pow(a, k / 2);
-        return k & 1 == 1 ? res * res % MOD * a % MOD : res * res % MOD;
+    int quick_pow(int a, long long k, int p) {
+        long long res = 1, base = a;
+        while (k) {
+            if (k & 1) res = res * base % p;
+            base = base * base % p;
+            k >>= 1;
+        }
+        return res;
     }
-    int cuttingRope(int n) {
-        if (n <= 3) return n - 1;
-        int a = n / 3, b = n % 3;
-        if (b == 0) return quick_pow(3, a);
-        else if (b == 1) return quick_pow(3, a - 1) * 4 % MOD;
-        return quick_pow(3, a) * 2 % MOD;
+
+    int countGoodNumbers(long long n) {
+        long long odd = n / 2, even;
+        even = n % 2 == 0 ? odd : odd + 1;
+
+        return (quick_pow(5, even, 1e9 + 7) * quick_pow(4, odd, 1e9 + 7)) % (1e9 + 7);
     }
 };
 
 
-/*
-RESULT: Accept
-TIME:     0ms    BEAT: 100.00%    O(n) = log2(N)
-MEMORY: 6.1MB    BEAT:  27.84%    O(n) = 1
-Description: 快速求余法，二分求余法。
-https://leetcode-cn.com/problems/jian-sheng-zi-ii-lcof/solution/mian-shi-ti-14-ii-jian-sheng-zi-iitan-xin-er-fen-f/
-*/
-
-// class Solution {
-// public:
-//     int cuttingRope(int n) {
-//         if (n <= 3) return n - 1;
-//         int a = n / 3, b = n % 3;
-//         if (b == 0) return modFunction(3, a);
-//         if (b == 1) return modFunction(3, a - 1) * 4 % 1000000007;
-//         return modFunction(3, a) * 2 % 1000000007;
-//     }
-
-// private:
-//     long modFunction(long x, int n) {
-//         long ans = 1;
-//         while (n > 0)
-//         {
-//             if (n % 2)  ans = (ans * x) % 1000000007;
-//             x = x * x % 1000000007;
-//             n /= 2;
-//         }
-//         return ans;
-//     }
-// };
-
-
-/*
-RESULT: Accept
-TIME:     0ms    BEAT: 100.00%    O(n) = n
-MEMORY: 6.1MB    BEAT:  27.84%    O(n) = 1
-Description: 循环求余法。
-*/
-
-// class Solution {
-// public:
-//     int cuttingRope(int n) {
-//         if (n <= 3) return n - 1;
-//         int a = n / 3, b = n % 3;
-//         if (b == 0) return modFunction(3, a);
-//         if (b == 1) return modFunction(3, a - 1) * 4 % 1000000007;
-//         return modFunction(3, a) * 2 % 1000000007;
-//     }
-
-// private:
-//     long modFunction(int x, int n) {
-//         long ans = 1;
-//         for (int i = 0; i < n; i ++) {
-//             ans = (ans * x) % 1000000007;
-//         }
-//         return ans;
-//     }
-// };
-
 
 int main() {
     Solution sol;
-    // int ans = sol.cuttingRope(4);
-    int ans = sol.cuttingRope(54);
+    // VI nums = {};
+    // VVI nums = {};
+    auto ans = sol.countGoodNumbers(806166225460393);
+    ans %= MOD;
     cout << ans << endl;
+    // REP(i, SZ(ans)) cout << ans[i] << endl;
+    // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
     system("pause");
     return 0;
 }
