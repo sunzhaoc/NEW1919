@@ -1,11 +1,4 @@
-/*
- * @Description: 
- * @Version: 1.0
- * @Author: 冰凝水
- * @Date: 2021-04-05 20:05:57
- * @LastEditTime: 2021-06-28 15:09:38
- * @FilePath: \Leetcode\ACRush.cpp
- */
+
 /*
  * 
  * 　　┏┓　　　┏┓+ +
@@ -31,6 +24,7 @@
  * 　　　　┗┻┛　┗┻┛+ + + +
  * 
  */
+
 #include <bits/stdc++.h>
 using namespace std;
 # define POW2(X) (1 << (X))
