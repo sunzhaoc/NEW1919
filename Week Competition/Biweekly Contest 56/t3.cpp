@@ -1,19 +1,11 @@
 /*
  * @Description: 
  * @Version: 1.0
- * @Autor: 冰凝水
- * @Date: 2021-03-30 16:24:03
- * @LastEditTime: 2021-07-12 08:37:10
- * @FilePath: \Leetcode\Leetcode\275. H-Index II.cpp
+ * @Author: 冰凝水
+ * @Date: 2021-04-25 10:19:28
+ * @LastEditTime: 2021-07-10 23:55:00
+ * @FilePath: \Leetcode\Week Competition\Biweekly Contest 56\t3.cpp
  */
-/*
- * @lc app=leetcode.cn id=275 lang=cpp
- *
- * [275] H 指数 II
- */
-
-// @lc code=start
-
 
 /*
  * 
@@ -89,75 +81,84 @@ using VS = vector<string>;
 using VVS = vector<VS>;
 
 
-/*
-RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-LAST EDIT TIME: 
-Description: 
-*/
 
 class Solution {
 public:
-    int hIndex(vector<int>& citations) {
-        int n = SZ(citations);
-        int l = 0, r = n - 1;
-        while (l < r) {
-            int mid = l + r >> 1;
-            if (citations[n - mid] >= mid) l = mid;
-            else r = mid - 1;
+    bool sumGame(string num) {
+        LL sumL = 0, sumR = 0;
+        REP(i, SZ(num) / 2) if (num[i] != '?') sumL += num[i] - '0';
+        FOR(i, SZ(num) / 2, SZ(num)) if (num[i] != '?') sumR += num[i] - '0';
+
+        int cnt_l = 0, cnt_r = 0; 
+        REP(i, SZ(num) / 2) if (num[i] == '?') cnt_l ++;
+        FOR(i, SZ(num) / 2, SZ(num)) if (num[i] == '?') cnt_r ++;
+
+        if (cnt_l + cnt_r == 0) {
+            if (sumL == sumR) return false;
+            return true;
         }
-        return r;
+        
+        int step = 0;
+        while (cnt_r + cnt_l) {
+            if (step % 2 == 0) {// alice;
+                if (sumL > sumR) {
+                    if (cnt_l == 0) {
+                        if (sumL > sumR + 9 * cnt_r) return false; 
+                        cnt_r --;
+                    }
+                    else {
+                        cnt_l --;
+                        sumL += 9;
+                    }
+                }
+                else if (sumL < sumR) {
+                    if (cnt_r == 0) {
+                        if (sumR > sumL + 9 * cnt_l) return false;
+                        cnt_l --;
+                    }
+                    else {
+                        cnt_r--;
+                        sumR += 9;
+                    }
+                }
+            }
+
+            else { // Bpb
+                if (sumL > sumR) {
+                    if (cnt_r == 0) {
+                        return true;
+                    }
+                    else {
+                        cnt_r --;
+                        if (sumR + 9 < sumL) sumR += 9;
+                        else sumR = sumL;
+                    }
+                }
+
+                else if (sumL < sumR) {
+                    if (cnt_l == 0) return true;
+                    else {
+                        cnt_l --;
+                        if (sumL + 9 < sumR) sumL += 9;
+                        else sumL = sumR;
+                    }
+                }
+            }
+            step ++;
+        }
+        if (sumR == sumL) return false;
+        return true;
     }
 };
 
 
-/*
-RESULT: Accept
-TIME:      8ms    BEAT: 99.90%    O(n) = 
-MEMORY: 18.2MB    BEAT:  8.93%    O(n) = 
-LAST EDIT TIME: 2021年3月30日18:57:22
-Description: Y总。
-*/
-
-class Solution {
-public:
-    int hIndex(vector<int>& nums) {
-        int l = 0, r = nums.size();
-        while (l < r) {
-            int mid = l + r + 1 >> 1;
-            if (nums[nums.size() - mid] >= mid) l = mid;
-            else r = mid - 1;
-        }
-        return r;
-    }
-}; 
-
-
-/*
-RESULT: Accept
-TIME:     24ms    BEAT: 45.48%    O(n) = 
-MEMORY: 18.1MB    BEAT: 18.69%    O(n) = 
-LAST EDIT TIME: 2021年3月30日16:58:43
-Description: 二分。二刷。前一次是python。很难。。。不会。
-*/
-
-class Solution {
-public:
-    int hIndex(vector<int>& citations) {
-        int n = citations.size();
-        if (n == 0) return 0;
-        if (citations[n - 1] == 0) return 0;
-        int l = 0, r = n - 1;
-        while (l < r) {
-            int mid = (r - l) / 2 + l;
-            if (n - mid == citations[mid]) return n - mid; // n - mid 论文数
-            if (n - mid < citations[mid]) r = mid;
-            else l = mid + 1;
-        }
-        return n - l;
-    }
-};
-
-// @lc code=end
-
+int main() {
+    Solution sol;
+    string tmp = "?3295???";
+    auto ans = sol.sumGame(tmp);
+    // cout << ans << endl;
+    // REP(i, SZ(ans)) cout << ans[i] << endl;
+    // REP(i, SZ(ans)) REP(j, SZ(ans[0])) cout << ans[i][j] << endl;
+    system("pause");
+    return 0;
+}

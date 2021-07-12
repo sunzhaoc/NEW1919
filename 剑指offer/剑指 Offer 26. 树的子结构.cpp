@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-01-05 09:34:39
- * @LastEditTime: 2021-06-22 15:52:51
+ * @LastEditTime: 2021-07-10 14:24:06
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 26. 树的子结构.cpp
  */
 
@@ -91,9 +91,9 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     60ms    BEAT: 26.18%    O(n) = 
-MEMORY: 32.9MB    BEAT: 18.66%    O(n) = 
-LAST EDIT TIME: 2021年6月22日15:51:39
+TIME:     44ms    BEAT: 88.61%    O(n) = 
+MEMORY: 32.8MB    BEAT: 75.86%    O(n) = 
+LAST EDIT TIME: 2021年7月10日14:23:33
 Description: 
 */
 
@@ -101,20 +101,48 @@ class Solution {
 public:
     bool isSubStructure(TreeNode* A, TreeNode* B) {
         if (!A || !B) return false;
-        bool res = false;
+        bool res;
         if (A->val == B->val) res = dfs(A, B);
-        if (!res) res = isSubStructure(A->left, B);
-        if (!res) res = isSubStructure(A->right, B);
+        if (!res) res = dfs(A->left, B);
+        if (!res) res = dfs(A->right, B);
         return res;
     }
-
-    bool dfs(TreeNode* node1, TreeNode* node2) {
-        if (!node2) return true;
-        if (!node1) return false;
-        if (node1->val != node2->val) return false;
-        return dfs(node1->left, node2->left) && dfs(node1->right, node2->right);
+    
+    bool dfs(TreeNode* a, TreeNode* b) {
+        if (!b) return true;
+        if (!a) return false;
+        if (a->val != b->val) return false;
+        return dfs(a->left, b->left) && dfs(a->right, b->right);
     }
 };
+
+
+/*
+RESULT: Accept
+TIME:     60ms    BEAT: 26.18%    O(n) = 
+MEMORY: 32.9MB    BEAT: 18.66%    O(n) = 
+LAST EDIT TIME: 2021年6月22日15:51:39
+Description: 
+*/
+
+// class Solution {
+// public:
+//     bool isSubStructure(TreeNode* A, TreeNode* B) {
+//         if (!A || !B) return false;
+//         bool res = false;
+//         if (A->val == B->val) res = dfs(A, B);
+//         if (!res) res = isSubStructure(A->left, B);
+//         if (!res) res = isSubStructure(A->right, B);
+//         return res;
+//     }
+
+//     bool dfs(TreeNode* node1, TreeNode* node2) {
+//         if (!node2) return true;
+//         if (!node1) return false;
+//         if (node1->val != node2->val) return false;
+//         return dfs(node1->left, node2->left) && dfs(node1->right, node2->right);
+//     }
+// };
 
 
 /*
@@ -135,7 +163,7 @@ Description:
 //         if (!res) res = isSubStructure(A->right, B);
 //         return res;
 //     }
-    
+
 //     bool doesAHaveB(TreeNode* node1, TreeNode* node2) {
 //         if (!node2) return true;
 //         if (!node1) return false;

@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-01-05 14:38:14
- * @LastEditTime: 2021-06-22 16:19:49
+ * @LastEditTime: 2021-07-10 15:48:10
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 33. 二叉搜索树的后序遍历序列.cpp
  */
 
@@ -83,28 +83,54 @@ using VVS = vector<VS>;
 /*
 RESULT: Accept
 TIME:     0ms    BEAT: 100.00%    O(n) = 
-MEMORY: 6.7MB    BEAT:  84.45%    O(n) = 
-LAST EDIT TIME: 2021年6月22日16:19:33
+MEMORY: 6.8MB    BEAT:  48.93%    O(n) = 
+LAST EDIT TIME: 2021年7月10日15:47:22
 Description: 
 */
 
 class Solution {
 public:
-    bool dfs(vector<int>& node, int l, int r) {
+    bool verifyPostorder(vector<int>& postorder) {
+        if (SZ(postorder) < 2) return true;
+        return dfs(postorder, 0, SZ(postorder) - 1);
+    }
+
+    bool dfs(VI& node, int l, int r) {
         if (l >= r) return true;
         int val = node[r];
         int idx = l;
         while (idx < r && node[idx] < val) idx ++;
-        for (int i = idx; i < r; i ++) if (node[i] < val) return false;
-
+        FOR(i, idx, r) if (node[i] < val) return false;
         return dfs(node, l, idx - 1) && dfs(node, idx, r - 1);
     }
-
-    bool verifyPostorder(vector<int>& postorder) {
-        if (postorder.size() < 2) return true;
-        return dfs(postorder, 0, postorder.size() - 1);
-    }
 };
+
+
+/*
+RESULT: Accept
+TIME:     0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 6.7MB    BEAT:  84.45%    O(n) = 
+LAST EDIT TIME: 2021年6月22日16:19:33
+Description: 
+*/
+
+// class Solution {
+// public:
+//     bool dfs(vector<int>& node, int l, int r) {
+//         if (l >= r) return true;
+//         int val = node[r];
+//         int idx = l;
+//         while (idx < r && node[idx] < val) idx ++;
+//         for (int i = idx; i < r; i ++) if (node[i] < val) return false;
+
+//         return dfs(node, l, idx - 1) && dfs(node, idx, r - 1);
+//     }
+
+//     bool verifyPostorder(vector<int>& postorder) {
+//         if (postorder.size() < 2) return true;
+//         return dfs(postorder, 0, postorder.size() - 1);
+//     }
+// };
 
 
 /*
@@ -132,7 +158,7 @@ Description: 递归。
 //         }
 
 //         return valid(node, left, temp - 1) && valid(node, temp, right - 1);
-        
+
 //     }
 
 //     bool verifyPostorder(vector<int>& postorder) {

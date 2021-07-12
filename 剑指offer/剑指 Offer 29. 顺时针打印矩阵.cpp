@@ -3,12 +3,9 @@
  * @Version: 1.0
  * @Author: 冰凝水
  * @Date: 2020-12-04 15:04:14
- * @LastEditTime: 2021-06-22 16:05:20
+ * @LastEditTime: 2021-07-10 14:39:50
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 29. 顺时针打印矩阵.cpp
  */
-#include <vector>
-#include <iostream>
-using namespace std;
 /*
  * 
  * 　　┏┓　　　┏┓+ +
@@ -84,35 +81,68 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:    16ms    BEAT: 26.17%    O(n) = 
-MEMORY: 9.7MB    BEAT: 50.97%    O(n) = 
-LAST EDIT TIME: 2021年6月22日16:5:4
+TIME:     8ms    BEAT: 94.51%    O(n) = 
+MEMORY: 9.7MB    BEAT: 47.36%    O(n) = 
+LAST EDIT TIME: 2021年7月10日14:39:39
 Description: 
 */
 
 class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
-        if (matrix.size() == 0) return {};
-        int u = 0, d = matrix.size() - 1, l = 0, r = matrix[0].size() - 1;
-        vector<int> res;
+        if (SZ(matrix) == 0) return {};
+        int u = 0, d = SZ(matrix) - 1, l = 0, r = SZ(matrix[0]) - 1;
+        VI res;
         while (1) {
-            for (int i = l; i <= r; i ++) res.push_back(matrix[u][i]);
+            FOR(i, l, r + 1) res.PB(matrix[u][i]);
             u ++;
             if (u > d) break;
-            for (int i = u; i <= d; i ++) res.push_back(matrix[i][r]);
+            FOR(i, u, d + 1) res.PB(matrix[i][r]);
             r --;
             if (l > r) break;
-            for (int i = r; i >= l; i --) res.push_back(matrix[d][i]);
+            for (int i = r; i >= l; i --) res.PB(matrix[d][i]);
             d --;
             if (u > d) break;
-            for (int i = d; i >= u; i --) res.push_back(matrix[i][l]);
+            for (int i = d; i >= u; i --) res.PB(matrix[i][l]);
             l ++;
             if (l > r) break;
         }
         return res;
     }
 };
+
+
+/*
+RESULT: Accept
+TIME:    16ms    BEAT: 26.17%    O(n) = 
+MEMORY: 9.7MB    BEAT: 50.97%    O(n) = 
+LAST EDIT TIME: 2021年6月22日16:5:4
+Description: 
+*/
+
+// class Solution {
+// public:
+//     vector<int> spiralOrder(vector<vector<int>>& matrix) {
+//         if (matrix.size() == 0) return {};
+//         int u = 0, d = matrix.size() - 1, l = 0, r = matrix[0].size() - 1;
+//         vector<int> res;
+//         while (1) {
+//             for (int i = l; i <= r; i ++) res.push_back(matrix[u][i]);
+//             u ++;
+//             if (u > d) break;
+//             for (int i = u; i <= d; i ++) res.push_back(matrix[i][r]);
+//             r --;
+//             if (l > r) break;
+//             for (int i = r; i >= l; i --) res.push_back(matrix[d][i]);
+//             d --;
+//             if (u > d) break;
+//             for (int i = d; i >= u; i --) res.push_back(matrix[i][l]);
+//             l ++;
+//             if (l > r) break;
+//         }
+//         return res;
+//     }
+// };
 
 
 /*

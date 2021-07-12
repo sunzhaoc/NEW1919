@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-01-05 10:02:11
- * @LastEditTime: 2021-06-22 15:55:38
+ * @LastEditTime: 2021-07-10 14:30:05
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 27. 二叉树的镜像.cpp
  */
 
@@ -91,9 +91,9 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     0ms    BEAT: 100.00%    O(n) = 
-MEMORY: 8.8MB    BEAT:  86.31%    O(n) = 
-LAST EDIT TIME: 2021年6月22日15:55:38
+TIME:     4ms    BEAT: 49.98%    O(n) = 
+MEMORY: 8.8MB    BEAT: 77.85%    O(n) = 
+LAST EDIT TIME: 2021年7月10日14:27:17
 Description: 
 */
 
@@ -103,13 +103,36 @@ public:
         if (!root) return nullptr;
         TreeNode* left = mirrorTree(root->left);
         TreeNode* right = mirrorTree(root->right);
-        
+
         root->right = left;
         root->left = right;
 
         return root;
     }
 };
+
+
+/*
+RESULT: Accept
+TIME:     0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 8.8MB    BEAT:  86.31%    O(n) = 
+LAST EDIT TIME: 2021年6月22日15:55:38
+Description: 
+*/
+
+// class Solution {
+// public:
+//     TreeNode* mirrorTree(TreeNode* root) {
+//         if (!root) return nullptr;
+//         TreeNode* left = mirrorTree(root->left);
+//         TreeNode* right = mirrorTree(root->right);
+        
+//         root->right = left;
+//         root->left = right;
+
+//         return root;
+//     }
+// };
 
 
 /*

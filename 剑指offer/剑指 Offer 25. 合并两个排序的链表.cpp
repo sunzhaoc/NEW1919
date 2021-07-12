@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2020-12-30 17:09:19
- * @LastEditTime: 2021-06-21 19:55:29
+ * @LastEditTime: 2021-07-10 14:11:25
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 25. 合并两个排序的链表.cpp
  */
 
@@ -89,10 +89,10 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     28ms    BEAT: 71.40%    O(n) = 
-MEMORY: 18.7MB    BEAT: 52.33%    O(n) = 
-LAST EDIT TIME: 2021年6月21日19:55:1
-Description: 递归，这种写法比较帅。
+TIME:     16ms    BEAT: 99.32%    O(n) = 
+MEMORY: 18.6MB    BEAT: 86.66%    O(n) = 
+LAST EDIT TIME: 2021年7月10日14:11:15
+Description: 迭代。
 */
 
 class Solution {
@@ -101,6 +101,41 @@ public:
         if (!l1) return l2;
         if (!l2) return l1;
 
+        ListNode* dummy = new ListNode(-1);
+        dummy->next = l1;
+        ListNode* ans = dummy;
+
+        while (l1 && l2) {
+            if (l1->val <= l2->val) {
+                dummy->next = l1;
+                l1 = l1->next;
+            }
+            else {
+                dummy->next = l2;
+                l2 = l2->next;
+            }
+            dummy = dummy->next;
+        }
+        dummy->next = l1 ? l1 : l2;
+        return ans->next;
+    }
+};
+
+
+
+/*
+RESULT: Accept
+TIME:     24ms    BEAT: 88.69%    O(n) = 
+MEMORY: 18.7MB    BEAT: 29.68%    O(n) = 
+LAST EDIT TIME: 2021年7月10日13:56:32
+Description: 递归。
+*/
+
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        if (!l1) return l2;
+        if (!l2) return l1;
         if (l1->val < l2->val) {
             l1->next = mergeTwoLists(l1->next, l2);
             return l1;
@@ -109,6 +144,30 @@ public:
         return l2;
     }
 };
+
+
+/*
+RESULT: Accept
+TIME:     28ms    BEAT: 71.40%    O(n) = 
+MEMORY: 18.7MB    BEAT: 52.33%    O(n) = 
+LAST EDIT TIME: 2021年6月21日19:55:1
+Description: 递归，这种写法比较帅。
+*/
+
+// class Solution {
+// public:
+//     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+//         if (!l1) return l2;
+//         if (!l2) return l1;
+
+//         if (l1->val < l2->val) {
+//             l1->next = mergeTwoLists(l1->next, l2);
+//             return l1;
+//         }
+//         l2->next = mergeTwoLists(l1, l2->next);
+//         return l2;
+//     }
+// };
 
 
 /*

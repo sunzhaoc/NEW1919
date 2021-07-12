@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-01-05 13:30:01
- * @LastEditTime: 2021-06-22 16:12:01
+ * @LastEditTime: 2021-07-10 15:17:39
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 32 - I. 从上到下打印二叉树.cpp
  */
 
@@ -91,8 +91,8 @@ using VVS = vector<VS>;
 /*
 RESULT: Accept
 TIME:      0ms    BEAT: 100.00%    O(n) = 
-MEMORY: 11.9MB    BEAT:  32.04%    O(n) = 
-LAST EDIT TIME: 
+MEMORY: 11.9MB    BEAT:  34.73%    O(n) = 
+LAST EDIT TIME: 2021年7月10日15:16:44
 Description: 
 */
 
@@ -100,19 +100,46 @@ class Solution {
 public:
     vector<int> levelOrder(TreeNode* root) {
         if (!root) return {};
-        vector<int> res;
+        VI res;
         queue<TreeNode*> q;
         q.push(root);
-        while (q.size()) {
+        while (SZ(q)) {
             TreeNode* tmp = q.front();
             q.pop();
-            res.push_back(tmp->val);
+            res.PB(tmp->val);
             if (tmp->left) q.push(tmp->left);
             if (tmp->right) q.push(tmp->right);
         }
         return res;
     }
 };
+
+
+/*
+RESULT: Accept
+TIME:      0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 11.9MB    BEAT:  32.04%    O(n) = 
+LAST EDIT TIME: 
+Description: 
+*/
+
+// class Solution {
+// public:
+//     vector<int> levelOrder(TreeNode* root) {
+//         if (!root) return {};
+//         vector<int> res;
+//         queue<TreeNode*> q;
+//         q.push(root);
+//         while (q.size()) {
+//             TreeNode* tmp = q.front();
+//             q.pop();
+//             res.push_back(tmp->val);
+//             if (tmp->left) q.push(tmp->left);
+//             if (tmp->right) q.push(tmp->right);
+//         }
+//         return res;
+//     }
+// };
 
 
 /*
