@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2020-12-30 14:28:24
- * @LastEditTime: 2021-07-09 10:42:40
+ * @LastEditTime: 2021-07-12 14:04:21
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 13. 机器人的运动范围.cpp
  */
 
@@ -80,6 +80,20 @@ using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
 
+
+/*
+RESULT: Accept
+TIME:   ms    BEAT: %    O(n) = 
+MEMORY: MB    BEAT: %    O(n) = 
+LAST EDIT TIME: 
+Description: 
+*/
+
+class Solution {
+public:
+    int movingCount(int m, int n, int k) {
+    }
+};
 
 
 /*

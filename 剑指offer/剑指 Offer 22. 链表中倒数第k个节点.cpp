@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2020-12-30 16:11:53
- * @LastEditTime: 2021-06-21 19:48:25
+ * @LastEditTime: 2021-07-12 14:37:01
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 22. 链表中倒数第k个节点.cpp
  */
 
@@ -85,6 +85,29 @@ using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
 
+
+/*
+RESULT: Accept
+TIME:      8ms    BEAT: 29.73%    O(n) = 
+MEMORY: 10.3MB    BEAT: 58.39%    O(n) = 
+LAST EDIT TIME: 2021年7月12日14:32:34
+Description: 
+*/
+
+class Solution {
+public:
+    ListNode* getKthFromEnd(ListNode* head, int k) {
+        ListNode* l = head, * r = head;
+        REP(i, k) r = r->next;
+        while (r) {
+            r = r->next;
+            l = l->next;
+        }
+        return l;
+    }
+};
+
+
 /*
 RESULT: Accept
 TIME:      0ms    BEAT: 100.00%    O(n) = 
@@ -93,18 +116,18 @@ LAST EDIT TIME: 2021年6月21日19:47:54
 Description: 快慢指针。
 */
 
-class Solution {
-public:
-    ListNode* getKthFromEnd(ListNode* head, int k) {
-        ListNode* l = head, * r = head;
-        for (int i = 0; i < k; i ++) r = r->next;
-        while (r) { 
-            r = r->next;
-            l = l->next;
-        }
-        return l;
-    }
-};
+// class Solution {
+// public:
+//     ListNode* getKthFromEnd(ListNode* head, int k) {
+//         ListNode* l = head, * r = head;
+//         for (int i = 0; i < k; i ++) r = r->next;
+//         while (r) { 
+//             r = r->next;
+//             l = l->next;
+//         }
+//         return l;
+//     }
+// };
 
 
 /*

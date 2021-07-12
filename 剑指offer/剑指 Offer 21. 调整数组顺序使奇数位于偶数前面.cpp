@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2020-12-24 10:47:36
- * @LastEditTime: 2021-06-21 19:34:48
+ * @LastEditTime: 2021-07-12 14:30:53
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 21. 调整数组顺序使奇数位于偶数前面.cpp
  */
 
@@ -78,6 +78,30 @@ using VD = vector<double>;
 using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
+
+
+/*
+RESULT: Accept
+TIME:     20ms    BEAT: 81.50%    O(n) = 
+MEMORY: 17.7MB    BEAT: 54.49%    O(n) = 
+LAST EDIT TIME: 2021年7月12日14:30:37s
+Description: 
+*/
+
+class Solution {
+public:
+    vector<int> exchange(vector<int>& nums) {
+        int l = 0, r = SZ(nums) - 1;
+        while (l < r) {
+            while (l < r && nums[l] % 2 == 1) l ++;
+            while (l < r && nums[r] % 2 == 0) r --;
+            if (l < r) {
+                swap(nums[l], nums[r]);
+            }
+        }
+        return nums;
+    }
+};
 
 
 /*

@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2020-12-30 16:36:08
- * @LastEditTime: 2020-12-30 17:08:28
- * @FilePath: \Leetcode\剑指 Offer 24. 反转链表.cpp
+ * @LastEditTime: 2021-07-12 14:38:30
+ * @FilePath: \Leetcode\剑指offer\剑指 Offer 24. 反转链表.cpp
  */
 
 // Definition for singly-linked list.
@@ -17,25 +17,48 @@ struct ListNode {
 
 /*
 RESULT: Accept
-TIME:    12ms    BEAT: 54.35%    O(n) = n
-MEMORY: 8.6MB    BEAT: 19.26%    O(n) = n
-Description: 递归。
+TIME:     0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 8.1MB    BEAT:  25.47%    O(n) = 
+LAST EDIT TIME: 2021年7月12日14:38:2
+Description: 
 */
 
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        return backTrack(nullptr, head);
-    }
-
-private:
-    ListNode* backTrack(ListNode* per_node, ListNode* node) {
-        if (node == nullptr) return per_node;
-        ListNode* ans = backTrack(node, node->next);
-        node->next = per_node;
-        return ans;
+        ListNode* pre = nullptr, *cur = head;
+        while (cur) {
+            ListNode* tmp = cur->next;
+            cur->next = pre;
+            pre = cur;
+            cur = tmp;
+        }
+        return pre;
     }
 };
+
+
+/*
+RESULT: Accept
+TIME:    12ms    BEAT: 54.35%    O(n) = n
+MEMORY: 8.6MB    BEAT: 19.26%    O(n) = n
+Description: 递归。
+*/
+
+// class Solution {
+// public:
+//     ListNode* reverseList(ListNode* head) {
+//         return backTrack(nullptr, head);
+//     }
+
+// private:
+//     ListNode* backTrack(ListNode* per_node, ListNode* node) {
+//         if (node == nullptr) return per_node;
+//         ListNode* ans = backTrack(node, node->next);
+//         node->next = per_node;
+//         return ans;
+//     }
+// };
 
 
 /*

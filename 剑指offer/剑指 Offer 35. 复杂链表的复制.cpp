@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-01-05 15:36:05
- * @LastEditTime: 2021-05-24 15:17:08
+ * @LastEditTime: 2021-07-12 14:49:38
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 35. 复杂链表的复制.cpp
  */
 
@@ -27,6 +27,16 @@ public:
 #include <vector>
 #include <unordered_map>
 using namespace std;
+
+
+class Solution {
+public:
+    Node* copyRandomList(Node* head) {
+        if (!head) return nullptr;
+        Node* cur = head;
+        unordered_map<Node*, Node*> map;
+    }
+};
 
 
 /*

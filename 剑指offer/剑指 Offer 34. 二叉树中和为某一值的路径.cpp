@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-01-05 15:06:04
- * @LastEditTime: 2021-06-22 16:33:39
+ * @LastEditTime: 2021-07-12 14:46:15
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 34. 二叉树中和为某一值的路径.cpp
  */
 
@@ -86,6 +86,39 @@ using VD = vector<double>;
 using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
+
+
+/*
+RESULT: Accept
+TIME:      0ms    BEAT: 100.00%    O(n) = 
+MEMORY: 19.4MB    BEAT:  65.54%    O(n) = 
+LAST EDIT TIME: 2021年7月12日14:45:56
+Description: 
+*/
+
+class Solution {
+public:
+    VVI res;
+
+    void dfs(TreeNode* node, int target, VI& path) {
+        if (!node) return;
+        target -= node->val;
+        path.PB(node->val);
+
+        if (target == 0 && !node->left && !node->right) res.PB(path);
+
+        dfs(node->left, target, path);
+        dfs(node->right, target, path);
+
+        path.pop_back();
+    }
+
+    vector<vector<int>> pathSum(TreeNode* root, int target) {
+        VI path;
+        dfs(root, target, path);
+        return res;
+    }
+};
 
 
 /*
