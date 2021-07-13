@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2021-01-05 16:18:41
- * @LastEditTime: 2021-06-24 09:14:31
+ * @LastEditTime: 2021-07-12 16:13:55
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 42. 连续子数组的最大和.cpp
  */
 
@@ -78,6 +78,28 @@ using VD = vector<double>;
 using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
+
+
+/*
+RESULT: Accept
+TIME:     24ms    BEAT: 67.82%    O(n) = 
+MEMORY: 22.4MB    BEAT: 69.14%    O(n) = 
+LAST EDIT TIME: 2021年7月12日16:12:51
+Description: 
+*/
+
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        if (SZ(nums) == 1) return nums[0];
+        int tmp = nums[0], res = nums[0];
+        FOR(i, 1, SZ(nums)) {
+            tmp = max(nums[i], tmp + nums[i]);
+            res = max(res, tmp);
+        }
+        return res;
+    }
+};
 
 
 /*

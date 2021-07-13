@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2020-12-24 18:40:37
- * @LastEditTime: 2021-06-24 08:55:18
+ * @LastEditTime: 2021-07-12 16:05:21
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 40. 最小的k个数.cpp
  */
 
@@ -82,32 +82,51 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:     36ms    BEAT: 55.92%    O(n) = nlogk
-MEMORY: 18.9MB    BEAT: 31.42%    O(n) = k
-LAST EDIT TIME: 2021年6月24日8:54:10
+TIME:     20ms    BEAT: 98.97%    O(n) = 
+MEMORY: 18.6MB    BEAT: 51.93%    O(n) = 
+LAST EDIT TIME: 2021年7月12日16:4:56
 Description: 
 */
 
 class Solution {
 public:
     vector<int> getLeastNumbers(vector<int>& arr, int k) {
-        vector<int> res(k, 0);
-        if (k == 0) return res;
-        priority_queue<int> q;
-        for (int i = 0; i < k; i ++) q.push(arr[i]);
-        for (int i = k; i < arr.size(); i ++) {
-            if (q.top() > arr[i]) {
-                q.pop();
-                q.push(arr[i]);
-            }
-        }
-        for (int i = 0; i < k; i ++) {
-            res[i] = q.top();
-            q.pop();
-        }
-        return res;        
+        sort(ALL(arr));
+        VI res;
+        REP(i, k) res.PB(arr[i]);
+        return res;
     }
 };
+
+
+/*
+RESULT: Accept
+TIME:     36ms    BEAT: 55.92%    O(n) = nlogk
+MEMORY: 18.9MB    BEAT: 31.42%    O(n) = k
+LAST EDIT TIME: 2021年6月24日8:54:10
+Description: 
+*/
+
+// class Solution {
+// public:
+//     vector<int> getLeastNumbers(vector<int>& arr, int k) {
+//         vector<int> res(k, 0);
+//         if (k == 0) return res;
+//         priority_queue<int> q;
+//         for (int i = 0; i < k; i ++) q.push(arr[i]);
+//         for (int i = k; i < arr.size(); i ++) {
+//             if (q.top() > arr[i]) {
+//                 q.pop();
+//                 q.push(arr[i]);
+//             }
+//         }
+//         for (int i = 0; i < k; i ++) {
+//             res[i] = q.top();
+//             q.pop();
+//         }
+//         return res;        
+//     }
+// };
 
 
 /*

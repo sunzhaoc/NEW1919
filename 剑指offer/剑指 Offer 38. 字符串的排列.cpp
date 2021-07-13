@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2020-12-24 14:22:36
- * @LastEditTime: 2021-06-22 08:54:03
+ * @LastEditTime: 2021-07-12 15:19:11
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 38. 字符串的排列.cpp
  */
 /*
@@ -77,6 +77,43 @@ using VD = vector<double>;
 using VDD = vector<VD>;
 using VS = vector<string>;
 using VVS = vector<VS>;
+
+
+/*
+RESULT: Accept
+TIME:     36ms    BEAT: 64.80%    O(n) = 
+MEMORY: 19.9MB    BEAT: 55.86%    O(n) = 
+LAST EDIT TIME: 
+Description: 
+*/
+
+class Solution {
+public:
+    int n;
+    vector<string> res;
+    vector<string> permutation(string s) {
+        n = SZ(s);
+        sort(ALL(s));
+        string path = "";
+        dfs(s, path);
+        return res;
+    }
+
+    void dfs(string& s, string& path) {
+        if (SZ(path) == n) {
+            res.PB(path);
+            return;
+        }
+        REP(i, SZ(s)) {
+            if (i == 0 || s[i] != s[i - 1]) {
+                path += s[i];
+                string tmpS = s.substr(0, i) + s.substr(i + 1);
+                dfs(tmpS, path);
+                path = path.substr(0, path.size() - 1);
+            }
+        }
+    }
+};
 
 
 /*

@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Autor: 冰凝水
  * @Date: 2020-12-24 14:52:46
- * @LastEditTime: 2021-06-24 08:48:54
+ * @LastEditTime: 2021-07-12 15:35:33
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 39. 数组中出现次数超过一半的数字.cpp
  */
 /*
@@ -81,23 +81,44 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
+TIME:     20ms    BEAT: 70.78%    O(n) = 
+MEMORY: 18.2MB    BEAT: 79.09%    O(n) = 
+LAST EDIT TIME: 2021年7月12日15:35:7
+Description: 摩尔投票。
+*/
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int vote = 0, people = 0;
+        for (int& i: nums) {
+            if (vote == 0) people = i;
+            vote += i == people ? 1 : -1;
+        }
+        return people;
+    }
+};
+
+
+/*
+RESULT: Accept
 TIME:   24ms    BEAT: 46.38%    O(n) = n
 MEMORY: 19MB    BEAT:  5.49%    O(n) = 1
 LAST EDIT TIME: 2021年6月24日8:46:8
 Description: 摩尔投票。
 */
 
-class Solution {
-public:
-    int majorityElement(vector<int> numbers) {
-        int vote = 0, res = 0;
-        for (int num: numbers) {
-            if (vote == 0) res = num;
-            vote += num == res ? 1 : -1;
-        }
-        return res;
-    }
-};
+// class Solution {
+// public:
+//     int majorityElement(vector<int> numbers) {
+//         int vote = 0, res = 0;
+//         for (int num: numbers) {
+//             if (vote == 0) res = num;
+//             vote += num == res ? 1 : -1;
+//         }
+//         return res;
+//     }
+// };
 
 
 /*

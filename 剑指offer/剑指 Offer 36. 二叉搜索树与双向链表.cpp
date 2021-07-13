@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Author: 冰凝水
  * @Date: 2021-06-22 16:36:30
- * @LastEditTime: 2021-06-24 08:43:32
+ * @LastEditTime: 2021-07-12 15:06:15
  * @FilePath: \Leetcode\剑指offer\剑指 Offer 36. 二叉搜索树与双向链表.cpp
  */
 
@@ -106,35 +106,69 @@ using VVS = vector<VS>;
 
 /*
 RESULT: Accept
-TIME:   ms    BEAT: %    O(n) = 
-MEMORY: MB    BEAT: %    O(n) = 
-LAST EDIT TIME: 
+TIME:     4ms    BEAT: 92.95%    O(n) = 
+MEMORY: 7.4MB    BEAT: 41.31%    O(n) = 
+LAST EDIT TIME: 2021年7月12日15:5:42
 Description: 
 */
 
 class Solution {
 public:
     Node* pre, * cur;
-    void dfs(Node* node) {
-        if (!node) return;
-        dfs(node->left);
-
-        if (pre) pre->right = node;
-        else cur = node;
-        node->left = pre;
-        pre = node;
-
-        dfs(node->right);
-    }
 
     Node* treeToDoublyList(Node* root) {
         if (!root) return nullptr;
         dfs(root);
-
         cur->left = pre;
         pre->right = cur;
-
-
         return cur;
     }
+
+    void dfs(Node* node) {
+        if (!node) return;
+        dfs(node->left);
+        
+        if (pre) pre->right = node;
+        else cur = node;
+        node->left = pre;
+        pre = node;
+        
+        dfs(node->right);
+    }
 };
+
+
+/*
+RESULT: Accept
+TIME:   ms    BEAT: %    O(n) = 
+MEMORY: MB    BEAT: %    O(n) = 
+LAST EDIT TIME: 
+Description: 
+*/
+
+// class Solution {
+// public:
+//     Node* pre, * cur;
+//     void dfs(Node* node) {
+//         if (!node) return;
+//         dfs(node->left);
+
+//         if (pre) pre->right = node;
+//         else cur = node;
+//         node->left = pre;
+//         pre = node;
+
+//         dfs(node->right);
+//     }
+
+//     Node* treeToDoublyList(Node* root) {
+//         if (!root) return nullptr;
+//         dfs(root);
+
+//         cur->left = pre;
+//         pre->right = cur;
+
+
+//         return cur;
+//     }
+// };
